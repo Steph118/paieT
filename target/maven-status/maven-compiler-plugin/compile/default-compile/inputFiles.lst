@@ -1,2 +1,12 @@
-/home/steph18/intelij projects/map-jpa/src/main/java/com/mediasofthome/map/jpa/resources/JakartaEE10Resource.java
-/home/steph18/intelij projects/map-jpa/src/main/java/com/mediasofthome/map/jpa/JakartaRestConfiguration.java
+/home/steph18/intelij projects/map-jpa/src/main/java/dao/RepositoryDao.java
+/home/steph18/intelij projects/map-jpa/src/main/java/rest/resources/JakartaEE10Resource.java
+/home/steph18/intelij projects/map-jpa/src/main/java/dao/GenericDao.java
+/home/steph18/intelij projects/map-jpa/src/main/java/entities/Person.java
+/home/steph18/intelij projects/map-jpa/src/main/java/service/interfaces/GenericServiceLocal.java
+/home/steph18/intelij projects/map-jpa/src/main/java/dao/PersonDao.java
+/home/steph18/intelij projects/map-jpa/src/main/java/rest/configuration/JakartaRestConfiguration.java
+/home/steph18/intelij projects/map-jpa/src/main/java/bean/GenericBean.java
+/home/steph18/intelij projects/map-jpa/src/main/java/service/interfaces/PersonServiceLocal.java
+/home/steph18/intelij projects/map-jpa/src/main/java/services/PersonService.java
+/home/steph18/intelij projects/map-jpa/src/main/java/service/interfaces/GenericServiceRemote.java
+/home/steph18/intelij projects/map-jpa/src/main/java/services/GenericService.java
