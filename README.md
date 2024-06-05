@@ -1,13 +1,13 @@
 # map-jpa
-Jakarta EE 10 project for test mapping object relational in jpa
+This is a test project as part of a training course on JPA best practice zith jakarta 10.
 
-Requirement
+Configurations and requirements
 
-- JDK: mininimal version 17
+1- JDK, minimum version required is 17
 
-- Server payara: Minimal version 5.0.22
+2- Server payayara, minimum version required is 6
 
-- Postgresql data base
- configuration see filters folders 
+3- Postgresql database, no minimum version required and the database name is map-jpa
 
+To configure the database connection, go to the /src/main/resoources/filters directory and change the configuration in the snapshot.properties file and enter the posgresql user name and password.
 
