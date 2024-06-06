@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -23,5 +24,35 @@ public class EntitePersonNotification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+    
+    @ManyToOne
+    private Entite entite;
+    
+    @ManyToOne
+    private Permission permission;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Entite getEntite() {
+        return entite;
+    }
+
+    public void setEntite(Entite entite) {
+        this.entite = entite;
+    }
+
+    public Permission getPermission() {
+        return permission;
+    }
+
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
     
 }

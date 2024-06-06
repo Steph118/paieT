@@ -4,12 +4,16 @@
  */
 package entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -30,10 +34,16 @@ public class Entite {
     
     @Column(name = "numero_aprouve")
     private String numeroAprouve;
+    
+    @Lob
+    private String logo;
+    
+    @OneToMany(mappedBy = "entite", cascade = CascadeType.ALL)
+    private List<EntitePersonNotification> entitesPersonNotifications;
 
     public Entite() {
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -58,10 +68,26 @@ public class Entite {
         this.numeroAprouve = numeroAprouve;
     }
 
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public List<EntitePersonNotification> getEntitesPersonNotifications() {
+        return entitesPersonNotifications;
+    }
+
+    public void setEntitesPersonNotifications(List<EntitePersonNotification> entitesPersonNotifications) {
+        this.entitesPersonNotifications = entitesPersonNotifications;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -82,7 +108,8 @@ public class Entite {
 
     @Override
     public String toString() {
-        return "Entite{" + "id=" + id + ", nomination=" + nomination + ", numeroAprouve=" + numeroAprouve + '}';
+        return "Entite{" + "id=" + id + ", nomination=" + nomination + ", numeroAprouve=" 
+                + numeroAprouve + ", logo=" + logo + ", entitesPersonNotifications=" + entitesPersonNotifications + '}';
     }
     
 }

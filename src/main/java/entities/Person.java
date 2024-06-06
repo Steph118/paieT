@@ -30,13 +30,17 @@ public class Person implements Serializable{
     @Column(name = "date_naissance")
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
-    
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn
-    private User user;
 
     @Column(name = "mail", nullable = false, unique = true)
     private int mail;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "entite_id")
+    private Entite entite;
+    
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 
     public Person() {
     }
@@ -89,6 +93,14 @@ public class Person implements Serializable{
         this.mail = mail;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
