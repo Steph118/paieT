@@ -1,8 +1,6 @@
-dao/GenericDao.class
+service/interfaces/PersonServiceLocal.class
 services/PersonService.class
 dao/PersonDao.class
-dao/RepositoryDao.class
-service/interfaces/PersonServiceLocal.class
 entities/Person.class
 bean/GenericBean.class
 rest/configuration/JakartaRestConfiguration.class
@@ -10,3 +8,4 @@ services/GenericService.class
 rest/resources/JakartaEE10Resource.class
 service/interfaces/GenericServiceRemote.class
 service/interfaces/GenericServiceLocal.class
+dao/RepositoryDao.class
