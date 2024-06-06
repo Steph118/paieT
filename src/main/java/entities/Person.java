@@ -8,14 +8,17 @@ package entities;
  *
  * @author steph18
  */
+import classes.Address;
+import enumeration.PhoneType;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
 import java.util.*;
 
 @Entity
-@Table(name = "person")
-public class Person implements Serializable{
+@Table(name = "persons")
+public class Person implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -32,21 +35,52 @@ public class Person implements Serializable{
     private Date dateNaissance;
 
     @Column(name = "mail", nullable = false, unique = true)
-    private int mail;
+    private String mail;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "entite_id")
     private Entite entite;
-    
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
+    @ElementCollection(targetClass = Address.class)
+    @CollectionTable(name = "person_addresses",
+            joinColumns = {
+                @JoinColumn(name = "person_id")})
+    @AttributeOverrides({
+        @AttributeOverride(name = "state",
+                column = @Column(name = "province")),
+        @AttributeOverride(name = "street",
+                column = @Column(name = "pers_street"))
+    })
+//    private Collection addresses;
+    private Set<Address> addresses = new HashSet<>();
+    //private List<Address> addresses = new ArrayList<>();
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "person_phones",
+            joinColumns = {
+                @JoinColumn(name = "person_id")
+            })
+    @Column(name = "phone_number")
+    private Set<String> phones = new HashSet<>();
+
+    @ElementCollection
+    @CollectionTable(name = "person_map_phones")
+    @MapKeyColumn(name = "phone_type")
+    //@MapKeyTemporal(TemporalType.DATE)
+    @MapKeyEnumerated(EnumType.STRING)
+    @Column(name = "phone_number")
+    private Map<PhoneType, String> phoneNumbers;
+
+    //construtors, getters, setters and others
     public Person() {
         
     }
 
-    public Person(Long id, String nom, String prenom, Date dateNaissance, int mail) {
+    public Person(Long id, String nom, String prenom, Date dateNaissance, String mail) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -86,11 +120,11 @@ public class Person implements Serializable{
         this.dateNaissance = dateNaissance;
     }
 
-    public int getMail() {
+    public String getMail() {
         return mail;
     }
 
-    public void setMail(int mail) {
+    public void setMail(String mail) {
         this.mail = mail;
     }
 
@@ -101,7 +135,39 @@ public class Person implements Serializable{
     public void setUser(User user) {
         this.user = user;
     }
-    
+
+    public Entite getEntite() {
+        return entite;
+    }
+
+    public void setEntite(Entite entite) {
+        this.entite = entite;
+    }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
+    }
+
+    public Set<String> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(Set<String> phones) {
+        this.phones = phones;
+    }
+
+    public Map<PhoneType, String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(Map<PhoneType, String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -126,9 +192,7 @@ public class Person implements Serializable{
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", mail=" + mail + '}';
+        return "Person{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", mail=" + mail + ", entite=" + entite + ", user=" + user + '}';
     }
 
 }
-
-

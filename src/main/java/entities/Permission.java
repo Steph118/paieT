@@ -7,6 +7,7 @@ package entities;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,21 +22,21 @@ import java.util.Objects;
  * @author Mediasoft
  */
 @Entity
-@Table(name = "permission")
+@Table(name = "permissions")
 public class Permission {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    
+
     @Column(name = "label")
     private String label;
-    
-    @ManyToMany(mappedBy = "permissions")
-    private List<Role> roles ;
-    
-    @OneToMany(mappedBy = "permission", cascade = CascadeType.ALL)
+
+    @ManyToMany(mappedBy = "permissions", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    private List<Role> roles;
+
+    @OneToMany(mappedBy = "permission", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<EntitePersonNotification> entitesPersonNotifications;
 
     public Permission() {
@@ -72,7 +73,7 @@ public class Permission {
     public void setEntitesPersonNotifications(List<EntitePersonNotification> entitesPersonNotifications) {
         this.entitesPersonNotifications = entitesPersonNotifications;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -99,5 +100,5 @@ public class Permission {
     public String toString() {
         return "Permission{" + "id=" + id + ", label=" + label + '}';
     }
-    
+
 }
