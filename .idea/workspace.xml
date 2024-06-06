@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Ajout des classes et configurations">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/footer.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/GenericDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/map-jpa.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/GenericDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/index.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +122,8 @@
       <workItem from="1717664944562" duration="845000" />
       <workItem from="1717678046751" duration="14000" />
       <workItem from="1717678063174" duration="132000" />
+      <workItem from="1717678198497" duration="741000" />
+      <workItem from="1717693855833" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -134,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717610349033</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Ajout des classes et configurations">
+      <option name="closed" value="true" />
+      <created>1717678478796</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717678478797</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
