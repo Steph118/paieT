@@ -13,7 +13,8 @@ import java.io.Serializable;
 
 import java.util.*;
 
-@Entity(name = "persons")
+@Entity
+@Table(name = "person")
 public class Person implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +30,10 @@ public class Person implements Serializable{
     @Column(name = "date_naissance")
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
+    
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn
+    private User user;
 
     @Column(name = "mail", nullable = false, unique = true)
     private int mail;
