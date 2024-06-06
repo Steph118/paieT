@@ -43,6 +43,7 @@ public class Person implements Serializable{
     private User user;
 
     public Person() {
+        
     }
 
     public Person(Long id, String nom, String prenom, Date dateNaissance, int mail) {
