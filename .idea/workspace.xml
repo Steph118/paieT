@@ -5,31 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Ajout des classes et configurations">
-      <change afterPath="$PROJECT_DIR$/src/main/filters/production.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/filters/snapshot.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/filters/test.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/GenericDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/GenericServiceLocal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/GenericServiceRemote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GenericService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-resources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/configuration/JakartaRestConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/configuration/JakartaRestConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/JakartaEE10Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/resources/JakartaEE10Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mediasofthome/map/jpa/JakartaRestConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mediasofthome/map/jpa/resources/JakartaEE10Resource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa-1.0-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa-1.0-SNAPSHOT/WEB-INF/beans.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa-1.0-SNAPSHOT/WEB-INF/classes/com/mediasofthome/map/jpa/JakartaRestConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa-1.0-SNAPSHOT/WEB-INF/classes/com/mediasofthome/map/jpa/resources/JakartaEE10Resource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/GenericDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/GenericDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/GenericDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/GenericDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/GenericDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +29,16 @@
         <option value="CSS File" />
         <option value="jsf" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -88,6 +81,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -105,21 +99,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="map-jpa" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="map-jpa" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -141,6 +120,8 @@
       <workItem from="1717607204937" duration="363000" />
       <workItem from="1717607569832" duration="11000" />
       <workItem from="1717608033192" duration="5119000" />
+      <workItem from="1717618145311" duration="774000" />
+      <workItem from="1717632140876" duration="1526000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -155,6 +136,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

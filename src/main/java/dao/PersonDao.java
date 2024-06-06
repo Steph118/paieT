@@ -10,6 +10,16 @@ import entities.Person;
  *
  * @author steph18
  */
-public class PersonDao extends GenericDao<Person, Long> {
+public class PersonDao extends RepositoryDao<Person, Long> {
+
+    @Override
+    public Class<Person> getEntityClass() {
+        return Person.class;
+    }
+
+    @Override
+    public Long getId(Person entity) {
+        return entity.getId();
+    }
 
 }
