@@ -5,8 +5,8 @@ classes/Address.class
 configuration/JakartaRestConfiguration.class
 menu/MenuCategory.class
 menu/MenuItem.class
-enumeration/PhoneType.class
 dao/RepositoryDao.class
+enumeration/PhoneType.class
 service/interfaces/PersonServiceLocal.class
 entities/Role.class
 entities/Person.class
