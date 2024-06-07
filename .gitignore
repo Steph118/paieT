@@ -1,2 +1,3 @@
 /target/
-/src/main/filters/snapshot.properties
+/src/main/filters/
+nb-configuration.xml
