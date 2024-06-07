@@ -5,17 +5,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
       xmlns:ui="jakarta.faces.facelets">
-    <h:head>
-        <title>maping jpa</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <ui:insert name="head"/>
-    </h:head>
-    <h:body>
-        <ui:insert name="content">
-            template
-        </ui:insert>
-        
-    </h:body>
+<ui:composition template="/map/templates/layout-list.xhtml">
+    <ui:define name="content">
+        <h3>List Users</h3>
+    </ui:define>
+</ui:composition>
 </html>
+
+

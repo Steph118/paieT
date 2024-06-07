@@ -31,7 +31,10 @@
 
         <h:outputStylesheet name="css/primeflex3.css" library="showcase"/><!-- latest primeflex -->
         <h:outputStylesheet name="css/flags/flags.css" library="showcase"/>
+        <h:outputStylesheet name="css/layout/layout.css" library="showcase"/>
 
+        <h:outputScript name="script/layout.js" library="showcase" />
+        <h:outputScript name="showcase/script/prism.js" />
         <h:outputScript name="jquery/jquery.js" library="primefaces"/>
         <h:outputScript name="jquery/jquery-plugins.js" library="primefaces"/>
         <h:outputScript name="locales/locale-#{app.locale.language}.js" library="primefaces"/>
@@ -41,7 +44,7 @@
     </h:head>
 
     <h:body>
-        <f:view locale="#{app.locale.locale}">
+        <f:view locale="#{app.locale}">
             <div class="layout-wrapper #{app.inputStyleClass}">
                 <ui:fragment rendered="false">
                     <div class="layout-news">
@@ -61,14 +64,16 @@
                 <ui:include src="./topbar.xhtml"></ui:include>
                 <ui:include src="./menu.xhtml"></ui:include>
                 <ui:include src="./config.xhtml"></ui:include>
-                <div class="layout-mask"></div>
+                <div class="layout-mask">
+
+                </div>
 
                 <div class="layout-content">
                     <ui:insert name="content">
                         <div class="content-section introduction">
                             <div class="feature-intro">
-                                <h1><ui:insert name="title"></ui:insert></h1>
-                                <p><ui:insert name="description"></ui:insert></p>
+                                <h1><ui:insert name="title"/></h1>
+                                <p><ui:insert name="description"/></ui:insert></p>
                             </div>
                             <div class="feature-documentation">
                                 <ui:fragment rendered="#{not empty documentationLink}">
@@ -126,11 +131,10 @@
                 </p:ajaxStatus>
             </ui:insert>
 
-            <ui:insert name="body"></ui:insert>
+            <ui:insert name="body">
 
-            <h:outputStylesheet name="css/layout/layout.css" library="showcase"/>
-            <h:outputScript name="script/layout.js" library="showcase" />
-            <h:outputScript name="showcase/script/prism.js" />
+            </ui:insert>
+
         </f:view>
     </h:body>
 
