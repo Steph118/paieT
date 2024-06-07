@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <!-- EXAMPLE-SOURCE-START -->
+
+    <p:tabView var="entry" value="#{value}" touchable="false">
+        <p:tab title="#{entry.title}" >
+            <p:cache region="sources" key="#{entry}">
+                <pre class="line-numbers">
+                    <code class="language-#{entry.type}">
+                    </code>
+                </pre>
+            </p:cache>
+        </p:tab>
+
+        <f:facet name="static-tabs">
+            <ui:insert />
+        </f:facet>
+    </p:tabView>
+    
+</ui:composition>

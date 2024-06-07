@@ -3,9 +3,10 @@
       xmlns:h="jakarta.faces.html"
       xmlns:f="jakarta.faces.core"
       xmlns:ui="jakarta.faces.facelets"
-      xmlns:sc="http://primefaces.org/ui/showcase"
       lang="#{p:language()}" xml:lang="#{p:language()}"
       xmlns:p="http://primefaces.org/ui">
+    
+    <!--xmlns:sc="http://primefaces.org/ui/showcase"-->
 
     <h:head>
         <f:facet name="first">
@@ -107,17 +108,16 @@
                         <div class="content-section documentation">
                             <ui:insert name="static-documentation"/>
                             <ui:insert name="source">
-                                <!--                                <sc:tabscode
-                                                                    value="# {sc:getFilesContent(facesContext.externalContext.requestServletPath, true)}">
-                                                                    <ui:insert name="more-source-tabs"/>
-                                                                </sc:tabscode>-->
+<!--                                <sc:tabscode
+                                    value="#{sc:getFilesContent(facesContext.externalContext.requestServletPath, true)}">
+                                    <ui:insert name="more-source-tabs"/>
+                                </sc:tabscode>-->
                             </ui:insert>
                         </div>
                     </ui:insert>
+                            
                     <div class="fixed bottom-0 col-12 bg-primary-100">
-                        <ui:include src="./footer.xhtml">
-
-                        </ui:include>
+                        <ui:include src="./footer.xhtml"/>
                     </div>
 
                     <p:ajaxExceptionHandler type="jakarta.faces.application.ViewExpiredException" update="viewExpiredDialog" onexception="PF('viewExpiredDialog').show();" />
