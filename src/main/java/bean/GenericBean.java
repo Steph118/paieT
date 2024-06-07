@@ -4,10 +4,15 @@
  */
 package bean;
 
+import java.io.Serializable;
+
 /**
  *
  * @author steph18
+ * @param <E>
+ * @param <ID>
  */
-public class GenericBean {
+public class GenericBean <E extends Serializable, ID extends Serializable> 
+        implements Serializable{
     
 }

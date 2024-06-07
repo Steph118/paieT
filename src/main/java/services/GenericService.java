@@ -4,6 +4,7 @@
  */
 package services;
 
+import dao.RepositoryDao;
 import service.interfaces.GenericServiceLocal;
 import jakarta.ejb.Stateless;
 import java.io.Serializable;
@@ -12,9 +13,10 @@ import java.io.Serializable;
  *
  * @author steph18
  * @param <E>
- * @param <T>
+ * @param <ID>
  */
-@Stateless
-public class GenericService<E extends Serializable, T> implements GenericServiceLocal{
-    
+public abstract class GenericService<E extends Serializable, ID> implements GenericServiceLocal {
+
+    protected abstract RepositoryDao<E, ID> getDAO();
+
 }

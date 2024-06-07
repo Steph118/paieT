@@ -4,6 +4,7 @@
  */
 package service.interfaces;
 
+import entities.Person;
 import jakarta.ejb.Local;
 
 /**
@@ -11,6 +12,5 @@ import jakarta.ejb.Local;
  * @author steph18
  */
 @Local
-public interface PersonServiceLocal {
-    
+public interface PersonServiceLocal extends GenericServiceLocal<Person, Long> {
 }

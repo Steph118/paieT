@@ -1,3 +1,4 @@
-/target/
 /src/main/filters/
 nb-configuration.xml
+target
+.gitignore

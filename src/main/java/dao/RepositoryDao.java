@@ -4,7 +4,6 @@
  */
 package dao;
 
-import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.io.Serializable;
@@ -17,7 +16,6 @@ import java.util.List;
  * @param <E>
  * @param <ID>
  */
-@Stateless
 public abstract class RepositoryDao<E extends Serializable, ID>{
 
     @PersistenceContext
