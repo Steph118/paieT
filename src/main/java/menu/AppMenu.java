@@ -21,10 +21,10 @@ public class AppMenu {
         menuItems = new ArrayList<>();
 
         List<MenuItem> generalMenuItems = new ArrayList<>();
-        generalMenuItems.add(new MenuItem("Utilisateurs", "/map/pages/admin/users/list.xhtml"));
-        generalMenuItems.add(new MenuItem("Rôles", "/map/pages/admin/roles/list.xhtml"));
-        generalMenuItems.add(new MenuItem("Entites", "/map/pages/admin/entites/list.xhtml"));
-        generalMenuItems.add(new MenuItem("Personnes", "/map/pages/admin/persons/list.xhtml"));
+        generalMenuItems.add(new MenuItem("Utilisateurs", "/map/pages/admin/users/list.xhtml", "pi pi-users"));
+        generalMenuItems.add(new MenuItem("Rôles", "/map/pages/admin/roles/list.xhtml", "pi pi-bars"));
+        generalMenuItems.add(new MenuItem("Entites", "/map/pages/admin/entites/list.xhtml","pi pi-bars"));
+        generalMenuItems.add(new MenuItem("Personnes", "/map/pages/admin/persons/list.xhtml", "pi pi-users"));
         menuCategories.add(new MenuCategory("Administration", generalMenuItems));
 
         for (MenuCategory category : menuCategories) {

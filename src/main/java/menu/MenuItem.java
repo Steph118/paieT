@@ -19,11 +19,11 @@ public class MenuItem implements Serializable {
         this.label = label;
         this.url = url;
     }
-
-    public MenuItem(String label, String url, String badge) {
+    
+    public MenuItem(String label, String url, String imageSrc) {
         this.label = label;
         this.url = url;
-        this.badge = badge;
+        this.imageSrc = imageSrc;
     }
 
     public MenuItem(String label, String url, String badge, String imageSrc) {

@@ -9,7 +9,6 @@ import dao.RepositoryDao;
 import entities.Person;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.io.Serializable;
 import service.interfaces.PersonServiceLocal;
 
 /**
@@ -17,7 +16,8 @@ import service.interfaces.PersonServiceLocal;
  * @author steph18
  */
 @Stateless
-public class PersonService extends GenericService<Person, Long>{
+public class PersonService extends GenericServiceLocalImpl<Person, Long> 
+implements PersonServiceLocal{
 
     @EJB
     private PersonDao dao;
@@ -25,11 +25,6 @@ public class PersonService extends GenericService<Person, Long>{
     @Override
     protected RepositoryDao<Person, Long> getDAO() {
         return dao;
-    }
-
-//    @Override
-//    public void save(Serializable e) {
-//    }
-
+    }    
 
 }

@@ -4,13 +4,14 @@
  */
 package service.interfaces;
 
-import jakarta.ejb.Remote;
+import java.io.Serializable;
 
 /**
  *
  * @author steph18
+ * @param <E>
+ * @param <ID>
  */
-@Remote
-public interface GenericServiceRemote {
-    
+public interface GenericServiceRemote <E extends Serializable, ID> {
+
 }

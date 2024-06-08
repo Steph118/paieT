@@ -8,7 +8,6 @@ package entities;
  *
  * @author steph18
  */
-import classes.Address;
 import enumeration.PhoneType;
 import jakarta.persistence.*;
 import java.io.Serializable;

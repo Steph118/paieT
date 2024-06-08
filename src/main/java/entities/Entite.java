@@ -4,7 +4,6 @@
  */
 package entities;
 
-import classes.Address;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

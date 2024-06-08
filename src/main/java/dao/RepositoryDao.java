@@ -16,7 +16,7 @@ import java.util.List;
  * @param <E>
  * @param <ID>
  */
-public abstract class RepositoryDao<E extends Serializable, ID>{
+public abstract class RepositoryDao<E extends Serializable, ID> {
 
     @PersistenceContext
     protected EntityManager em;
@@ -25,19 +25,29 @@ public abstract class RepositoryDao<E extends Serializable, ID>{
 
     public abstract ID getId(E entity);
 
-    public void save(E entity){
+    public void save(E entity) {
         this.em.persist(entity);
     }
-    public void update(E entity){
+
+    public void update(E entity) {
         this.em.merge(entity);
-    };
-    public void delete(ID id){
+    }
+
+    public void delete(ID id) {
         this.em.remove(this.findById(id));
-    };
-    public E findById(ID id){
+    }
+
+    public E findById(ID id) {
         return this.em.find(this.getEntityClass(), id);
     }
-    public List<E> findAll(){
+
+    public E find(E e) {
+        String query = "SELECT e FROM " + getEntityClass() + " WHERE e.id = 2";
+        return e;
+    }
+
+    public List<E> findAll() {
+        String query = "SELECT e FROM " + getEntityClass();
         return new ArrayList<>();
     }
 }

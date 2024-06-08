@@ -1,4 +1,4 @@
-package classes;
+package entities;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;

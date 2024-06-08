@@ -5,7 +5,7 @@
       xmlns:ui="jakarta.faces.facelets"
       lang="#{p:language()}" xml:lang="#{p:language()}"
       xmlns:p="http://primefaces.org/ui">
-    
+
     <!--xmlns:sc="http://primefaces.org/ui/showcase"-->
 
     <h:head>
@@ -108,14 +108,14 @@
                         <div class="content-section documentation">
                             <ui:insert name="static-documentation"/>
                             <ui:insert name="source">
-<!--                                <sc:tabscode
-                                    value="#{sc:getFilesContent(facesContext.externalContext.requestServletPath, true)}">
-                                    <ui:insert name="more-source-tabs"/>
-                                </sc:tabscode>-->
+                                <!--                                <sc:tabscode
+                                                                    value="# {sc:getFilesContent(facesContext.externalContext.requestServletPath, true)}">
+                                                                    <ui:insert name="more-source-tabs"/>
+                                                                </sc:tabscode>-->
                             </ui:insert>
                         </div>
                     </ui:insert>
-                            
+
                     <div class="fixed bottom-0 col-12 bg-primary-100">
                         <ui:include src="./footer.xhtml"/>
                     </div>

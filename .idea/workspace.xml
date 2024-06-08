@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="git ignore snapshot">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" afterDir="false" />
-    </list>
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="git ignore snapshot" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,6 +117,7 @@
       <workItem from="1717717261775" duration="1988000" />
       <workItem from="1717751334190" duration="617000" />
       <workItem from="1717752553577" duration="955000" />
+      <workItem from="1717785804863" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />

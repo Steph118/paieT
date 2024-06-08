@@ -12,7 +12,47 @@ import java.io.Serializable;
  * @param <E>
  * @param <ID>
  */
-public class GenericBean <E extends Serializable, ID extends Serializable> 
-        implements Serializable{
-    
+public abstract class GenericBean<E extends Serializable, ID>
+        implements Serializable {
+
+    protected void init() {
+
+    }
+
+    protected void beforeSave() {
+
+    }
+
+    protected void save() {
+
+    }
+
+    protected void afterSave() {
+
+    }
+
+    protected void beforeDelete() {
+
+    }
+
+    protected void delete() {
+
+    }
+
+    protected void afterDelete() {
+
+    }
+
+    protected void beforeUpdate() {
+
+    }
+
+    protected void update() {
+
+    }
+
+    protected void afterUpdate() {
+
+    }
+
 }

@@ -4,7 +4,6 @@
  */
 package service.interfaces;
 
-import jakarta.ejb.Local;
 import java.io.Serializable;
 
 /**
@@ -13,6 +12,15 @@ import java.io.Serializable;
  * @param <E>
  * @param <ID>
  */
-public interface GenericServiceLocal <E extends Serializable, ID> {
-//    void save(E e);
+public interface GenericServiceLocal<E extends Serializable, ID> {
+
+    void save(E e);
+
+    void delete(E e);
+
+    E find(E e);
+
+    E findById(ID id);
+
+    void delete(ID id);
 }
