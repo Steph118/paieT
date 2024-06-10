@@ -19,13 +19,16 @@ public class Address {
     @Column(name = "city")
     private String city;
 
-    @Column(name = "state")
-    private String state;
-
     @Column(name = "zip")
     private String zip;
 
     public Address() {
+    }
+
+    public Address(String street, String city, String zip) {
+        this.street = street;
+        this.city = city;
+        this.zip = zip;
     }
 
     public String getStreet() {
@@ -44,14 +47,6 @@ public class Address {
         this.city = city;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getZip() {
         return zip;
     }
@@ -62,7 +57,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" + "street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + '}';
+        return "Address{" + "street=" + street + ", city=" + city + ", zip=" + zip + '}';
     }
 
 }

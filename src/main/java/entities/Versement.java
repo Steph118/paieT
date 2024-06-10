@@ -2,14 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package enumeration;
+package entities;
 
 /**
  *
- * @author samiesoft
+ * @author steph18
  */
-public enum PhoneType {
-    Home,
-    Mobile,
-    Work
+public class Versement {
+    
 }

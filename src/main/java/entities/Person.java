@@ -8,7 +8,6 @@ package entities;
  *
  * @author steph18
  */
-import enumeration.PhoneType;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
@@ -21,7 +20,7 @@ public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "nom", nullable = false)
     private String nom;
@@ -33,30 +32,28 @@ public class Person implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
 
+    @Column(name = "lieu_naissance")
+    private String lieuNaissance;
+
     @Column(name = "mail", nullable = false, unique = true)
     private String mail;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "entite_id")
     private Entite entite;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "user_id", nullable = true)
+    @OneToOne(optional = true)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ElementCollection(targetClass = Address.class)
-    @CollectionTable(name = "person_addresses",
-            joinColumns = {
-                @JoinColumn(name = "person_id")})
+    @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "state",
-                column = @Column(name = "province")),
+        @AttributeOverride(name = "city",
+                column = @Column(name = "pers_city")),
         @AttributeOverride(name = "street",
                 column = @Column(name = "pers_street"))
     })
-//    private Collection addresses;
-    private Set<Address> addresses = new HashSet<>();
-    //private List<Address> addresses = new ArrayList<>();
+    private Address addresse;
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "person_phones",
@@ -66,32 +63,27 @@ public class Person implements Serializable {
     @Column(name = "phone_number")
     private Set<String> phones = new HashSet<>();
 
-    @ElementCollection
-    @CollectionTable(name = "person_map_phones")
-    @MapKeyColumn(name = "phone_type")
-    //@MapKeyTemporal(TemporalType.DATE)
-    @MapKeyEnumerated(EnumType.STRING)
-    @Column(name = "phone_number")
-    private Map<PhoneType, String> phoneNumbers;
-
-    //construtors, getters, setters and others
     public Person() {
-        
+
     }
 
-    public Person(Long id, String nom, String prenom, Date dateNaissance, String mail) {
+    public Person(Integer id, String nom, String prenom, Date dateNaissance, String lieuNaissance, String mail, Entite entite, User user, Address addresse) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
+        this.lieuNaissance = lieuNaissance;
         this.mail = mail;
+        this.entite = entite;
+        this.user = user;
+        this.addresse = addresse;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -143,12 +135,20 @@ public class Person implements Serializable {
         this.entite = entite;
     }
 
-    public Set<Address> getAddresses() {
-        return addresses;
+    public String getLieuNaissance() {
+        return lieuNaissance;
     }
 
-    public void setAddresses(Set<Address> addresses) {
-        this.addresses = addresses;
+    public void setLieuNaissance(String lieuNaissance) {
+        this.lieuNaissance = lieuNaissance;
+    }
+
+    public Address getAddresse() {
+        return addresse;
+    }
+
+    public void setAddresse(Address addresse) {
+        this.addresse = addresse;
     }
 
     public Set<String> getPhones() {
@@ -159,18 +159,10 @@ public class Person implements Serializable {
         this.phones = phones;
     }
 
-    public Map<PhoneType, String> getPhoneNumbers() {
-        return phoneNumbers;
-    }
-
-    public void setPhoneNumbers(Map<PhoneType, String> phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -191,7 +183,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", mail=" + mail + ", entite=" + entite + ", user=" + user + '}';
+        return "Person{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", lieuNaissance=" + lieuNaissance + ", mail=" + mail + ", entite=" + entite + ", user=" + user + ", addresse=" + addresse + '}';
     }
 
 }

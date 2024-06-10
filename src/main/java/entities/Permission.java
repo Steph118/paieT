@@ -12,7 +12,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 import java.util.Objects;
@@ -36,8 +35,8 @@ public class Permission {
     @ManyToMany(mappedBy = "permissions", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<Role> roles;
 
-    @OneToMany(mappedBy = "permission", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    private List<EntitePersonNotification> entitesPersonNotifications;
+    //@OneToMany(mappedBy = "permission", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    //private List<EntitePersonNotification> entitesPersonNotifications;
 
     public Permission() {
     }
@@ -64,14 +63,6 @@ public class Permission {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
-
-    public List<EntitePersonNotification> getEntitesPersonNotifications() {
-        return entitesPersonNotifications;
-    }
-
-    public void setEntitesPersonNotifications(List<EntitePersonNotification> entitesPersonNotifications) {
-        this.entitesPersonNotifications = entitesPersonNotifications;
     }
 
     @Override

@@ -10,7 +10,7 @@ import entities.Person;
  *
  * @author steph18
  */
-public class PersonDao extends RepositoryDao<Person, Long> {
+public class PersonDao extends RepositoryDao<Person, Integer> {
 
     @Override
     public Class<Person> getEntityClass() {
@@ -18,7 +18,7 @@ public class PersonDao extends RepositoryDao<Person, Long> {
     }
 
     @Override
-    public Long getId(Person entity) {
+    public Integer getId(Person entity) {
         return entity.getId();
     }
 

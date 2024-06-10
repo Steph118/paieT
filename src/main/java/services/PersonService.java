@@ -16,14 +16,14 @@ import service.interfaces.PersonServiceLocal;
  * @author steph18
  */
 @Stateless
-public class PersonService extends GenericServiceLocalImpl<Person, Long> 
+public class PersonService extends GenericServiceLocalImpl<Person, Integer> 
 implements PersonServiceLocal{
 
     @EJB
     private PersonDao dao;
 
     @Override
-    protected RepositoryDao<Person, Long> getDAO() {
+    protected RepositoryDao<Person, Integer> getDAO() {
         return dao;
     }    
 

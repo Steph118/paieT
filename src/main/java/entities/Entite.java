@@ -5,20 +5,16 @@
 package entities;
 
 import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Size;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -33,6 +29,7 @@ public class Entite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+    
     @Size(min = 3, max = 31, message = "Vous avez atteint le nombre de caractères requis")
     @Column(name = "nomination", length = 31)
     private String nomination;
@@ -44,14 +41,16 @@ public class Entite {
     private String logo;
 
     @Embedded
-    @AttributeOverride(name = "street", column = @Column(name = "entite_street"))
-    @AttributeOverride(name = "city", column = @Column(name = "entite_city"))
-    @AttributeOverride(name = "state", column = @Column(name = "entite_state"))
-    @AttributeOverride(name = "zip", column = @Column(name = "entite_zip"))
-    private Address address;
+    @AttributeOverrides({
+        @AttributeOverride(name = "city",
+                column = @Column(name = "entite_city")),
+        @AttributeOverride(name = "street",
+                column = @Column(name = "entite_street"))
+    })
+    private Address addresse;
 
-    @OneToMany(mappedBy = "entite", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    private List<EntitePersonNotification> entitesPersonNotifications;
+    //@OneToMany(mappedBy = "entite", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    //private List<EntitePersonNotification> entitesPersonNotifications;
 
     public Entite() {
     }
@@ -88,20 +87,12 @@ public class Entite {
         this.logo = logo;
     }
 
-    public List<EntitePersonNotification> getEntitesPersonNotifications() {
-        return entitesPersonNotifications;
-    }
-
-    public void setEntitesPersonNotifications(List<EntitePersonNotification> entitesPersonNotifications) {
-        this.entitesPersonNotifications = entitesPersonNotifications;
-    }
-
     public Address getAddress() {
-        return address;
+        return addresse;
     }
 
     public void setAddress(Address address) {
-        this.address = address;
+        this.addresse = address;
     }
 
     @Override
@@ -128,7 +119,7 @@ public class Entite {
 
     @Override
     public String toString() {
-        return "Entite{" + "id=" + id + ", nomination=" + nomination + ", numeroAprouve=" + numeroAprouve + ", logo=" + logo + ", address=" + address + ", entitesPersonNotifications=" + entitesPersonNotifications + '}';
+        return "Entite{" + "id=" + id + ", nomination=" + nomination + ", numeroAprouve=" + numeroAprouve + ", logo=" + logo + ", address=" + addresse + '}';
     }
 
 }
