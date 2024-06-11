@@ -8,7 +8,7 @@ package enumeration;
  *
  * @author samiesoft
  */
-public enum Mois {
+public enum Month {
 
     JANV("Janvier"),
     FEV("Février"),
@@ -25,7 +25,7 @@ public enum Mois {
 
     private final String libelle;
 
-    private Mois(String libelle) {
+    private Month(String libelle) {
         this.libelle = libelle;
     }
 

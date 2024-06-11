@@ -8,6 +8,6 @@ package entities;
  *
  * @author steph18
  */
-public class Membre {
+public class Book {
     
 }

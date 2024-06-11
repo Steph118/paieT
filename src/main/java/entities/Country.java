@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "pays")
-public class Pays {
+public class Country {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -35,6 +35,9 @@ public class User {
     @Column(name = "password")
     private String password;
     
+    @Column(name = "actif")
+    private boolean actif;
+    
     @ManyToMany
     @JoinTable(
             name = "users_roles" ,
@@ -70,6 +73,14 @@ public class User {
         this.password = password;
     }
 
+    public boolean isActif() {
+        return actif;
+    }
+
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
     public List<Role> getRoles() {
         return roles;
     }
@@ -102,7 +113,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", userName=" + userName + ", password=" + password + '}';
+        return "User{" + "id=" + id + ", userName=" + userName + ", password=" + password + ", actif=" + actif + '}';
     }
-    
+
 }

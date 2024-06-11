@@ -8,6 +8,6 @@ package entities;
  *
  * @author steph18
  */
-public class Localite {
+public class SumPaye {
     
 }

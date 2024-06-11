@@ -8,6 +8,7 @@ package entities;
  *
  * @author steph18
  */
+import enumeration.Sexe;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
@@ -23,17 +24,17 @@ public class Person implements Serializable {
     private Integer id;
 
     @Column(name = "nom", nullable = false)
-    private String nom;
+    private String firstname;
 
     @Column(name = "prenom", nullable = false)
-    private String prenom;
+    private String name;
 
     @Column(name = "date_naissance")
     @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
+    private Date birthdate;
 
     @Column(name = "lieu_naissance")
-    private String lieuNaissance;
+    private String birthplace;
 
     @Column(name = "mail", nullable = false, unique = true)
     private String mail;
@@ -46,6 +47,10 @@ public class Person implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sexe")
+    private Sexe Sexe;
+
     @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "city",
@@ -53,7 +58,7 @@ public class Person implements Serializable {
         @AttributeOverride(name = "street",
                 column = @Column(name = "pers_street"))
     })
-    private Address addresse;
+    private Address address;
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "person_phones",
@@ -67,18 +72,6 @@ public class Person implements Serializable {
 
     }
 
-    public Person(Integer id, String nom, String prenom, Date dateNaissance, String lieuNaissance, String mail, Entite entite, User user, Address addresse) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.dateNaissance = dateNaissance;
-        this.lieuNaissance = lieuNaissance;
-        this.mail = mail;
-        this.entite = entite;
-        this.user = user;
-        this.addresse = addresse;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -88,27 +81,27 @@ public class Person implements Serializable {
     }
 
     public String getNom() {
-        return nom;
+        return firstname;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.firstname = nom;
     }
 
     public String getPrenom() {
-        return prenom;
+        return name;
     }
 
     public void setPrenom(String prenom) {
-        this.prenom = prenom;
+        this.name = prenom;
     }
 
     public Date getDateNaissance() {
-        return dateNaissance;
+        return birthdate;
     }
 
     public void setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = dateNaissance;
+        this.birthdate = dateNaissance;
     }
 
     public String getMail() {
@@ -136,19 +129,27 @@ public class Person implements Serializable {
     }
 
     public String getLieuNaissance() {
-        return lieuNaissance;
+        return birthplace;
     }
 
     public void setLieuNaissance(String lieuNaissance) {
-        this.lieuNaissance = lieuNaissance;
+        this.birthplace = lieuNaissance;
+    }
+
+    public Sexe getSexe() {
+        return Sexe;
+    }
+
+    public void setSexe(Sexe Sexe) {
+        this.Sexe = Sexe;
     }
 
     public Address getAddresse() {
-        return addresse;
+        return address;
     }
 
     public void setAddresse(Address addresse) {
-        this.addresse = addresse;
+        this.address = addresse;
     }
 
     public Set<String> getPhones() {
@@ -183,7 +184,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + ", lieuNaissance=" + lieuNaissance + ", mail=" + mail + ", entite=" + entite + ", user=" + user + ", addresse=" + addresse + '}';
+        return "Person{" + "id=" + id + ", nom=" + firstname + ", prenom=" + name + ", dateNaissance=" + birthdate + ", lieuNaissance=" + birthplace + ", mail=" + mail + ", entite=" + entite + ", user=" + user + ", addresse=" + address + '}';
     }
 
 }

@@ -8,6 +8,6 @@ package entities;
  *
  * @author steph18
  */
-public class MembreExterne {
+public class Member {
     
 }

@@ -8,6 +8,6 @@ package entities;
  *
  * @author steph18
  */
-public class Annee {
+public class Department {
     
 }

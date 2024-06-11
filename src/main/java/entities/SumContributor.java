@@ -8,6 +8,6 @@ package entities;
  *
  * @author steph18
  */
-public class Carnet {
+public class SumContributor {
     
 }
