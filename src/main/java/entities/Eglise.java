@@ -4,10 +4,16 @@
  */
 package entities;
 
+import jakarta.persistence.*;
+
 /**
  *
  * @author steph18
  */
-public class Eglise {
-    
+
+@Entity
+@Table(name = "eglises")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Eglise extends Entite{
+
 }

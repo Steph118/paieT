@@ -18,8 +18,8 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
     }
 
     @Override
-    public Integer getId(Person entity) {
-        return entity.getId();
+    public Integer getId(Person person) {
+        return person.getId();
     }
 
 }

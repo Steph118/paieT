@@ -39,16 +39,16 @@ public class Person implements Serializable {
     @Column(name = "mail", nullable = false, unique = true)
     private String mail;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "entite_id")
-    private Entite entite;
-
     @OneToOne(optional = true)
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "entite_id")
+    private Locality locality;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "sexe")
+    @Column(name = "sexe", nullable = false)
     private Sexe Sexe;
 
     @Embedded
@@ -69,7 +69,6 @@ public class Person implements Serializable {
     private Set<String> phones = new HashSet<>();
 
     public Person() {
-
     }
 
     public Integer getId() {
@@ -80,28 +79,36 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public String getNom() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setNom(String nom) {
-        this.firstname = nom;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getPrenom() {
+    public String getName() {
         return name;
     }
 
-    public void setPrenom(String prenom) {
-        this.name = prenom;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getDateNaissance() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setDateNaissance(Date dateNaissance) {
-        this.birthdate = dateNaissance;
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getBirthplace() {
+        return birthplace;
+    }
+
+    public void setBirthplace(String birthplace) {
+        this.birthplace = birthplace;
     }
 
     public String getMail() {
@@ -120,36 +127,28 @@ public class Person implements Serializable {
         this.user = user;
     }
 
-    public Entite getEntite() {
-        return entite;
+    public Locality getLocality() {
+        return locality;
     }
 
-    public void setEntite(Entite entite) {
-        this.entite = entite;
+    public void setLocality(Locality locality) {
+        this.locality = locality;
     }
 
-    public String getLieuNaissance() {
-        return birthplace;
-    }
-
-    public void setLieuNaissance(String lieuNaissance) {
-        this.birthplace = lieuNaissance;
-    }
-
-    public Sexe getSexe() {
+    public enumeration.Sexe getSexe() {
         return Sexe;
     }
 
-    public void setSexe(Sexe Sexe) {
-        this.Sexe = Sexe;
+    public void setSexe(enumeration.Sexe sexe) {
+        Sexe = sexe;
     }
 
-    public Address getAddresse() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddresse(Address addresse) {
-        this.address = addresse;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Set<String> getPhones() {
@@ -184,7 +183,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", nom=" + firstname + ", prenom=" + name + ", dateNaissance=" + birthdate + ", lieuNaissance=" + birthplace + ", mail=" + mail + ", entite=" + entite + ", user=" + user + ", addresse=" + address + '}';
+        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", locality=" + locality + ", user=" + user + ", Sexe=" + Sexe + ", address=" + address + '}';
     }
 
 }

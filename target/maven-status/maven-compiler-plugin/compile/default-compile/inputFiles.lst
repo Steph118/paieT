@@ -1,22 +1,23 @@
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/resources/JakartaEE10Resource.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/entities/User.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/service/interfaces/PersonServiceLocal.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/menu/MenuItem.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/configuration/JakartaRestConfiguration.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/dao/RepositoryDao.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/menu/MenuCategory.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/service/interfaces/GenericServiceLocal.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/service/interfaces/GenericServiceRemote.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/entities/Permission.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/bean/GenericBean.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/services/GenericService.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/dao/PersonDao.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/menu/AppMenu.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/entities/EntitePersonNotification.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/enumeration/PhoneType.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/entities/Entite.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/entities/Role.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/entities/Person.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/view/App.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/classes/Address.java
-/home/samiesoft/NetBeansProjects/map-jpa2/src/main/java/services/PersonService.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/entities/Pays.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/entities/Address.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/configuration/JakartaRestConfiguration.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/enumeration/Sexe.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/services/GenericServiceLocalImpl.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/dao/PersonDao.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/menu/MenuItem.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/service/interfaces/GenericServiceRemote.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/services/PersonService.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/entities/Permission.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/resources/JakartaEE10Resource.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/entities/Role.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/entities/Person.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/services/GenericServiceRemoteImpl.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/view/App.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/service/interfaces/GenericServiceLocal.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/dao/RepositoryDao.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/service/interfaces/PersonServiceLocal.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/menu/MenuCategory.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/entities/User.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/entities/Entite.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/menu/AppMenu.java
+/home/steph18/intelij projects/map-jpa2/src/main/java/bean/GenericBean.java

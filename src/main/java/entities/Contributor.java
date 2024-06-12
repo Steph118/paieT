@@ -4,10 +4,15 @@
  */
 package entities;
 
+import jakarta.persistence.*;
+
 /**
  *
  * @author steph18
  */
-public class Contributor {
+@Entity
+@Table(name = "contributors")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Contributor extends Person{
     
 }

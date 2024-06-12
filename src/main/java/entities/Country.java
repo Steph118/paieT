@@ -4,24 +4,24 @@
  */
 package entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  *
  * @author steph18
  */
 @Entity
-@Table(name = "pays")
+@Table(name = "countries")
 public class Country {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    
+
+    @Column(name = "label")
+    private String label;
+
+    @Column(name = "code_iso")
+    private String codeIso;
 }

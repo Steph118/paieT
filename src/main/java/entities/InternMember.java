@@ -4,10 +4,13 @@
  */
 package entities;
 
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
 /**
  *
  * @author steph18
  */
-public class InternMember {
+public class InternMember extends Member{
     
 }
