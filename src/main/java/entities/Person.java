@@ -23,17 +23,17 @@ public class Person implements Serializable {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nom", nullable = false)
+    @Column(name = "firstname", nullable = false)
     private String firstname;
 
-    @Column(name = "prenom", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "date_naissance")
+    @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
     private Date birthdate;
 
-    @Column(name = "lieu_naissance")
+    @Column(name = "birth_place")
     private String birthplace;
 
     @Column(name = "mail", nullable = false, unique = true)
@@ -43,8 +43,8 @@ public class Person implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "entite_id")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "locality_id")
     private Locality locality;
 
     @Enumerated(EnumType.STRING)
@@ -135,12 +135,12 @@ public class Person implements Serializable {
         this.locality = locality;
     }
 
-    public enumeration.Sexe getSexe() {
+    public Sexe getSexe() {
         return Sexe;
     }
 
-    public void setSexe(enumeration.Sexe sexe) {
-        Sexe = sexe;
+    public void setSexe(Sexe Sexe) {
+        this.Sexe = Sexe;
     }
 
     public Address getAddress() {
@@ -183,7 +183,9 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", locality=" + locality + ", user=" + user + ", Sexe=" + Sexe + ", address=" + address + '}';
+        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", user=" + user + ", locality=" + locality + ", Sexe=" + Sexe + ", address=" + address + ", phones=" + phones + '}';
     }
+
+    
 
 }

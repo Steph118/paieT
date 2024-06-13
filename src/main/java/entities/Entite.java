@@ -9,10 +9,13 @@ import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import java.util.Objects;
@@ -29,15 +32,16 @@ public class Entite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    
-    @Size(min = 3, max = 31, message = "Vous avez atteint le nombre de caractères requis")
-    @Column(name = "nomination", length = 31)
-    private String nomination;
 
-    @Column(name = "numero_aprouve")
-    private String numeroAprouve;
+    @Size(min = 3, max = 31, message = "Vous avez atteint le nombre de caractères requis")
+    @Column(name = "label", length = 31, nullable = false)
+    private String label;
+
+    @Column(name = "number", unique = true)
+    private Integer number;
 
     @Lob
+    @Column(name = "logo")
     private String logo;
 
     @Embedded
@@ -49,8 +53,9 @@ public class Entite {
     })
     private Address addresse;
 
-    //@OneToMany(mappedBy = "entite", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    //private List<EntitePersonNotification> entitesPersonNotifications;
+    @ManyToOne(optional = false,fetch = FetchType.LAZY)
+    @JoinColumn(name = "locality_id")
+    private Locality locality;
 
     public Entite() {
     }
@@ -63,20 +68,20 @@ public class Entite {
         this.id = id;
     }
 
-    public String getNomination() {
-        return nomination;
+    public String getLabel() {
+        return label;
     }
 
-    public void setNomination(String nomination) {
-        this.nomination = nomination;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
-    public String getNumeroAprouve() {
-        return numeroAprouve;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setNumeroAprouve(String numeroAprouve) {
-        this.numeroAprouve = numeroAprouve;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public String getLogo() {
@@ -87,12 +92,20 @@ public class Entite {
         this.logo = logo;
     }
 
-    public Address getAddress() {
+    public Address getAddresse() {
         return addresse;
     }
 
-    public void setAddress(Address address) {
-        this.addresse = address;
+    public void setAddresse(Address addresse) {
+        this.addresse = addresse;
+    }
+
+    public Locality getLocality() {
+        return locality;
+    }
+
+    public void setLocality(Locality locality) {
+        this.locality = locality;
     }
 
     @Override
@@ -119,7 +132,7 @@ public class Entite {
 
     @Override
     public String toString() {
-        return "Entite{" + "id=" + id + ", nomination=" + nomination + ", numeroAprouve=" + numeroAprouve + ", logo=" + logo + ", address=" + addresse + '}';
+        return "Entite{" + "id=" + id + ", label=" + label + ", number=" + number + ", logo=" + logo + ", addresse=" + addresse + ", locality=" + locality + '}';
     }
 
 }

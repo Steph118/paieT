@@ -17,7 +17,7 @@ import java.util.Objects;
  * @author steph18
  */
 @Entity
-@Table(name = "locality_types")
+@Table(name = "localities_types")
 public class LocalityType {
 
     @Id

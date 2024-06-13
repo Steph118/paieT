@@ -4,60 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="git ignore snapshot">
-      <change beforePath="$PROJECT_DIR$/.idea/jpa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/filters/snapshot.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/filters/snapshot.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Contributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Contributor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/ExternMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/ExternMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/InternMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/InternMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Locality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Locality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Promesse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Promesse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumContributor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumPaye.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumPaye.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Versement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Versement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Year.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Year.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Permission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/MenuItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/MenuItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceLocal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceLocal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceRemote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceRemote.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/PersonServiceLocal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/interfaces/PersonServiceLocal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/PersonService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/bean/GenericBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Entite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Permission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/AppMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/MenuItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/MenuItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/GenericServiceLocal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/GenericServiceLocal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/GenericServiceRemote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/GenericServiceRemote.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/PersonServiceLocal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/PersonServiceLocal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/services/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/services/PersonService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/menu.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/menu.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Entities persistance" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,7 +120,7 @@
       <workItem from="1717785804863" duration="24000" />
       <workItem from="1718134712499" duration="31000" />
       <workItem from="1718148867558" duration="923000" />
-      <workItem from="1718232248954" duration="3422000" />
+      <workItem from="1718232248954" duration="3447000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -199,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717752728356</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Entities persistance">
+      <option name="closed" value="true" />
+      <created>1718235693115</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718235693115</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +175,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Ajout des classes et configurations" />
     <MESSAGE value="git ignore snapshot" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignore snapshot" />
+    <MESSAGE value="Entities persistance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Entities persistance" />
   </component>
 </project>

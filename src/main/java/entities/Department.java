@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.Objects;
 
 /**
  * @author steph18
@@ -12,6 +13,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "departments")
 public class Department {
+    
     private static final String MEN_DEPARTMENT = "MD";
     private static final String WOMEN_DEPARTMENT = "WD";
     private static final String CHILDREEN_DEPARTMENT = "CD";
@@ -36,4 +38,48 @@ public class Department {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Long getLabel() {
+        return label;
+    }
+
+    public void setLabel(Long label) {
+        this.label = label;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Department other = (Department) obj;
+        return Objects.equals(this.id, other.id);
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" + "id=" + id + ", code=" + code + ", label=" + label + '}';
+    }
+    
 }

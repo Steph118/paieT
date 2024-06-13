@@ -26,29 +26,22 @@ public class Locality {
     @Column(name = "label", nullable = false)
     private String label;
 
-    @ManyToOne(optional = true)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_locality")
     private Locality parent;
 
-    @ManyToOne
-    @JoinColumn(name = "locality_type",nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "locality_type")
     private LocalityType localityType;
 
-    @ManyToOne
-    @JoinColumn(name = "country",nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "country")
     private Country country;
 
     @OneToMany(mappedBy = "parent")
     private List<Locality> childreen = new ArrayList<>();
 
     public Locality() {
-    }
-
-    public Locality(Integer id, String label, Locality parent, LocalityType localityType) {
-        this.id = id;
-        this.label = label;
-        this.parent = parent;
-        this.localityType = localityType;
     }
 
     public Integer getId() {
@@ -83,6 +76,14 @@ public class Locality {
         this.localityType = localityType;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
     public List<Locality> getChildreen() {
         return childreen;
     }
@@ -115,7 +116,7 @@ public class Locality {
 
     @Override
     public String toString() {
-        return "Locality{" + "id=" + id + ", label=" + label + ", parent=" + parent + ", localityType=" + localityType + ", childreen=" + childreen + '}';
+        return "Locality{" + "id=" + id + ", label=" + label + ", parent=" + parent + ", localityType=" + localityType + ", country=" + country + '}';
     }
 
 }

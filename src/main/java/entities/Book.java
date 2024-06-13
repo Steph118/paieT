@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.Objects;
 
 /**
  *
@@ -22,6 +23,9 @@ public class Book {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    public Book() {
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -29,4 +33,40 @@ public class Book {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Book other = (Book) obj;
+        return Objects.equals(this.id, other.id);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" + "id=" + id + ", member=" + member + '}';
+    }
+        
 }
