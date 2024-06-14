@@ -20,12 +20,31 @@ public class AppMenu {
         menuCategories = new ArrayList<>();
         menuItems = new ArrayList<>();
 
-        List<MenuItem> generalMenuItems = new ArrayList<>();
-        generalMenuItems.add(new MenuItem("Utilisateurs", "/map/pages/admin/users/list.xhtml", "pi pi-users"));
-        generalMenuItems.add(new MenuItem("Rôles", "/map/pages/admin/roles/list.xhtml", "pi pi-bars"));
-        generalMenuItems.add(new MenuItem("Entites", "/map/pages/admin/entites/list.xhtml","pi pi-bars"));
-        generalMenuItems.add(new MenuItem("Personnes", "/map/pages/admin/persons/list.xhtml", "pi pi-users"));
-        menuCategories.add(new MenuCategory("Administration", generalMenuItems));
+        List<MenuItem> administrationMenus = new ArrayList<>();
+        List<MenuItem> referenceMenus = new ArrayList<>();
+        List<MenuItem> paiMenus = new ArrayList<>();
+
+
+        administrationMenus.add(new MenuItem("Utilisateurs", "/paie/pages/admin/users/list.xhtml", "fa-solid fa-users"));
+        administrationMenus.add(new MenuItem("Rôles", "/paie/pages/admin/roles/list.xhtml", "fa-solid fa-viruses"));
+        administrationMenus.add(new MenuItem("Entites", "/paie/pages/admin/entites/list.xhtml", "fa-brands fa-centercode"));
+        administrationMenus.add(new MenuItem("Eglises", "/paie/pages/admin/entites/members/list.xhtml", "fa-solid fa-place-of-worship"));
+        administrationMenus.add(new MenuItem("Personnes", "/paie/pages/admin/persons/list.xhtml", "fa-solid fa-user"));
+        administrationMenus.add(new MenuItem("Localités", "/paie/pages/admin/localities/locality/list.xhtml", "fa-solid fa-location-dot"));
+        administrationMenus.add(new MenuItem("Types de localités", "/paie/pages/admin/localities/type-locality/list.xhtml", "fa-solid fa-location-dot"));
+
+        referenceMenus.add(new MenuItem("Pays", "/paie/pages/admin/references/country/list.xhtml", "fa-solid fa-globe"));
+        referenceMenus.add(new MenuItem("Sexe", "/paie/pages/admin/references/sexe/list.xhtml", "fa-solid fa-genderless"));
+        referenceMenus.add(new MenuItem("Départements", "/paie/pages/admin/references/department/list.xhtml", "fa-solid fa-users-viewfinder"));
+        referenceMenus.add(new MenuItem("Années", "/paie/pages/admin/references/annees/list.xhtml", "fa-regular fa-calendar"));
+        
+        paiMenus.add(new MenuItem("Paiements", "/paie/pages/admin/pay/payment/list.xhtml", "fa-solid fa-money-check"));
+        paiMenus.add(new MenuItem("Promesses", "/paie/pages/admin/pay/promised/list.xhtml", "fa-regular fa-calendar"));
+        paiMenus.add(new MenuItem("Sommes payés", "/paie/pages/admin/pay/sum-pay/list.xhtml", "fa-solid fa-handshake-slash"));
+        
+        menuCategories.add(new MenuCategory("Administration", administrationMenus));
+        menuCategories.add(new MenuCategory("References", referenceMenus));
+        menuCategories.add(new MenuCategory("Paiements", paiMenus));
 
         for (MenuCategory category : menuCategories) {
             for (MenuItem menuItem : category.getMenuItems()) {

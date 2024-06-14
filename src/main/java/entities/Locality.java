@@ -38,7 +38,7 @@ public class Locality {
     @JoinColumn(name = "country")
     private Country country;
 
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "localityParent")
     private List<Locality> childreen = new ArrayList<>();
 
     public Locality() {

@@ -28,7 +28,7 @@
             <link href="#{resource['showcase:images/favicon-32x32.png']}" rel="icon" type="image/png" sizes="32x32"/>
             <link href="#{resource['showcase:images/favicon-16x16.png']}" rel="icon" type="image/png" sizes="16x16"/>
         </f:facet>
-        <title>PrimeFaces Showcase</title>
+        <title>PaieT</title>
 
         <h:outputStylesheet name="css/primeflex3.css" library="showcase"/><!-- latest primeflex -->
         <h:outputStylesheet name="css/flags/flags.css" library="showcase"/>
@@ -40,6 +40,8 @@
         <h:outputScript name="jquery/jquery-plugins.js" library="primefaces"/>
         <h:outputScript name="locales/locale-#{app.locale.language}.js" library="primefaces"/>
 
+        <h:outputStylesheet library="webjars" name="font-awesome/6.5.2/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/6.5.2/css/v4-shims.min-jsf.css" />
         <ui:insert name="head"/>
 
     </h:head>
@@ -116,7 +118,7 @@
                         </div>
                     </ui:insert>
 
-                    <div class="fixed bottom-0 col-12">
+                    <div class="fixed bottom-0 col-12 shadow-2">
                         <ui:include src="./footer.xhtml"/>
                     </div>
 
