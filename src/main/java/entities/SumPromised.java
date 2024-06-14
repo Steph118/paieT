@@ -12,12 +12,12 @@ import java.util.Objects;
  * @author steph18
  */
 @Entity
-@Table(name = "promesses")
-public class Promesse {
+@Table(name = "sumpromised")
+public class SumPromised {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "montant", nullable = false)
@@ -31,7 +31,11 @@ public class Promesse {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    public Promesse() {
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "loan_id")
+    private Loan loan;
+
+    public SumPromised() {
     }
 
     public Integer getId() {
@@ -66,6 +70,14 @@ public class Promesse {
         this.member = member;
     }
 
+    public Loan getLoan() {
+        return loan;
+    }
+
+    public void setLoan(Loan loan) {
+        this.loan = loan;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -84,7 +96,7 @@ public class Promesse {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Promesse other = (Promesse) obj;
+        final SumPromised other = (SumPromised) obj;
         return Objects.equals(this.id, other.id);
     }
 

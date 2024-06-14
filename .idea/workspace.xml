@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Entities persistance" />
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Entities persistance">
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumPaye.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumPaye.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/map/pages/admin/persons/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/map/pages/admin/persons/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,6 +134,7 @@
       <workItem from="1718134712499" duration="31000" />
       <workItem from="1718148867558" duration="923000" />
       <workItem from="1718232248954" duration="3447000" />
+      <workItem from="1718354760049" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />

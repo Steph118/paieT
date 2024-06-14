@@ -18,7 +18,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "localities_types")
-public class LocalityType {
+public class TypeLocality {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +28,10 @@ public class LocalityType {
     @Column(name = "label")
     private String label;
 
-    public LocalityType() {
+    public TypeLocality() {
     }
 
-    public LocalityType(Integer id, String label) {
+    public TypeLocality(Integer id, String label) {
         this.id = id;
         this.label = label;
     }
@@ -70,7 +70,7 @@ public class LocalityType {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final LocalityType other = (LocalityType) obj;
+        final TypeLocality other = (TypeLocality) obj;
         return Objects.equals(this.id, other.id);
     }
 

@@ -37,8 +37,11 @@ public class Entite {
     @Column(name = "label", length = 31, nullable = false)
     private String label;
 
-    @Column(name = "number", unique = true)
-    private Integer number;
+    @Column(name = "mail", unique = true)
+    private String mail;
+
+    @Column(name = "contact", unique = true)
+    private String contact;
 
     @Lob
     @Column(name = "logo")
@@ -53,7 +56,7 @@ public class Entite {
     })
     private Address addresse;
 
-    @ManyToOne(optional = false,fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "locality_id")
     private Locality locality;
 
@@ -76,12 +79,20 @@ public class Entite {
         this.label = label;
     }
 
-    public Integer getNumber() {
-        return number;
+    public String getMail() {
+        return mail;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public String getLogo() {
@@ -132,7 +143,7 @@ public class Entite {
 
     @Override
     public String toString() {
-        return "Entite{" + "id=" + id + ", label=" + label + ", number=" + number + ", logo=" + logo + ", addresse=" + addresse + ", locality=" + locality + '}';
+        return "Entite{" + "id=" + id + ", label=" + label + ", mail=" + mail + ", contact=" + contact + ", logo=" + logo + ", addresse=" + addresse + ", locality=" + locality + '}';
     }
 
 }

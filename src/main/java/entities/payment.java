@@ -14,33 +14,33 @@ import java.util.Objects;
  * @author steph18
  */
 @Entity
-@Table(name = "versements")
-public class Versement {
+@Table(name = "payments")
+public class payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "amount", nullable = false)
     private Double amount;
 
-    @Column(name = "date_versement", nullable = false)
-    private Date dateVersement;
+    @Column(name = "paymentDate", nullable = false)
+    private Date paymentDate;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_member")
     private Member member;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_sumpaye")
-    private SumPaye sumPaye;
+    @JoinColumn(name = "id_sumpaid")
+    private SumPaid sumPaid;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,11 +53,11 @@ public class Versement {
     }
 
     public Date getDateVersement() {
-        return dateVersement;
+        return paymentDate;
     }
 
     public void setDateVersement(Date dateVersement) {
-        this.dateVersement = dateVersement;
+        this.paymentDate = dateVersement;
     }
 
     public Member getMember() {
@@ -68,12 +68,12 @@ public class Versement {
         this.member = member;
     }
 
-    public SumPaye getSumPaye() {
-        return sumPaye;
+    public SumPaid getSumPaye() {
+        return sumPaid;
     }
 
-    public void setSumPaye(SumPaye sumPaye) {
-        this.sumPaye = sumPaye;
+    public void setSumPaye(SumPaid sumPaye) {
+        this.sumPaid = sumPaye;
     }
 
     @Override
@@ -94,13 +94,13 @@ public class Versement {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Versement other = (Versement) obj;
+        final payment other = (payment) obj;
         return Objects.equals(this.id, other.id);
     }
 
     @Override
     public String toString() {
-        return "Versement{" + "id=" + id + ", montant=" + amount + ", dateVersement=" + dateVersement + ", member=" + member + ", sumPaye=" + sumPaye + '}';
+        return "Versement{" + "id=" + id + ", montant=" + amount + ", dateVersement=" + paymentDate + ", member=" + member + ", sumPaye=" + sumPaid + '}';
     }
 
 }

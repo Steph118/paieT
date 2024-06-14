@@ -35,9 +35,6 @@ public class Permission {
     @ManyToMany(mappedBy = "permissions", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<Role> roles;
 
-    //@OneToMany(mappedBy = "permission", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    //private List<EntitePersonNotification> entitesPersonNotifications;
-
     public Permission() {
     }
 

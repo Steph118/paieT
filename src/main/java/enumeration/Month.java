@@ -23,19 +23,21 @@ public enum Month {
     NOV("Novembre"),
     DEC("Décembre");
 
-    private final String libelle;
+    private final String label;
 
     private Month(String libelle) {
-        this.libelle = libelle;
+        this.label = libelle;
     }
 
     public String getLibelle() {
-        return libelle;
+        return label;
     }
 
     @Override
     public String toString() {
-        return "Sexe{" + "name=" + name() + ", libelle=" + libelle + '}';
+        return "Month{" + " name=" + name() + ", label=" + label + '}';
     }
+
+    
 
 }

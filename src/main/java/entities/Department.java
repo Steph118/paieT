@@ -14,10 +14,10 @@ import java.util.Objects;
 @Table(name = "departments")
 public class Department {
     
-    private static final String MEN_DEPARTMENT = "MD";
-    private static final String WOMEN_DEPARTMENT = "WD";
-    private static final String CHILDREEN_DEPARTMENT = "CD";
-    private static final String YOUNG_DEPARTMENT = "YD";
+    public static final String MEN_DEPARTMENT = "MD";
+    public static final String WOMEN_DEPARTMENT = "WD";
+    public static final String CHILDREEN_DEPARTMENT = "CD";
+    public static final String YOUNG_DEPARTMENT = "YD";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

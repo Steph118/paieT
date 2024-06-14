@@ -21,7 +21,7 @@ import java.util.Objects;
  * @author Mediasoft
  */
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     
     @Id
@@ -29,14 +29,17 @@ public class User {
     @Column(name = "id")
     private Integer id;
     
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "username", nullable = false)
+    private String username;
     
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
     
     @Column(name = "actif")
     private boolean actif;
+    
+    @Column(name = "change_password")
+    private boolean changePassword;
     
     @ManyToMany
     @JoinTable(
@@ -58,11 +61,11 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {
@@ -79,6 +82,14 @@ public class User {
 
     public void setActif(boolean actif) {
         this.actif = actif;
+    }
+
+    public boolean isChangePassword() {
+        return changePassword;
+    }
+
+    public void setChangePassword(boolean changePassword) {
+        this.changePassword = changePassword;
     }
 
     public List<Role> getRoles() {
@@ -113,7 +124,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", userName=" + userName + ", password=" + password + ", actif=" + actif + '}';
+        return "User{" + "id=" + id + ", userName=" + username + ", password=" + password + ", actif=" + actif + ", changePassword=" + changePassword + '}';
     }
 
 }

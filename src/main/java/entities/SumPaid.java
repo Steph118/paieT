@@ -9,41 +9,40 @@ package entities;
  * @author steph18
  */
 import enumeration.Month;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "sumpayes")
-public class SumPaye {
+@Table(name = "sumpaid")
+public class SumPaid {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
-    @Column(name = "montant", nullable = false)
+    @Column(name = "amount", nullable = false)
     private Double amount;
 
-    @Column(name = "paye")
-    private boolean paye;
+    @Column(name = "paid")
+    private boolean paid;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "month")
     private Month month;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "promesse_id")
-    private Promesse promesse;
+    @JoinColumn(name = "sumpromised_id")
+    private SumPromised sumPromised;
 
-    public SumPaye() {
+    public SumPaid() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -56,11 +55,11 @@ public class SumPaye {
     }
 
     public boolean isPaye() {
-        return paye;
+        return paid;
     }
 
     public void setPaye(boolean paye) {
-        this.paye = paye;
+        this.paid = paye;
     }
 
     public Month getMonth() {
@@ -71,12 +70,12 @@ public class SumPaye {
         this.month = month;
     }
 
-    public Promesse getPromesse() {
-        return promesse;
+    public SumPromised getPromesse() {
+        return sumPromised;
     }
 
-    public void setPromesse(Promesse promesse) {
-        this.promesse = promesse;
+    public void setPromesse(SumPromised promesse) {
+        this.sumPromised = promesse;
     }
 
     @Override
@@ -97,13 +96,13 @@ public class SumPaye {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SumPaye other = (SumPaye) obj;
+        final SumPaid other = (SumPaid) obj;
         return Objects.equals(this.id, other.id);
     }
 
     @Override
     public String toString() {
-        return "SumPaye{" + "id=" + id + ", amount=" + amount + ", paye=" + paye + ", month=" + month + ", promesse=" + promesse + '}';
+        return "SumPaye{" + "id=" + id + ", amount=" + amount + ", paye=" + paid + ", month=" + month + ", promesse=" + sumPromised + '}';
     }
 
 }

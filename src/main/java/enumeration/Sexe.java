@@ -13,19 +13,19 @@ public enum Sexe {
     M("Masculin"),
     F("Féminin");
     
-    private final String libelle;
+    private final String label;
 
     private Sexe(String libelle) {
-        this.libelle = libelle;
+        this.label = libelle;
     }
 
     public String getLibelle() {
-        return libelle;
+        return label;
     }  
 
     @Override
     public String toString() {
-        return "Sexe{" + "name=" + name() + ", libelle=" + libelle + '}';
+        return "Sexe{" + "name=" + name() + ", libelle=" + label + '}';
     }
     
 }
