@@ -5,11 +5,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="jakarta.faces.facelets">
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/paie/templates/layout-list.xhtml">
-        <ui:define name="content">
-
-            <h3>List entities</h3>
+        <ui:define name="list-title">
+            Années
+        </ui:define>
+        <ui:define name="breadCrumb">
+            Reference > Années
+        </ui:define>
+        <ui:define name="table-title" >
+            Années
+        </ui:define>
+        <ui:define name="add-column" >
+            <p:column headerText="Valeur">
+                
+            </p:column>
         </ui:define>
     </ui:composition>
 </html>

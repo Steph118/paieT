@@ -5,10 +5,102 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="jakarta.faces.facelets">
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
     <ui:composition template="/WEB-INF/template.xhtml">
         <ui:define name="content">
-            
+            <h:form>
+                <div class="grid m-3">
+                    <div class="col-12 flex justify-content-between flex-wrap">
+                        <div class="flex align-items-center justify-content-center font-bold">
+                            <h3>
+                                <ui:insert name="list-title">
+                                    Title
+                                </ui:insert>
+                            </h3>
+                        </div>
+                        <div class="flex align-items-center justify-content-center font-bold">
+                            <p:breadCrumb class="border-0">
+                                <p:menuitem value="Home" outcome="/index.xhtml"/>
+                                <p:menuitem>
+                                    <ui:insert name="breadCrumb">
+                                        BreadCrumb - title
+                                    </ui:insert>
+                                </p:menuitem>
+                            </p:breadCrumb>
+                        </div>
+                        <p:divider />
+
+                    </div>
+
+                    <div>
+                        <p:card>
+                            <div>
+                                <p:toolbar>
+                                    <p:toolbarGroup>
+                                        <p:button outcome="edit.xhtml"  value="Nouveau" icon="pi pi-plus" styleClass="ui-button-success sm:m-2 m-2 lg:mr-1 md:mr-1"/>
+
+                                        <ui:insert name="add-btn"/>
+
+                                        <!--                                        <p:commandButton id="delete-products-button" 
+                                                                                                 icon="pi pi-trash" 
+                                                                                                 styleClass="ui-button-danger"/>-->
+                                    </p:toolbarGroup>
+                                    <p:toolbarGroup  align="right">
+                                        <p:commandButton value="Export PDF" icon="pi pi-upload" styleClass="ui-button-help sm:m-2 m-2 lg:mr-1 md:mr-1" ajax="false">
+                                            <p:dataExporter type="pdf" target="dt-products" fileName="products" />
+                                        </p:commandButton> 
+                                        <p:commandButton value="Export XCL" icon="pi pi-upload" styleClass="ui-button-help sm:m-2 m-2 lg:ml-1 md:ml-1" ajax="false">
+                                            <p:dataExporter type="pdf" target="dt-products" fileName="products" />
+                                        </p:commandButton>
+                                    </p:toolbarGroup>
+                                </p:toolbar>
+                            </div>
+
+                            <div class="mt-5">
+                                <ui:insert name="content-list">
+                                    <p:dataTable  id="table" rows="10" paginatorPosition="bottom" paginator="true" 
+                                                  value="" var="e" emptyMessage="Aucun enregistrement">
+                                        <f:facet name="header">
+                                            <div class="flex align-items-center justify-content-between">
+                                                <span class="text-1xl text-600">
+                                                    <ui:insert name="table-title" >
+                                                        Table header
+                                                    </ui:insert>
+                                                </span>
+                                                <ui:insert name="input-header"/>
+                                                <div class="flex align-items-center justify-content-end">
+                                                    <p:inputText class="m-2" id="globalFilter" onkeyup="PF('table').filter()"
+                                                                 placeholder="Enter keyword" />
+                                                    <ui:insert class="table-filters"/>
+                                                </div>
+                                            </div>
+
+                                        </f:facet>
+                                        <ui:insert name="add-column"/>
+                                        <p:column headerText="Opérations">
+                                            <div class="flex align-items-center justify-content-start">
+                                                <ui:insert name="operations-btn">
+                                                    <p:button class="ui-button-primary m-1" icon="pi pi-edit"
+                                                              outcome="edit.xhtml"/>
+                                                    <p:button class="ui-button-secondary m-1" icon="pi pi-infos"
+                                                              outcome="details.xhtml"/>
+                                                    <p:button class="ui-button-danger m-1" icon="pi pi-trash" />
+                                                </ui:insert>
+                                                <ui:insert name="add-operations-btn"/>
+                                            </div>
+                                        </p:column>
+                                    </p:dataTable>
+                                </ui:insert>
+                            </div>
+
+                        </p:card>
+
+                    </div>
+                </div>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

@@ -14,7 +14,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "countries")
 public class Country {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -25,6 +25,9 @@ public class Country {
 
     @Column(name = "code_iso", nullable = false)
     private String codeIso;
+
+    @Column(name = "phone_code", nullable = false)
+    private String phoneCode;
 
     public Country() {
     }
@@ -58,6 +61,14 @@ public class Country {
         this.codeIso = codeIso;
     }
 
+    public String getPhoneCode() {
+        return phoneCode;
+    }
+
+    public void setPhoneCode(String phoneCode) {
+        this.phoneCode = phoneCode;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -82,7 +93,7 @@ public class Country {
 
     @Override
     public String toString() {
-        return "Country{" + "id=" + id + ", label=" + label + ", codeIso=" + codeIso + '}';
+        return "Country{" + "id=" + id + ", label=" + label + ", codeIso=" + codeIso + ", phoneCode=" + phoneCode + '}';
     }
-    
+
 }

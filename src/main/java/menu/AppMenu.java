@@ -24,7 +24,6 @@ public class AppMenu {
         List<MenuItem> referenceMenus = new ArrayList<>();
         List<MenuItem> paiMenus = new ArrayList<>();
 
-
         administrationMenus.add(new MenuItem("Utilisateurs", "/paie/pages/admin/users/list.xhtml", "fa-solid fa-users"));
         administrationMenus.add(new MenuItem("Rôles", "/paie/pages/admin/roles/list.xhtml", "fa-solid fa-viruses"));
         administrationMenus.add(new MenuItem("Entites", "/paie/pages/admin/entites/list.xhtml", "fa-brands fa-centercode"));
@@ -37,11 +36,11 @@ public class AppMenu {
         referenceMenus.add(new MenuItem("Sexe", "/paie/pages/admin/references/sexe/list.xhtml", "fa-solid fa-genderless"));
         referenceMenus.add(new MenuItem("Départements", "/paie/pages/admin/references/department/list.xhtml", "fa-solid fa-users-viewfinder"));
         referenceMenus.add(new MenuItem("Années", "/paie/pages/admin/references/annees/list.xhtml", "fa-regular fa-calendar"));
-        
+
+        paiMenus.add(new MenuItem("Promesses", "/paie/pages/admin/pay/promised/list.xhtml", "fa-solid fa-handshake-slash"));
         paiMenus.add(new MenuItem("Paiements", "/paie/pages/admin/pay/payment/list.xhtml", "fa-solid fa-money-check"));
-        paiMenus.add(new MenuItem("Promesses", "/paie/pages/admin/pay/promised/list.xhtml", "fa-regular fa-calendar"));
-        paiMenus.add(new MenuItem("Sommes payés", "/paie/pages/admin/pay/sum-pay/list.xhtml", "fa-solid fa-handshake-slash"));
-        
+        paiMenus.add(new MenuItem("Sommes payés", "/paie/pages/admin/pay/sum-pay/list.xhtml", "fa-solid fa-money-bills"));
+
         menuCategories.add(new MenuCategory("Administration", administrationMenus));
         menuCategories.add(new MenuCategory("References", referenceMenus));
         menuCategories.add(new MenuCategory("Paiements", paiMenus));
