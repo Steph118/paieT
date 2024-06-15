@@ -8,8 +8,10 @@ package entities;
  *
  * @author steph18
  */
+
 import enumeration.Month;
 import jakarta.persistence.*;
+
 import java.util.Objects;
 
 @Entity

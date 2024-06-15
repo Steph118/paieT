@@ -8,6 +8,7 @@ package entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.xml.bind.annotation.XmlTransient;
+
 import java.io.Serializable;
 
 /**

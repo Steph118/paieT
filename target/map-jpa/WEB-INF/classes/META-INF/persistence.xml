@@ -3,7 +3,7 @@
     <persistence-unit name="map_jpa_pu" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>java:app/jdbc/map-jpa</jta-data-source>
-        <!--<jar-file>lib/ms-compta-api-${project.version}.jar</jar-file>-->
+        <!--<jar-file>lib/ms-compta-api-1.0-SNAPSHOT.jar</jar-file>-->
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>

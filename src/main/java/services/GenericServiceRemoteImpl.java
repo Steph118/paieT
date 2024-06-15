@@ -5,8 +5,9 @@
 package services;
 
 import dao.RepositoryDao;
-import java.io.Serializable;
 import service.interfaces.GenericServiceRemote;
+
+import java.io.Serializable;
 
 /**
  *

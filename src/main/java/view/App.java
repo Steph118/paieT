@@ -1,14 +1,12 @@
 package view;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
-
-//import org.primefaces.showcase.domain.Country;
+import org.primefaces.context.PrimeApplicationContext;
 
 import java.io.Serializable;
 import java.util.Locale;
-import jakarta.faces.context.FacesContext;
-import org.primefaces.context.PrimeApplicationContext;
 
 @Named
 @SessionScoped
