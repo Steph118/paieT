@@ -13,34 +13,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
         <ui:define name="content">
             <h:form>
                 <div class="grid m-3">
-                    <div class="col-12 flex justify-content-between flex-wrap">
-                        <div class="flex align-items-center justify-content-center font-bold">
-                            <h3>
-                                <ui:insert name="list-title">
-                                    Title
-                                </ui:insert>
-                            </h3>
-                        </div>
-                        <div class="flex align-items-center justify-content-center font-bold">
-                            <p:breadCrumb class="border-0">
-                                <p:menuitem value="Home" outcome="/index.xhtml"/>
-                                <p:menuitem>
-                                    <ui:insert name="breadCrumb">
-                                        BreadCrumb - title
-                                    </ui:insert>
-                                </p:menuitem>
-                            </p:breadCrumb>
-                        </div>
-                        <p:divider />
-
-                    </div>
-
+                    <ui:include src="head-title.xhtml"/>
                     <div>
                         <p:card>
                             <div>
                                 <p:toolbar>
                                     <p:toolbarGroup>
-                                        <p:button outcome="edit.xhtml"  value="Nouveau" icon="pi pi-plus" styleClass="ui-button-success sm:m-2 m-2 lg:mr-1 md:mr-1"/>
+                                        <p:button outcome="edit?faces-redirect=true"  value="Nouveau" icon="pi pi-plus" styleClass="ui-button-success sm:m-2 m-2 lg:mr-1 md:mr-1"/>
 
                                         <ui:insert name="add-btn"/>
 
@@ -80,16 +59,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 
                                         </f:facet>
                                         <ui:insert name="add-column"/>
-                                        <p:column headerText="Opérations">
-                                            <div class="flex align-items-center justify-content-start">
+                                        <p:column headerText="Opérations" style="text-align: center">
+                                            <div class="flex align-items-center justify-content-center">
                                                 <ui:insert name="operations-btn">
-                                                    <p:button class="ui-button-primary m-1" icon="pi pi-edit"
+                                                    <p:tooltip value="Éditer" for="editButton" position="top"/>
+                                                    <p:button id="editButton" class="ui-button-primary m-1" icon="fa fa-edit"
                                                               outcome="edit.xhtml"/>
-                                                    <p:button class="ui-button-secondary m-1" icon="pi pi-infos"
+
+                                                    <p:tooltip value="Détails" for="detailsButton" position="top"/>
+                                                    <p:button id="detailsButton" class="ui-button-success m-1" icon="pi pi-info-circle"
                                                               outcome="details.xhtml"/>
-                                                    <p:button class="ui-button-danger m-1" icon="pi pi-trash" />
+
+                                                    <p:tooltip value="Supprimer" for="deleteButton" position="top"/>
+                                                    <p:button id="deleteButton" class="ui-button-danger m-1" icon="pi pi-trash" />
+                                                    <ui:insert name="add-operations-btn"/>
                                                 </ui:insert>
-                                                <ui:insert name="add-operations-btn"/>
                                             </div>
                                         </p:column>
                                     </p:dataTable>

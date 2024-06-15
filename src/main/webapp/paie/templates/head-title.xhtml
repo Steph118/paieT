@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+        <div class="col-12 flex justify-content-between flex-wrap">
+            <div class="flex align-items-center justify-content-center font-bold">
+                <h3>
+                    <ui:insert name="list-title">
+                        Title
+                    </ui:insert>
+                </h3>
+            </div>
+            <div class="flex align-items-center justify-content-center font-bold">
+                <p:breadCrumb class="border-0">
+                    <p:menuitem value="Home" outcome="/index.xhtml"/>
+                    <p:menuitem>
+                        <ui:insert name="breadCrumb">
+                            BreadCrumb - title
+                        </ui:insert>
+                    </p:menuitem>
+                </p:breadCrumb>
+            </div>
+            <p:divider />
+
+        </div>
+    </ui:composition>
+</html>
