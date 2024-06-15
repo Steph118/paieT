@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "sumpaid")
-public class SumPaid {
+public class SumPaid extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,11 +4,13 @@
  */
 package entities;
 
+import jakarta.persistence.DiscriminatorValue;
+
 /**
  *
  * @author steph18
  */
-
+@DiscriminatorValue(value = "cont")
 public class Contributor extends Person{
     
 }

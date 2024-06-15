@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "books")
-public class Book {
+public class Book extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

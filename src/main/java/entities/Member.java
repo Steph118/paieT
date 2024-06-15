@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "members")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

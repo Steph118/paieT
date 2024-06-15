@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "sumpromised")
-public class SumPromised {
+public class SumPromised extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

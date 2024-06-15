@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "departments")
-public class Department {
+public class Department extends BaseEntity{
     
     public static final String MEN_DEPARTMENT = "MD";
     public static final String WOMEN_DEPARTMENT = "WD";

@@ -22,7 +22,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "loans")
-public class Loan {
+public class Loan extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

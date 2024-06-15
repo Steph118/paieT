@@ -10,13 +10,15 @@ package entities;
  */
 import enumeration.Sexe;
 import jakarta.persistence.*;
-import java.io.Serializable;
 
 import java.util.*;
 
 @Entity
 @Table(name = "persons")
-public class Person implements Serializable {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_person")
+@DiscriminatorValue(value = "pers")
+public class Person extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -185,7 +187,5 @@ public class Person implements Serializable {
     public String toString() {
         return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", user=" + user + ", locality=" + locality + ", Sexe=" + Sexe + ", address=" + address + ", phones=" + phones + '}';
     }
-
-    
 
 }

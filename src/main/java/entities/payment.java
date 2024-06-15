@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "payments")
-public class payment {
+public class payment extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

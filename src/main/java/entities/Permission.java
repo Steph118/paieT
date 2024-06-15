@@ -22,7 +22,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "permissions")
-public class Permission {
+public class Permission extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

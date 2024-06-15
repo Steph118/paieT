@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "localities")
-public class Locality {
+public class Locality extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

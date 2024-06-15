@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.Objects;
 
 /**
  *
@@ -12,7 +13,8 @@ import jakarta.persistence.*;
  */
 @Entity
 @Table(name = "year")
-public class Year {
+public class Year extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -21,11 +23,49 @@ public class Year {
     @Column(name = "value", nullable = false)
     private Integer value;
 
+    public Year() {
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Year other = (Year) obj;
+        return Objects.equals(this.id, other.id);
+    }
+
+    @Override
+    public String toString() {
+        return "Year{" + "id=" + id + ", value=" + value + '}';
     }
 }

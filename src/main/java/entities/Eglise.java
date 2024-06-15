@@ -10,10 +10,8 @@ import jakarta.persistence.*;
  *
  * @author steph18
  */
-
 @Entity
-@Table(name = "eglises")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Eglise extends Entite{
+@DiscriminatorValue(value = "EG")
+public class Eglise extends Entite {
 
 }
