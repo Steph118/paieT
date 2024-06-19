@@ -4,7 +4,6 @@
  */
 package service.interfaces;
 
-import entities.Department;
 import entities.Eglise;
 import jakarta.ejb.Local;
 

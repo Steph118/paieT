@@ -15,6 +15,9 @@ import java.io.Serializable;
 public abstract class GenericBean<E extends Serializable, ID>
         implements Serializable {
 
+    private E e;
+    private ID id;
+
     protected void init() {
 
     }
@@ -55,4 +58,11 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     }
 
+    public E getE() {
+        return e;
+    }
+
+    public void setE(E e) {
+        this.e = e;
+    }
 }

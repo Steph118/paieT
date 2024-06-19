@@ -6,7 +6,6 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -15,7 +14,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "countries")
-public class Country implements Serializable{
+public class Country extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,16 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Entities persistance">
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" afterDir="false" />
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Dao and service creation">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/paieT-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/EgliseServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/EgliseServiceLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/EntiteServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/EntiteServiceLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Permission.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Role.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/map-jpa.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/bean/GenericBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Entite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Permission.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Role.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/map/pages/admin/persons/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/map/pages/admin/persons/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/AppMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/view/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/view/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/topbar.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -82,7 +101,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/steph18/NetBeansProjects/map-jpa&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -91,13 +110,20 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="services" />
+      <recent name="service.interfaces" />
+      <recent name="dao" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -135,6 +161,10 @@
       <workItem from="1718232248954" duration="3447000" />
       <workItem from="1718354760049" duration="13000" />
       <workItem from="1718368910697" duration="75000" />
+      <workItem from="1718490626191" duration="1350000" />
+      <workItem from="1718618505810" duration="11000" />
+      <workItem from="1718621713362" duration="4414000" />
+      <workItem from="1718793672930" duration="115000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -179,7 +209,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -191,5 +233,9 @@
     <MESSAGE value="git ignore snapshot" />
     <MESSAGE value="Entities persistance" />
     <option name="LAST_COMMIT_MESSAGE" value="Entities persistance" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

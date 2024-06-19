@@ -6,9 +6,9 @@ package dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,12 +43,14 @@ public abstract class RepositoryDao<E extends Serializable, ID> {
     }
 
     public E find(E e) {
-        String query = "SELECT e FROM " + getEntityClass() + " WHERE e.id = 2";
+        String query = "SELECT e FROM " + getEntityClass() + " WHERE e.id  :id";
+        Query q = this.em.createQuery(query);
         return e;
     }
 
     public List<E> findAll() {
-        String query = "SELECT e FROM " + getEntityClass();
-        return new ArrayList<>();
+        String query = "SELECT e FROM " + getEntityClass() + " e ";
+        return this.em.createQuery(query).getResultList();
+        
     }
 }
