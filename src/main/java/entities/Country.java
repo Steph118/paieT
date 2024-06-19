@@ -33,11 +33,6 @@ public class Country extends BaseEntity{
     public Country() {
     }
 
-    public Country(String label, String codeIso) {
-        this.label = label;
-        this.codeIso = codeIso;
-    }
-
     public Integer getId() {
         return id;
     }

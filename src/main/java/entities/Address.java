@@ -11,7 +11,7 @@ import jakarta.persistence.Embeddable;
  */
 @Embeddable
 @Access(AccessType.FIELD)
-public class Address extends BaseEntity{
+public class Address{
 
     @Column(name = "street")
     private String street;

@@ -15,4 +15,6 @@ import jakarta.persistence.Entity;
 @DiscriminatorValue(value = "EG")
 public class Eglise extends Entite {
 
+    public Eglise() {
+    }
 }

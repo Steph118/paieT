@@ -100,7 +100,7 @@ public class payment extends BaseEntity{
 
     @Override
     public String toString() {
-        return "Versement{" + "id=" + id + ", montant=" + amount + ", dateVersement=" + paymentDate + ", member=" + member + ", sumPaye=" + sumPaid + '}';
+        return "payment{" + "id=" + id + ", amount=" + amount + ", paymentDate=" + paymentDate + ", member=" + member + ", sumPaid=" + sumPaid + '}';
     }
 
 }

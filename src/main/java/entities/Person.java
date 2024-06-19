@@ -20,7 +20,7 @@ import java.util.Set;
 @Entity
 @Table(name = "persons")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type_person")
+@DiscriminatorColumn(name = "person_type")
 @DiscriminatorValue(value = "pers")
 public class Person extends BaseEntity {
 

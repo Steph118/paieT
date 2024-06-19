@@ -7,7 +7,6 @@ package entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
-import jakarta.xml.bind.annotation.XmlTransient;
 
 import java.io.Serializable;
 
@@ -19,12 +18,10 @@ import java.io.Serializable;
 public class BaseEntity implements Serializable {
 
     protected static final long serialVersionUID = 1L;
-    
-    @XmlTransient
+
     @Column(name = "version", nullable = false)
     private int version = 1;
 
-    @XmlTransient
     public int getVersion() {
         return version;
     }

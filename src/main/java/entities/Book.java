@@ -63,11 +63,11 @@ public class Book extends BaseEntity{
         }
         final Book other = (Book) obj;
         return Objects.equals(this.id, other.id);
-    }
+    }   
 
     @Override
     public String toString() {
         return "Book{" + "id=" + id + ", member=" + member + '}';
     }
-        
+
 }

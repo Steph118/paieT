@@ -7,7 +7,6 @@ package domains.audit;
 import entities.BaseAuditEntity;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-
 import java.time.LocalDateTime;
 
 /**
@@ -15,12 +14,13 @@ import java.time.LocalDateTime;
  * @author mawuli
  */
 public class AuditListener {
+
     @PrePersist
     public void setCreatedOn(BaseAuditEntity auditable) {
         auditable.setCreatedAt(LocalDateTime.now());
         auditable.setCreatedBy(LoggedUser.get());
     }
- 
+
     @PreUpdate
     public void setUpdatedOn(BaseAuditEntity auditable) {
         auditable.setUpdatedAt(LocalDateTime.now());
