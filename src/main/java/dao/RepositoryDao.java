@@ -6,9 +6,11 @@ package dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -16,41 +18,72 @@ import java.util.List;
  * @param <E>
  * @param <ID>
  */
-public abstract class RepositoryDao<E extends Serializable, ID> {
+public class RepositoryDao<E extends Serializable, ID> {
 
     @PersistenceContext
     protected EntityManager em;
 
-    public abstract Class<E> getEntityClass();
+    private final Class<E> entityClass;
 
-    public abstract ID getId(E entity);
+    public RepositoryDao(Class<E> entityClass) {
+        this.entityClass = entityClass;
+    }
 
     public void save(E entity) {
         this.em.persist(entity);
     }
 
-    public void update(E entity) {
-        this.em.merge(entity);
+    public E update(E entity) {
+        return this.em.merge(entity);
+    }
+
+    public boolean isUpdate(E entity) {
+        return this.em.merge(entity) != null;
     }
 
     public void delete(ID id) {
         this.em.remove(this.findById(id));
     }
 
+    public void delete(E e) {
+        this.em.remove(this.em.merge(e));
+    }
+
+    public void deleteAll() {
+        String jpql = "DELETE FROM " + this.entityClass.getSimpleName();
+        Query query = this.em.createQuery(jpql);
+        query.executeUpdate();
+    }
+
     public E findById(ID id) {
-        return this.em.find(this.getEntityClass(), id);
+        return this.em.find(this.entityClass, id);
     }
 
-    public E find(E e) {
-//        String query = "SELECT e FROM " + getEntityClass() + " WHERE e.id  :id";
-//        Query q = this.em.createQuery(query);
-        return e;
+    public boolean exists(ID id) {
+        return this.findById(id) != null;
     }
 
-    public List<E> findAll() {
-//        String query = "SELECT e FROM " + getEntityClass() + " e ";
-//        return this.em.createQuery(query).getResultList();
-        return null;
-
+    public E getReference(ID id) {
+        return this.em.getReference(this.entityClass, id);
     }
+
+    public Optional<E> FindByIdOpt(ID id) {
+        if (id == null) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(this.em.find(this.entityClass, id));
+    }
+
+    public List<E> getAll() {
+        String jpql = "SELECT e FROM " + this.entityClass.getSimpleName() + " e";
+        Query query = this.em.createQuery(jpql);
+        return query.getResultList();
+    }
+
+    public Long count() {
+        String jpql = "SELECT COUNT(e) FROM " + this.entityClass.getSimpleName() + " e";
+        Query query = this.em.createQuery(jpql);
+        return (Long) query.getSingleResult();
+    }
+
 }

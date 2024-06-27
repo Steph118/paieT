@@ -11,15 +11,9 @@ import entities.Country;
  * @author steph18
  */
 public class CountryDao extends RepositoryDao<Country, Integer> {
-
-    @Override
-    public Class<Country> getEntityClass() {
-        return Country.class;
-    }
-
-    @Override
-    public Integer getId(Country country) {
-        return country.getId();
+    
+    public CountryDao(Class<Country> entityClass) {
+        super(entityClass);
     }
     
 }

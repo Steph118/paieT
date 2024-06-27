@@ -11,15 +11,9 @@ import entities.Department;
  * @author steph18
  */
 public class DepartmentDao extends RepositoryDao<Department, Integer> {
-
-    @Override
-    public Class<Department> getEntityClass() {
-        return Department.class;
-    }
-
-    @Override
-    public Integer getId(Department department) {
-        return department.getId();
+    
+    public DepartmentDao(Class<Department> entityClass) {
+        super(entityClass);
     }
     
 }

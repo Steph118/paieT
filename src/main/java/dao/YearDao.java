@@ -12,14 +12,8 @@ import entities.Year;
  */
 public class YearDao extends RepositoryDao<Year, Integer> {
 
-    @Override
-    public Class<Year> getEntityClass() {
-        return Year.class;
-    }
-
-    @Override
-    public Integer getId(Year year) {
-        return year.getId();
+    public YearDao(Class<Year> entityClass) {
+        super(entityClass);
     }
 
 }

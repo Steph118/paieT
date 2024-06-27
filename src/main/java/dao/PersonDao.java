@@ -12,14 +12,8 @@ import entities.Person;
  */
 public class PersonDao extends RepositoryDao<Person, Integer> {
 
-    @Override
-    public Class<Person> getEntityClass() {
-        return Person.class;
-    }
-
-    @Override
-    public Integer getId(Person person) {
-        return person.getId();
+    public PersonDao(Class<Person> entityClass) {
+        super(entityClass);
     }
 
 }

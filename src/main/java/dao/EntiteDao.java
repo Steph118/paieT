@@ -11,15 +11,9 @@ import entities.Entite;
  * @author steph18
  */
 public class EntiteDao extends RepositoryDao<Entite, Integer> {
-
-    @Override
-    public Class<Entite> getEntityClass() {
-        return Entite.class;
-    }
-
-    @Override
-    public Integer getId(Entite entite) {
-        return entite.getId();
+    
+    public EntiteDao(Class<Entite> entityClass) {
+        super(entityClass);
     }
     
 }

@@ -12,14 +12,8 @@ import entities.Contributor;
  */
 public class ContributorDao extends RepositoryDao<Contributor, Integer> {
 
-    @Override
-    public Class<Contributor> getEntityClass() {
-        return Contributor.class;
-    }
-
-    @Override
-    public Integer getId(Contributor contributor) {
-        return contributor.getId();
+    public ContributorDao(Class<Contributor> entityClass) {
+        super(entityClass);
     }
     
 }
