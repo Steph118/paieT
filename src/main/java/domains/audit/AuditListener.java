@@ -7,10 +7,10 @@ package domains.audit;
 import entities.BaseAuditEntity;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
+
 import java.time.LocalDateTime;
 
 /**
- *
  * @author mawuli
  */
 public class AuditListener {

@@ -1,4 +1,6 @@
 /src/main/filters/
-nb-configuration.xml
 target
 .gitignore
+faces-config.NavData
+map-jpa.iml
+nb-configuration.xml

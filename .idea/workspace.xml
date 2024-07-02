@@ -1,99 +1,547 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Dao and service creation">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/paieT-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/EgliseServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/EgliseServiceLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/EntiteServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/EntiteServiceLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Permission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/bean/GenericBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Entite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Permission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/AppMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/view/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/view/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/map-jpa/WEB-INF/topbar.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="jsf" />
-        <option value="HTML File" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
+    <component name="AutoImportSettings">
+        <option name="autoReloadType" value="SELECTIVE" />
+    </component>
+    <component name="ChangeListManager">
+        <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Dao and service creation">
+            <change afterPath="$PROJECT_DIR$/src/main/java/bean/CountryBean.java" afterDir="false" />
+            <change afterPath="$PROJECT_DIR$/src/main/java/exception/BusinessException.java" afterDir="false" />
+            <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nb-configuration.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/filters/snapshot.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/filters/snapshot.properties" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/configuration/JakartaRestConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/configuration/JakartaRestConfiguration.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/ContributorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ContributorDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/CountryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CountryDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DepartmentDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/EgliseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EgliseDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/EntiteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EntiteDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/dao/YearDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/YearDao.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/domains/audit/AuditListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domains/audit/AuditListener.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/domains/audit/LoggedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domains/audit/LoggedUser.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Address.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/BaseAuditEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/BaseAuditEntity.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/BaseEntity.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Book.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Contributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Contributor.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Country.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Department.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Entite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Entite.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Loan.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Locality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Locality.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Member.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Permission.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Person.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Role.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumContributor.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumPaid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumPaid.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumPromised.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumPromised.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/TypeLocality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/TypeLocality.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/Year.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Year.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/entities/payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/payment.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/enumeration/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enumeration/Month.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/enumeration/Sexe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enumeration/Sexe.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/menu/MenuCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/MenuCategory.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/menu/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/MenuItem.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/resources/JakartaEE10Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/JakartaEE10Resource.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/ContributorServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/ContributorServiceLocal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/CountryServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/CountryServiceLocal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/DepartmentServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/DepartmentServiceLocal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/EgliseServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/EgliseServiceLocal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/EntiteServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/EntiteServiceLocal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/GenericServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/GenericServiceLocal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/GenericServiceRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/GenericServiceRemote.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/PersonServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/PersonServiceLocal.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/ContributorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ContributorService.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/CountryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CountryService.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/DepartmentService.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/EgliseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/EgliseService.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/EntiteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/EntiteService.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/GenericServiceLocalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GenericServiceLocalImpl.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/GenericServiceRemoteImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GenericServiceRemoteImpl.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/PersonService.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/view/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/App.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/footer.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/footer.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-resources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-resources.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/tabscode.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/tabscode.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/members/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/members/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/members/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/members/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/members/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/members/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/locality/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/locality/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/locality/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/locality/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/locality/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/locality/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/head-title.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/head-title.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-details.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-edit.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/flags/flags.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/flags/flags.css" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_animation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_animation.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_config.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_config.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_content.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_core.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_demo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_demo.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_error.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_error.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_footer.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_home.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_menu.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_mixins.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_news.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_news.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_responsive.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_syntax.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_syntax.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_topbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/_topbar.scss" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/layout/layout.css" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/primeflex3.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/css/primeflex3.css" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/asset-404.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/asset-404.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/layouts/poseidon-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/layouts/poseidon-logo.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/layouts/rain-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/layouts/rain-logo.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/menu/banner-primeflex-dark.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/menu/banner-primeflex-dark.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/menu/banner-primeflex.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/menu/banner-primeflex.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/news/topbar-newyear-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/news/topbar-newyear-logo.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/primefaces-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/primefaces-logo.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-dark-blue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-dark-blue.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-dark-purple.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-dark-purple.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-light-blue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-light-blue.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-light-purple.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/themes/bootstrap4-light-purple.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/airbus.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/airbus.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/amex.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/amex.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/ebay.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/ebay.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/ford.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/ford.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/fox.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/fox.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/generali.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/generali.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/hp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/hp.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/lufthansa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/lufthansa.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/mercedes.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/mercedes.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/nike.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/nike.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/nvidia.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/nvidia.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/sap.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/sap.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/siemens.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/siemens.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/unicredit.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/unicredit.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/verizon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/verizon.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/viacom.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/viacom.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/volvo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/volvo.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/vw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/images/whouses/vw.svg" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.autosize.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.autosize.d.ts" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.autosize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.autosize.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.browser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.browser.d.ts" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.browser.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.caretposition.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.caretposition.d.ts" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.caretposition.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.caretposition.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.mousewheel.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.mousewheel.d.ts" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.mousewheel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.mousewheel.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.rangy.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.rangy.d.ts" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.rangy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.rangy.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.css" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.pfextensions.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.pfextensions.css" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.pfextensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.pfextensions.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.touch-punch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/jquery/jquery.ui.touch-punch.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ar.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-bg.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ca.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ckb.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ckb.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-cs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-cs.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-da.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-da.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-de.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-de.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-el.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-el.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-en.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-en.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-es.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-es.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-fa.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-fi.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-fr.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-he.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-he.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-hi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-hi.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-hr.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-hu.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-in.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-it.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-it.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ja.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-kk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-kk.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-km.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-km.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ko.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ko.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ky.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ky.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-lt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-lt.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-lv.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-lv.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ms.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ms.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-nl.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-no.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-no.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-pl.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-pt.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ro.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-ru.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sk.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sl.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sr.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-sv.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-th.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-th.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-tr.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-uk.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-uk.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-vi.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-zh.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/locales/locale-zh.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/showcase/script/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/showcase/script/layout.js" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entite.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/entities/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Permission.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Person.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/entities/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Role.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/User.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/menu/MenuCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/MenuCategory.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/resources/JakartaEE10Resource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resources/JakartaEE10Resource.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceLocal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceLocal.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/services/PersonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/PersonService.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/classes/view/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/App.class" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa.war" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/beans.xml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/bean/GenericBean.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/configuration/JakartaRestConfiguration.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/PersonDao.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/dao/RepositoryDao.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Entite.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Permission.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Person.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/Role.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/entities/User.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/AppMenu.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/MenuCategory.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/menu/MenuItem.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/resources/JakartaEE10Resource.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/GenericServiceLocal.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/GenericServiceRemote.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/service/interfaces/PersonServiceLocal.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/services/PersonService.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/classes/view/App.class" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/config.xhtml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/footer.xhtml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/glassfish-resources.xml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/lib/checker-qual-3.42.0.jar" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/lib/postgresql-42.7.3.jar" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/lib/primefaces-14.0.0-jakarta.jar" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/menu.xhtml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/template.xhtml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/topbar.xhtml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/WEB-INF/web.xml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/index.xhtml" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/flags/flags.css" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/flags/flags_responsive.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_animation.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_config.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_content.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_core.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_demo.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_designer.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_error.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_footer.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_home.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_menu.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_mixins.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_news.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_responsive.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_syntax.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/_topbar.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/layout.css" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/layout/layout.scss" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/css/primeflex3.css" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/architecture.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/asset-404.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/favicon-16x16.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/favicon-32x32.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/intro-bg-dark.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/intro-bg.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/intro-devices.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-accesibility.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-community.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-components.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-mobile.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-opensource.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-pro.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-productivity.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-templates.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/home/jsf-themes.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/apollo-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/apollo.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/atlantis-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/atlantis.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/avalon-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/avalon.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/babylon-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/babylon.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/barcelona-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/barcelona.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/california-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/california.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/diamond-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/diamond.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/ecuador-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/ecuador.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/freya-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/freya.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/harmony-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/harmony.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/icarus-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/icarus.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/manhattan-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/manhattan.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/mirage-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/mirage.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/morpheus-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/morpheus.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/olympia-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/olympia.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/omega-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/omega.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/pandora-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/pandora.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/paradise-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/paradise.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/poseidon-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/poseidon-logo.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/poseidon.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/prestige-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/prestige.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/rain-logo.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/rain.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/roma.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/sapphire-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/sapphire.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/serenity-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/serenity.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/siberia-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/siberia.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/themeswitcher-roma.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/ultima-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/ultima.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/verona-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/layouts/verona.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/menu/banner-primeblocks-dark.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/menu/banner-primeblocks.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/menu/banner-primeflex-dark.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/menu/banner-primeflex.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/news/topbar-newyear-bg.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/news/topbar-newyear-logo.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/prime-designer.jpg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/primeblocks.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/primefaces-logo.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/primefaces-logo.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/primeflex.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/pro.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/arya.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/bootstrap4-dark-blue.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/bootstrap4-dark-purple.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/bootstrap4-light-blue.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/bootstrap4-light-purple.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/luna-amber.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/luna-blue.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/luna-green.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/luna-pink.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/md-dark-deeppurple.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/md-dark-indigo.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/md-light-deeppurple.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/md-light-indigo.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/nova-accent.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/nova-alt.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/nova.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/saga.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/themes/vela.png" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/airbus.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/amex.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/ebay.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/ford.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/fox.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/generali.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/hp.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/lufthansa.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/mercedes.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/nike.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/nvidia.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/sap.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/siemens.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/unicredit.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/verizon.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/viacom.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/volvo.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/images/whouses/vw.svg" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/extensions.txt" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.autosize.d.ts" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.autosize.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.browser.d.ts" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.browser.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.caretposition.d.ts" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.caretposition.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.mousewheel.d.ts" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.mousewheel.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.rangy.d.ts" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.rangy.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.ui.css" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.ui.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.ui.pfextensions.css" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.ui.pfextensions.d.ts" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.ui.pfextensions.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.ui.touch-punch.d.ts" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/jquery/jquery.ui.touch-punch.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ar.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-bg.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ca.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ckb.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-cs.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-da.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-de.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-el.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-en.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-es.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-fa.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-fi.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-fr.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-he.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-hi.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-hr.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-hu.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-in.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-it.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ja.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ka.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-kk.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-km.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ko.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ky.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-lt.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-lv.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ms.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-nl.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-no.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-pl.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-pt.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ro.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-ru.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-sk.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-sl.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-sr.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-sv.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-th.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-tr.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-uk.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-vi.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/locales/locale-zh.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/script/layout.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/map-jpa/resources/showcase/script/prism.js" beforeDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+        </list>
+        <option name="SHOW_DIALOG" value="false" />
+        <option name="HIGHLIGHT_CONFLICTS" value="true" />
+        <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+        <option name="LAST_RESOLUTION" value="IGNORE" />
+    </component>
+    <component name="FileTemplateManagerImpl">
+        <option name="RECENT_TEMPLATES">
+            <list>
+                <option value="CSS File" />
+                <option value="jsf" />
+                <option value="HTML File" />
+                <option value="Class" />
+            </list>
+        </option>
+    </component>
+    <component name="Git.Settings">
+        <option name="RECENT_BRANCH_BY_REPOSITORY">
+            <map>
+                <entry key="$PROJECT_DIR$" value="main" />
+            </map>
+        </option>
+        <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    </component>
+    <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;Steph118&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
+        }
+        }</component>
+    <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Steph118/map-jpa2.git&quot;,
     &quot;accountId&quot;: &quot;09c956ff-f0f8-4d0f-8d0c-480c749a199e&quot;
-  }
-}</component>
-  <component name="JpbToolWindowState">
-    <option name="isToolWindowVisible" value="false" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="jdkForImporter" value="17" />
-        <option name="workspaceImportForciblyTurnedOn" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProjectColorInfo">{
+        }
+        }</component>
+    <component name="JpbToolWindowState">
+        <option name="isToolWindowVisible" value="false" />
+    </component>
+    <component name="MavenImportPreferences">
+        <option name="importingSettings">
+            <MavenImportingSettings>
+                <option name="jdkForImporter" value="17" />
+                <option name="workspaceImportForciblyTurnedOn" value="true" />
+            </MavenImportingSettings>
+        </option>
+    </component>
+    <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2hSQtiBCDFFiteaLkLkqMZFp8LJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
+        }</component>
+    <component name="ProjectId" id="2hSQtiBCDFFiteaLkLkqMZFp8LJ" />
+    <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+        <ConfirmationsSetting value="2" id="Add" />
+    </component>
+    <component name="ProjectViewState">
+        <option name="hideEmptyMiddlePackages" value="true" />
+        <option name="showLibraryContents" value="true" />
+    </component>
+    <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -115,127 +563,129 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="services" />
-      <recent name="service.interfaces" />
-      <recent name="dao" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="" />
-      <created>1717585214685</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1717585214685</updated>
-      <workItem from="1717585216618" duration="2502000" />
-      <workItem from="1717600455737" duration="3020000" />
-      <workItem from="1717607204937" duration="363000" />
-      <workItem from="1717607569832" duration="11000" />
-      <workItem from="1717608033192" duration="5119000" />
-      <workItem from="1717618145311" duration="774000" />
-      <workItem from="1717632140876" duration="1526000" />
-      <workItem from="1717664944562" duration="845000" />
-      <workItem from="1717678046751" duration="14000" />
-      <workItem from="1717678063174" duration="132000" />
-      <workItem from="1717678198497" duration="741000" />
-      <workItem from="1717693855833" duration="53000" />
-      <workItem from="1717717261775" duration="1988000" />
-      <workItem from="1717751334190" duration="617000" />
-      <workItem from="1717752553577" duration="955000" />
-      <workItem from="1717785804863" duration="24000" />
-      <workItem from="1718134712499" duration="31000" />
-      <workItem from="1718148867558" duration="923000" />
-      <workItem from="1718232248954" duration="3447000" />
-      <workItem from="1718354760049" duration="13000" />
-      <workItem from="1718368910697" duration="75000" />
-      <workItem from="1718490626191" duration="1350000" />
-      <workItem from="1718618505810" duration="11000" />
-      <workItem from="1718621713362" duration="4414000" />
-      <workItem from="1718793672930" duration="115000" />
-    </task>
-    <task id="LOCAL-00001" summary="Ajout des classes et configurations">
-      <option name="closed" value="true" />
-      <created>1717610349033</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1717610349033</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Ajout des classes et configurations">
-      <option name="closed" value="true" />
-      <created>1717678478796</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1717678478797</updated>
-    </task>
-    <task id="LOCAL-00003" summary="git ignore snapshot">
-      <option name="closed" value="true" />
-      <created>1717752728356</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1717752728356</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Entities persistance">
-      <option name="closed" value="true" />
-      <created>1718235693115</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1718235693115</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
+        }
+        }</component>
+    <component name="RecentsManager">
+        <key name="CopyClassDialog.RECENTS_KEY">
+            <recent name="services" />
+            <recent name="service.interfaces" />
+            <recent name="dao" />
+        </key>
+    </component>
+    <component name="SharedIndexes">
+        <attachedChunks>
+            <set>
+                <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+                <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+            </set>
+        </attachedChunks>
+    </component>
+    <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+    <component name="TaskManager">
+        <task active="true" id="Default" summary="Default task">
+            <changelist id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="" />
+            <created>1717585214685</created>
+            <option name="number" value="Default" />
+            <option name="presentableId" value="Default" />
+            <updated>1717585214685</updated>
+            <workItem from="1717585216618" duration="2502000" />
+            <workItem from="1717600455737" duration="3020000" />
+            <workItem from="1717607204937" duration="363000" />
+            <workItem from="1717607569832" duration="11000" />
+            <workItem from="1717608033192" duration="5119000" />
+            <workItem from="1717618145311" duration="774000" />
+            <workItem from="1717632140876" duration="1526000" />
+            <workItem from="1717664944562" duration="845000" />
+            <workItem from="1717678046751" duration="14000" />
+            <workItem from="1717678063174" duration="132000" />
+            <workItem from="1717678198497" duration="741000" />
+            <workItem from="1717693855833" duration="53000" />
+            <workItem from="1717717261775" duration="1988000" />
+            <workItem from="1717751334190" duration="617000" />
+            <workItem from="1717752553577" duration="955000" />
+            <workItem from="1717785804863" duration="24000" />
+            <workItem from="1718134712499" duration="31000" />
+            <workItem from="1718148867558" duration="923000" />
+            <workItem from="1718232248954" duration="3447000" />
+            <workItem from="1718354760049" duration="13000" />
+            <workItem from="1718368910697" duration="75000" />
+            <workItem from="1718490626191" duration="1350000" />
+            <workItem from="1718618505810" duration="11000" />
+            <workItem from="1718621713362" duration="4414000" />
+            <workItem from="1718793672930" duration="115000" />
+            <workItem from="1719870648936" duration="5169000" />
+            <workItem from="1719944028310" duration="1240000" />
+        </task>
+        <task id="LOCAL-00001" summary="Ajout des classes et configurations">
+            <option name="closed" value="true" />
+            <created>1717610349033</created>
+            <option name="number" value="00001" />
+            <option name="presentableId" value="LOCAL-00001" />
+            <option name="project" value="LOCAL" />
+            <updated>1717610349033</updated>
+        </task>
+        <task id="LOCAL-00002" summary="Ajout des classes et configurations">
+            <option name="closed" value="true" />
+            <created>1717678478796</created>
+            <option name="number" value="00002" />
+            <option name="presentableId" value="LOCAL-00002" />
+            <option name="project" value="LOCAL" />
+            <updated>1717678478797</updated>
+        </task>
+        <task id="LOCAL-00003" summary="git ignore snapshot">
+            <option name="closed" value="true" />
+            <created>1717752728356</created>
+            <option name="number" value="00003" />
+            <option name="presentableId" value="LOCAL-00003" />
+            <option name="project" value="LOCAL" />
+            <updated>1717752728356</updated>
+        </task>
+        <task id="LOCAL-00004" summary="Entities persistance">
+            <option name="closed" value="true" />
+            <created>1718235693115</created>
+            <option name="number" value="00004" />
+            <option name="presentableId" value="LOCAL-00004" />
+            <option name="project" value="LOCAL" />
+            <updated>1718235693115</updated>
+        </task>
+        <option name="localTasksCounter" value="5" />
+        <servers />
+    </component>
+    <component name="TypeScriptGeneratedFilesManager">
+        <option name="version" value="3" />
+    </component>
+    <component name="Vcs.Log.Tabs.Properties">
+        <option name="TAB_STATES">
+            <map>
+                <entry key="MAIN">
                     <value>
-                      <list>
-                        <option value="develop" />
-                      </list>
+                        <State>
+                            <option name="FILTERS">
+                                <map>
+                                    <entry key="branch">
+                                        <value>
+                                            <list>
+                                                <option value="develop" />
+                                            </list>
+                                        </value>
+                                    </entry>
+                                </map>
+                            </option>
+                        </State>
                     </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ajout des classes et configurations" />
-    <MESSAGE value="git ignore snapshot" />
-    <MESSAGE value="Entities persistance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entities persistance" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
+                </entry>
+            </map>
+        </option>
+    </component>
+    <component name="VcsManagerConfiguration">
+        <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+        <MESSAGE value="Ajout des classes et configurations" />
+        <MESSAGE value="git ignore snapshot" />
+        <MESSAGE value="Entities persistance" />
+        <option name="LAST_COMMIT_MESSAGE" value="Entities persistance" />
+    </component>
+    <component name="XSLT-Support.FileAssociations.UIState">
+        <expand />
+        <select />
+    </component>
 </project>

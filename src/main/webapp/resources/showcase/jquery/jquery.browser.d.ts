@@ -1,6 +1,6 @@
 /**
  * Namespace for the Browser JQueryUI plugin, available as `$.browser`.
- * 
+ *
  * Contains some additional types and interfaces required for the typings.
  */
 declare namespace JQueryBrowser {

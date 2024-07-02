@@ -7,11 +7,10 @@ package service.interfaces;
 import java.io.Serializable;
 
 /**
- *
- * @author steph18
  * @param <E>
  * @param <ID>
+ * @author steph18
  */
-public interface GenericServiceRemote <E extends Serializable, ID> {
+public interface GenericServiceRemote<E extends Serializable, ID> {
 
 }

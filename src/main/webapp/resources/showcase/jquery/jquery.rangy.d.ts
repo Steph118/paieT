@@ -1,10 +1,10 @@
 /**
  * Namespace for the rangy JQueryUI plugin.
- * 
+ *
  * Contains some additional types and interfaces required for the typings.
- * 
+ *
  * The rangy JQueryUI plugin adds a few methods to jQuery instances:
- * 
+ *
  * - {@link JQuery.collapseSelection}
  * - {@link JQuery.deleteSelectedText}
  * - {@link JQuery.deleteText}
@@ -43,10 +43,11 @@ declare namespace JQueryRangy {
 interface JQuery {
     /**
      * Returns the selected text of an INPUT or TEXTAREA element.
-     * @param element 
+     * @param element
      * @return The selected range, or `undefined` if this DOM element is not supported.
      */
     getSelection(): JQueryRangy.Range | undefined;
+
     /**
      * Selects the text at given range of an INPUT or TEXTAREA element.
      * @param startOffset 0-based index pointing to the start of the range to select (inclusive).
@@ -54,16 +55,19 @@ interface JQuery {
      * @return this for chaining.
      */
     setSelection(startOffset: number, endOffset: number): this;
+
     /**
      * Unselects all selected text of an INPUT or TEXTAREA element.
      * @return this for chaining.
      */
     collapseSelection(): this;
+
     /**
      * Deletes the currently selected text of an INPUT or TEXTAREA element.
      * @return this for chaining.
      */
     deleteSelectedText(): this;
+
     /**
      * Deletes the text at the given range of an INPUT or TEXTAREA element, optionally moving the cursor to the start
      * of the range.
@@ -73,12 +77,14 @@ interface JQuery {
      * @return this for chaining.
      */
     deleteText(startOffset: number, endOffset: number, moveSelection?: boolean): this;
+
     /**
      * Removes and returns the currently selected text of an INPUT or TEXTAREA element.
      * @return The text that was selected. Empty string if no text is selected. `undefined` if this DOM element is not
      * supported.
      */
     extractSelectedText(): string | undefined;
+
     /**
      * Inserts the text at the given position of an INPUT or TEXTAREA element, optionally moving the cursor to the end
      * if the inserted text.
@@ -88,6 +94,7 @@ interface JQuery {
      * @return this for chaining.
      */
     insertText(text: string, index: number, moveSelection?: boolean): this;
+
     /**
      * Replaces the currently selected text of an INPUT or TEXTAREA element with the given text. When no text is
      * selected, insert the given text at the current cursor position.
@@ -95,10 +102,11 @@ interface JQuery {
      * @return this for chaining.
      */
     replaceSelectedText(text: string): this;
+
     /**
      * For an INPUT or TEXTAREA element: Inserts the given prefix at the beginning of the currently selected text, and
      * the given suffix at the end of the currently selected text. When no text is selected, inserts the given prefix
-     * and suffix at the current position of the cursor. 
+     * and suffix at the current position of the cursor.
      * @param prefix Text to insert at the beginning of the currently selected text.
      * @param suffix Text to insert at the end of the currently selected text.
      * @return this for chaining.

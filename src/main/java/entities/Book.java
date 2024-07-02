@@ -9,12 +9,11 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @Table(name = "books")
-public class Book extends BaseEntity{
+public class Book extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -26,7 +25,7 @@ public class Book extends BaseEntity{
 
     public Book() {
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -63,7 +62,7 @@ public class Book extends BaseEntity{
         }
         final Book other = (Book) obj;
         return Objects.equals(this.id, other.id);
-    }   
+    }
 
     @Override
     public String toString() {

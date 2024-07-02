@@ -6,7 +6,7 @@
     <!-- EXAMPLE-SOURCE-START -->
 
     <p:tabView var="entry" value="#{value}" touchable="false">
-        <p:tab title="#{entry.title}" >
+        <p:tab title="#{entry.title}">
             <p:cache region="sources" key="#{entry}">
                 <pre class="line-numbers">
                     <code class="language-#{entry.type}">
@@ -16,8 +16,8 @@
         </p:tab>
 
         <f:facet name="static-tabs">
-            <ui:insert />
+            <ui:insert/>
         </f:facet>
     </p:tabView>
-    
+
 </ui:composition>

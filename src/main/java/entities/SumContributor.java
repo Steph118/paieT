@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- *
  * @author steph18
  */
 @Entity

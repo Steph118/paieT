@@ -39,7 +39,7 @@ pre[class*=language-] {
   padding: 1px
 }
 
-pre[class*=language-]>code {
+pre[class*=language-] > code {
   position: relative;
   z-index: 1;
   border-left: 10px solid var(--surface-d) !important;
@@ -59,7 +59,7 @@ code[class*=language-] {
   overflow: auto
 }
 
-:not(pre)>code[class*=language-],
+:not(pre) > code[class*=language-],
 pre[class*=language-] {
   background-color: #fdfdfd;
   -webkit-box-sizing: border-box;
@@ -68,7 +68,7 @@ pre[class*=language-] {
   margin-bottom: 1em
 }
 
-:not(pre)>code[class*=language-] {
+:not(pre) > code[class*=language-] {
   position: relative;
   padding: .2em;
   border-radius: .3em;
@@ -185,7 +185,7 @@ pre[class*=language-]:after {
   opacity: .7
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
 
   pre[class*=language-]:after,
   pre[class*=language-]:before {
@@ -227,7 +227,7 @@ pre[class*=language-].line-numbers {
   counter-reset: linenumber
 }
 
-pre[class*=language-].line-numbers>code {
+pre[class*=language-].line-numbers > code {
   position: relative;
   white-space: inherit
 }
@@ -247,12 +247,12 @@ pre[class*=language-].line-numbers>code {
   user-select: none
 }
 
-.line-numbers-rows>span {
+.line-numbers-rows > span {
   display: block;
   counter-increment: linenumber
 }
 
-.line-numbers-rows>span:before {
+.line-numbers-rows > span:before {
   content: counter(linenumber);
   color: var(--text-color-secondary);
   display: block;

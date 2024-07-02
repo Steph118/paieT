@@ -10,12 +10,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
  * @author Mediasoft
  */
 @Entity
 @Table(name = "permissions")
-public class Permission extends BaseEntity{
+public class Permission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

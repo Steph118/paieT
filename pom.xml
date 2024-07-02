@@ -1,12 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mediasofthome</groupId>
-    <artifactId>map-jpa</artifactId>
+    <groupId>com.steph18</groupId>
+    <artifactId>paie-t</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>paieT</name>
-    
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -15,7 +15,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>10.0.0</jakartaee>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
@@ -45,7 +45,7 @@
             <version>4.4.1</version>
         </dependency>
     </dependencies>
-    
+
     <build>
         <resources>
             <resource>

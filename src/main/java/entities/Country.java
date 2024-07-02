@@ -9,12 +9,11 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @Table(name = "countries")
-public class Country extends BaseEntity{
+public class Country extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

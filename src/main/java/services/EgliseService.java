@@ -12,12 +12,11 @@ import jakarta.ejb.Stateless;
 import service.interfaces.EgliseServiceLocal;
 
 /**
- *
  * @author steph18
  */
 @Stateless
 public class EgliseService extends GenericServiceLocalImpl<Eglise, Integer>
-implements EgliseServiceLocal {
+        implements EgliseServiceLocal {
 
     @EJB
     private EgliseDao dao;
@@ -25,6 +24,6 @@ implements EgliseServiceLocal {
     @Override
     protected RepositoryDao<Eglise, Integer> getDAO() {
         return dao;
-    }    
+    }
 
 }

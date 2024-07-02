@@ -9,12 +9,11 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @Table(name = "sumpromised")
-public class SumPromised extends BaseEntity{
+public class SumPromised extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

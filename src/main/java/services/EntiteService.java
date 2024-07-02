@@ -12,12 +12,11 @@ import jakarta.ejb.Stateless;
 import service.interfaces.EntiteServiceLocal;
 
 /**
- *
  * @author steph18
  */
 @Stateless
 public class EntiteService extends GenericServiceLocalImpl<Entite, Integer>
-implements EntiteServiceLocal {
+        implements EntiteServiceLocal {
 
     @EJB
     private EntiteDao dao;
@@ -25,6 +24,6 @@ implements EntiteServiceLocal {
     @Override
     protected RepositoryDao<Entite, Integer> getDAO() {
         return dao;
-    }    
+    }
 
 }

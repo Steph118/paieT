@@ -21,16 +21,16 @@ public class App implements Serializable {
         return theme;
     }
 
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
     public boolean isDarkMode() {
         return darkMode;
     }
 
     public void setDarkMode(boolean darkMode) {
         this.darkMode = darkMode;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
     }
 
     public String getInputStyle() {
@@ -76,5 +76,5 @@ public class App implements Serializable {
     public void setLocale(Locale locale) {
         this.locale = locale;
     }
-    
+
 }

@@ -12,12 +12,11 @@ import jakarta.ejb.Stateless;
 import service.interfaces.DepartmentServiceLocal;
 
 /**
- *
  * @author steph18
  */
 @Stateless
-public class DepartmentService extends GenericServiceLocalImpl<Department, Integer> 
-implements DepartmentServiceLocal{
+public class DepartmentService extends GenericServiceLocalImpl<Department, Integer>
+        implements DepartmentServiceLocal {
 
     @EJB
     private DepartmentDao dao;
@@ -25,6 +24,6 @@ implements DepartmentServiceLocal{
     @Override
     protected RepositoryDao<Department, Integer> getDAO() {
         return dao;
-    }    
+    }
 
 }

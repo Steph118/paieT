@@ -11,7 +11,6 @@ import jakarta.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 /**
- *
  * @author persistence
  */
 @MappedSuperclass

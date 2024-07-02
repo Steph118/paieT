@@ -8,7 +8,6 @@ import entities.Department;
 import jakarta.ejb.Local;
 
 /**
- *
  * @author steph18
  */
 @Local

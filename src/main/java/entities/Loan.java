@@ -10,12 +10,11 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @Table(name = "loans")
-public class Loan extends BaseEntity{
+public class Loan extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

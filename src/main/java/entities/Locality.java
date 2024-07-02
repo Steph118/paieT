@@ -11,12 +11,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @Table(name = "localities")
-public class Locality extends BaseEntity{
+public class Locality extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

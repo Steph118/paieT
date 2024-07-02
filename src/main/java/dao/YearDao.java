@@ -7,7 +7,6 @@ package dao;
 import entities.Year;
 
 /**
- *
  * @author steph18
  */
 public class YearDao extends RepositoryDao<Year, Integer> {

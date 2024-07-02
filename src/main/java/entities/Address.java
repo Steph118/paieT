@@ -6,12 +6,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 /**
- *
  * @author samiesoft
  */
 @Embeddable
 @Access(AccessType.FIELD)
-public class Address{
+public class Address {
 
     @Column(name = "street")
     private String street;

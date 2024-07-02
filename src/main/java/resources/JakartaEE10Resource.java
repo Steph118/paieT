@@ -5,14 +5,13 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
 /**
- *
- * @author 
+ * @author
  */
 @Path("rs")
 public class JakartaEE10Resource {
-    
+
     @GET
-    public Response ping(){
+    public Response ping() {
         return Response
                 .ok("ping Jakarta EE")
                 .build();

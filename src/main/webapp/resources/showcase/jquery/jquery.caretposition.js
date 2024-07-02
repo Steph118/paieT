@@ -3,7 +3,7 @@
  *
  * @author Bevis Zhao https://github.com/beviz/jquery-caret-position-getter
  */
-$(function() {
+$(function () {
 
     var calculator = {
         // key styles
@@ -23,12 +23,12 @@ $(function() {
 
         simulator: null,
 
-        toHtml: function(text) {
+        toHtml: function (text) {
             return PrimeFaces.escapeHTML(text).replace(/\n/g, '<br>')
                 .split(' ').join('<span style="white-space:prev-wrap">&nbsp;</span>');
         },
         // calculate position
-        getCaretPosition: function() {
+        getCaretPosition: function () {
             var cal = calculator, self = this, element = self[0], elementOffset = self.offset();
             if (cal.simulator === null) {
                 cal.simulator = $('<div id="textarea_simulator"></div>').css({
@@ -40,7 +40,7 @@ $(function() {
             }
             cal.simulator.empty();
             // clone primary styles to imitate textarea
-            $.each(cal.primaryStyles, function(index, styleName) {
+            $.each(cal.primaryStyles, function (index, styleName) {
                 self.cloneStyle(cal.simulator, styleName);
             });
 
@@ -70,20 +70,20 @@ $(function() {
     };
 
     $.fn.extend({
-        getComputedStyle: function(styleName) {
+        getComputedStyle: function (styleName) {
             if (this.length == 0) return;
             var result = this.css(styleName);
             result = result || document.defaultView.getComputedStyle(this[0], null)[styleName];
             return result;
         },
         // easy clone method
-        cloneStyle: function(target, styleName) {
+        cloneStyle: function (target, styleName) {
             var styleVal = this.getComputedStyle(styleName);
             if (!!styleVal) {
                 $(target).css(styleName, styleVal);
             }
         },
-        cloneAllStyle: function(target, style) {
+        cloneAllStyle: function (target, style) {
             var thiz = this[0];
             for (var styleName in thiz.style) {
                 var val = thiz.style[styleName];
@@ -92,7 +92,7 @@ $(function() {
                     : NaN;
             }
         },
-        getCursorPosition: function() {
+        getCursorPosition: function () {
             var thiz = this[0], result = 0;
             if ('selectionStart' in thiz) {
                 result = thiz.selectionStart;
@@ -101,7 +101,7 @@ $(function() {
                 if (parseInt($.browser.version) > 6) {
                     thiz.focus();
                     var length = document.selection.createRange().text.length;
-                    range.moveStart('character', - thiz.value.length);
+                    range.moveStart('character', -thiz.value.length);
                     result = range.text.length - length;
                 } else {
                     var bodyRange = document.body.createTextRange();

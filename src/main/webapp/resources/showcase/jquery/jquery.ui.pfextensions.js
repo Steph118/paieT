@@ -4,23 +4,23 @@
         focus: (function (orig) {
             return function (delay, fn) {
                 return typeof delay === "number" ?
-                        this.each(function () {
-                            var elem = this;
-                            setTimeout(function () {
-                                $(elem).trigger('focus');
-                                if (fn) {
-                                    fn.call(elem);
-                                }
-                            }, delay);
-                        }) :
-                        orig.apply(this, arguments);
+                    this.each(function () {
+                        var elem = this;
+                        setTimeout(function () {
+                            $(elem).trigger('focus');
+                            if (fn) {
+                                fn.call(elem);
+                            }
+                        }, delay);
+                    }) :
+                    orig.apply(this, arguments);
             };
         })($.fn.focus),
 
         disableSelection: (function () {
             var eventType = "onselectstart" in document.createElement("div") ?
-                    "selectstart" :
-                    "mousedown";
+                "selectstart" :
+                "mousedown";
 
             return function () {
                 return this.on(eventType + ".ui-disableSelection", function (event) {
@@ -39,8 +39,8 @@
             }
 
             if (this.length) {
-                var elem = $(this[ 0 ]), position, value;
-                while (elem.length && elem[ 0 ] !== document) {
+                var elem = $(this[0]), position, value;
+                while (elem.length && elem[0] !== document) {
                     // Ignore z-index if position is set to a value where z-index is ignored by the browser
                     // This makes behavior of this function consistent across browsers
                     // WebKit always returns auto if the element is positioned
@@ -65,22 +65,22 @@
 })();
 
 // GitHub PrimeFaces #3675 performance
-$.widget( "ui.sortable", $.ui.sortable, {
-    _setHandleClassName: function() {
-        this._removeClass( this.element.find( ".ui-sortable-handle" ), "ui-sortable-handle" );
-        $.each( this.items, function() {
-                        (this.instance.options.handle 
-                        ? this.item.find( this.instance.options.handle ) 
-                        : this.item
-                        ).addClass('ui-sortable-handle');
-        } );
+$.widget("ui.sortable", $.ui.sortable, {
+    _setHandleClassName: function () {
+        this._removeClass(this.element.find(".ui-sortable-handle"), "ui-sortable-handle");
+        $.each(this.items, function () {
+            (this.instance.options.handle
+                    ? this.item.find(this.instance.options.handle)
+                    : this.item
+            ).addClass('ui-sortable-handle');
+        });
     }
 });
 
 
 // GitHub #8619 fix slider dealing with odd min and max settings that don't align with step'
-(function() {
-    $.ui.slider.prototype._trimAlignValue = function(val) {
+(function () {
+    $.ui.slider.prototype._trimAlignValue = function (val) {
         if (val <= this._valueMin()) {
             return this._valueMin();
         }
@@ -104,29 +104,29 @@ $.widget( "ui.sortable", $.ui.sortable, {
         return parseFloat(alignValue.toFixed(5));
     };
 
-    $.ui.slider.prototype._calculateNewMax = function() {
+    $.ui.slider.prototype._calculateNewMax = function () {
         var max = this.options.max;
         this.max = parseFloat(max.toFixed(this._precision()));
     };
 })();
 
 // GitHub #9941 tooltip removal fix
-(function() {
+(function () {
     var orig = $.fn.remove;
-    $.fn.remove = function() {
+    $.fn.remove = function () {
         // Don't change JQuery.remove(selector) behavior, so trigger event only when remove is called without arguments.
         if (!arguments || arguments.length === 0) {
             $(this).trigger(new $.Event('remove'));
         }
-        
+
         return orig.apply(this, arguments);
     }
 })();
 
 
 // GitHub #10689 allow drag and drop to deal with zoom factor
-(function() {
-    $.ui.ddmanager.prepareOffsets = function(t, event) {
+(function () {
+    $.ui.ddmanager.prepareOffsets = function (t, event) {
         var i, j,
             m = $.ui.ddmanager.droppables[t.options.scope] || [],
             type = event ? event.type : null, // workaround for #2317
@@ -136,7 +136,7 @@ $.widget( "ui.sortable", $.ui.sortable, {
 
             // No disabled and non-accepted
             if (m[i].options.disabled || (t && !m[i].accept.call(m[i].element[0],
-                    (t.currentItem || t.element)))) {
+                (t.currentItem || t.element)))) {
                 continue;
             }
 
@@ -163,9 +163,9 @@ $.widget( "ui.sortable", $.ui.sortable, {
             // PF #10689
             var zoomFactor = 1.0;
             if (m[i].options.zoomFactor) {
-               zoomFactor = m[i].options.zoomFactor.call();
+                zoomFactor = m[i].options.zoomFactor.call();
             }
-            
+
             // GitHub 
             m[i].proportions({
                 width: m[i].element[0].offsetWidth * zoomFactor, // PF #10689

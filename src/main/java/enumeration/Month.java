@@ -5,7 +5,6 @@
 package enumeration;
 
 /**
- *
  * @author samiesoft
  */
 public enum Month {
@@ -38,6 +37,5 @@ public enum Month {
         return "Month{" + " name=" + name() + ", label=" + label + '}';
     }
 
-    
 
 }

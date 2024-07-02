@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html 
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui">
-    <ui:composition 
+<html
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui">
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="list-title">
-            Édition Années
-        </ui:define>
-        <ui:define name="breadCrumb">
-            Référence > Années
-        </ui:define>
-        <ui:define name="fields">
-            <p:fieldset legend="Années">
-                <div class="form-grid grid">
-                    <div class="field col-12">
-                        <p:outputLabel value="Année" for="value"/>
-                        <p:inputText id="value" class="col-12" placeholder="saisir l'année"/>
-                    </div>
+    <ui:define name="list-title">
+        Édition Années
+    </ui:define>
+    <ui:define name="breadCrumb">
+        Référence > Années
+    </ui:define>
+    <ui:define name="fields">
+        <p:fieldset legend="Années">
+            <div class="form-grid grid">
+                <div class="field col-12">
+                    <p:outputLabel value="Année" for="value"/>
+                    <p:inputText id="value" class="col-12" placeholder="saisir l'année"/>
                 </div>
-            </p:fieldset>   
-        </ui:define>
+            </div>
+        </p:fieldset>
+    </ui:define>
 
-    </ui:composition>
+</ui:composition>
 </html>

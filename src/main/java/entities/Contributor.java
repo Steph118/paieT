@@ -8,10 +8,9 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @DiscriminatorValue(value = "cont")
-public class Contributor extends Person{ 
+public class Contributor extends Person {
 }

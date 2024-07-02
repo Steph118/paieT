@@ -11,34 +11,35 @@ import jakarta.persistence.Query;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
- *
- * @author steph18
  * @param <E>
  * @param <ID>
+ * @author steph18
  */
 public class RepositoryDao<E extends Serializable, ID> {
 
+    protected final Logger logger;
+    private final Class<E> entityClass;
     @PersistenceContext
     protected EntityManager em;
 
-    private final Class<E> entityClass;
-
     public RepositoryDao(Class<E> entityClass) {
         this.entityClass = entityClass;
+        this.logger = Logger.getLogger(this.entityClass.getName());
     }
 
-    public void save(E entity) {
-        this.em.persist(entity);
+    public void save(E e) {
+        this.em.persist(e);
     }
 
-    public E update(E entity) {
-        return this.em.merge(entity);
+    public E update(E e) {
+        return this.em.merge(e);
     }
 
-    public boolean isUpdate(E entity) {
-        return this.em.merge(entity) != null;
+    public boolean isUpdate(E e) {
+        return this.em.merge(e) != null;
     }
 
     public void delete(ID id) {
@@ -80,10 +81,15 @@ public class RepositoryDao<E extends Serializable, ID> {
         return query.getResultList();
     }
 
+    public List<E> getAll2() {
+        return this.em.createQuery(
+                        "FROM " + this.entityClass.getSimpleName() + " e ", this.entityClass)
+                .getResultList();
+    }
+
     public Long count() {
         String jpql = "SELECT COUNT(e) FROM " + this.entityClass.getSimpleName() + " e";
         Query query = this.em.createQuery(jpql);
         return (Long) query.getSingleResult();
     }
-
 }

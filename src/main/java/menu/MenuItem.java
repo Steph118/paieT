@@ -19,7 +19,7 @@ public class MenuItem implements Serializable {
         this.label = label;
         this.url = url;
     }
-    
+
     public MenuItem(String label, String url, String imageSrc) {
         this.label = label;
         this.url = url;

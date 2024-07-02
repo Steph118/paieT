@@ -5,22 +5,38 @@
 package service.interfaces;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Optional;
 
 /**
- *
- * @author steph18
  * @param <E>
  * @param <ID>
+ * @author steph18
  */
 public interface GenericServiceLocal<E extends Serializable, ID> {
 
     void save(E e);
 
+    E update(E e);
+
+    boolean isUpdate(E e);
+
     void delete(E e);
 
-    E find(E e);
+    void delete(ID id);
+
+    void deleteAll();
 
     E findById(ID id);
 
-    void delete(ID id);
+    boolean exists(ID id);
+
+    E getReference(ID id);
+
+    Optional<E> FindByIdOpt(ID id);
+
+    List<E> getAll();
+
+    Long count();
+
 }

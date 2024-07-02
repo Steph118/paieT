@@ -5,7 +5,6 @@
 package entities;
 
 /**
- *
  * @author steph18
  */
 
@@ -59,17 +58,17 @@ public class Person extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "city",
-                column = @Column(name = "pers_city")),
-        @AttributeOverride(name = "street",
-                column = @Column(name = "pers_street"))
+            @AttributeOverride(name = "city",
+                    column = @Column(name = "pers_city")),
+            @AttributeOverride(name = "street",
+                    column = @Column(name = "pers_street"))
     })
     private Address address;
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "person_phones",
             joinColumns = {
-                @JoinColumn(name = "person_id")
+                    @JoinColumn(name = "person_id")
             })
     @Column(name = "phone_number")
     private Set<String> phones = new HashSet<>();

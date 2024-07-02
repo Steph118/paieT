@@ -7,12 +7,11 @@ package entities;
 import jakarta.persistence.*;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @Table(name = "members")
-public class Member extends BaseEntity{
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -13,8 +13,8 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "departments")
-public class Department extends BaseEntity{
-    
+public class Department extends BaseEntity {
+
     public static final String MEN_DEPARTMENT = "MD";
     public static final String WOMEN_DEPARTMENT = "WD";
     public static final String CHILDREEN_DEPARTMENT = "CD";
@@ -82,5 +82,5 @@ public class Department extends BaseEntity{
     public String toString() {
         return "Department{" + "id=" + id + ", code=" + code + ", label=" + label + '}';
     }
-    
+
 }

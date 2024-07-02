@@ -12,12 +12,11 @@ import jakarta.ejb.Stateless;
 import service.interfaces.CountryServiceLocal;
 
 /**
- *
  * @author steph18
  */
 @Stateless
-public class CountryService extends GenericServiceLocalImpl<Country, Integer> 
-implements CountryServiceLocal{
+public class CountryService extends GenericServiceLocalImpl<Country, Integer>
+        implements CountryServiceLocal {
 
     @EJB
     private CountryDao dao;
@@ -25,6 +24,6 @@ implements CountryServiceLocal{
     @Override
     protected RepositoryDao<Country, Integer> getDAO() {
         return dao;
-    }    
+    }
 
 }

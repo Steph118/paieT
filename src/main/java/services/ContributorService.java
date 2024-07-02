@@ -12,12 +12,11 @@ import jakarta.ejb.Stateless;
 import service.interfaces.ContributorServiceLocal;
 
 /**
- *
  * @author steph18
  */
 @Stateless
 public class ContributorService extends GenericServiceLocalImpl<Contributor, Integer>
-implements ContributorServiceLocal {
+        implements ContributorServiceLocal {
 
     @EJB
     private ContributorDao dao;
@@ -25,6 +24,6 @@ implements ContributorServiceLocal {
     @Override
     protected RepositoryDao<Contributor, Integer> getDAO() {
         return dao;
-    }    
+    }
 
 }

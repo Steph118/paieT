@@ -5,14 +5,13 @@
 package enumeration;
 
 /**
- *
  * @author samiesoft
  */
 public enum Sexe {
-    
+
     M("Masculin"),
     F("Féminin");
-    
+
     private final String label;
 
     private Sexe(String libelle) {
@@ -21,11 +20,11 @@ public enum Sexe {
 
     public String getLibelle() {
         return label;
-    }  
+    }
 
     @Override
     public String toString() {
         return "Sexe{" + "name=" + name() + ", libelle=" + label + '}';
     }
-    
+
 }

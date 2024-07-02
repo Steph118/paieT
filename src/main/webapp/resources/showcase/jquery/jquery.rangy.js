@@ -1,6 +1,6 @@
 /**
  * Rangy Inputs, a jQuery plug-in for selection and caret manipulation within textareas and text inputs.
- * 
+ *
  * https://github.com/timdown/rangyinputs
  *
  * For range and selection features for contenteditable, see Rangy.
@@ -14,7 +14,7 @@
  * Version: 1.2.0
  * Build date: 30 November 2014
  */
-(function($) {
+(function ($) {
     var UNDEF = "undefined";
     var getSelection, setSelection, deleteSelectedText, deleteText, insertText;
     var replaceSelectedText, surroundSelectedText, extractSelectedText, collapseSelection;
@@ -27,11 +27,11 @@
     }
 
     function isHostProperty(object, property) {
-        return typeof(object[property]) != UNDEF;
+        return typeof (object[property]) != UNDEF;
     }
 
     function isHostObject(object, property) {
-        return !!(typeof(object[property]) == "object" && object[property]);
+        return !!(typeof (object[property]) == "object" && object[property]);
     }
 
     function fail(reason) {
@@ -50,7 +50,7 @@
         if (end < 0) {
             end += el.value.length;
         }
-        return { start: start, end: end };
+        return {start: start, end: end};
     }
 
     function makeSelection(el, start, end) {
@@ -66,24 +66,24 @@
         return isHostObject(document, "body") ? document.body : document.getElementsByTagName("body")[0];
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         var testTextArea = document.createElement("textarea");
 
         getBody().appendChild(testTextArea);
 
         if (isHostProperty(testTextArea, "selectionStart") && isHostProperty(testTextArea, "selectionEnd")) {
-            getSelection = function(el) {
+            getSelection = function (el) {
                 var start = el.selectionStart, end = el.selectionEnd;
                 return makeSelection(el, start, end);
             };
 
-            setSelection = function(el, startOffset, endOffset) {
+            setSelection = function (el, startOffset, endOffset) {
                 var offsets = adjustOffsets(el, startOffset, endOffset);
                 el.selectionStart = offsets.start;
                 el.selectionEnd = offsets.end;
             };
 
-            collapseSelection = function(el, toStart) {
+            collapseSelection = function (el, toStart) {
                 if (toStart) {
                     el.selectionEnd = el.selectionStart;
                 } else {
@@ -91,9 +91,9 @@
                 }
             };
         } else if (isHostMethod(testTextArea, "createTextRange") && isHostObject(document, "selection") &&
-                   isHostMethod(document.selection, "createRange")) {
+            isHostMethod(document.selection, "createRange")) {
 
-            getSelection = function(el) {
+            getSelection = function (el) {
                 var start = 0, end = 0, normalizedValue, textInputRange, len, endRange;
                 var range = document.selection.createRange();
 
@@ -126,11 +126,11 @@
             // the textarea value is two characters. This function corrects for that by converting a text offset into a
             // range character offset by subtracting one character for every line break in the textarea prior to the
             // offset
-            var offsetToRangeCharacterMove = function(el, offset) {
+            var offsetToRangeCharacterMove = function (el, offset) {
                 return offset - (el.value.slice(0, offset).split("\r\n").length - 1);
             };
 
-            setSelection = function(el, startOffset, endOffset) {
+            setSelection = function (el, startOffset, endOffset) {
                 var offsets = adjustOffsets(el, startOffset, endOffset);
                 var range = el.createTextRange();
                 var startCharMove = offsetToRangeCharacterMove(el, offsets.start);
@@ -144,7 +144,7 @@
                 range.select();
             };
 
-            collapseSelection = function(el, toStart) {
+            collapseSelection = function (el, toStart) {
                 var range = document.selection.createRange();
                 range.collapse(toStart);
                 range.select();
@@ -166,7 +166,7 @@
                 replaced: sel.text
             };
         }
-        
+
         function pasteTextWithCommand(el, text) {
             el.focus();
             var sel = getSelection(el);
@@ -192,7 +192,7 @@
             return valueAfterPaste;
         }
 
-        var pasteText = function(el, text) {
+        var pasteText = function (el, text) {
             var valueAfterPaste = getValueAfterPaste(el, text);
             try {
                 var pasteInfo = pasteTextWithCommand(el, text);
@@ -208,7 +208,7 @@
             return valueAfterPaste;
         };
 
-        deleteText = function(el, start, end, moveSelection) {
+        deleteText = function (el, start, end, moveSelection) {
             if (start != end) {
                 setSelection(el, start, end);
                 pasteText(el, "");
@@ -218,19 +218,19 @@
             }
         };
 
-        deleteSelectedText = function(el) {
+        deleteSelectedText = function (el) {
             setSelection(el, pasteText(el, "").index);
         };
 
-        extractSelectedText = function(el) {
+        extractSelectedText = function (el) {
             var pasteInfo = pasteText(el, "");
             setSelection(el, pasteInfo.index);
             return pasteInfo.replaced;
         };
 
-        var updateSelectionAfterInsert = function(el, startIndex, text, selectionBehaviour) {
+        var updateSelectionAfterInsert = function (el, startIndex, text, selectionBehaviour) {
             var endIndex = startIndex + text.length;
-            
+
             selectionBehaviour = (typeof selectionBehaviour == "string") ?
                 selectionBehaviour.toLowerCase() : "";
 
@@ -240,7 +240,7 @@
                 var normalizedText = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
                 endIndex = startIndex + normalizedText.length;
                 var firstLineBreakIndex = startIndex + normalizedText.indexOf("\n");
-                
+
                 if (el.value.slice(firstLineBreakIndex, firstLineBreakIndex + 2) == "\r\n") {
                     // Browser uses \r\n, so we need to account for extra \r characters
                     endIndex += normalizedText.match(/\n/g).length;
@@ -260,7 +260,7 @@
             }
         };
 
-        insertText = function(el, text, index, selectionBehaviour) {
+        insertText = function (el, text, index, selectionBehaviour) {
             setSelection(el, index);
             pasteText(el, text);
             if (typeof selectionBehaviour == "boolean") {
@@ -269,12 +269,12 @@
             updateSelectionAfterInsert(el, index, text, selectionBehaviour);
         };
 
-        replaceSelectedText = function(el, text, selectionBehaviour) {
+        replaceSelectedText = function (el, text, selectionBehaviour) {
             var pasteInfo = pasteText(el, text);
             updateSelectionAfterInsert(el, pasteInfo.index, text, selectionBehaviour || "collapseToEnd");
         };
 
-        surroundSelectedText = function(el, before, after, selectionBehaviour) {
+        surroundSelectedText = function (el, before, after, selectionBehaviour) {
             if (typeof after == UNDEF) {
                 after = before;
             }
@@ -284,12 +284,12 @@
         };
 
         function jQuerify(func, returnThis) {
-            return function() {
+            return function () {
                 var el = this.jquery ? this[0] : this;
                 var nodeName = el.nodeName.toLowerCase();
 
                 if (el.nodeType == 1 && (nodeName == "textarea" ||
-                        (nodeName == "input" && /^(?:text|email|number|search|tel|url|password)$/i.test(el.type)))) {
+                    (nodeName == "input" && /^(?:text|email|number|search|tel|url|password)$/i.test(el.type)))) {
                     var args = [el].concat(Array.prototype.slice.call(arguments));
                     var result = func.apply(this, args);
                     if (!returnThis) {

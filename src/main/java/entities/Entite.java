@@ -10,7 +10,6 @@ import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
- *
  * @author Mediasoft
  */
 @Entity
@@ -18,7 +17,7 @@ import java.util.Objects;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "entite_type")
 @DiscriminatorValue(value = "E")
-public class Entite extends BaseEntity{
+public class Entite extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,10 +40,10 @@ public class Entite extends BaseEntity{
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "city",
-                column = @Column(name = "entite_city")),
-        @AttributeOverride(name = "street",
-                column = @Column(name = "entite_street"))
+            @AttributeOverride(name = "city",
+                    column = @Column(name = "entite_city")),
+            @AttributeOverride(name = "street",
+                    column = @Column(name = "entite_street"))
     })
     private Address addresse;
 

@@ -7,13 +7,12 @@ package dao;
 import entities.Entite;
 
 /**
- *
  * @author steph18
  */
 public class EntiteDao extends RepositoryDao<Entite, Integer> {
-    
+
     public EntiteDao(Class<Entite> entityClass) {
         super(entityClass);
     }
-    
+
 }

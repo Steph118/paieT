@@ -9,12 +9,11 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 /**
- *
  * @author steph18
  */
 @Entity
 @Table(name = "localities_types")
-public class TypeLocality extends BaseEntity{
+public class TypeLocality extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +30,7 @@ public class TypeLocality extends BaseEntity{
         this.id = id;
         this.label = label;
     }
-    
+
     public Integer getId() {
         return id;
     }

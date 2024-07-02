@@ -10,10 +10,9 @@ import service.interfaces.GenericServiceRemote;
 import java.io.Serializable;
 
 /**
- *
- * @author steph18
  * @param <E>
  * @param <ID>
+ * @author steph18
  */
 public abstract class GenericServiceRemoteImpl<E extends Serializable, ID> implements GenericServiceRemote<E, ID> {
 

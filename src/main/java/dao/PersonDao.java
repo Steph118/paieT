@@ -7,7 +7,6 @@ package dao;
 import entities.Person;
 
 /**
- *
  * @author steph18
  */
 public class PersonDao extends RepositoryDao<Person, Integer> {

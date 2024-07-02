@@ -10,31 +10,30 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
  * @author Mediasoft
  */
 @Entity
 @Table(name = "roles")
-public class Role extends BaseEntity{
-    
+public class Role extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-   
+
     @Column(name = "label")
     private String label;
-    
+
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
-    
+
     @ManyToMany
     @JoinTable(
             name = "roles_permissions",
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
-    private List <Permission> permissions;
+    private List<Permission> permissions;
 
     public Role() {
     }
@@ -70,7 +69,7 @@ public class Role extends BaseEntity{
     public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -97,5 +96,5 @@ public class Role extends BaseEntity{
     public String toString() {
         return "Roles{" + "id=" + id + ", label=" + label + '}';
     }
-    
+
 }

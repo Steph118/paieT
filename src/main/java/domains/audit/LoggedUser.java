@@ -7,7 +7,6 @@ package domains.audit;
 import entities.User;
 
 /**
- *
  * @author mawuli
  */
 public class LoggedUser {

@@ -10,37 +10,36 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
  * @author Mediasoft
  */
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity{
-    
+public class User extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    
+
     @Column(name = "username", nullable = false)
     private String username;
-    
+
     @Column(name = "password", nullable = false)
     private String password;
-    
+
     @Column(name = "actif")
     private boolean actif;
-    
+
     @Column(name = "change_password")
     private boolean changePassword;
-    
+
     @ManyToMany
     @JoinTable(
-            name = "users_roles" ,
-            joinColumns = @JoinColumn(name = "user_id"), 
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Role> roles ;
+    private List<Role> roles;
 
     public User() {
     }
@@ -92,7 +91,7 @@ public class User extends BaseEntity{
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;
