@@ -6,21 +6,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
-      xmlns:f="jakarta.faces.core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="jakarta.faces.html">
     <ui:composition template="/WEB-INF/template.xhtml">
-
         <ui:define name="content">
-            <ui:insert name="actions">
-                <div class="card">
-                    <ui:insert name="fields"/>
-                    <br/>
-                    <ui:insert name="actions-plus"/>
-                    <p:button value="Retour" outcome="list?faces-redirect=true" icon="fa fa-backward"
-                              class="ui-button-info"/>
+            <h:form id="detailsForm">
+                <div class="ui-g grid m-2">
+                    <ui:include src="head-title.xhtml"/>
+                    <div class="ui-g-12 col-12">
+                        <div class="card">
+                            <div class="ui-g grid">
+                                <div class="ui-g-12 col-12">
+                                    <ui:insert name="fields">
+                                        <p:fieldset legend="#{fieldsTitle}">
+                                            <ui:insert name="fields-content"/>
+                                        </p:fieldset>
+                                    </ui:insert>
+                                </div>
+                            </div>
+                            <div class="ui-g grid mt-2">
+                                <div class="ui-g-12 col-12">
+                                    <ui:insert name="form-actions">
+                                        <p:button value="Retour" outcome="list?faces-redirect=true" icon="fa fa-backward"
+                                                  class="ui-button-info"/>
+                                        <p:spacer width="5"/>
+                                        <ui:insert name="actions-plus"/>
+                                    </ui:insert>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </ui:insert>
+            </h:form>
         </ui:define>
-
     </ui:composition>
 </html>

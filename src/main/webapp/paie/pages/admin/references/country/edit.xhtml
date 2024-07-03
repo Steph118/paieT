@@ -7,8 +7,17 @@
     <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
-        
+
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{countryBean.entityId}"/>
+                <f:viewAction action="#{countryBean.initEntity()}"/>
+            </f:metadata>
+        </ui:define>
+
         <ui:param name="crudBean" value="#{countryBean}"/>
+
+        <ui:param name="fieldsTitle" value="Pays"/>
 
         <ui:define name="list-title">
             Édition Pays
@@ -16,29 +25,30 @@
         <ui:define name="breadCrumb">
             Référence > Pays
         </ui:define>
-        <ui:define name="fields">
-            <p:fieldset legend="Pays">
-                <div class="form-grid grid">
-                    <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="code" value="Code"/>
-                        <p:inputText id="code" class="col-12" placeholder="saisir code"
-                                     value="#{countryBean.entity.codeIso}"
-                                     />
-                    </div>
-                    <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel value="Libelle" for="label"/>
-                        <p:inputText id="label" class="col-12" placeholder="saisir libelle"
-                                     value="#{countryBean.entity.label}"
-                                     />
-                    </div>
-                    <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="codeTel" value="Code téléphonique"/>
-                        <p:inputText id="codeTel" class="col-12" placeholder="saisir code téléphonique"
-                                     value="#{countryBean.entity.phoneCode}"
-                                     />
-                    </div>
+        <ui:define name="fields-content">
+            <div class="form-grid grid">
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="code" value="Code"/>
+                    <p:inputText id="code" class="col-12" placeholder="saisir code"
+                                 value="#{countryBean.entity.codeIso}"
+                                 required="true" requiredMessage="required"
+                                 />
                 </div>
-            </p:fieldset>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="Libelle" for="label"/>
+                    <p:inputText id="label" class="col-12" placeholder="saisir libelle"
+                                 value="#{countryBean.entity.label}"
+                                 required="true" requiredMessage="required"
+                                 />
+                </div>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="codeTel" value="Code téléphonique"/>
+                    <p:inputText id="codeTel" class="col-12" placeholder="saisir code téléphonique"
+                                 value="#{countryBean.entity.phoneCode}"
+                                 required="true" requiredMessage="required"
+                                 />
+                </div>
+            </div>
         </ui:define>
 
     </ui:composition>

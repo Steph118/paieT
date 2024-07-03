@@ -66,24 +66,18 @@ public abstract class GenericBean<E extends Serializable, ID>
     public ID getId(E e) {
         return null;
     }
-    
+
     public void loadEntity() {
         this.entity = this.getService().findById(this.getEntityId());
-         System.err.println("loadEntity ===> "+this.entity);
+        System.err.println("loadEntity ===> " + this.entity);
     }
 
     public void initEntity() {
-        System.err.println("in1");
         if (this.entityId == null) {
-            System.err.println("initAdd begin...");
             this.initAdd();
-            System.err.println("initAdd end...");
         } else {
-            System.err.println("loadEntity begin...");
             this.loadEntity();
-            System.err.println("loadEntity end...");
         }
-        System.err.println("in2");
     }
 
     public void afterSave() {

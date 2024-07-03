@@ -11,7 +11,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:f="jakarta.faces.core">
     <ui:composition template="/WEB-INF/template.xhtml">
         <ui:define name="metadata">
-            <f:event listener="#{crudBean.initList()}" type="preRenderView"/>
+            <f:metadata>
+                <f:event listener="#{crudBean.initList()}" type="preRenderView"/>
+            </f:metadata>
         </ui:define>
 
         <ui:define name="content">
