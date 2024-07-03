@@ -9,57 +9,63 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html">
-<ui:composition template="/WEB-INF/template.xhtml">
-    <ui:define name="metadata">
-        <f:viewParam name="entityId" value="#{crudBean.entityId}"/>
-        <f:viewAction action="#{crudBean.initEntity()}"/>
-    </ui:define>
-    <ui:define name="content">
-
-        <h:form id="editForm">
-            <div class="ui-g grid m-2">
-                <ui:include src="head-title.xhtml"/>
-                <div class="ui-g-12 col-12">
-                    <div class="card">
-                        <div class="ui-g grid">
-                            <div class="ui-g-12 col-12">
-                                <ui:insert name="fields"/>
+    <ui:composition template="/WEB-INF/template.xhtml">
+        <ui:define name="metadata">
+            <f:viewParam name="entityId" value="#{crudBean.entityId}"/>
+            <f:viewAction action="#{crudBean.initEntity()}"/>
+            <f:event listener="#{crudBean.initEntity()}" type="preRenderView"/>
+        </ui:define>
+        <ui:define name="content">
+            <h:form id="editForm">
+                <div class="ui-g grid m-2">
+                    <ui:include src="head-title.xhtml"/>
+                    <div class="ui-g-12 col-12">
+                        <div class="card">
+                            <div class="ui-g grid">
+                                <div class="ui-g-12 col-12">
+                                    <ui:insert name="fields"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ui-g grid mt-2">
-                            <div class="ui-g-12 col-12">
-                                <ui:insert name="form-actions">
-                                    <p:commandButton value="Enregistrer" icon="fa fa-save"
-                                                     class="ui-button-primary"
-                                    >
-                                        <p:confirm header="Confirmer" icon="ui-icon-alert"
-                                                   message="Veuillez Confirmer"/>
-                                    </p:commandButton>
-                                    <p:spacer width="5"/>
-                                    <p:commandButton value="Enregistrer" icon="fa fa-edit"
-                                                     class="ui-button-primary"
-                                    >
-                                        <p:confirm header="Confirmer" icon="ui-icon-alert"
-                                                   message="Veuillez Confirmer"/>
-                                    </p:commandButton>
-                                    <p:spacer width="5"/>
-                                    <p:button value="Annuler" icon="fa fa-remove"
-                                              class="ui-button-danger"
-                                              outcome="list?faces-redirect=true"
-                                    />
-                                </ui:insert>
+                            <div class="ui-g grid mt-2">
+                                <div class="ui-g-12 col-12">
+                                    <ui:insert name="form-actions">
+                                        <p:commandButton value="Enregistrer" icon="fa fa-save"
+                                                         class="ui-button-primary"
+                                                         actionListener="#{crudBean.beforeSave()}"
+                                                         action="#{crudBean.save()}"
+                                                         rendered="#{!crudBean.isUpdating()}"
+                                                         >
+                                            <p:confirm header="Confirmer" icon="ui-icon-alert"
+                                                       message="Veuillez Confirmer"/>
+                                        </p:commandButton>
+                                        <p:spacer width="5"/>
+                                        <p:commandButton value="Enregistrer" icon="fa fa-edit"
+                                                         class="ui-button-primary"
+                                                         actionListener="#{crudBean.beforeUpdate()}"
+                                                         action="#{crudBean.update()}"
+                                                         rendered="#{crudBean.isUpdating()}"
+                                                         >
+                                            <p:confirm header="Confirmer" icon="ui-icon-alert"
+                                                       message="Veuillez Confirmer"/>
+                                        </p:commandButton>
+                                        <p:spacer width="5"/>
+                                        <p:button value="Annuler" icon="fa fa-remove"
+                                                  class="ui-button-danger"
+                                                  outcome="list?faces-redirect=true"
+                                                  />
+                                    </ui:insert>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
-                <p:commandButton value="Oui" type="button"
-                                 styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
-                <p:commandButton value="Non" type="button"
-                                 styleClass="i-confirmdialog-no ui-button-flat" icon="ui-icon-close"/>
-            </p:confirmDialog>
-        </h:form>
-    </ui:define>
-</ui:composition>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                    <p:commandButton value="Oui" type="button"
+                                     styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="Non" type="button"
+                                     styleClass="i-confirmdialog-no ui-button-flat" icon="ui-icon-close"/>
+                </p:confirmDialog>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>

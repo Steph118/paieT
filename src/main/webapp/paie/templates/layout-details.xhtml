@@ -8,24 +8,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:ui="jakarta.faces.facelets"
       xmlns:f="jakarta.faces.core"
       xmlns:p="http://primefaces.org/ui">
-<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:composition template="/WEB-INF/template.xhtml">
 
-    <ui:define name="metadata">
-        <f:viewParam name="entityId" value="#{crudBean.entityId}"/>
-        <f:viewAction action="#{crudBean.initEntity()}"/>
-    </ui:define>
+        <ui:define name="content">
+            <ui:insert name="actions">
+                <div class="card">
+                    <ui:insert name="fields"/>
+                    <br/>
+                    <ui:insert name="actions-plus"/>
+                    <p:button value="Retour" outcome="list?faces-redirect=true" icon="fa fa-backward"
+                              class="ui-button-info"/>
+                </div>
+            </ui:insert>
+        </ui:define>
 
-    <ui:define name="content">
-        <ui:insert name="actions">
-            <div class="card">
-                <ui:insert name="fields"/>
-                <br/>
-                <ui:insert name="actions-plus"/>
-                <p:button value="Retour" outcome="#{crudBean.cancel()}" icon="fa fa-backward"
-                          class="ui-button-info"/>
-            </div>
-        </ui:insert>
-    </ui:define>
-
-</ui:composition>
+    </ui:composition>
 </html>

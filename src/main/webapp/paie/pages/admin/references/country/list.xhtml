@@ -3,27 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui">
-<ui:composition template="/paie/templates/layout-list.xhtml">
-    <ui:param name="crudBean" value="#{countryBean}"/>
-    <ui:define name="list-title">
-        Pays
-    </ui:define>
-    <ui:define name="breadCrumb">
-        Reference > Pays
-    </ui:define>
-    <ui:define name="table-title">
-        Pays
-    </ui:define>
-    <ui:define name="add-column">
-        <p:column headerText="Libelle">
-
-        </p:column>
-        <p:column headerText="Code ISO">
-
-        </p:column>
-        <p:column headerText="Code téléponique">
-
-        </p:column>
-    </ui:define>
-</ui:composition>
+    <ui:composition template="/paie/templates/layout-list.xhtml">
+        <ui:param name="crudBean" value="#{countryBean}"/>
+        <ui:define name="list-title">
+            Pays
+        </ui:define>
+        <ui:define name="breadCrumb">
+            Reference > Pays
+        </ui:define>
+        <ui:define name="table-title">
+            Pays
+        </ui:define>
+        <ui:define name="add-column">
+            <p:column headerText="Libelle" field="l" >
+                <p:outputLabel value="#{e.label}"/>
+            </p:column>
+            <p:column headerText="Code ISO" field="l" >
+                <p:outputLabel value="#{e.codeIso}"/>
+            </p:column>
+            <p:column headerText="Code téléponique" field="l" >
+                <p:outputLabel value="#{e.phoneCode}"/>
+            </p:column>
+        </ui:define>
+    </ui:composition>
 </html>

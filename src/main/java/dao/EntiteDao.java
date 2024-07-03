@@ -5,14 +5,16 @@
 package dao;
 
 import entities.Entite;
+import jakarta.ejb.Stateless;
 
 /**
  * @author steph18
  */
+@Stateless
 public class EntiteDao extends RepositoryDao<Entite, Integer> {
 
-    public EntiteDao(Class<Entite> entityClass) {
-        super(entityClass);
+    public EntiteDao() {
+        super(Entite.class);
     }
 
 }

@@ -9,6 +9,7 @@ import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,9 +24,10 @@ public abstract class GenericBean<E extends Serializable, ID>
     protected static final String LIST_OUTCOME = "list";
     protected static final String EDIT_OUTCOME = "edit";
     protected final Logger logger;
-    protected boolean isUpdate;
+    protected boolean updating;
     protected E entity;
     protected ID entityId;
+    protected List<E> list;
 
     public GenericBean() {
         this.logger = Logger.getLogger(this.getClass().getName());
@@ -34,6 +36,7 @@ public abstract class GenericBean<E extends Serializable, ID>
     public abstract GenericServiceLocal<E, ID> getService();
 
     public void initList() {
+        list = this.getService().getAll();
     }
 
     public void beforeSave() {
@@ -41,8 +44,8 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     public String save() {
         try {
+            logger.log(Level.SEVERE, "test", this.entity);
             this.getService().save(this.entity);
-            //this.initList();
             Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
             this.logger.log(Level.INFO, "Enregistrement de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
             return cancel();
@@ -60,16 +63,27 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     public abstract void initAdd();
 
-    public void getEntity() {
+    public ID getId(E e) {
+        return null;
+    }
+    
+    public void loadEntity() {
         this.entity = this.getService().findById(this.getEntityId());
+         System.err.println("loadEntity ===> "+this.entity);
     }
 
     public void initEntity() {
+        System.err.println("in1");
         if (this.entityId == null) {
-            initAdd();
+            System.err.println("initAdd begin...");
+            this.initAdd();
+            System.err.println("initAdd end...");
         } else {
-            getEntity();
+            System.err.println("loadEntity begin...");
+            this.loadEntity();
+            System.err.println("loadEntity end...");
         }
+        System.err.println("in2");
     }
 
     public void afterSave() {
@@ -128,7 +142,6 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     }
 
-
     public String cancel() {
         return LIST_OUTCOME + "?faces-redirect=true";
     }
@@ -137,12 +150,16 @@ public abstract class GenericBean<E extends Serializable, ID>
         return EDIT_OUTCOME + "?faces-redirect=true";
     }
 
-    public boolean isUpdate() {
+    public boolean isUpdating() {
         return this.entityId != null;
     }
 
-    public void setUpdate(boolean update) {
-        isUpdate = update;
+    public void setUpdating(boolean updating) {
+        this.updating = updating;
+    }
+
+    public E getEntity() {
+        return entity;
     }
 
     public void setEntity(E entity) {
@@ -155,5 +172,13 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     public void setEntityId(ID entityId) {
         this.entityId = entityId;
+    }
+
+    public List<E> getList() {
+        return list;
+    }
+
+    public void setList(List<E> list) {
+        this.list = list;
     }
 }

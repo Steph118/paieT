@@ -5,14 +5,16 @@
 package dao;
 
 import entities.Year;
+import jakarta.ejb.Stateless;
 
 /**
  * @author steph18
  */
+@Stateless
 public class YearDao extends RepositoryDao<Year, Integer> {
 
-    public YearDao(Class<Year> entityClass) {
-        super(entityClass);
+    public YearDao() {
+        super(Year.class);
     }
 
 }

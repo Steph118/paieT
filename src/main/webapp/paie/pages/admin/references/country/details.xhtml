@@ -5,8 +5,39 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="jakarta.faces.facelets">
-<ui:composition template="/paie/templates/layout-details.xhtml">
-    <ui:param name="crudBean" value="#{countryBean}"/>
-</ui:composition>
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+    <ui:composition template="/paie/templates/layout-details.xhtml">
+        <ui:define name="metadata">
+            <f:viewParam name="entityId" value="#{countryBean.entityId}"/>
+            <f:viewAction action="#{countryBean.initEntity()}"/>
+            <f:event listener="#{countryBean.initEntity()}" type="preRenderView"/>
+        </ui:define>
+        <ui:param name="crudBean" value="#{countryBean}"/>
+        <ui:define name="fields">
+            <p:outputPanel>
+                <div class="form-grid grid">
+                    <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="code" value="Code"/>
+                        <strong>
+                            <p:outputLabel id="code" value="#{countryBean.entity.codeIso}"/>
+                        </strong>
+                    </div>
+                    <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="label" value="Libelle"/>
+                        <strong>
+                            <p:outputLabel id="label" value="#{countryBean.entity.label}"/>
+                        </strong>
+                    </div>
+                    <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="codeTel" value="Code téléphonique"/>
+                        <strong>
+                            <p:outputLabel id="codeTel" value="#{countryBean.entity.phoneCode}"/>
+                        </strong>
+                    </div>
+                </div>
+            </p:outputPanel>
+        </ui:define>
+    </ui:composition>
 </html>

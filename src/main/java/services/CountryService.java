@@ -15,8 +15,7 @@ import service.interfaces.CountryServiceLocal;
  * @author steph18
  */
 @Stateless
-public class CountryService extends GenericServiceLocalImpl<Country, Integer>
-        implements CountryServiceLocal {
+public class CountryService extends GenericServiceLocalImpl<Country, Integer> implements CountryServiceLocal {
 
     @EJB
     private CountryDao dao;

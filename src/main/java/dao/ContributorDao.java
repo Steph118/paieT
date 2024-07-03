@@ -5,14 +5,16 @@
 package dao;
 
 import entities.Contributor;
+import jakarta.ejb.Stateless;
 
 /**
  * @author steph18
  */
+@Stateless
 public class ContributorDao extends RepositoryDao<Contributor, Integer> {
 
-    public ContributorDao(Class<Contributor> entityClass) {
-        super(entityClass);
+    public ContributorDao() {
+        super(Contributor.class);
     }
 
 }

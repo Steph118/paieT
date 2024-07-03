@@ -5,14 +5,16 @@
 package dao;
 
 import entities.Country;
+import jakarta.ejb.Stateless;
 
 /**
  * @author steph18
  */
+@Stateless
 public class CountryDao extends RepositoryDao<Country, Integer> {
 
-    public CountryDao(Class<Country> entityClass) {
-        super(entityClass);
+    public CountryDao() {
+        super(Country.class);
     }
 
 }

@@ -5,6 +5,7 @@
 package bean;
 
 import entities.Country;
+import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;

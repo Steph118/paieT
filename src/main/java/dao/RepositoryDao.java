@@ -22,6 +22,7 @@ public class RepositoryDao<E extends Serializable, ID> {
 
     protected final Logger logger;
     private final Class<E> entityClass;
+    
     @PersistenceContext
     protected EntityManager em;
 

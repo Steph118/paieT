@@ -9,95 +9,110 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="jakarta.faces.html"
       xmlns:f="jakarta.faces.core">
-<ui:composition template="/WEB-INF/template.xhtml">
-    <ui:define name="metadata">
-        <f:event listener="#{crudBean.initList()}" type="preRenderView"/>
-    </ui:define>
+    <ui:composition template="/WEB-INF/template.xhtml">
+        <ui:define name="metadata">
+            <f:event listener="#{crudBean.initList()}" type="preRenderView"/>
+        </ui:define>
 
-    <ui:define name="content">
-        <h:form>
-            <div class="grid m-3">
-                <ui:include src="head-title.xhtml"/>
-                <div>
-                    <p:card>
-                        <div>
-                            <p:toolbar>
-                                <p:toolbarGroup>
-                                    <p:button outcome="edit?faces-redirect=true" value="Nouveau" icon="pi pi-plus"
-                                              styleClass="ui-button-success sm:m-2 m-2 lg:mr-1 md:mr-1"/>
+        <ui:define name="content">
+            <h:form>
+                <div class="grid m-3">
+                    <ui:include src="head-title.xhtml"/>
+                    <div>
+                        <p:card>
+                            <div>
+                                <p:toolbar>
+                                    <p:toolbarGroup>
+                                        <p:button outcome="edit?faces-redirect=true" value="Nouveau" icon="pi pi-plus"
+                                                  styleClass="ui-button-success sm:m-2 m-2 lg:mr-1 md:mr-1"/>
 
-                                    <ui:insert name="add-btn"/>
+                                        <ui:insert name="add-btn"/>
 
-                                    <!--                                        <p:commandButton id="delete-products-button"
-                                                                                             icon="pi pi-trash"
-                                                                                             styleClass="ui-button-danger"/>-->
-                                </p:toolbarGroup>
-                                <p:toolbarGroup align="right">
-                                    <p:commandButton value="Exporter en PDF" icon="pi pi-upload"
-                                                     styleClass="ui-button-help sm:m-2 m-2 lg:mr-1 md:mr-1"
-                                                     ajax="false">
-                                        <p:dataExporter type="pdf" target="dt-products" fileName="products"/>
-                                    </p:commandButton>
-                                    <p:commandButton value="Export en XCLC" icon="pi pi-upload"
-                                                     styleClass="ui-button-help sm:m-2 m-2 lg:ml-1 md:ml-1"
-                                                     ajax="false">
-                                        <p:dataExporter type="pdf" target="dt-products" fileName="products"/>
-                                    </p:commandButton>
-                                </p:toolbarGroup>
-                            </p:toolbar>
-                        </div>
+                                        <!--                                        <p:commandButton id="delete-products-button"
+                                                                                                 icon="pi pi-trash"
+                                                                                                 styleClass="ui-button-danger"/>-->
+                                    </p:toolbarGroup>
+                                    <p:toolbarGroup align="right">
+                                        <p:commandButton value="PDF" icon="pi pi-upload"
+                                                         styleClass="ui-button-help sm:m-2 m-2 lg:mr-1 md:mr-1"
+                                                         ajax="false">
+                                            <p:dataExporter type="pdf" target="dt-products" fileName="products"/>
+                                        </p:commandButton>
+                                        <p:commandButton value="XCLC" icon="pi pi-upload"
+                                                         styleClass="ui-button-help sm:m-2 m-2 lg:ml-1 md:ml-1"
+                                                         ajax="false">
+                                            <p:dataExporter type="pdf" target="dt-products" fileName="products"/>
+                                        </p:commandButton>
+                                        <p:commandButton value="CSV" icon="pi pi-upload"
+                                                         styleClass="ui-button-help sm:m-2 m-2 lg:ml-1 md:ml-1"
+                                                         ajax="false">
+                                            <p:dataExporter type="pdf" target="dt-products" fileName="products"/>
+                                        </p:commandButton>
+                                        <p:commandButton value="DOCX" icon="pi pi-upload"
+                                                         styleClass="ui-button-help sm:m-2 m-2 lg:ml-1 md:ml-1"
+                                                         ajax="false">
+                                            <p:dataExporter type="pdf" target="dt-products" fileName="products"/>
+                                        </p:commandButton>
+                                    </p:toolbarGroup>
+                                </p:toolbar>
+                            </div>
 
-                        <div class="mt-5">
-                            <ui:insert name="content-list">
-                                <p:dataTable id="table" rows="10" paginatorPosition="bottom" paginator="true"
-                                             value="" var="e" emptyMessage="Aucun enregistrement">
-                                    <f:facet name="header">
-                                        <div class="flex align-items-center justify-content-between">
+                            <div class="mt-5">
+                                <ui:insert name="content-list">
+                                    <p:dataTable id="table" rows="10" paginatorPosition="bottom" paginator="true"
+                                                 rowKey="#{e.id}" 
+                                                 value="#{crudBean.list}" var="e" emptyMessage="Aucun enregistrement">
+                                        <f:facet name="header">
+                                            <div class="flex align-items-center justify-content-between">
                                                 <span class="text-1xl text-600">
                                                     <ui:insert name="table-title">
                                                         Table header
                                                     </ui:insert>
                                                 </span>
-                                            <ui:insert name="input-header"/>
-                                            <div class="flex align-items-center justify-content-end">
-                                                <p:inputText class="m-2" id="globalFilter"
-                                                             onkeyup="PF('table').filter()"
-                                                             placeholder="Enter keyword"/>
-                                                <ui:insert class="table-filters"/>
+                                                <ui:insert name="input-header"/>
+                                                <div class="flex align-items-center justify-content-end">
+                                                    <p:inputText class="m-2" id="globalFilter"
+                                                                 onkeyup="PF('table').filter()"
+                                                                 placeholder="Rechercher"/>
+                                                    <ui:insert class="table-filters"/>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </f:facet>
-                                    <ui:insert name="add-column"/>
-                                    <p:column headerText="Opérations" style="text-align: center">
-                                        <div class="flex align-items-center justify-content-center">
-                                            <ui:insert name="operations-btn">
-                                                <p:tooltip value="Éditer" for="editButton" position="top"/>
-                                                <p:button id="editButton" class="ui-button-primary m-1"
-                                                          icon="fa fa-edit"
-                                                          outcome="edit.xhtml"/>
+                                        </f:facet>
+                                        <ui:insert name="add-column"/>
+                                        <p:column headerText="Opérations" style="text-align: center">
+                                            <div class="flex align-items-center justify-content-center">
+                                                <ui:insert name="operations-btn">
+                                                    <p:tooltip value="Éditer" for="editButton" position="top"/>
+                                                    <p:button id="editButton" class="ui-button-primary m-1"
+                                                              icon="fa fa-edit" includeViewParams="true"
+                                                              outcome="edit.xhtml">
+                                                        <f:param name="entityId" value="#{e.id}"/>
+                                                    </p:button>
 
-                                                <p:tooltip value="Détails" for="detailsButton" position="top"/>
-                                                <p:button id="detailsButton" class="ui-button-success m-1"
-                                                          icon="pi pi-info-circle"
-                                                          outcome="details.xhtml"/>
+                                                    <p:tooltip value="Détails" for="detailsButton" position="top"/>
+                                                    <p:button id="detailsButton" class="ui-button-success m-1"
+                                                              icon="pi pi-info-circle"
+                                                              outcome="details.xhtml" includeViewParams="true">
+                                                        <f:param name="entityId" value="#{e.id}"/>
+                                                    </p:button>
 
-                                                <p:tooltip value="Supprimer" for="deleteButton" position="top"/>
-                                                <p:button id="deleteButton" class="ui-button-danger m-1"
-                                                          icon="pi pi-trash"/>
-                                                <ui:insert name="add-operations-btn"/>
-                                            </ui:insert>
-                                        </div>
-                                    </p:column>
-                                </p:dataTable>
-                            </ui:insert>
-                        </div>
+                                                    <p:tooltip value="Supprimer" for="deleteButton" position="top"/>
+                                                    <p:button id="deleteButton" class="ui-button-danger m-1"
+                                                              icon="pi pi-trash"/>
+                                                    <ui:insert name="add-operations-btn"/>
+                                                </ui:insert>
+                                            </div>
+                                        </p:column>
+                                    </p:dataTable>
+                                </ui:insert>
+                            </div>
 
-                    </p:card>
+                        </p:card>
 
+                    </div>
                 </div>
-            </div>
-        </h:form>
-    </ui:define>
-</ui:composition>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
