@@ -8,7 +8,6 @@ package entities;
  * @author steph18
  */
 
-import enumeration.Sexe;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -52,9 +51,9 @@ public class Person extends BaseEntity {
     @JoinColumn(name = "locality_id")
     private Locality locality;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "sexe", nullable = false)
-    private Sexe Sexe;
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "sexe_id")
+    private Sexe sexe;
 
     @Embedded
     @AttributeOverrides({
@@ -141,11 +140,11 @@ public class Person extends BaseEntity {
     }
 
     public Sexe getSexe() {
-        return Sexe;
+        return sexe;
     }
 
-    public void setSexe(Sexe Sexe) {
-        this.Sexe = Sexe;
+    public void setSexe(Sexe sexe) {
+        this.sexe = sexe;
     }
 
     public Address getAddress() {
@@ -188,7 +187,6 @@ public class Person extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", user=" + user + ", locality=" + locality + ", Sexe=" + Sexe + ", address=" + address + ", phones=" + phones + '}';
+        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", user=" + user + ", locality=" + locality + ", Sexe=" + sexe + ", address=" + address + ", phones=" + phones + '}';
     }
-
 }

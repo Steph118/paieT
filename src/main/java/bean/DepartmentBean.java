@@ -4,11 +4,11 @@
  */
 package bean;
 
-import entities.Country;
+import entities.Department;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
-import service.interfaces.CountryServiceLocal;
+import service.interfaces.DepartmentServiceLocal;
 import service.interfaces.GenericServiceLocal;
 
 /**
@@ -16,29 +16,29 @@ import service.interfaces.GenericServiceLocal;
  */
 @Named
 @ViewScoped
-public class CountryBean extends GenericBean<Country, Integer> {
+public class DepartmentBean extends GenericBean<Department, Integer> {
 
     @EJB
-    private CountryServiceLocal countryService;
+    private DepartmentServiceLocal departmentService;
 
     @Override
-    public GenericServiceLocal<Country, Integer> getService() {
-        return countryService;
+    public GenericServiceLocal<Department, Integer> getService() {
+        return departmentService;
     }
 
     @Override
     public void initAdd() {
-        this.entity = new Country();
+        this.entity = new Department();
     }
 
     @Override
     public boolean canAdd() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean canDelete() {
-        return false;
+        return true;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CountryBean extends GenericBean<Country, Integer> {
 
     @Override
     public boolean canUpdate() {
-        return false;
+        return true;
     }
 
 }

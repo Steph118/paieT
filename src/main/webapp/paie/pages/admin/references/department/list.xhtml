@@ -8,6 +8,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/paie/templates/layout-list.xhtml">
+    <ui:param name="crudBean" value="#{departmentBean}"/>
     <ui:define name="list-title">
         Départements
     </ui:define>
@@ -18,11 +19,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
         Départements
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="Libelle">
-
+        <p:column headerText="Libelle" field="l">
+            <p:outputLabel value="#{e.code}"/>
         </p:column>
-        <p:column headerText="Code">
-
+        <p:column headerText="Code ISO" field="l">
+            <p:outputLabel value="#{e.label}"/>
         </p:column>
     </ui:define>
 </ui:composition>

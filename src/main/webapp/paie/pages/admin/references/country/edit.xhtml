@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:f="jakarta.faces.core">
-    <ui:composition
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="jakarta.faces.core">
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{countryBean.entityId}"/>
-                <f:viewAction action="#{countryBean.initEntity()}"/>
-            </f:metadata>
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{countryBean.entityId}"/>
+            <f:viewAction action="#{countryBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{countryBean}"/>
+    <ui:param name="crudBean" value="#{countryBean}"/>
 
-        <ui:param name="fieldsTitle" value="Pays"/>
+    <ui:param name="fieldsTitle" value="Pays"/>
 
-        <ui:define name="list-title">
-            Édition Pays
-        </ui:define>
-        <ui:define name="breadCrumb">
-            Référence > Pays
-        </ui:define>
-        <ui:define name="fields-content">
-            <div class="form-grid grid">
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="codeIso" value="Code ISO"/>
-                    <p:inputText id="codeIso" class="col-12" placeholder="saisir code ISO"
-                                 value="#{countryBean.entity.codeIso}" 
-                                 required="true" requiredMessage="Le code ISO est recquis"
-                                 />
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="Libelle" for="label"/>
-                    <p:inputText id="label" class="col-12" placeholder="saisir libelle"
-                                 value="#{countryBean.entity.label}"
-                                 required="true" requiredMessage="Le libelle est recquis"
-                                 />
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="codeTel" value="Code téléphonique"/>
-                    <p:inputText id="codeTel" class="col-12" placeholder="saisir code téléphonique"
-                                 value="#{countryBean.entity.phoneCode}"
-                                 required="true" requiredMessage="Le code téléphonique est recquis"
-                                 />
-                </div>
+    <ui:define name="list-title">
+        Édition Pays
+    </ui:define>
+    <ui:define name="breadCrumb">
+        Référence > Pays
+    </ui:define>
+    <ui:define name="fields-content">
+        <div class="form-grid grid">
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="codeIso" value="Code ISO"/>
+                <p:inputText id="codeIso" class="col-12" placeholder="saisir code ISO"
+                             value="#{countryBean.entity.codeIso}"
+                             required="true" requiredMessage="Le code ISO est recquis"
+                />
             </div>
-        </ui:define>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="Libelle" for="label"/>
+                <p:inputText id="label" class="col-12" placeholder="saisir libelle"
+                             value="#{countryBean.entity.label}"
+                             required="true" requiredMessage="Le libelle est recquis"
+                />
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="codeTel" value="Code téléphonique"/>
+                <p:inputText id="codeTel" class="col-12" placeholder="saisir code téléphonique"
+                             value="#{countryBean.entity.phoneCode}"
+                             required="true" requiredMessage="Le code téléphonique est recquis"
+                />
+            </div>
+        </div>
+    </ui:define>
 
-    </ui:composition>
+</ui:composition>
 </html>
 

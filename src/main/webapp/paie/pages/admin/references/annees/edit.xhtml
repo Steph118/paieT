@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html
-        xmlns:ui="jakarta.faces.facelets"
-        xmlns:p="http://primefaces.org/ui">
+<html xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
 <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{yearBean.entityId}"/>
+            <f:viewAction action="#{yearBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
+
+    <ui:param name="crudBean" value="#{yearBean}"/>
+
+    <ui:param name="fieldsTitle" value="Année"/>
 
     <ui:define name="list-title">
         Édition Années
     </ui:define>
+
     <ui:define name="breadCrumb">
         Référence > Années
     </ui:define>
+
     <ui:define name="fields">
         <p:fieldset legend="Années">
             <div class="form-grid grid">
                 <div class="field col-12">
-                    <p:outputLabel value="Année" for="value"/>
-                    <p:inputText id="value" class="col-12" placeholder="saisir l'année"/>
+                    <p:outputLabel value="Valeur" for="value"/>
+                    <p:inputText id="value" placeholder="saisir l'année"
+                                 value="#{yearBean.entity.value}" class="col-12"
+                                 required="true" requiredMessage="Veuillez saisir l'année"
+                    />
                 </div>
             </div>
         </p:fieldset>

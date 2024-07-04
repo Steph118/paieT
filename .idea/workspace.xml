@@ -4,24 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Dao and service creation">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/03062024174545_create_countries.sql" afterDir="false" />
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Edition layout">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/DepartmentBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/SexeBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/YearBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/SexeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/SexeServiceLocal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/YearServiceLocal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/SexeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/YearService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/filters/snapshot.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/filters/snapshot.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/CountryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/CountryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/config.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/footer.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/footer.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/menu.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/tabscode.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/tags/tabscode.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/template.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/topbar.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Year.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Year.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enumeration/Sexe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Sexe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/template.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/annees/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/details.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/department/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/sexe/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/head-title.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/head-title.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-details.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" afterDir="false" />
@@ -128,6 +142,8 @@
       <recent name="services" />
       <recent name="service.interfaces" />
       <recent name="dao" />
+      <recent name="entities" />
+      <recent name="bean" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -177,6 +193,9 @@
       <workItem from="1719957263911" duration="50000" />
       <workItem from="1720007964604" duration="3051000" />
       <workItem from="1720044153755" duration="1261000" />
+      <workItem from="1720110305940" duration="380000" />
+      <workItem from="1720125488250" duration="2000" />
+      <workItem from="1720125497960" duration="9394000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -210,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718235693115</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Edition layout">
+      <option name="closed" value="true" />
+      <created>1720110518749</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720110518750</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +271,15 @@
     <MESSAGE value="Ajout des classes et configurations" />
     <MESSAGE value="git ignore snapshot" />
     <MESSAGE value="Entities persistance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entities persistance" />
+    <MESSAGE value="Edition layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edition layout" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="dart-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
