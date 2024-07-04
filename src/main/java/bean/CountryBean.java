@@ -32,4 +32,24 @@ public class CountryBean extends GenericBean<Country, Integer> {
         this.entity = new Country();
     }
 
+    @Override
+    public boolean canAdd() {
+        return false;
+    }
+
+    @Override
+    public boolean canDelete() {
+        return false;
+    }
+
+    @Override
+    public boolean canDetails() {
+        return true;
+    }
+
+    @Override
+    public boolean canUpdate() {
+        return false;
+    }
+
 }

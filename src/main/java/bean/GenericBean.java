@@ -63,13 +63,20 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     public abstract void initAdd();
 
+    public abstract boolean canAdd();
+
+    public abstract boolean canDelete();
+
+    public abstract boolean canDetails();
+
+    public abstract boolean canUpdate();
+
     public ID getId(E e) {
         return null;
     }
 
     public void loadEntity() {
         this.entity = this.getService().findById(this.getEntityId());
-        System.err.println("loadEntity ===> " + this.entity);
     }
 
     public void initEntity() {
@@ -81,11 +88,9 @@ public abstract class GenericBean<E extends Serializable, ID>
     }
 
     public void afterSave() {
-
     }
 
     public void beforeDelete() {
-
     }
 
     public String delete(E e) {
@@ -112,7 +117,6 @@ public abstract class GenericBean<E extends Serializable, ID>
     }
 
     public void beforeUpdate() {
-
     }
 
     public String update() {

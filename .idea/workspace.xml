@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Dao and service creation">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/03062024174545_create_countries.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/filters/snapshot.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/filters/snapshot.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/CountryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/CountryBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/GenericBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ContributorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ContributorDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CountryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CountryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DepartmentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EgliseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EgliseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EntiteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EntiteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/YearDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/YearDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/config.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/footer.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/footer.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/menu.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/menu.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/tabscode.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/tags/tabscode.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/template.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/topbar.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/topbar.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/references/country/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-details.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" afterDir="false" />
@@ -67,14 +69,14 @@
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;Steph118&quot;
-        }
-        }</component>
+  }
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Steph118/map-jpa2.git&quot;,
     &quot;accountId&quot;: &quot;09c956ff-f0f8-4d0f-8d0c-480c749a199e&quot;
-        }
-        }</component>
+  }
+}</component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -173,6 +175,8 @@
       <workItem from="1719944028310" duration="1240000" />
       <workItem from="1719951301180" duration="252000" />
       <workItem from="1719957263911" duration="50000" />
+      <workItem from="1720007964604" duration="3051000" />
+      <workItem from="1720044153755" duration="1261000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
