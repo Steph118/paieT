@@ -44,7 +44,7 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     public String save() {
         try {
-            logger.log(Level.SEVERE, "test", this.entity);
+            logger.log(Level.INFO, "GenericBean Save...");
             this.getService().save(this.entity);
             Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
             this.logger.log(Level.INFO, "Enregistrement de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
@@ -95,6 +95,7 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     public String delete(E e) {
         try {
+            logger.log(Level.INFO, "GenericBean delete...");
             this.getService().delete(e);
             this.logger.log(Level.INFO, "Suppression de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
             Messages.addFlashGlobalInfo("Suppression effectuée avec succès.");
@@ -121,6 +122,7 @@ public abstract class GenericBean<E extends Serializable, ID>
 
     public String update() {
         try {
+            logger.log(Level.INFO, "GenericBean update...");
             this.entity = this.getService().update(this.entity);
             Messages.addFlashGlobalInfo("Mise à jour effectuée avec succès.");
             this.logger.log(Level.INFO, "Mise à jour de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
