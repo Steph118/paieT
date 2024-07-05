@@ -1,5 +1,5 @@
-/src/main/filters/
-target
+/src/main/filters/*
+target/*
 .gitignore
 faces-config.NavData
 map-jpa.iml
