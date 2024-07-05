@@ -3,5 +3,5 @@ target/*
 .gitignore
 faces-config.NavData
 map-jpa.iml
-nb-configuration.
+nb-configuration.xml
 
