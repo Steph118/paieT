@@ -17,27 +17,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
         </f:metadata>
     </ui:define>
     <ui:param name="crudBean" value="#{countryBean}"/>
-    <ui:param name="fieldsTitle" value="Pays"/>
+    
+    <ui:param name="fieldsTitle" value="#{msg['references.country.title']}"/>
 
     <ui:define name="list-title">
-        Détails Pays
+        #{msg['references.country.details.title']}
     </ui:define>
     <ui:define name="breadCrumb">
-        Référence > Pays
+        #{msg['references.country.breadCrumb']}
     </ui:define> <ui:define name="fields-content">
     <p:outputPanel>
         <div class="form-grid grid">
             <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="code" value="Code"/>
+                <p:outputLabel for="code" value="#{msg['code']}"/>
                 <p:outputLabel class="font-bold text-900 text-xl" id="code" value="#{countryBean.entity.codeIso}"/>
 
             </div>
             <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="label" value="Libelle"/>
+                <p:outputLabel for="label" value="#{msg['label']}"/>
                 <p:outputLabel class="font-bold text-900 text-xl" id="label" value="#{countryBean.entity.label}"/>
             </div>
             <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="codeTel" value="Code téléphonique"/>
+                <p:outputLabel for="codeTel" value="#{msg['references.country.edit.codeTel']}"/>
                 <p:outputLabel class="font-bold  text-900 text-xl" id="codeTel"
                                value="#{countryBean.entity.phoneCode}"/>
             </div>

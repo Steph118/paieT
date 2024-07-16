@@ -12,16 +12,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
     <ui:param name="crudBean" value="#{yearBean}"/>
 
     <ui:define name="list-title">
-        Années
+         #{msg['references.annees.title']}
     </ui:define>
     <ui:define name="breadCrumb">
-        Reference > Années
+         #{msg['references.annees.breadCrumb']}
     </ui:define>
     <ui:define name="table-title">
-        Années
+        #{msg['references.annees.title']}
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="Valeur">
+        <p:column headerText="#{msg['references.annees.edit.value']}">
             <p:outputLabel value="#{e.value}"/>
         </p:column>
     </ui:define>

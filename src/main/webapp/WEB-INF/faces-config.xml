@@ -10,8 +10,9 @@
             <supported-locale>en</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>com.steph18.paieT.message</base-name>
+            <base-name>com.paie.messages</base-name>
             <var>msg</var>
         </resource-bundle>
+        <message-bundle>com.paie.messages</message-bundle>
     </application>
 </faces-config>

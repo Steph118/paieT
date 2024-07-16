@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.Objects;
 
@@ -22,13 +24,18 @@ public class TypeLocality extends BaseEntity {
 
     @Column(name = "label")
     private String label;
+    
+    @Column(name = "root", nullable = false)
+    private boolean root;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_type_locality")
+    private TypeLocality typeLocalityParent;
+
+    @OneToMany(mappedBy = "typeLocalityParent")
+    private List<TypeLocality> childreen = new ArrayList<>();
 
     public TypeLocality() {
-    }
-
-    public TypeLocality(Integer id, String label) {
-        this.id = id;
-        this.label = label;
     }
 
     public Integer getId() {
@@ -47,6 +54,30 @@ public class TypeLocality extends BaseEntity {
         this.label = label;
     }
 
+    public boolean isRoot() {
+        return root;
+    }
+
+    public void setRoot(boolean root) {
+        this.root = root;
+    }
+
+    public TypeLocality getTypeLocalityParent() {
+        return typeLocalityParent;
+    }
+
+    public void setTypeLocalityParent(TypeLocality typeLocalityParent) {
+        this.typeLocalityParent = typeLocalityParent;
+    }
+
+    public List<TypeLocality> getChildreen() {
+        return childreen;
+    }
+
+    public void setChildreen(List<TypeLocality> childreen) {
+        this.childreen = childreen;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -71,7 +102,7 @@ public class TypeLocality extends BaseEntity {
 
     @Override
     public String toString() {
-        return "LocalityType{" + "id=" + id + ", label=" + label + '}';
+        return "TypeLocality{" + "id=" + id + ", label=" + label + ", root=" + root + ", typeLocalityParent=" + typeLocalityParent + '}';
     }
 
 }

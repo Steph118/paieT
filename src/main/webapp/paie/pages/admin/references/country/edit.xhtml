@@ -17,35 +17,35 @@
 
     <ui:param name="crudBean" value="#{countryBean}"/>
 
-    <ui:param name="fieldsTitle" value="Pays"/>
+    <ui:param name="fieldsTitle" value="#{msg['references.country.title']}"/>
 
     <ui:define name="list-title">
-        Édition Pays
+        #{msg['references.country.edit.title']}
     </ui:define>
     <ui:define name="breadCrumb">
-        Référence > Pays
+        #{msg['references.country.breadCrumb']}
     </ui:define>
     <ui:define name="fields-content">
         <div class="form-grid grid">
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="codeIso" value="Code ISO"/>
-                <p:inputText id="codeIso" class="w-full" placeholder="saisir code ISO"
+                <p:outputLabel for="codeIso" value="#{msg['references.country.edit.codeIso']}"/>
+                <p:inputText id="codeIso" class="w-full" placeholder="#{msg['references.country.edit.codeIso.placeholder']}"
                              value="#{countryBean.entity.codeIso}"
-                             required="true" requiredMessage="Le code ISO est recquis"
+                             required="true" requiredMessage="#{msg['references.country.edit.codeIso.required']}"
                 />
             </div>
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel value="Libelle" for="label"/>
-                <p:inputText id="label" class="w-full" placeholder="saisir libelle"
+                <p:outputLabel value="#{msg['label']}" for="label"/>
+                <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
                              value="#{countryBean.entity.label}"
-                             required="true" requiredMessage="Le libelle est recquis"
+                             required="true" requiredMessage="#{msg['label.required']}"
                 />
             </div>
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="codeTel" value="Code téléphonique"/>
-                <p:inputText id="codeTel" class="w-full" placeholder="saisir code téléphonique"
+                <p:outputLabel for="codeTel" value="#{msg['references.country.edit.codeTel']}"/>
+                <p:inputText id="codeTel" class="w-full" placeholder="#{msg['references.country.edit.codeTel.placeholder']}"
                              value="#{countryBean.entity.phoneCode}"
-                             required="true" requiredMessage="Le code téléphonique est recquis"
+                             required="true" requiredMessage="#{msg['references.country.edit.codeTel.required']}"
                 />
             </div>
         </div>

@@ -15,24 +15,24 @@
 
     <ui:param name="crudBean" value="#{yearBean}"/>
 
-    <ui:param name="fieldsTitle" value="Année"/>
+    <ui:param name="fieldsTitle" value="#{msg['references.annees.title']}"/>
 
     <ui:define name="list-title">
-        Édition Années
+        #{msg['references.annees.edit.title']}
     </ui:define>
 
     <ui:define name="breadCrumb">
-        Référence > Années
+        #{msg['references.annees.breadCrumb']}
     </ui:define>
 
     <ui:define name="fields">
-        <p:fieldset legend="Années">
+        <p:fieldset legend="#{msg['references.annees.title']}">
             <div class="form-grid grid">
                 <div class="field col-12">
-                    <p:outputLabel value="Valeur" for="value"/>
-                    <p:inputText id="value" placeholder="saisir l'année"
+                    <p:outputLabel value="#{msg['references.annees.edit.value']}" for="value"/>
+                    <p:inputText id="value" placeholder="#{msg['references.annees.edit.value.placeholder']}"
                                  value="#{yearBean.entity.value}" class="w-full"
-                                 required="true" requiredMessage="Veuillez saisir l'année"
+                                 required="true" requiredMessage="#{msg['references.annees.edit.value.required']}"
                     />
                 </div>
             </div>

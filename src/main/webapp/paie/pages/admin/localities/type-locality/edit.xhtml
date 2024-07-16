@@ -27,12 +27,26 @@
         </ui:define>
         <ui:define name="fields-content">
             <div class="form-grid grid">
-                <div class="field col-12">
+                <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                     <p:outputLabel for="label" value="Libellé"/>
                     <p:inputText id="label" class="w-full" placeholder="saisir le libellé"
                                  value="#{typeLocalityBean.entity.label}"
                                  required="true" requiredMessage="Le libellé est recquis"
                                  />
+                </div>
+                <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                    <p:outputLabel for="typeLocalityParent" value="Type localité parent"/>
+                    <p:selectOneMenu id="typeLocalityParent" class="w-full">
+                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
+                        <f:selectItems />
+                    </p:selectOneMenu>
+                </div>
+                <div class="field col-12">
+                    <p:outputLabel for="root" value="Racine?"/>
+                    <div>
+                        <p:toggleSwitch id="root"/>
+                    </div>
+                    
                 </div>
             </div>
         </ui:define>

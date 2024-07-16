@@ -12,7 +12,11 @@ services/CountryService.class
 dao/CountryDao.class
 entities/TypeLocality.class
 services/GenericServiceLocalImpl.class
+bean/LocalityBean.class
 entities/Contributor.class
+dao/LocalityDao.class
+services/TypeLocalityService.class
+service/interfaces/LocalityServiceLocal.class
 entities/Eglise.class
 services/SexeService.class
 entities/Address.class
@@ -33,6 +37,7 @@ service/interfaces/EntiteServiceLocal.class
 entities/payment.class
 services/DepartmentService.class
 service/interfaces/EgliseServiceLocal.class
+dao/TypeLocalityDao.class
 entities/Member.class
 entities/SumContributor.class
 service/interfaces/CountryServiceLocal.class
@@ -41,12 +46,14 @@ services/ContributorService.class
 service/interfaces/YearServiceLocal.class
 menu/AppMenu.class
 bean/YearBean.class
+service/interfaces/TypeLocalityServiceLocal.class
 entities/Loan.class
 resources/JakartaEE10Resource.class
 entities/Sexe.class
 service/interfaces/DepartmentServiceLocal.class
 dao/DepartmentDao.class
 services/PersonService.class
+services/LocalityService.class
 bean/DepartmentBean.class
 enumeration/Month.class
 entities/Department.class
@@ -63,5 +70,6 @@ entities/Permission.class
 service/interfaces/GenericServiceRemote.class
 view/App.class
 services/GenericServiceRemoteImpl.class
+bean/TypeLocalityBean.class
 services/YearService.class
 entities/Locality.class
