@@ -20,10 +20,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
     </ui:define>
     <ui:define name="add-column">
         <p:column headerText="Libelle" field="l">
-            <p:outputLabel value="#{e.code}"/>
-        </p:column>
-        <p:column headerText="Code ISO" field="l">
             <p:outputLabel value="#{e.label}"/>
+        </p:column>
+        <p:column headerText="Code" field="l">
+            <p:outputLabel value="#{e.code}"/>
         </p:column>
     </ui:define>
 </ui:composition>

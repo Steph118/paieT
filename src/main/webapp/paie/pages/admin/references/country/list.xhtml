@@ -15,13 +15,13 @@
         Pays
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="Libelle" field="l">
+        <p:column headerText="Libelle" field="label">
             <p:outputLabel value="#{e.label}"/>
         </p:column>
-        <p:column headerText="Code ISO" field="l">
+        <p:column headerText="Code ISO" field="codeIso">
             <p:outputLabel value="#{e.codeIso}"/>
         </p:column>
-        <p:column headerText="Code téléponique" field="l">
+        <p:column headerText="Code téléponique" field="phoneCode">
             <p:outputLabel value="#{e.phoneCode}"/>
         </p:column>
     </ui:define>

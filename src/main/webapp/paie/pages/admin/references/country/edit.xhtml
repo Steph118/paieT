@@ -29,21 +29,21 @@
         <div class="form-grid grid">
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel for="codeIso" value="Code ISO"/>
-                <p:inputText id="codeIso" class="col-12" placeholder="saisir code ISO"
+                <p:inputText id="codeIso" class="w-full" placeholder="saisir code ISO"
                              value="#{countryBean.entity.codeIso}"
                              required="true" requiredMessage="Le code ISO est recquis"
                 />
             </div>
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel value="Libelle" for="label"/>
-                <p:inputText id="label" class="col-12" placeholder="saisir libelle"
+                <p:inputText id="label" class="w-full" placeholder="saisir libelle"
                              value="#{countryBean.entity.label}"
                              required="true" requiredMessage="Le libelle est recquis"
                 />
             </div>
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel for="codeTel" value="Code téléphonique"/>
-                <p:inputText id="codeTel" class="col-12" placeholder="saisir code téléphonique"
+                <p:inputText id="codeTel" class="w-full" placeholder="saisir code téléphonique"
                              value="#{countryBean.entity.phoneCode}"
                              required="true" requiredMessage="Le code téléphonique est recquis"
                 />

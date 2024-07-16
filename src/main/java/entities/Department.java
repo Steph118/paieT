@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.util.Objects;
 
@@ -25,11 +27,13 @@ public class Department extends BaseEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "code", nullable = false)
+    @NotBlank
+    @Column(name = "code", nullable = false, unique = true, length = 5)
     private String code;
 
+    @NotBlank
     @Column(name = "label", nullable = false)
-    private Long label;
+    private String label;
 
 
     public Integer getId() {
@@ -48,11 +52,11 @@ public class Department extends BaseEntity {
         this.code = code;
     }
 
-    public Long getLabel() {
+    public String getLabel() {
         return label;
     }
 
-    public void setLabel(Long label) {
+    public void setLabel(String label) {
         this.label = label;
     }
 

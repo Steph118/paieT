@@ -4,6 +4,7 @@
  */
 package bean;
 
+import entities.BaseEntity;
 import exception.BusinessException;
 import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
@@ -12,13 +13,14 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.postgresql.util.PSQLException;
 
 /**
  * @param <E>
  * @param <ID>
  * @author steph18
  */
-public abstract class GenericBean<E extends Serializable, ID>
+public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
         implements Serializable {
 
     protected static final String LIST_OUTCOME = "list";
@@ -53,7 +55,7 @@ public abstract class GenericBean<E extends Serializable, ID>
             Messages.addGlobalError(ex.getMessage());
             this.logger.log(Level.SEVERE, ex.getMessage(), ex);
             return null;
-        } catch (Exception ex) {
+        }catch (Exception ex) {
             Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
             this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet: " + this.entity);
             return null;

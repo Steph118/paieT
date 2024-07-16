@@ -1,15 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this template
--->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>TODO supply a title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body>
-<div>TODO write content</div>
-</body>
+<html
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="jakarta.faces.core">
+    <ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        template="/paie/templates/layout-edit.xhtml">
+
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{localityBean.entityId}"/>
+                <f:viewAction action="#{localityBean.initEntity()}"/>
+            </f:metadata>
+        </ui:define>
+
+        <ui:param name="crudBean" value="#{localityBean}"/>
+
+        <ui:param name="fieldsTitle" value="Localité"/>
+
+        <ui:define name="list-title">
+            Édition Localités
+        </ui:define>
+        <ui:define name="breadCrumb">
+            Administration > Localités
+        </ui:define>
+        <ui:define name="fields-content">
+            <div class="form-grid grid">
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="Libellé" for="label"/>
+                    <p:inputText id="label" class="w-full" placeholder="saisir le libellé"
+                                 value="#{localityBean.entity.label}"
+                                 required="true" requiredMessage="Le libellé est recquis"
+                                 />
+                </div>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="localityType" value="Type de localité"/>
+                    <p:selectOneMenu id="localityType" class="w-full">
+                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
+                        <f:selectItems />
+                    </p:selectOneMenu>
+                </div>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="localityParent" value="Localité parent"/>
+                    <p:selectOneMenu id="localityParent" class="w-full">
+                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
+                        <f:selectItems />
+                    </p:selectOneMenu>
+                </div>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="country" value="Pays"/>
+                    <p:selectOneMenu id="country" class="w-full">
+                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
+                        <f:selectItems />
+                    </p:selectOneMenu>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
 </html>
+

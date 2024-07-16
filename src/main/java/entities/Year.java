@@ -7,6 +7,8 @@ package entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
@@ -22,7 +24,6 @@ public class Year extends BaseEntity {
     @Column(name = "id")
     private Integer id;
 
-    //@Size(min = 4, max = 4, message = "Le nombre de caractère recquis est 4")
     @Min(value = 1960, message = "La valeur minimale recquise est 1960")
     @Max(value = 3000, message = "La valeur maximale recquise est 3000")
     @Column(name = "value", nullable = false, unique = true, length = 4)

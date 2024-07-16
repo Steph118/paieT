@@ -18,7 +18,7 @@
 
     <ui:param name="fieldsTitle" value="Départements"/>
     <ui:define name="list-title">
-        Édition Département
+        Édition Départements
     </ui:define>
     <ui:define name="breadCrumb">
         Référence > Départements
@@ -28,13 +28,13 @@
             <div class="form-grid grid">
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                     <p:outputLabel value="Libelle" for="label"/>
-                    <p:inputText id="label" class="col-12" value="#{departmentBean.entity.label}"
+                    <p:inputText id="label" class="w-full" value="#{departmentBean.entity.label}"
                                  placeholder="saisir le libelle" required="true"
                                  requiredMessage="Le libelle est recquis"/>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                     <p:outputLabel for="code" value="Code"/>
-                    <p:inputText id="code" class="col-12" value="#{departmentBean.entity.code}"
+                    <p:inputText id="code" class="w-full" value="#{departmentBean.entity.code}"
                                  placeholder="saisir le code" required="true"
                                  requiredMessage="Le code est recquis"/>
                 </div>

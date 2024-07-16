@@ -6,14 +6,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
->
-<ui:composition template="/paie/templates/layout-list.xhtml">
-    <ui:define name="content">
-        <h3>List Persons</h3>
-        <div class="p-5">
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/paie/templates/layout-list.xhtml">
 
-        </div>
-    </ui:define>
-</ui:composition>
+        <ui:param name="crudBean" value="#{localityBean}"/>
+
+        <ui:define name="list-title">
+            Localités
+        </ui:define>
+        <ui:define name="breadCrumb">
+            Administration > Localités
+        </ui:define>
+        <ui:define name="table-title">
+            Localités
+        </ui:define>
+        <ui:define name="add-column">
+            <p:column headerText="Libellé">
+                <p:outputLabel value="#{e.label}"/>
+            </p:column>
+            <p:column headerText="Type de localité">
+                <p:outputLabel value="#{e.label}"/>
+            </p:column>
+            <p:column headerText="localité parent">
+                <p:outputLabel value="#{e.label}"/>
+            </p:column>
+            <p:column headerText="Pays">
+                <p:outputLabel value="#{e.label}"/>
+            </p:column>
+        </ui:define>
+    </ui:composition>
 </html>
-
