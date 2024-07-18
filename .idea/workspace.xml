@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="git ignore">
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="model wrapper dependency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +20,13 @@
         <option value="HTML File" />
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="REBASE" />
+      </set>
     </option>
   </component>
   <component name="Git.Settings">
@@ -149,6 +156,7 @@
       <workItem from="1720125497960" duration="10773000" />
       <workItem from="1721146717498" duration="928000" />
       <workItem from="1721207258224" duration="1527000" />
+      <workItem from="1721244405916" duration="485000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -230,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720177152361</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="model wrapper dependency">
+      <option name="closed" value="true" />
+      <created>1721244516840</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721244516840</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,14 +290,8 @@
     <MESSAGE value="Edition of layouts page" />
     <MESSAGE value="References pages: lis - edition - details" />
     <MESSAGE value="git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignore" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint type="dart-exception" />
-      </default-breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="model wrapper dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="model wrapper dependency" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

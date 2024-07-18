@@ -24,6 +24,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
             <p:column headerText="Libellé">
                 <p:outputLabel value="#{e.label}"/>
             </p:column>
+            <p:column headerText="Racine">
+                <p:outputLabel value="#{e.root}"/>
+            </p:column>
+            <p:column headerText="Type Localité parent">
+                <p:outputLabel value="#{e.typeLocalityParent.label}"/>
+            </p:column>
         </ui:define>
     </ui:composition>
 </html>

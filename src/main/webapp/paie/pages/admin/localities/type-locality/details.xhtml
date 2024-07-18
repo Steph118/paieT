@@ -36,6 +36,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                                        value="#{typeLocalityBean.entity.label}"/>
 
                     </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="parentLocality" value="Type localité parent"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="parentLocality" 
+                                       value="#{typeLocalityBean.entity.typeLocalityParent.label}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="root" value="Racine"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="root" 
+                                       value="#{typeLocalityBean.entity.root}"/>
+
+                    </div>
                 </div>
             </p:outputPanel>
         </ui:define>

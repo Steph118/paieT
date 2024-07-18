@@ -8,6 +8,8 @@ import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.TypeLocalityServiceLocal;
 
@@ -20,6 +22,8 @@ public class TypeLocalityBean extends GenericBean<TypeLocality, Integer> {
 
     @EJB
     private TypeLocalityServiceLocal typeLocalityService;
+    
+    private List<TypeLocality> typesLocalities = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<TypeLocality, Integer> getService() {
@@ -29,6 +33,12 @@ public class TypeLocalityBean extends GenericBean<TypeLocality, Integer> {
     @Override
     public void initAdd() {
         this.entity = new TypeLocality();
+    }
+
+    @Override
+    public void initEntity() {
+        super.initEntity();
+        typesLocalities = typeLocalityService.getAll();
     }
 
     @Override
@@ -50,5 +60,9 @@ public class TypeLocalityBean extends GenericBean<TypeLocality, Integer> {
     public boolean canUpdate() {
         return true;
     }
+
+    public List<TypeLocality> getTypesLocalities() {
+        return typesLocalities;
+    }  
 
 }

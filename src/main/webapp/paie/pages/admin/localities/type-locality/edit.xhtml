@@ -3,7 +3,8 @@
 <html
     xmlns:ui="jakarta.faces.facelets"
     xmlns:p="http://primefaces.org/ui"
-    xmlns:f="jakarta.faces.core">
+    xmlns:f="jakarta.faces.core"
+    xmlns:h="jakarta.faces.html">
     <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
@@ -17,36 +18,52 @@
 
         <ui:param name="crudBean" value="#{typeLocalityBean}"/>
 
-        <ui:param name="fieldsTitle" value="Type de localité"/>
+        <ui:param name="fieldsTitle" value="#{msg['localities.type-locality.title']}"/>
 
         <ui:define name="list-title">
-            Édition Type de localités
+            #{msg['administration.type-locality.edit.title']}
         </ui:define>
         <ui:define name="breadCrumb">
-            Administration > Type de localités
+            #{msg['localities.type-locality.breadCrumb']}
         </ui:define>
         <ui:define name="fields-content">
             <div class="form-grid grid">
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel for="label" value="Libellé"/>
-                    <p:inputText id="label" class="w-full" placeholder="saisir le libellé"
+                    <p:outputLabel for="label" value="#{msg['label']}"/>
+                    <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
                                  value="#{typeLocalityBean.entity.label}"
-                                 required="true" requiredMessage="Le libellé est recquis"
+                                 required="true" requiredMessage="#{msg['label.required']}"
                                  />
                 </div>
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel for="typeLocalityParent" value="Type localité parent"/>
-                    <p:selectOneMenu id="typeLocalityParent" class="w-full">
-                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
-                        <f:selectItems />
+                    <p:outputLabel for="typeLocalityParent" value="#{msg['localities.locality.edit.type-locality-parent']}"/>
+                    <p:selectOneMenu id="typeLocalityParent" class="w-full" value="#{typeLocalityBean.entity.typeLocalityParent}"
+                                     converter="omnifaces.SelectItemsConverter" filter="true" filterMatchMode="startsWith" filterNormalize="true"
+                                     var="t" disabled="#{typeLocalityBean.entity.root}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{typeLocalityBean.typesLocalities}" var="e"
+
+                                       itemLabel="#{e.label}" itemValue="#{e}"/>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Libellé"/>
+                            </f:facet>
+                            <h:outputText value="#{t.label}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <h:outputText value="#{typeLocalityBean.typesLocalities.size()} Total"
+                                          style="font-weight:bold; text-align: center" styleClass="py-1 block"/>
+                        </f:facet>
                     </p:selectOneMenu>
                 </div>
                 <div class="field col-12">
-                    <p:outputLabel for="root" value="Racine?"/>
+                    <p:outputLabel for="root" value="#{msg['is-root']}"/>
                     <div>
-                        <p:toggleSwitch id="root"/>
+                        <p:toggleSwitch id="root" value="#{typeLocalityBean.entity.root}">
+                            <p:ajax update="typeLocalityParent"/>
+                        </p:toggleSwitch>
                     </div>
-                    
+
                 </div>
             </div>
         </ui:define>
