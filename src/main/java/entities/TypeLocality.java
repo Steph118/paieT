@@ -24,7 +24,7 @@ public class TypeLocality extends BaseEntity {
 
     @Column(name = "label")
     private String label;
-    
+
     @Column(name = "root", nullable = false)
     private boolean root;
 
@@ -77,7 +77,7 @@ public class TypeLocality extends BaseEntity {
     public void setChildreen(List<TypeLocality> childreen) {
         this.childreen = childreen;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -102,7 +102,7 @@ public class TypeLocality extends BaseEntity {
 
     @Override
     public String toString() {
-        return "TypeLocality{" + "id=" + id + ", label=" + label + ", root=" + root + ", typeLocalityParent=" + typeLocalityParent + '}';
+        return "TypeLocality{" + "id=" + id + ", label=" + label + ", root=" + root + '}';
     }
 
 }

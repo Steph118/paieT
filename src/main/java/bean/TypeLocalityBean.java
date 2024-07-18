@@ -10,6 +10,8 @@ import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.TypeLocalityServiceLocal;
 
@@ -22,7 +24,7 @@ public class TypeLocalityBean extends GenericBean<TypeLocality, Integer> {
 
     @EJB
     private TypeLocalityServiceLocal typeLocalityService;
-    
+
     private List<TypeLocality> typesLocalities = new ArrayList<>();
 
     @Override
@@ -33,12 +35,19 @@ public class TypeLocalityBean extends GenericBean<TypeLocality, Integer> {
     @Override
     public void initAdd() {
         this.entity = new TypeLocality();
+        this.typesLocalities = typeLocalityService.getAll();
     }
 
     @Override
-    public void initEntity() {
-        super.initEntity();
-        typesLocalities = typeLocalityService.getAll();
+    public void loadEntity() {
+        super.loadEntity();
+        this.typesLocalities = this.typeLocalityService.getAppropriateTypesLoclity(this.entity, this.entityId);
+    }
+
+    public void verifyRoot() {
+        if (this.isUpdating() && this.entity.isRoot()) {
+            this.entity.setTypeLocalityParent(null);
+        }
     }
 
     @Override
@@ -63,6 +72,6 @@ public class TypeLocalityBean extends GenericBean<TypeLocality, Integer> {
 
     public List<TypeLocality> getTypesLocalities() {
         return typesLocalities;
-    }  
+    }
 
 }

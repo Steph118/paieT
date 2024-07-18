@@ -9,6 +9,10 @@ import dao.TypeLocalityDao;
 import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import service.interfaces.TypeLocalityServiceLocal;
 
 /**
@@ -23,6 +27,64 @@ public class TypeLocalityService extends GenericServiceLocalImpl<TypeLocality, I
     @Override
     protected RepositoryDao<TypeLocality, Integer> getDAO() {
         return dao;
+    }
+
+    @Override
+    public List<TypeLocality> getAll(Integer id) {
+        return dao.getAll(id);
+    }
+
+    @Override
+    public List<TypeLocality> getBrothers(TypeLocality typeLocality) {
+        if (Objects.nonNull(typeLocality.getTypeLocalityParent())) {
+            return dao.getBrothers(typeLocality.getId(), typeLocality.getTypeLocalityParent().getId());
+        }
+        return new ArrayList<>();
+    }
+
+    @Override
+    public List<TypeLocality> getAscendants(TypeLocality typeLocality) {
+        List<TypeLocality> ascendants = new ArrayList<>();
+        TypeLocality parent = typeLocality.getTypeLocalityParent();
+        if (Objects.nonNull(parent)) {
+            ascendants.add(parent);
+            while (Objects.nonNull(parent.getTypeLocalityParent())) {
+                ascendants.add(parent.getTypeLocalityParent());
+                parent = parent.getTypeLocalityParent();
+            }
+        }
+        return ascendants;
+    }
+
+    @Override
+    public List<TypeLocality> getAscendantsAndBrothers(TypeLocality typeLocality) {
+        List<TypeLocality> ascendants = new ArrayList<>();
+        ascendants.addAll(this.getBrothers(typeLocality));
+        ascendants.addAll(this.getAscendants(typeLocality));
+        return ascendants;
+    }
+
+    @Override
+    public List<TypeLocality> getOthersRoots(TypeLocality typeLocality) {
+        return dao.getOthersRoots(typeLocality.getId());
+    }
+
+    @Override
+    public List<TypeLocality> getRoots() {
+        return dao.getRoots();
+    }
+
+    @Override
+    public List<TypeLocality> getAppropriateTypesLoclity(TypeLocality entity, Integer entityId) {
+        System.err.println("Size --> " + entity.getChildreen().size());
+        System.err.println("Size --> " + entity);
+        System.err.println("Size --> " + entityId);
+        if (entity.isRoot()) {
+            return entity.getChildreen().isEmpty() ? dao.getAll(entityId) : dao.getOthersRoots(entityId);
+        } else {
+            return entity.getChildreen().isEmpty() ? dao.getAll(entityId) : this.getAscendantsAndBrothers(entity);
+        }
+
     }
 
 }

@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="model wrapper dependency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/TypeLocalityBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/TypeLocalityBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TypeLocalityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TypeLocalityDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/TypeLocalityServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/TypeLocalityServiceLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/TypeLocalityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TypeLocalityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/paie/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/paie/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +86,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/steph18/NetBeansProjects/map-jpa&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -157,6 +164,7 @@
       <workItem from="1721146717498" duration="928000" />
       <workItem from="1721207258224" duration="1527000" />
       <workItem from="1721244405916" duration="485000" />
+      <workItem from="1721300125580" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />

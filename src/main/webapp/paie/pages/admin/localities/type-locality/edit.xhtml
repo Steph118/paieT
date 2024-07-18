@@ -21,7 +21,7 @@
         <ui:param name="fieldsTitle" value="#{msg['localities.type-locality.title']}"/>
 
         <ui:define name="list-title">
-            #{msg['administration.type-locality.edit.title']}
+            #{msg['localities.type-locality.edit.title']}
         </ui:define>
         <ui:define name="breadCrumb">
             #{msg['localities.type-locality.breadCrumb']}
@@ -36,22 +36,23 @@
                                  />
                 </div>
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel for="typeLocalityParent" value="#{msg['localities.locality.edit.type-locality-parent']}"/>
+                    <p:outputLabel for="typeLocalityParent" value="#{msg['localities.type-locality.edit.parent']}"/>
                     <p:selectOneMenu id="typeLocalityParent" class="w-full" value="#{typeLocalityBean.entity.typeLocalityParent}"
                                      converter="omnifaces.SelectItemsConverter" filter="true" filterMatchMode="startsWith" filterNormalize="true"
-                                     var="t" disabled="#{typeLocalityBean.entity.root}">
+                                     var="t" disabled="#{typeLocalityBean.entity.root}" required="#{!typeLocalityBean.entity.root}"
+                                     requiredMessage="#{msg['localities.type-locality.edit.parent.required']}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{typeLocalityBean.typesLocalities}" var="e"
 
                                        itemLabel="#{e.label}" itemValue="#{e}"/>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="Libellé"/>
+                                <h:outputText value="#{msg['label']}"/>
                             </f:facet>
                             <h:outputText value="#{t.label}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <h:outputText value="#{typeLocalityBean.typesLocalities.size()} Total"
+                            <h:outputText value="#{typeLocalityBean.typesLocalities.size()} #{msg['sum']}"
                                           style="font-weight:bold; text-align: center" styleClass="py-1 block"/>
                         </f:facet>
                     </p:selectOneMenu>
@@ -60,7 +61,7 @@
                     <p:outputLabel for="root" value="#{msg['is-root']}"/>
                     <div>
                         <p:toggleSwitch id="root" value="#{typeLocalityBean.entity.root}">
-                            <p:ajax update="typeLocalityParent"/>
+                            <p:ajax update="typeLocalityParent" listener="#{typeLocalityBean.verifyRoot()}"/>
                         </p:toggleSwitch>
                     </div>
 

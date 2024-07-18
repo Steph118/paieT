@@ -77,20 +77,12 @@ public class RepositoryDao<E extends Serializable, ID> {
     }
 
     public List<E> getAll() {
-        String jpql = "SELECT e FROM " + this.entityClass.getSimpleName() + " e";
-        Query query = this.em.createQuery(jpql);
-        return query.getResultList();
-    }
-
-    public List<E> getAll2() {
-        return this.em.createQuery(
-                        "FROM " + this.entityClass.getSimpleName() + " e ", this.entityClass)
+        return this.em.createQuery("SELECT e FROM " + this.entityClass.getSimpleName() + " e")
                 .getResultList();
     }
 
     public Long count() {
-        String jpql = "SELECT COUNT(e) FROM " + this.entityClass.getSimpleName() + " e";
-        Query query = this.em.createQuery(jpql);
-        return (Long) query.getSingleResult();
+        return this.em.createQuery("SELECT COUNT(e) FROM " + this.entityClass.getSimpleName() + " e", Long.class)
+                .getSingleResult();
     }
 }

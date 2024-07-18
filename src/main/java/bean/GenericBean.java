@@ -37,7 +37,7 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
     public abstract GenericServiceLocal<E, ID> getService();
 
     public void initList() {
-        list = this.getService().getAll();
+        this.list = this.getService().getAll();
     }
 
     public void beforeSave() {
@@ -54,7 +54,7 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
             Messages.addGlobalError(ex.getMessage());
             this.logger.log(Level.SEVERE, ex.getMessage(), ex);
             return null;
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
             this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet: " + this.entity);
             return null;
@@ -77,7 +77,7 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
     }
 
     public void loadEntity() {
-        this.entity = this.getService().findById(this.getEntityId());
+        this.entity = this.getService().findById(this.entityId);
     }
 
     public void initEntity() {
@@ -85,6 +85,12 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
             this.initAdd();
         } else {
             this.loadEntity();
+        }
+    }
+
+    public void initDetails() {
+        if (this.entityId != null) {
+            this.entity = this.getService().findById(this.entityId);
         }
     }
 
@@ -96,7 +102,7 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
 
     public String delete(E e) {
         try {
-            logger.log(Level.INFO, "GenericBean delete...");
+            this.logger.log(Level.INFO, "GenericBean delete...");
             this.getService().delete(e);
             this.logger.log(Level.INFO, "Suppression de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
             Messages.addFlashGlobalInfo("Suppression effectuée avec succès.");
