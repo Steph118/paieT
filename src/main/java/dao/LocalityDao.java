@@ -5,8 +5,9 @@
 package dao;
 
 import entities.Locality;
-import entities.Year;
+import entities.TypeLocality;
 import jakarta.ejb.Stateless;
+import java.util.List;
 
 /**
  * @author steph18
@@ -18,4 +19,11 @@ public class LocalityDao extends RepositoryDao<Locality, Integer> {
         super(Locality.class);
     }
 
+    public List<Locality> getAll(Integer countryId,Integer localityTypeId){
+         String jpql = "SELECT e FROM " + Locality.class.getSimpleName() + " e WHERE e.country.id = :countryId AND e.localityType.id = :localityTypeId";
+        return this.em.createQuery(jpql)
+                .setParameter("countryId", countryId)
+                .setParameter("localityTypeId", localityTypeId)
+                .getResultList();
+    }
 }

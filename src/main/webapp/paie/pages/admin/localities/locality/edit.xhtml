@@ -20,41 +20,73 @@
         <ui:param name="fieldsTitle" value="Localité"/>
 
         <ui:define name="list-title">
-            Édition Localités
+            #{msg['localities.locality.edit.title']}
         </ui:define>
         <ui:define name="breadCrumb">
-            Administration > Localités
+            #{msg['localities.locality.breadCrumb']}
         </ui:define>
         <ui:define name="fields-content">
             <div class="form-grid grid">
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="Libellé" for="label"/>
-                    <p:inputText id="label" class="w-full" placeholder="saisir le libellé"
-                                 value="#{localityBean.entity.label}"
-                                 required="true" requiredMessage="Le libellé est recquis"
-                                 />
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="localityType" value="Type de localité"/>
-                    <p:selectOneMenu id="localityType" class="w-full">
-                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
-                        <f:selectItems />
+                    <p:outputLabel for="country" value="#{msg['references.country.title']}"/>
+                    <p:selectOneMenu id="country" class="w-full" value="#{localityBean.entity.country}" filterMatchMode="startsWith" filterNormalize="true"
+                                     filter="true" filterPlaceholder="#{msg['search']}" converter="omnifaces.SelectItemsConverter"
+                                     required="true" requiredMessage="#{msg['country.required']}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{localityBean.countries}" var="e" itemLabel="#{e.label}"
+                                       itemValue="#{e}"/>
+                        <p:ajax listener="#{localityBean.filterParentLocalilty()}" update="localityParent"/>
                     </p:selectOneMenu>
                 </div>
+
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="localityParent" value="Localité parent"/>
-                    <p:selectOneMenu id="localityParent" class="w-full">
-                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
-                        <f:selectItems />
+                    <p:outputLabel for="localityTypeParent" value="#{msg['localities.locality.edit.localityTypeParent']}"/>
+                    <p:selectOneMenu id="localityTypeParent" class="w-full" value="#{localityBean.typeLocalityParent}" filterMatchMode="startsWith" filterNormalize="true"
+                                     filter="true" filterPlaceholder="#{msg['search']}" converter="omnifaces.SelectItemsConverter">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{localityBean.supTypeLocalities}" var="e" itemLabel="#{e.label}"
+                                       itemValue="#{e}"/>
+                        <p:ajax listener="#{localityBean.filterParentLocalilty()}" update="localityParent"/>
                     </p:selectOneMenu>
                 </div>
+
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="country" value="Pays"/>
-                    <p:selectOneMenu id="country" class="w-full">
-                        <f:selectItem noSelectionOption="true" itemLabel="veuillez choisir"/>
-                        <f:selectItems />
+                    <p:outputLabel for="localityParent" value="#{msg['localities.locality.edit.localityParent']}"/>
+                    <p:selectOneMenu id="localityParent" class="w-full" value="#{localityBean.entity.localityParent}" filterMatchMode="startsWith" 
+                                     filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}" 
+                                     converter="omnifaces.SelectItemsConverter">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
+                        <f:selectItems value="#{localityBean.suplocalities}" var="e" itemLabel="#{e.label}"
+                                       itemValue="#{e}" />
+                        <p:ajax listener="#{localityBean.filterLocality()}" update="localityType"/>
                     </p:selectOneMenu>
                 </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="localityType" value="#{msg['localities.locality.edit.localityType']}"/>
+                    <p:selectOneMenu id="localityType" class="w-full" 
+                                     value="#{localityBean.entity.localityType}" filterMatchMode="startsWith" filterNormalize="true"
+                                     filter="true" filterPlaceholder="#{msg['search']}" converter="omnifaces.SelectItemsConverter"
+                                     required="true" requiredMessage="#{msg['localities.locality.edit.localityType.required']}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{localityBean.typeLocalities}" var="e" itemLabel="#{e.label}"
+                                       itemValue="#{e}"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['label']}" for="label"/>
+                    <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}" value="#{localityBean.entity.label}" 
+                                 required="true" requiredMessage="#{msg['label.required']}"/>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="root" for="root"/>
+                    <div>
+                        <p:toggleSwitch id="root"/>
+                    </div>
+                </div>
+
             </div>
         </ui:define>
 

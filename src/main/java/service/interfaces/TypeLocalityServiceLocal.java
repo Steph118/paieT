@@ -27,4 +27,6 @@ public interface TypeLocalityServiceLocal extends GenericServiceLocal<TypeLocali
     List<TypeLocality> getRoots();
 
     List<TypeLocality> getAppropriateTypesLoclity(TypeLocality entity, Integer entityId);
+    
+    List<TypeLocality> getDescendants(TypeLocality typeLocality);
 }

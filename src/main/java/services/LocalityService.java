@@ -6,9 +6,12 @@ package services;
 
 import dao.LocalityDao;
 import dao.RepositoryDao;
+import entities.Country;
 import entities.Locality;
+import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import java.util.List;
 import service.interfaces.LocalityServiceLocal;
 
 /**
@@ -25,4 +28,9 @@ public class LocalityService extends GenericServiceLocalImpl<Locality, Integer> 
         return dao;
     }
 
+    @Override
+    public List<Locality> getAll(Country country, TypeLocality localityTypeId){
+        return this.dao.getAll(country.getId(),localityTypeId.getId());
+    }
+    
 }

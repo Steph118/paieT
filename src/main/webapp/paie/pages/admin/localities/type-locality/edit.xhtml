@@ -60,7 +60,7 @@
                 <div class="field col-12">
                     <p:outputLabel for="root" value="#{msg['is-root']}"/>
                     <div>
-                        <p:toggleSwitch id="root" value="#{typeLocalityBean.entity.root}">
+                        <p:toggleSwitch id="root" value="#{typeLocalityBean.entity.root}" onIcon="pi pi-check" offIcon="pi pi-times">
                             <p:ajax update="typeLocalityParent" listener="#{typeLocalityBean.verifyRoot()}"/>
                         </p:toggleSwitch>
                     </div>
