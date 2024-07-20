@@ -46,7 +46,7 @@
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{localityBean.supTypeLocalities}" var="e" itemLabel="#{e.label}"
                                        itemValue="#{e}"/>
-                        <p:ajax listener="#{localityBean.filterParentLocalilty()}" update="localityParent"/>
+                        <p:ajax listener="#{localityBean.filterLocality()}" update="localityParent localityType"/>
                     </p:selectOneMenu>
                 </div>
 
@@ -58,7 +58,6 @@
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
                         <f:selectItems value="#{localityBean.suplocalities}" var="e" itemLabel="#{e.label}"
                                        itemValue="#{e}" />
-                        <p:ajax listener="#{localityBean.filterLocality()}" update="localityType"/>
                     </p:selectOneMenu>
                 </div>
 
