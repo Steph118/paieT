@@ -24,15 +24,18 @@ public class Entite extends BaseEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Size(min = 3, max = 31, message = "Vous avez atteint le nombre de caractères requis")
+    @Size(min = 3, max = 31, message = "Minumum 3 caracteres et Maximum 31 caracteres")
     @Column(name = "label", length = 31, nullable = false)
     private String label;
 
     @Column(name = "mail", unique = true)
     private String mail;
 
-    @Column(name = "contact", unique = true)
-    private String contact;
+    @Column(name = "contact1", unique = true)
+    private String contact1;
+    
+    @Column(name = "contact2", unique = true)
+    private String contact2;
 
     @Lob
     @Column(name = "logo")
@@ -45,7 +48,7 @@ public class Entite extends BaseEntity {
             @AttributeOverride(name = "street",
                     column = @Column(name = "entite_street"))
     })
-    private Address addresse;
+    private Address address;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "locality_id")
@@ -78,14 +81,22 @@ public class Entite extends BaseEntity {
         this.mail = mail;
     }
 
-    public String getContact() {
-        return contact;
+    public String getContact1() {
+        return contact1;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setContact1(String contact) {
+        this.contact1 = contact;
+    }
+    
+    public void setContact2(String contact2) {
+        this.contact2 = contact2;
     }
 
+    public String getContact2() {
+        return contact2;
+    }
+    
     public String getLogo() {
         return logo;
     }
@@ -94,12 +105,12 @@ public class Entite extends BaseEntity {
         this.logo = logo;
     }
 
-    public Address getAddresse() {
-        return addresse;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddresse(Address addresse) {
-        this.addresse = addresse;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Locality getLocality() {
@@ -134,7 +145,6 @@ public class Entite extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Entite{" + "id=" + id + ", label=" + label + ", mail=" + mail + ", contact=" + contact + ", logo=" + logo + ", addresse=" + addresse + ", locality=" + locality + '}';
+        return "Entite{" + "id=" + id + ", label=" + label + ", mail=" + mail + ", contact=" + contact1 + ", contact2=" + contact2 + ", logo=" + logo + ", addresse=" + address + ", locality=" + locality + '}';
     }
-
 }

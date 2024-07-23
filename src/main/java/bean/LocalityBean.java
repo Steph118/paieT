@@ -38,11 +38,10 @@ public class LocalityBean extends GenericBean<Locality, Integer> {
     private List<TypeLocality> supTypeLocalities = new ArrayList<>();
     private List<Locality> suplocalities = new ArrayList<>();
     private List<TypeLocality> typeLocalities = new ArrayList<>();
-    private List<TypeLocality> localities = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<Locality, Integer> getService() {
-        return localityService;
+        return this.localityService;
     }
 
     @Override
@@ -55,6 +54,7 @@ public class LocalityBean extends GenericBean<Locality, Integer> {
         super.initEntity();
         this.countries = this.countryService.getAll();
         this.supTypeLocalities = this.typeLocalityService.getAll();
+        this.typeLocalities = this.getSupTypeLocalities();
 
     }
 
@@ -65,8 +65,9 @@ public class LocalityBean extends GenericBean<Locality, Integer> {
     }
 
     public void filterLocality() {
+        this.filterParentLocalilty();
         this.typeLocalities = Objects.nonNull(this.typeLocalityParent)
-                ? this.typeLocalityService.getDescendants(this.typeLocalityParent) : supTypeLocalities;
+                ? this.typeLocalityService.getDescendants(this.typeLocalityParent) : this.supTypeLocalities;
     }
 
     @Override
@@ -90,7 +91,7 @@ public class LocalityBean extends GenericBean<Locality, Integer> {
     }
 
     public TypeLocality getTypeLocalityParent() {
-        return typeLocalityParent;
+        return this.typeLocalityParent;
     }
 
     public void setTypeLocalityParent(TypeLocality typeLocalityParent) {
@@ -98,19 +99,15 @@ public class LocalityBean extends GenericBean<Locality, Integer> {
     }
 
     public List<Country> getCountries() {
-        return countries;
+        return this.countries;
     }
 
     public List<TypeLocality> getTypeLocalities() {
-        return typeLocalities;
+        return this.typeLocalities;
     }
 
     public List<Locality> getSuplocalities() {
-        return suplocalities;
-    }
-
-    public List<TypeLocality> getLocalities() {
-        return localities;
+        return this.suplocalities;
     }
 
     public List<TypeLocality> getSupTypeLocalities() {

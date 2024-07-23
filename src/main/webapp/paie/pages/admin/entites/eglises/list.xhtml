@@ -9,29 +9,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/paie/templates/layout-list.xhtml">
 
-        <ui:param name="crudBean" value="#{localityBean}"/>
+        <ui:param name="crudBean" value="#{egliseBean}"/>
 
         <ui:define name="list-title">
-            #{msg['references.country.title']}
+            #{msg['entites.eglises.title']}
         </ui:define>
         <ui:define name="breadCrumb">
-            #{msg['localities.locality.breadCrumb']}
+            #{msg['entites.eglises.breadCrumb']}
         </ui:define>
         <ui:define name="table-title">
-            #{msg['references.country.title']}
+            #{msg['entites.eglises.title']}
         </ui:define>
         <ui:define name="add-column">
             <p:column headerText="#{msg['label']}">
                 <p:outputLabel value="#{e.label}"/>
             </p:column>
-            <p:column headerText="#{msg['localities.type-locality.title']}">
-                <p:outputLabel value="#{e.localityType.label}"/>
+            <p:column headerText="#{msg['entites.eglises.edit.temple']}">
+                <p:outputLabel value="#{e.temple}"/>
             </p:column>
-            <p:column headerText="#{msg['localities.locality.edit.localityParent']}">
-                <p:outputLabel value="#{e.localityParent. id != null ? e.localityParent.label : msg['null']}"/>
-            </p:column>
-            <p:column headerText="#{msg['references.country.title']}">
-                <p:outputLabel value="#{e.country.label}"/>
+            <p:column headerText="#{msg['locality']}">
+                <p:outputLabel value="#{e.locality.label}"/>
             </p:column>
         </ui:define>
     </ui:composition>

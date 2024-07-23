@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+
+    <ui:composition template="/paie/templates/layout-details.xhtml">
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{egliseBean.entityId}"/>
+                <f:viewAction action="#{egliseBean.initDetails()}"/>
+            </f:metadata>
+        </ui:define>
+
+        <ui:param name="crudBean" value="#{egliseBean}"/>
+
+        <ui:param name="fieldsTitle" value="#{msg['entites.eglises.title']}"/>
+
+        <ui:define name="list-title">
+            #{msg['entites.eglises.details.title']}
+        </ui:define>
+        <ui:define name="breadCrumb">
+            #{msg['entites.eglises.breadCrumb']}
+        </ui:define> 
+        <ui:define name="fields-content">
+            <p:outputPanel>
+                <div class="form-grid grid">
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="label" value="#{msg['label']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="label" 
+                                       value="#{egliseBean.entity.label}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="temple" value="#{msg['entites.eglises.edit.temple']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="temple" 
+                                       value="#{egliseBean.entity.temple}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="locality" value="#{msg['locality']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="locality" 
+                                       value="#{egliseBean.entity.locality.label}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="logo" value="#{msg['logo']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="logo" 
+                                       value="#{egliseBean.entity.logo}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="mail" value="#{msg['mail']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="mail" 
+                                       value="#{egliseBean.entity.mail}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="contact1" value="#{msg['entites.eglises.edit.contact1']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="contact1" 
+                                       value="#{egliseBean.entity.contact1}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="contact2" value="#{msg['entites.eglises.edit.contact2']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="contact2" 
+                                       value="#{egliseBean.entity.contact2}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="street" value="#{msg['entites.eglises.edit.street']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="street" 
+                                       value="#{egliseBean.entity.address.street}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="city" value="#{msg['entites.eglises.edit.city']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="city" 
+                                       value="#{egliseBean.entity.address.city}"/>
+
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="zip" value="#{msg['entites.eglises.edit.zip']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="zip" 
+                                       value="#{egliseBean.entity.address.zip}"/>
+                    </div>
+
+                </div>
+            </p:outputPanel>
+        </ui:define>
+    </ui:composition>
+</html>

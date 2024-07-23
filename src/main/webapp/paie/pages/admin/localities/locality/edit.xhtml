@@ -17,7 +17,7 @@
 
         <ui:param name="crudBean" value="#{localityBean}"/>
 
-        <ui:param name="fieldsTitle" value="Localité"/>
+        <ui:param name="fieldsTitle" value="#{msg['localities.locality.title']}"/>
 
         <ui:define name="list-title">
             #{msg['localities.locality.edit.title']}
@@ -54,7 +54,8 @@
                     <p:outputLabel for="localityParent" value="#{msg['localities.locality.edit.localityParent']}"/>
                     <p:selectOneMenu id="localityParent" class="w-full" value="#{localityBean.entity.localityParent}" filterMatchMode="startsWith" 
                                      filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}" 
-                                     converter="omnifaces.SelectItemsConverter">
+                                     converter="omnifaces.SelectItemsConverter" required="#{localityBean.typeLocalityParent != null}"
+                                     requiredMessage="#{msg['localities.type-locality.edit.parent.required']}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
                         <f:selectItems value="#{localityBean.suplocalities}" var="e" itemLabel="#{e.label}"
                                        itemValue="#{e}" />
@@ -80,7 +81,7 @@
                 </div>
 
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="root" for="root"/>
+                    <p:outputLabel value="#{msg['is-root']}" for="root"/>
                     <div>
                         <p:toggleSwitch id="root"/>
                     </div>

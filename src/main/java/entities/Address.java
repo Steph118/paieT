@@ -24,12 +24,6 @@ public class Address {
     public Address() {
     }
 
-    public Address(String street, String city, String zip) {
-        this.street = street;
-        this.city = city;
-        this.zip = zip;
-    }
-
     public String getStreet() {
         return street;
     }
