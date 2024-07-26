@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Update_at_18_07_2024_08_39_[Changes]" date="1721291969869" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_07_2024_08_39_[Changes]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 18/07/2024 08:39 [Changes]" />
-  <binary>
-    <option name="BEFORE_PATH" value="target/classes/bean/GenericBean.class" />
-    <option name="AFTER_PATH" value="target/classes/bean/GenericBean.class" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_07_2024_08_39_[Changes]/GenericBean.class" />
-  </binary>
-</changelist>

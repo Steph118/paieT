@@ -5,14 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="model wrapper dependency">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/TypeLocalityBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/TypeLocalityBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TypeLocalityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TypeLocalityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/TypeLocalityServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/TypeLocalityServiceLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/TypeLocalityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TypeLocalityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/paie/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/paie/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/localities/type-locality/edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/LocalityBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/LocalityBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Permission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/menu/MenuCategory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/menu/MenuItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/JakartaEE10Resource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceLocal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceRemote.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/PersonServiceLocal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/PersonService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/endorsed/jakarta.jakartaee-api-10.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +182,7 @@
       <workItem from="1721207258224" duration="1527000" />
       <workItem from="1721244405916" duration="485000" />
       <workItem from="1721300125580" duration="12000" />
+      <workItem from="1721954577303" duration="539000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />

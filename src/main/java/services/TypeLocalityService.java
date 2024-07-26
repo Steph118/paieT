@@ -9,7 +9,6 @@ import dao.TypeLocalityDao;
 import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -76,9 +75,6 @@ public class TypeLocalityService extends GenericServiceLocalImpl<TypeLocality, I
 
     @Override
     public List<TypeLocality> getAppropriateTypesLoclity(TypeLocality entity, Integer entityId) {
-        System.err.println("Size --> " + entity.getChildreen().size());
-        System.err.println("Size --> " + entity);
-        System.err.println("Size --> " + entityId);
         if (entity.isRoot()) {
             return entity.getChildreen().isEmpty() ? dao.getAll(entityId) : dao.getOthersRoots(entityId);
         } else {

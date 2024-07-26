@@ -8,11 +8,13 @@ import entities.Country;
 import entities.Locality;
 import entities.TypeLocality;
 import jakarta.ejb.Local;
-
 import java.util.List;
 
 /**
  * @author steph18
  */
 @Local
-public inte
+public interface LocalityServiceLocal extends GenericServiceLocal<Locality, Integer> {
+
+    List<Locality> getAll(Country country, TypeLocality localityTypeId);
+}

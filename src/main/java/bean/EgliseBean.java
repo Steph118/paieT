@@ -76,7 +76,7 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
         this.address = this.entity.getAddress();
         this.localities = this.localityService.getAll(getCountry(),
                 getTypeLocality());
-                
+
     }
 
     @Override
