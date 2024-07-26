@@ -7,29 +7,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui">
-    <ui:composition template="/paie/templates/layout-list.xhtml">
+<ui:composition template="/paie/templates/layout-list.xhtml">
 
-        <ui:param name="crudBean" value="#{egliseBean}"/>
+    <ui:param name="crudBean" value="#{egliseBean}"/>
 
-        <ui:define name="list-title">
-            #{msg['entites.eglises.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['entites.eglises.breadCrumb']}
-        </ui:define>
-        <ui:define name="table-title">
-            #{msg['entites.eglises.title']}
-        </ui:define>
-        <ui:define name="add-column">
-            <p:column headerText="#{msg['label']}">
-                <p:outputLabel value="#{e.label}"/>
-            </p:column>
-            <p:column headerText="#{msg['entites.eglises.edit.temple']}">
-                <p:outputLabel value="#{e.temple}"/>
-            </p:column>
-            <p:column headerText="#{msg['locality']}">
-                <p:outputLabel value="#{e.locality.label}"/>
-            </p:column>
-        </ui:define>
-    </ui:composition>
+    <ui:define name="list-title">
+        #{msg['entites.eglises.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['entites.eglises.breadCrumb']}
+    </ui:define>
+    <ui:define name="table-title">
+        #{msg['entites.eglises.title']}
+    </ui:define>
+    <ui:define name="add-column">
+        <p:column headerText="#{msg['label']}">
+            <p:outputLabel value="#{e.label}"/>
+        </p:column>
+        <p:column headerText="#{msg['entites.eglises.edit.temple']}">
+            <p:outputLabel value="#{e.temple}"/>
+        </p:column>
+        <p:column headerText="#{msg['locality']}">
+            <p:outputLabel value="#{e.locality.label}"/>
+        </p:column>
+    </ui:define>
+</ui:composition>
 </html>

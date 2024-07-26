@@ -8,6 +8,7 @@ import entities.Country;
 import entities.Locality;
 import entities.TypeLocality;
 import jakarta.ejb.Local;
+
 import java.util.List;
 
 /**

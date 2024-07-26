@@ -7,29 +7,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui">
-    <ui:composition template="/paie/templates/layout-list.xhtml">
+<ui:composition template="/paie/templates/layout-list.xhtml">
 
-        <ui:param name="crudBean" value="#{typeLocalityBean}"/>
+    <ui:param name="crudBean" value="#{typeLocalityBean}"/>
 
-        <ui:define name="list-title">
-            Types de localités
-        </ui:define>
-        <ui:define name="breadCrumb">
-            Administration > Types de localités
-        </ui:define>
-        <ui:define name="table-title">
-            Types de localités
-        </ui:define>
-        <ui:define name="add-column">
-            <p:column headerText="Libellé">
-                <p:outputLabel value="#{e.label}"/>
-            </p:column>
-            <p:column headerText="Racine">
-                <p:outputLabel value="#{e.root}"/>
-            </p:column>
-            <p:column headerText="Type Localité parent">
-                <p:outputLabel value="#{e.typeLocalityParent != null ? e.typeLocalityParent.label : ' - '}"/>
-            </p:column>
-        </ui:define>
-    </ui:composition>
+    <ui:define name="list-title">
+        Types de localités
+    </ui:define>
+    <ui:define name="breadCrumb">
+        Administration > Types de localités
+    </ui:define>
+    <ui:define name="table-title">
+        Types de localités
+    </ui:define>
+    <ui:define name="add-column">
+        <p:column headerText="Libellé">
+            <p:outputLabel value="#{e.label}"/>
+        </p:column>
+        <p:column headerText="Racine">
+            <p:outputLabel value="#{e.root}"/>
+        </p:column>
+        <p:column headerText="Type Localité parent">
+            <p:outputLabel value="#{e.typeLocalityParent != null ? e.typeLocalityParent.label : ' - '}"/>
+        </p:column>
+    </ui:define>
+</ui:composition>
 </html>

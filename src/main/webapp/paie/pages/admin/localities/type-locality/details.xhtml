@@ -9,48 +9,48 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core">
 
-    <ui:composition template="/paie/templates/layout-details.xhtml">
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{typeLocalityBean.entityId}"/>
-                <f:viewAction action="#{typeLocalityBean.initDetails()}"/>
-            </f:metadata>
-        </ui:define>
+<ui:composition template="/paie/templates/layout-details.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{typeLocalityBean.entityId}"/>
+            <f:viewAction action="#{typeLocalityBean.initDetails()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{typeLocalityBean}"/>
+    <ui:param name="crudBean" value="#{typeLocalityBean}"/>
 
-        <ui:param name="fieldsTitle" value="Pays"/>
+    <ui:param name="fieldsTitle" value="Pays"/>
 
-        <ui:define name="list-title">
-            #{msg['localities.type-locality.details.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-             #{msg['localities.type-locality.breadCrumb']}
-        </ui:define> 
-        <ui:define name="fields-content">
-            <p:outputPanel>
-                <div class="form-grid grid">
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="label" value="#{msg['label']}"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="label" 
-                                       value="#{typeLocalityBean.entity.label}"/>
+    <ui:define name="list-title">
+        #{msg['localities.type-locality.details.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['localities.type-locality.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
+        <p:outputPanel>
+            <div class="form-grid grid">
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="label" value="#{msg['label']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="label"
+                                   value="#{typeLocalityBean.entity.label}"/>
 
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="parentLocality" value="#{msg['localities.type-locality.edit.parent']}"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="parentLocality" 
-                                       value="#{typeLocalityBean.entity.typeLocalityParent != null ? 
+                </div>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="parentLocality" value="#{msg['localities.type-locality.edit.parent']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="parentLocality"
+                                   value="#{typeLocalityBean.entity.typeLocalityParent != null ?
                                                 typeLocalityBean.entity.typeLocalityParent.label : ' - '}"/>
 
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="root" value="#{msg['is-root']}"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="root" 
-                                       value="#{typeLocalityBean.entity.root}"/>
-
-                    </div>
                 </div>
-            </p:outputPanel>
-        </ui:define>
-    </ui:composition>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="root" value="#{msg['is-root']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="root"
+                                   value="#{typeLocalityBean.entity.root}"/>
+
+                </div>
+            </div>
+        </p:outputPanel>
+    </ui:define>
+</ui:composition>
 </html>

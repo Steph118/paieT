@@ -4,23 +4,16 @@
  */
 package bean;
 
-import entities.Address;
-import entities.Country;
-import entities.Eglise;
-import entities.Locality;
-import entities.TypeLocality;
+import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import org.apache.commons.lang3.StringUtils;
+import service.interfaces.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.apache.commons.lang3.StringUtils;
-import service.interfaces.CountryServiceLocal;
-import service.interfaces.EgliseServiceLocal;
-import service.interfaces.GenericServiceLocal;
-import service.interfaces.LocalityServiceLocal;
-import service.interfaces.TypeLocalityServiceLocal;
 
 /**
  * @author steph18

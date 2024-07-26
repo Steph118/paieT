@@ -6,6 +6,7 @@ package dao;
 
 import entities.TypeLocality;
 import jakarta.ejb.Stateless;
+
 import java.util.List;
 
 /**

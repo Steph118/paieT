@@ -14,7 +14,7 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue(value = "EG")
 public class Eglise extends Entite {
-    
+
     @Column(name = "temple", length = 31, nullable = false)
     private String temple;
 
@@ -28,5 +28,5 @@ public class Eglise extends Entite {
     public void setTemple(String temple) {
         this.temple = temple;
     }
-    
+
 }

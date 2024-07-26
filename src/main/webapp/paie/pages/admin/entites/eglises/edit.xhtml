@@ -1,147 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:f="jakarta.faces.core">
-    <ui:composition
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="jakarta.faces.core">
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{egliseBean.entityId}"/>
-                <f:viewAction action="#{egliseBean.initEntity()}"/>
-            </f:metadata>
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{egliseBean.entityId}"/>
+            <f:viewAction action="#{egliseBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{egliseBean}"/>
+    <ui:param name="crudBean" value="#{egliseBean}"/>
 
-        <ui:param name="fieldsTitle" value="#{msg['entites.eglises.title']}"/>
+    <ui:param name="fieldsTitle" value="#{msg['entites.eglises.title']}"/>
 
-        <ui:define name="list-title">
-            #{msg['entites.eglises.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['entites.eglises.breadCrumb']}
-        </ui:define>
-        <ui:define name="fields-content">
+    <ui:define name="list-title">
+        #{msg['entites.eglises.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['entites.eglises.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
 
-            <div class="form-grid grid ui-fluid">
+        <div class="form-grid grid ui-fluid">
 
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['label']}" for="label"/>
-                    <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
-                                 value="#{egliseBean.entity.label}"
-                                 required="true" requiredMessage="#{msg['label.required']}"/>
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['entites.eglises.edit.temple']}" for="temple"/>
-                    <p:inputText id="temple" class="w-full" placeholder="#{msg['entites.eglises.edit.temple.placeholder']}"
-                                 value="#{egliseBean.entity.temple}"
-                                 required="true" requiredMessage="#{msg['entites.eglises.edit.temple.required']}"/>
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="country" value="#{msg['references.country.title']}"/>
-                    <p:selectOneMenu id="country" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
-                                     filter="true" filterPlaceholder="#{msg['search']}" converter="omnifaces.SelectItemsConverter"
-                                     required="true" requiredMessage="#{msg['country.required']}"
-                                     value="#{egliseBean.country}">
-                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{egliseBean.countries}" itemValue="#{c}" var="c" itemLabel="#{c.label}"/>
-                        <p:ajax update="locality" listener="#{egliseBean.filterLocality()}"/>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['label']}" for="label"/>
+                <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
+                             value="#{egliseBean.entity.label}"
+                             required="true" requiredMessage="#{msg['label.required']}"/>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['entites.eglises.edit.temple']}" for="temple"/>
+                <p:inputText id="temple" class="w-full" placeholder="#{msg['entites.eglises.edit.temple.placeholder']}"
+                             value="#{egliseBean.entity.temple}"
+                             required="true" requiredMessage="#{msg['entites.eglises.edit.temple.required']}"/>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="country" value="#{msg['references.country.title']}"/>
+                <p:selectOneMenu id="country" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                 filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter"
+                                 required="true" requiredMessage="#{msg['country.required']}"
+                                 value="#{egliseBean.country}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{egliseBean.countries}" itemValue="#{c}" var="c" itemLabel="#{c.label}"/>
+                    <p:ajax update="locality" listener="#{egliseBean.filterLocality()}"/>
+                </p:selectOneMenu>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="localityType" value="#{msg['localities.locality.edit.localityType']}"/>
+                <p:selectOneMenu id="localityType" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                 filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter"
+                                 required="true"
+                                 requiredMessage="#{msg['localities.locality.edit.localityType.required']}"
+                                 value="#{egliseBean.typeLocality}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{egliseBean.typeLocalities}" itemValue="#{t}" var="t"
+                                   itemLabel="#{t.label}"/>
+                    <p:ajax update="locality" listener="#{egliseBean.filterLocality()}"/>
+                </p:selectOneMenu>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="locality" value="#{msg['locality']}"/>
+                <p:selectOneMenu id="locality" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 requiredMessage="#{msg['localities.type-locality.edit.parent.required']}"
+                                 value="#{egliseBean.entity.locality}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{egliseBean.localities}" itemValue="#{l}" var="l" itemLabel="#{l.label}"/>
+                </p:selectOneMenu>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['mail']}" for="mail"/>
+                <p:inputText id="mail" class="w-full" placeholder="#{msg['mail.edit']}"
+                             value="#{egliseBean.entity.mail}"
+                             required="true" requiredMessage="#{msg['mail.required']}"/>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['entites.eglises.edit.contact1']}" for="contact1"/>
+                <div class="ui-inputgroup">
+                    <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-8 sm:w-5 w-5" filter="true"
+                                     filterMatchMode="contains" value="#{egliseBean.entity.phoneCode1}"
+                                     style="height: 32px; padding-top: 1px;"
+                                     id="phoneCode1" converter="omnifaces.SelectItemsConverter" required="true"
+                                     requiredMessage="#{msg['entites.eglises.edit.phoneCode1.required']}">
+                        <f:selectItem itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{egliseBean.countries}" var="p" itemValue="#{p.phoneCode}"
+                                       itemLabel="#{p.phoneCode} (#{p.label})"/>
                     </p:selectOneMenu>
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="localityType" value="#{msg['localities.locality.edit.localityType']}"/>
-                    <p:selectOneMenu id="localityType" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
-                                     filter="true" filterPlaceholder="#{msg['search']}" converter="omnifaces.SelectItemsConverter"
-                                     required="true" requiredMessage="#{msg['localities.locality.edit.localityType.required']}"
-                                     value="#{egliseBean.typeLocality}">
-                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{egliseBean.typeLocalities}" itemValue="#{t}" var="t" itemLabel="#{t.label}"/>
-                        <p:ajax update="locality" listener="#{egliseBean.filterLocality()}"/>
-                    </p:selectOneMenu>
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="locality" value="#{msg['locality']}"/>
-                    <p:selectOneMenu id="locality" class="w-full" filterMatchMode="startsWith" 
-                                     filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}" 
-                                     converter="omnifaces.SelectItemsConverter" required="true"
-                                     requiredMessage="#{msg['localities.type-locality.edit.parent.required']}"
-                                     value="#{egliseBean.entity.locality}">
-                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
-                        <f:selectItems value="#{egliseBean.localities}" itemValue="#{l}" var="l" itemLabel="#{l.label}"/>
-                    </p:selectOneMenu>
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['mail']}" for="mail"/>
-                    <p:inputText id="mail" class="w-full" placeholder="#{msg['mail.edit']}"
-                                 value="#{egliseBean.entity.mail}"
-                                 required="true" requiredMessage="#{msg['mail.required']}"/>
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['entites.eglises.edit.contact1']}" for="contact1"/>
-                    <div class="ui-inputgroup">
-                        <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-8 sm:w-5 w-5" filter="true" 
-                                         filterMatchMode="contains" value="#{egliseBean.entity.phoneCode1}" style="height: 32px; padding-top: 1px;"
-                                         id="phoneCode1" converter="omnifaces.SelectItemsConverter" required="true" 
-                                         requiredMessage="#{msg['entites.eglises.edit.phoneCode1.required']}">
-                            <f:selectItem itemLabel="#{msg['choice-label']}"/>
-                            <f:selectItems value="#{egliseBean.countries}" var="p" itemValue="#{p.phoneCode}" 
-                                           itemLabel="#{p.phoneCode} (#{p.label})"/>
-                        </p:selectOneMenu>
-                        <p:inputText id="contact1" class="w-full" placeholder="#{msg['entites.eglises.edit.contact1.placeholder']}"
-                                     value="#{egliseBean.entity.contact1}"
-                                     required="true" requiredMessage="#{msg['entites.eglises.edit.contact1.required']}"/>
-                    </div>
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['entites.eglises.edit.contact2']}" for="contact2"/>
-                    <div class="ui-inputgroup">
-                        <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-7 sm:w-6 w-6" filter="true" filterMatchMode="contains" 
-                                         style="height: 32px; padding-top: 1px;" value="#{egliseBean.entity.phoneCode2}" 
-                                         requiredMessage="#{msg['entites.eglises.edit.phoneCode2.required']}" id="phoneCode2" 
-                                         converter="omnifaces.SelectItemsConverter" required="#{not empty egliseBean.entity.contact2}">
-                            <f:selectItem itemLabel="#{msg['choice-label']}"/>
-                            <f:selectItems value="#{egliseBean.countries}" var="p" itemValue="#{p.phoneCode}" 
-                                           itemLabel="#{p.phoneCode} (#{p.label})"/>
-                        </p:selectOneMenu>
-                        <p:inputText id="contact2" class="w-full" placeholder="#{msg['entites.eglises.edit.contact2.placeholder']}"
-                                     value="#{egliseBean.entity.contact2}"  >
-                            <p:ajax update="phoneCode2" />
-                        </p:inputText>
-                    </div>
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['entites.eglises.edit.street']}" for="street"/>
-                    <p:inputText id="street" class="w-full" placeholder="#{msg['entites.eglises.edit.street.placeholder']}"
-                                 value="#{egliseBean.address.street}"
-                                 />
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['entites.eglises.edit.city']}" for="city"/>
-                    <p:inputText id="city" class="w-full" placeholder="#{msg['entites.eglises.edit.city.placeholder']}"
-                                 value="#{egliseBean.address.city}"
-                                 />
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel value="#{msg['entites.eglises.edit.zip']}" for="zip"/>
-                    <p:inputText id="zip" class="w-full" placeholder="#{msg['entites.eglises.edit.zip.placeholder']}"
-                                 value="#{egliseBean.address.zip}"
-                                 />
-                </div>
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <!--                    <p:outputLabel value="# {msg['logo']}" for="logo"/>
-                                        <p:fileUpload id="logo" class="w-full" uploadIcon="pi pi-home" 
-                                                      />-->
+                    <p:inputText id="contact1" class="w-full"
+                                 placeholder="#{msg['entites.eglises.edit.contact1.placeholder']}"
+                                 value="#{egliseBean.entity.contact1}"
+                                 required="true" requiredMessage="#{msg['entites.eglises.edit.contact1.required']}"/>
                 </div>
             </div>
-        </ui:define>
-    </ui:composition>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['entites.eglises.edit.contact2']}" for="contact2"/>
+                <div class="ui-inputgroup">
+                    <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-7 sm:w-6 w-6" filter="true"
+                                     filterMatchMode="contains"
+                                     style="height: 32px; padding-top: 1px;" value="#{egliseBean.entity.phoneCode2}"
+                                     requiredMessage="#{msg['entites.eglises.edit.phoneCode2.required']}"
+                                     id="phoneCode2"
+                                     converter="omnifaces.SelectItemsConverter"
+                                     required="#{not empty egliseBean.entity.contact2}">
+                        <f:selectItem itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{egliseBean.countries}" var="p" itemValue="#{p.phoneCode}"
+                                       itemLabel="#{p.phoneCode} (#{p.label})"/>
+                    </p:selectOneMenu>
+                    <p:inputText id="contact2" class="w-full"
+                                 placeholder="#{msg['entites.eglises.edit.contact2.placeholder']}"
+                                 value="#{egliseBean.entity.contact2}">
+                        <p:ajax update="phoneCode2"/>
+                    </p:inputText>
+                </div>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['entites.eglises.edit.street']}" for="street"/>
+                <p:inputText id="street" class="w-full" placeholder="#{msg['entites.eglises.edit.street.placeholder']}"
+                             value="#{egliseBean.address.street}"
+                />
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['entites.eglises.edit.city']}" for="city"/>
+                <p:inputText id="city" class="w-full" placeholder="#{msg['entites.eglises.edit.city.placeholder']}"
+                             value="#{egliseBean.address.city}"
+                />
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['entites.eglises.edit.zip']}" for="zip"/>
+                <p:inputText id="zip" class="w-full" placeholder="#{msg['entites.eglises.edit.zip.placeholder']}"
+                             value="#{egliseBean.address.zip}"
+                />
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <!--                    <p:outputLabel value="# {msg['logo']}" for="logo"/>
+                                    <p:fileUpload id="logo" class="w-full" uploadIcon="pi pi-home"
+                                                  />-->
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
 </html>
 

@@ -10,13 +10,14 @@ import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import service.interfaces.CountryServiceLocal;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.LocalityServiceLocal;
 import service.interfaces.TypeLocalityServiceLocal;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author steph18

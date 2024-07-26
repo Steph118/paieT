@@ -11,8 +11,9 @@ import entities.Locality;
 import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.util.List;
 import service.interfaces.LocalityServiceLocal;
+
+import java.util.List;
 
 /**
  * @author steph18
@@ -29,8 +30,8 @@ public class LocalityService extends GenericServiceLocalImpl<Locality, Integer> 
     }
 
     @Override
-    public List<Locality> getAll(Country country, TypeLocality localityTypeId){
-        return this.dao.getAll(country.getId(),localityTypeId.getId());
+    public List<Locality> getAll(Country country, TypeLocality localityTypeId) {
+        return this.dao.getAll(country.getId(), localityTypeId.getId());
     }
-    
+
 }

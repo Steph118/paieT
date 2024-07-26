@@ -4,7 +4,6 @@
  */
 package service.interfaces;
 
-import entities.Sexe;
 import entities.Year;
 import jakarta.ejb.Local;
 

@@ -9,10 +9,11 @@ import dao.TypeLocalityDao;
 import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import service.interfaces.TypeLocalityServiceLocal;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import service.interfaces.TypeLocalityServiceLocal;
 
 /**
  * @author steph18

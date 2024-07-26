@@ -24,7 +24,7 @@ public class Locality extends BaseEntity {
 
     @Column(name = "label", nullable = false)
     private String label;
-    
+
     @Column(name = "root", nullable = false)
     private boolean root;
 

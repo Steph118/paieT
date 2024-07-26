@@ -8,14 +8,11 @@ import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import service.interfaces.GenericServiceLocal;
+import service.interfaces.TypeLocalityServiceLocal;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import org.omnifaces.util.Messages;
-import service.interfaces.GenericServiceLocal;
-import service.interfaces.TypeLocalityServiceLocal;
 
 /**
  * @author steph18

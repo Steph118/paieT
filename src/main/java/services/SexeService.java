@@ -10,7 +10,6 @@ import entities.Sexe;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import service.interfaces.SexeServiceLocal;
-import service.interfaces.YearServiceLocal;
 
 /**
  * @author steph18

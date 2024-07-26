@@ -1,74 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:f="jakarta.faces.core"
-    xmlns:h="jakarta.faces.html">
-    <ui:composition
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="jakarta.faces.core"
+        xmlns:h="jakarta.faces.html">
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{typeLocalityBean.entityId}"/>
-                <f:viewAction action="#{typeLocalityBean.initEntity()}"/>
-            </f:metadata>
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{typeLocalityBean.entityId}"/>
+            <f:viewAction action="#{typeLocalityBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{typeLocalityBean}"/>
+    <ui:param name="crudBean" value="#{typeLocalityBean}"/>
 
-        <ui:param name="fieldsTitle" value="#{msg['localities.type-locality.title']}"/>
+    <ui:param name="fieldsTitle" value="#{msg['localities.type-locality.title']}"/>
 
-        <ui:define name="list-title">
-            #{msg['localities.type-locality.edit.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['localities.type-locality.breadCrumb']}
-        </ui:define>
-        <ui:define name="fields-content">
-            <div class="form-grid grid">
-                <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel for="label" value="#{msg['label']}"/>
-                    <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
-                                 value="#{typeLocalityBean.entity.label}"
-                                 required="true" requiredMessage="#{msg['label.required']}"
-                                 />
-                </div>
-                <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel for="typeLocalityParent" value="#{msg['localities.type-locality.edit.parent']}"/>
-                    <p:selectOneMenu id="typeLocalityParent" class="w-full" value="#{typeLocalityBean.entity.typeLocalityParent}"
-                                     converter="omnifaces.SelectItemsConverter" filter="true" filterMatchMode="startsWith" filterNormalize="true"
-                                     var="t" disabled="#{typeLocalityBean.entity.root}" required="#{!typeLocalityBean.entity.root}"
-                                     requiredMessage="#{msg['localities.type-locality.edit.parent.required']}">
-                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{typeLocalityBean.typesLocalities}" var="e"
-
-                                       itemLabel="#{e.label}" itemValue="#{e}"/>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{msg['label']}"/>
-                            </f:facet>
-                            <h:outputText value="#{t.label}"/>
-                        </p:column>
-                        <f:facet name="footer">
-                            <h:outputText value="#{typeLocalityBean.typesLocalities.size()} #{msg['sum']}"
-                                          style="font-weight:bold; text-align: center" styleClass="py-1 block"/>
-                        </f:facet>
-                    </p:selectOneMenu>
-                </div>
-                <div class="field col-12">
-                    <p:outputLabel for="root" value="#{msg['is-root']}"/>
-                    <div>
-                        <p:toggleSwitch id="root" value="#{typeLocalityBean.entity.root}" onIcon="pi pi-check" offIcon="pi pi-times">
-                            <p:ajax update="typeLocalityParent" listener="#{typeLocalityBean.verifyRoot()}"/>
-                        </p:toggleSwitch>
-                    </div>
-
-                </div>
+    <ui:define name="list-title">
+        #{msg['localities.type-locality.edit.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['localities.type-locality.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
+        <div class="form-grid grid">
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel for="label" value="#{msg['label']}"/>
+                <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
+                             value="#{typeLocalityBean.entity.label}"
+                             required="true" requiredMessage="#{msg['label.required']}"
+                />
             </div>
-        </ui:define>
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel for="typeLocalityParent" value="#{msg['localities.type-locality.edit.parent']}"/>
+                <p:selectOneMenu id="typeLocalityParent" class="w-full"
+                                 value="#{typeLocalityBean.entity.typeLocalityParent}"
+                                 converter="omnifaces.SelectItemsConverter" filter="true" filterMatchMode="startsWith"
+                                 filterNormalize="true"
+                                 var="t" disabled="#{typeLocalityBean.entity.root}"
+                                 required="#{!typeLocalityBean.entity.root}"
+                                 requiredMessage="#{msg['localities.type-locality.edit.parent.required']}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{typeLocalityBean.typesLocalities}" var="e"
 
-    </ui:composition>
+                                   itemLabel="#{e.label}" itemValue="#{e}"/>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg['label']}"/>
+                        </f:facet>
+                        <h:outputText value="#{t.label}"/>
+                    </p:column>
+                    <f:facet name="footer">
+                        <h:outputText value="#{typeLocalityBean.typesLocalities.size()} #{msg['sum']}"
+                                      style="font-weight:bold; text-align: center" styleClass="py-1 block"/>
+                    </f:facet>
+                </p:selectOneMenu>
+            </div>
+            <div class="field col-12">
+                <p:outputLabel for="root" value="#{msg['is-root']}"/>
+                <div>
+                    <p:toggleSwitch id="root" value="#{typeLocalityBean.entity.root}" onIcon="pi pi-check"
+                                    offIcon="pi pi-times">
+                        <p:ajax update="typeLocalityParent" listener="#{typeLocalityBean.verifyRoot()}"/>
+                    </p:toggleSwitch>
+                </div>
+
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>
 </html>
 
