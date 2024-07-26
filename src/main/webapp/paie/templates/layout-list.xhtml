@@ -83,19 +83,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                             <ui:insert name="content-list">
                                 <p:dataTable id="table" rows="10" paginatorPosition="bottom" paginator="true"
                                              rowKey="#{e.id}"
-                                             value="#{crudBean.list}" var="e" emptyMessage="Aucun enregistrement">
+                                             value="#{crudBean.list}" var="e" emptyMessage="#{msg['emptyMessage']}">
                                     <f:facet name="header">
                                         <div class="flex align-items-center justify-content-between">
                                                 <span class="text-1xl text-600">
-                                                    <ui:insert name="table-title">
-                                                        Table header
-                                                    </ui:insert>
+                                                    <ui:insert name="table-title"/>
                                                 </span>
                                             <ui:insert name="input-header"/>
                                             <div class="flex align-items-center justify-content-end">
                                                 <p:inputText class="m-2" id="globalFilter"
                                                              onkeyup="PF('table').filter()"
-                                                             placeholder="Rechercher"/>
+                                                             placeholder="#{msg['search']}"/>
                                                 <ui:insert class="table-filters"/>
                                             </div>
                                         </div>
@@ -105,21 +103,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                                     <p:column headerText="Opérations" style="text-align: center">
                                         <div class="flex align-items-center justify-content-center">
                                             <ui:insert name="operations-btn">
-                                                <p:tooltip value="Éditer" for="editButton" position="top"/>
+                                                <p:tooltip value="#{msg['edit']}" for="editButton" position="top"/>
                                                 <p:button id="editButton" class="ui-button-primary m-1"
                                                           icon="fa fa-edit" includeViewParams="true"
                                                           outcome="edit.xhtml" rendered="#{crudBean.canUpdate()}">
                                                     <f:param name="entityId" value="#{e.id}"/>
                                                 </p:button>
 
-                                                <p:tooltip value="Détails" for="detailsButton" position="top"/>
+                                                <p:tooltip value="#{msg['details']}" for="detailsButton" position="top"/>
                                                 <p:button id="detailsButton" class="ui-button-success m-1"
                                                           icon="pi pi-info-circle" rendered="#{crudBean.canDetails()}"
                                                           outcome="details.xhtml" includeViewParams="true">
                                                     <f:param name="entityId" value="#{e.id}"/>
                                                 </p:button>
 
-                                                <p:tooltip value="Supprimer" for="deleteButton" position="top"/>
+                                                <p:tooltip value="#{msg['delete']}" for="deleteButton" position="top"/>
                                                 <p:button id="deleteButton" class="ui-button-danger m-1"
                                                           icon="pi pi-trash" rendered="#{crudBean.canDelete()}"/>
                                                 <ui:insert name="add-operations-btn"/>

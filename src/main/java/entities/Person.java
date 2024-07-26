@@ -7,7 +7,6 @@ package entities;
 /**
  * @author steph18
  */
-
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -57,20 +56,26 @@ public class Person extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "city",
-                    column = @Column(name = "pers_city")),
-            @AttributeOverride(name = "street",
-                    column = @Column(name = "pers_street"))
+        @AttributeOverride(name = "city",
+                column = @Column(name = "pers_city")),
+        @AttributeOverride(name = "street",
+                column = @Column(name = "pers_street"))
     })
     private Address address;
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "person_phones",
             joinColumns = {
-                    @JoinColumn(name = "person_id")
+                @JoinColumn(name = "person_id")
             })
     @Column(name = "phone_number")
     private Set<String> phones = new HashSet<>();
+
+    @Column(name = "phone_number", nullable = false)
+    private String phoneCode;
+
+    @Column(name = "telephone", nullable = false)
+    private String telephone;
 
     public Person() {
     }
@@ -121,6 +126,14 @@ public class Person extends BaseEntity {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getPhoneCode() {
+        return phoneCode;
+    }
+
+    public String getTelephone() {
+        return telephone;
     }
 
     public User getUser() {
@@ -187,6 +200,7 @@ public class Person extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", user=" + user + ", locality=" + locality + ", Sexe=" + sexe + ", address=" + address + ", phones=" + phones + '}';
+        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", address=" + address + ", phoneCode=" + phoneCode + ", telephone=" + telephone + '}';
     }
+
 }

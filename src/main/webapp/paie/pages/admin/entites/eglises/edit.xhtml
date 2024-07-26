@@ -102,7 +102,7 @@
                     </p:selectOneMenu>
                     <p:inputText id="contact1" class="w-full"
                                  placeholder="#{msg['entites.eglises.edit.contact1.placeholder']}"
-                                 value="#{egliseBean.entity.contact1}"
+                                 value="#{egliseBean.entity.telephone1}"
                                  required="true" requiredMessage="#{msg['entites.eglises.edit.contact1.required']}"/>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                     </p:selectOneMenu>
                     <p:inputText id="contact2" class="w-full"
                                  placeholder="#{msg['entites.eglises.edit.contact2.placeholder']}"
-                                 value="#{egliseBean.entity.contact2}">
+                                 value="#{egliseBean.entity.telephone2}">
                         <p:ajax update="phoneCode2"/>
                     </p:inputText>
                 </div>

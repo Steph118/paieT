@@ -5,31 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="model wrapper dependency">
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/LocalityBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/LocalityBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Entite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Entite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/configuration/JakartaRestConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/PersonDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Permission.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/MenuCategory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/MenuItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/resources/JakartaEE10Resource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceLocal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/GenericServiceRemote.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/interfaces/PersonServiceLocal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/PersonService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/endorsed/jakarta.jakartaee-api-10.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/LocalityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/LocalityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +194,7 @@
       <workItem from="1721244405916" duration="485000" />
       <workItem from="1721300125580" duration="12000" />
       <workItem from="1721954577303" duration="539000" />
+      <workItem from="1721955580525" duration="1340000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />

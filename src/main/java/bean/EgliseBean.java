@@ -67,8 +67,8 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
 
     private void loadData() {
         this.address = this.entity.getAddress();
-        this.localities = this.localityService.getAll(getCountry(),
-                getTypeLocality());
+        this.localities = this.localityService.getAll(this.entity.getLocality().getCountry(),
+                this.entity.getLocality().getLocalityType());
 
     }
 
@@ -78,9 +78,9 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
     }
 
     public void filterLocality() {
-        if (Objects.nonNull(country) && Objects.nonNull(typeLocality)) {
-            this.localities = this.localityService.getAll(this.getCountry(), this.getTypeLocality());
-        }
+        Objects.requireNonNull(country, "country null");
+        Objects.requireNonNull(typeLocality, "typeLocality null");
+        this.localities = this.localityService.getAll(this.getCountry(), this.getTypeLocality());
     }
 
     @Override

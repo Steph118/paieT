@@ -8,14 +8,15 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Mediasoft
  */
 @Entity
 @Table(name = "entites", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"phone_code1", "contact1"}),
-        @UniqueConstraint(columnNames = {"phone_code2", "contact2"}),})
+    @UniqueConstraint(columnNames = {"phone_code1", "contact1"}),
+    @UniqueConstraint(columnNames = {"phone_code2", "contact2"}),})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "entite_type")
 @DiscriminatorValue(value = "E")
@@ -51,10 +52,10 @@ public class Entite extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "city",
-                    column = @Column(name = "entite_city")),
-            @AttributeOverride(name = "street",
-                    column = @Column(name = "entite_street"))
+        @AttributeOverride(name = "city",
+                column = @Column(name = "entite_city")),
+        @AttributeOverride(name = "street",
+                column = @Column(name = "entite_street"))
     })
     private Address address;
 
@@ -146,11 +147,11 @@ public class Entite extends BaseEntity {
     }
 
     public String getContact1() {
-        return this.phoneCode1 + this.telephone1;
+        return this.phoneCode1 + StringUtils.deleteWhitespace(this.telephone1);
     }
 
     public String getContact2() {
-        return this.phoneCode2 + this.telephone2;
+        return this.phoneCode2 + StringUtils.deleteWhitespace(this.telephone2);
     }
 
     @Override
