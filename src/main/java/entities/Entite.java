@@ -15,8 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Entity
 @Table(name = "entites", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"phone_code1", "contact1"}),
-    @UniqueConstraint(columnNames = {"phone_code2", "contact2"}),})
+    @UniqueConstraint(columnNames = {"phone_code1", "contact1", "phone_code2", "contact2"})})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "entite_type")
 @DiscriminatorValue(value = "E")
@@ -52,8 +51,8 @@ public class Entite extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "city",
-                column = @Column(name = "entite_city")),
+        @AttributeOverride(name = "house",
+                column = @Column(name = "entite_house")),
         @AttributeOverride(name = "street",
                 column = @Column(name = "entite_street"))
     })

@@ -42,6 +42,12 @@ public class Person extends BaseEntity {
     @Column(name = "mail", nullable = false, unique = true)
     private String mail;
 
+    @Column(name = "phone_code", nullable = false)
+    private String phoneCode;
+
+    @Column(name = "telephone", nullable = false)
+    private String telephone;
+
     @OneToOne(optional = true)
     @JoinColumn(name = "user_id")
     private User user;
@@ -56,8 +62,8 @@ public class Person extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "city",
-                column = @Column(name = "pers_city")),
+        @AttributeOverride(name = "house",
+                column = @Column(name = "pers_house")),
         @AttributeOverride(name = "street",
                 column = @Column(name = "pers_street"))
     })
@@ -70,12 +76,6 @@ public class Person extends BaseEntity {
             })
     @Column(name = "phone_number")
     private Set<String> phones = new HashSet<>();
-
-    @Column(name = "phone_number", nullable = false)
-    private String phoneCode;
-
-    @Column(name = "telephone", nullable = false)
-    private String telephone;
 
     public Person() {
     }

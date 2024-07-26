@@ -15,8 +15,8 @@ public class Address {
     @Column(name = "street")
     private String street;
 
-    @Column(name = "city")
-    private String city;
+    @Column(name = "house")
+    private String house;
 
     @Column(name = "zip")
     private String zip;
@@ -33,11 +33,11 @@ public class Address {
     }
 
     public String getCity() {
-        return city;
+        return house;
     }
 
     public void setCity(String city) {
-        this.city = city;
+        this.house = city;
     }
 
     public String getZip() {
@@ -50,7 +50,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" + "street=" + street + ", city=" + city + ", zip=" + zip + '}';
+        return "Address{" + "street=" + street + ", city=" + house + ", zip=" + zip + '}';
     }
 
 }

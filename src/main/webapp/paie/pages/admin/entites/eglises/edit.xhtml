@@ -46,7 +46,6 @@
                 <p:selectOneMenu id="country" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
                                  filter="true" filterPlaceholder="#{msg['search']}"
                                  converter="omnifaces.SelectItemsConverter"
-                                 required="true" requiredMessage="#{msg['country.required']}"
                                  value="#{egliseBean.country}">
                     <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                     <f:selectItems value="#{egliseBean.countries}" itemValue="#{c}" var="c" itemLabel="#{c.label}"/>
@@ -59,8 +58,6 @@
                 <p:selectOneMenu id="localityType" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
                                  filter="true" filterPlaceholder="#{msg['search']}"
                                  converter="omnifaces.SelectItemsConverter"
-                                 required="true"
-                                 requiredMessage="#{msg['localities.locality.edit.localityType.required']}"
                                  value="#{egliseBean.typeLocality}">
                     <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                     <f:selectItems value="#{egliseBean.typeLocalities}" itemValue="#{t}" var="t"
@@ -115,7 +112,7 @@
                                      requiredMessage="#{msg['entites.eglises.edit.phoneCode2.required']}"
                                      id="phoneCode2"
                                      converter="omnifaces.SelectItemsConverter"
-                                     required="#{not empty egliseBean.entity.contact2}">
+                                     required="#{not empty egliseBean.entity.telephone2}">
                         <f:selectItem itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{egliseBean.countries}" var="p" itemValue="#{p.phoneCode}"
                                        itemLabel="#{p.phoneCode} (#{p.label})"/>

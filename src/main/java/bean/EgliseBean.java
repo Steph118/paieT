@@ -86,8 +86,8 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
     @Override
     public void beforeSave() {
         this.entity.setAddress(getAddress());
-        if (StringUtils.isBlank(this.entity.getContact2())) {
-            this.entity.setPhoneCode2(null);
+        if (StringUtils.isBlank(this.entity.getTelephone2())) {
+            this.entity.setPhoneCode2("");
         }
     }
 

@@ -5,35 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="model wrapper dependency">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/MemberBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/PersonBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/MemberDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/MemberServiceLocal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nb-configuration.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Address.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Entite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Entite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/LocalityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/LocalityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Sexe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Sexe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/details.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/list.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/list.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/list.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entite.class" afterDir="false" />
@@ -67,7 +60,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,7 +73,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://stephaneatsu18%40gmail.com@github.com/Steph118/map-jpa2.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/Steph118/paieT.git&quot;,
     &quot;accountId&quot;: &quot;09c956ff-f0f8-4d0f-8d0c-480c749a199e&quot;
   }
 }</component>
@@ -106,30 +99,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/steph18/NetBeansProjects/map-jpa&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/steph18/intelij projects/paieT",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "profiler.jvm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="services" />
@@ -195,6 +188,7 @@
       <workItem from="1721300125580" duration="12000" />
       <workItem from="1721954577303" duration="539000" />
       <workItem from="1721955580525" duration="1340000" />
+      <workItem from="1722006487255" duration="645000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />

@@ -20,7 +20,7 @@ public class Sexe extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "code", nullable = false)
@@ -30,10 +30,6 @@ public class Sexe extends BaseEntity {
     private String label;
 
     public Sexe() {
-    }
-
-    private Sexe(String libelle) {
-        this.label = libelle;
     }
 
     public Integer getId() {

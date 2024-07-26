@@ -11,13 +11,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 
     <ui:composition template="/paie/templates/layout-details.xhtml">
         <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {egliseBean.entityId}"/>
-                            <f:viewAction action="# {egliseBean.initDetails()}"/>
-                        </f:metadata>-->
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{personBean.entityId}"/>
+                <f:viewAction action="#{personBean.initDetails()}"/>
+            </f:metadata>
         </ui:define>
 
-        <!--        <ui:param name="crudBean" value="# {egliseBean}"/>-->
+        <ui:param name="crudBean" value="#{personBean}"/>
 
         <ui:param name="fieldsTitle" value=""/>
 

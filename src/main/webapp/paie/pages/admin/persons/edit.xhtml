@@ -9,13 +9,13 @@
         template="/paie/templates/layout-edit.xhtml">
 
         <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {localityBean.entityId}"/>
-                            <f:viewAction action="# {localityBean.initEntity()}"/>
-                        </f:metadata>-->
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{personBean.entityId}"/>
+                <f:viewAction action="#{personBean.initEntity()}"/>
+            </f:metadata>
         </ui:define>
 
-        <!--        <ui:param name="crudBean" value="# {localityBean}"/>-->
+        <ui:param name="crudBean" value="#{personBean}"/>
 
         <ui:param name="fieldsTitle" value=""/>
 
