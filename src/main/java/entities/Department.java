@@ -5,9 +5,6 @@
 package entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-
 import java.util.Objects;
 
 /**
@@ -27,11 +24,9 @@ public class Department extends BaseEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotBlank
     @Column(name = "code", nullable = false, unique = true, length = 5)
     private String code;
 
-    @NotBlank
     @Column(name = "label", nullable = false)
     private String label;
 

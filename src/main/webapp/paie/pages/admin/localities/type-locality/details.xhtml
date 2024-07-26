@@ -39,7 +39,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
                         <p:outputLabel for="parentLocality" value="#{msg['localities.type-locality.edit.parent']}"/>
                         <p:outputLabel class="font-bold text-900 text-xl" id="parentLocality" 
-                                       value="#{typeLocalityBean.entity.typeLocalityParent.label}"/>
+                                       value="#{typeLocalityBean.entity.typeLocalityParent != null ? 
+                                                typeLocalityBean.entity.typeLocalityParent.label : ' - '}"/>
 
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">

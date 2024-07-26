@@ -6,6 +6,7 @@ package service.interfaces;
 
 import entities.TypeLocality;
 import jakarta.ejb.Local;
+
 import java.util.List;
 
 /**
@@ -27,6 +28,6 @@ public interface TypeLocalityServiceLocal extends GenericServiceLocal<TypeLocali
     List<TypeLocality> getRoots();
 
     List<TypeLocality> getAppropriateTypesLoclity(TypeLocality entity, Integer entityId);
-    
+
     List<TypeLocality> getDescendants(TypeLocality typeLocality);
 }

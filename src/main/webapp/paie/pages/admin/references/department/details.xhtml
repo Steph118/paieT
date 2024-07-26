@@ -8,35 +8,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core">
-    <ui:composition template="/paie/templates/layout-details.xhtml">
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{departmentBean.entityId}"/>
-                <f:viewAction action="#{departmentBean.initDetails()}"/>
-            </f:metadata>
-        </ui:define>
-        <ui:param name="crudBean" value="#{departmentBean}"/>
-        <ui:param name="fieldsTitle" value="Départements"/>
+<ui:composition template="/paie/templates/layout-details.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{departmentBean.entityId}"/>
+            <f:viewAction action="#{departmentBean.initDetails()}"/>
+        </f:metadata>
+    </ui:define>
+    <ui:param name="crudBean" value="#{departmentBean}"/>
+    <ui:param name="fieldsTitle" value="Départements"/>
 
-        <ui:define name="list-title">
-            Détails Départements
-        </ui:define>
-        <ui:define name="breadCrumb">
-            Référence > Départements
-        </ui:define>
-        <ui:define name="fields-content">
-            <p:outputPanel>
-                <div class="form-grid grid">
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="label" value="Libelle"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="label" value="#{departmentBean.entity.label}"/>
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="code" value="Code"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="code" value="#{departmentBean.entity.code}"/>
-                    </div>
+    <ui:define name="list-title">
+        Détails Départements
+    </ui:define>
+    <ui:define name="breadCrumb">
+        Référence > Départements
+    </ui:define>
+    <ui:define name="fields-content">
+        <p:outputPanel>
+            <div class="form-grid grid">
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="label" value="Libelle"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="label"
+                                   value="#{departmentBean.entity.label}"/>
                 </div>
-            </p:outputPanel>
-        </ui:define>
-    </ui:composition>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="code" value="Code"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="code" value="#{departmentBean.entity.code}"/>
+                </div>
+            </div>
+        </p:outputPanel>
+    </ui:define>
+</ui:composition>
 </html>

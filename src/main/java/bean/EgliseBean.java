@@ -15,6 +15,7 @@ import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 import service.interfaces.CountryServiceLocal;
 import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
@@ -65,6 +66,24 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
         this.typeLocalities = this.typeLocalityService.getAll();
     }
 
+    @Override
+    public void loadEntity() {
+        super.loadEntity();
+        this.loadData();
+    }
+
+    private void loadData() {
+        this.address = this.entity.getAddress();
+        this.localities = this.localityService.getAll(getCountry(),
+                getTypeLocality());
+                
+    }
+
+    @Override
+    public void beforeUpdate() {
+        this.beforeSave();
+    }
+
     public void filterLocality() {
         if (Objects.nonNull(country) && Objects.nonNull(typeLocality)) {
             this.localities = this.localityService.getAll(this.getCountry(), this.getTypeLocality());
@@ -73,13 +92,10 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
 
     @Override
     public void beforeSave() {
-        System.err.println("beforeSave");
         this.entity.setAddress(getAddress());
-        this.entity.setContact1(phoneCode1 + this.entity.getContact1());
-        this.entity.setContact2(phoneCode2 + this.entity.getContact2());
-        System.err.println("Addresse : "+this.entity.getAddress());
-        System.err.println("Contact1 : "+this.entity.getContact1());
-        System.err.println("Contact2 : "+this.entity.getContact2());
+        if (StringUtils.isBlank(this.entity.getContact2())) {
+            this.entity.setPhoneCode2(null);
+        }
     }
 
     @Override

@@ -61,7 +61,7 @@
                                      value="#{egliseBean.typeLocality}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{egliseBean.typeLocalities}" itemValue="#{t}" var="t" itemLabel="#{t.label}"/>
-                         <p:ajax update="locality" listener="#{egliseBean.filterLocality()}"/>
+                        <p:ajax update="locality" listener="#{egliseBean.filterLocality()}"/>
                     </p:selectOneMenu>
                 </div>
 
@@ -88,7 +88,7 @@
                     <p:outputLabel value="#{msg['entites.eglises.edit.contact1']}" for="contact1"/>
                     <div class="ui-inputgroup">
                         <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-8 sm:w-5 w-5" filter="true" 
-                                         filterMatchMode="contains" value="#{egliseBean.phoneCode1}" style="height: 32px; padding-top: 1px;"
+                                         filterMatchMode="contains" value="#{egliseBean.entity.phoneCode1}" style="height: 32px; padding-top: 1px;"
                                          id="phoneCode1" converter="omnifaces.SelectItemsConverter" required="true" 
                                          requiredMessage="#{msg['entites.eglises.edit.phoneCode1.required']}">
                             <f:selectItem itemLabel="#{msg['choice-label']}"/>
@@ -104,16 +104,16 @@
                     <p:outputLabel value="#{msg['entites.eglises.edit.contact2']}" for="contact2"/>
                     <div class="ui-inputgroup">
                         <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-7 sm:w-6 w-6" filter="true" filterMatchMode="contains" 
-                                         style="height: 32px; padding-top: 1px;" value="#{egliseBean.phoneCode2}" 
+                                         style="height: 32px; padding-top: 1px;" value="#{egliseBean.entity.phoneCode2}" 
                                          requiredMessage="#{msg['entites.eglises.edit.phoneCode2.required']}" id="phoneCode2" 
-                                         converter="omnifaces.SelectItemsConverter" required="#{egliseBean.entity.contact2 != null}">
+                                         converter="omnifaces.SelectItemsConverter" required="#{not empty egliseBean.entity.contact2}">
                             <f:selectItem itemLabel="#{msg['choice-label']}"/>
                             <f:selectItems value="#{egliseBean.countries}" var="p" itemValue="#{p.phoneCode}" 
                                            itemLabel="#{p.phoneCode} (#{p.label})"/>
                         </p:selectOneMenu>
                         <p:inputText id="contact2" class="w-full" placeholder="#{msg['entites.eglises.edit.contact2.placeholder']}"
-                                     value="#{egliseBean.entity.contact2}" >
-                            <p:ajax update="phoneCode2"/>
+                                     value="#{egliseBean.entity.contact2}"  >
+                            <p:ajax update="phoneCode2" />
                         </p:inputText>
                     </div>
                 </div>
@@ -136,9 +136,9 @@
                                  />
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-<!--                    <p:outputLabel value="# {msg['logo']}" for="logo"/>
-                    <p:fileUpload id="logo" class="w-full" uploadIcon="pi pi-home" 
-                                  />-->
+                    <!--                    <p:outputLabel value="# {msg['logo']}" for="logo"/>
+                                        <p:fileUpload id="logo" class="w-full" uploadIcon="pi pi-home" 
+                                                      />-->
                 </div>
             </div>
         </ui:define>

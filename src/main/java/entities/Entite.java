@@ -13,7 +13,9 @@ import java.util.Objects;
  * @author Mediasoft
  */
 @Entity
-@Table(name = "entites")
+@Table(name = "entites", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"phone_code1", "contact1"}),
+    @UniqueConstraint(columnNames = {"phone_code2", "contact2"}),})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "entite_type")
 @DiscriminatorValue(value = "E")
@@ -28,14 +30,20 @@ public class Entite extends BaseEntity {
     @Column(name = "label", length = 31, nullable = false)
     private String label;
 
-    @Column(name = "mail", unique = true)
+    @Column(name = "mail", unique = true, nullable = false)
     private String mail;
 
-    @Column(name = "contact1", unique = true)
-    private String contact1;
-    
-    @Column(name = "contact2", unique = true)
-    private String contact2;
+    @Column(name = "phone_code1", nullable = false)
+    private String phoneCode1;
+
+    @Column(name = "telephone1", nullable = false)
+    private String telephone1;
+
+    @Column(name = "phone_code2")
+    private String phoneCode2;
+
+    @Column(name = "telephone2")
+    private String telephone2;
 
     @Lob
     @Column(name = "logo")
@@ -43,10 +51,10 @@ public class Entite extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-            @AttributeOverride(name = "city",
-                    column = @Column(name = "entite_city")),
-            @AttributeOverride(name = "street",
-                    column = @Column(name = "entite_street"))
+        @AttributeOverride(name = "city",
+                column = @Column(name = "entite_city")),
+        @AttributeOverride(name = "street",
+                column = @Column(name = "entite_street"))
     })
     private Address address;
 
@@ -81,22 +89,38 @@ public class Entite extends BaseEntity {
         this.mail = mail;
     }
 
-    public String getContact1() {
-        return contact1;
+    public String getPhoneCode1() {
+        return phoneCode1;
     }
 
-    public void setContact1(String contact) {
-        this.contact1 = contact;
-    }
-    
-    public void setContact2(String contact2) {
-        this.contact2 = contact2;
+    public void setPhoneCode1(String phoneCode1) {
+        this.phoneCode1 = phoneCode1;
     }
 
-    public String getContact2() {
-        return contact2;
+    public String getTelephone1() {
+        return telephone1;
     }
-    
+
+    public void setTelephone1(String telephone1) {
+        this.telephone1 = telephone1;
+    }
+
+    public String getPhoneCode2() {
+        return phoneCode2;
+    }
+
+    public void setPhoneCode2(String phoneCode2) {
+        this.phoneCode2 = phoneCode2;
+    }
+
+    public String getTelephone2() {
+        return telephone2;
+    }
+
+    public void setTelephone2(String telephone2) {
+        this.telephone2 = telephone2;
+    }
+
     public String getLogo() {
         return logo;
     }
@@ -119,6 +143,14 @@ public class Entite extends BaseEntity {
 
     public void setLocality(Locality locality) {
         this.locality = locality;
+    }
+
+    public String getContact1() {
+        return this.phoneCode1 + this.telephone1;
+    }
+
+    public String getContact2() {
+        return this.phoneCode2 + this.telephone2;
     }
 
     @Override
@@ -145,6 +177,6 @@ public class Entite extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Entite{" + "id=" + id + ", label=" + label + ", mail=" + mail + ", contact=" + contact1 + ", contact2=" + contact2 + ", logo=" + logo + ", addresse=" + address + ", locality=" + locality + '}';
+        return "Entite{" + "id=" + id + ", label=" + label + ", mail=" + mail + ", phoneCode1=" + phoneCode1 + ", contact1=" + telephone1 + ", phoneCode2=" + phoneCode2 + ", contact2=" + telephone2 + ", logo=" + logo + '}';
     }
 }

@@ -9,48 +9,69 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core">
 
-    <ui:composition template="/paie/templates/layout-details.xhtml">
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{localityBean.entityId}"/>
-                <f:viewAction action="#{localityBean.initDetails()}"/>
-            </f:metadata>
-        </ui:define>
+<ui:composition template="/paie/templates/layout-details.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{localityBean.entityId}"/>
+            <f:viewAction action="#{localityBean.initDetails()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{localityBean}"/>
+    <ui:param name="crudBean" value="#{localityBean}"/>
 
-        <ui:param name="fieldsTitle" value="#{msg['localities.locality.title']}"/>
+    <ui:param name="fieldsTitle" value="#{msg['localities.locality.title']}"/>
 
-        <ui:define name="list-title">
-             #{msg['localities.locality.edit.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['localities.locality.breadCrumb']}
-        </ui:define> 
-        <ui:define name="fields-content">
-            <p:outputPanel>
-                <div class="form-grid grid">
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="label" value="#{msg['label']}"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="label" 
-                                       value="#{typeLocalityBean.entity.label}"/>
+    <ui:define name="list-title">
+        #{msg['localities.locality.edit.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['localities.locality.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
+        <p:outputPanel>
+            <div class="form-grid grid">
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="label" value="#{msg['label']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="label"
+                                   value="#{localityBean.entity.label}"/>
 
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="parentLocality" value="#{msg['localities.locality.edit.localityTypeParent']}"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="parentLocality" 
-                                       value="#{typeLocalityBean.entity.typeLocalityParent.label}"/>
-
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="root" value="#{msg['is-root']}"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="root" 
-                                       value="#{typeLocalityBean.entity.root}"/>
-
-                    </div>
                 </div>
-            </p:outputPanel>
-        </ui:define>
-    </ui:composition>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="typeLocality" value="#{msg['localities.locality.edit.localityType']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="typeLocality"
+                                   value="#{localityBean.entity.localityType.label}"/>
+
+                </div>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="parentLocality" value="#{msg['localities.locality.edit.localityParent']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="parentLocality"
+                                   value="#{localityBean.entity.localityParent!=null ?
+                                                localityBean.entity.localityParent.label : '-'}"/>
+
+                </div>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="localityTypeParent"
+                                   value="#{msg['localities.locality.edit.localityTypeParent']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="localityTypeParent"
+                                   value="#{ localityBean.entity.localityParent!=null ?
+                                                 localityBean.entity.localityParent.localityType.label : ' - ' }"/>
+
+                </div>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="country" value="#{msg['references.country.title']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="country"
+                                   value="#{localityBean.entity.country.label}"/>
+
+                </div>
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="root" value="#{msg['is-root']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="root"
+                                   value="#{localityBean.entity.root}"/>
+
+                </div>
+            </div>
+        </p:outputPanel>
+    </ui:define>
+</ui:composition>
 </html>
 

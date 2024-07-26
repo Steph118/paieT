@@ -28,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                 <p:outputLabel value="#{e.root}"/>
             </p:column>
             <p:column headerText="Type Localité parent">
-                <p:outputLabel value="#{e.typeLocalityParent.label}"/>
+                <p:outputLabel value="#{e.typeLocalityParent != null ? e.typeLocalityParent.label : ' - '}"/>
             </p:column>
         </ui:define>
     </ui:composition>

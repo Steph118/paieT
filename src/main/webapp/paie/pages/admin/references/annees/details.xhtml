@@ -9,33 +9,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core">
 
-    <ui:composition template="/paie/templates/layout-details.xhtml">
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{yearBean.entityId}"/>
-                <f:viewAction action="#{yearBean.initDetails()}"/>
-            </f:metadata>
-        </ui:define>
+<ui:composition template="/paie/templates/layout-details.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{yearBean.entityId}"/>
+            <f:viewAction action="#{yearBean.initDetails()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{yearBean}"/>
+    <ui:param name="crudBean" value="#{yearBean}"/>
 
-        <ui:param name="fieldsTitle" value="#{msg['references.annees.title']}"/>
+    <ui:param name="fieldsTitle" value="#{msg['references.annees.title']}"/>
 
-        <ui:define name="list-title">
-            #{msg['references.annees.details.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['references.annees.breadCrumb']}
-        </ui:define> 
-        <ui:define name="fields-content">
-            <p:outputPanel>
-                <div class="form-grid grid">
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel for="value" value="#{msg['references.annees.edit.value']}"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="value" value="#{yearBean.entity.value}"/>
-                    </div>
+    <ui:define name="list-title">
+        #{msg['references.annees.details.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['references.annees.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
+        <p:outputPanel>
+            <div class="form-grid grid">
+                <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="value" value="#{msg['references.annees.edit.value']}"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="value" value="#{yearBean.entity.value}"/>
                 </div>
-            </p:outputPanel>
-        </ui:define>
-    </ui:composition>
+            </div>
+        </p:outputPanel>
+    </ui:define>
+</ui:composition>
 </html>
