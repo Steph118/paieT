@@ -5,7 +5,6 @@
 package service.interfaces;
 
 import entities.Member;
-import entities.Person;
 import jakarta.ejb.Local;
 
 /**

@@ -1,46 +1,38 @@
 # paieT
 
-## Contexte du projet
-L'église *** *** *** a entrepris d'acquérir le terrain qu'elle loue actuellement en contractant un prêt auprès d'une institution de microfinance. Ce prêt permettra à l'église de devenir propriétaire du terrain, pour lequel elle paie actuellement un loyer mensuel.
+## Context
+The church *** *** *** has undertaken to acquire the property it currently rents by taking out a loan from a microfinance institution. This loan will allow the church to become the owner of the land, for which it currently pays a monthly rent.
 
-L'institution de microfinance a approuvé la demande de prêt et a établi un plan de remboursement mensuel. L'église s'engage à verser une somme fixe chaque mois pour rembourser le prêt.
+The microfinance institution has approved the loan request and established a monthly repayment plan. The church commits to paying a fixed amount each month to repay the loan.
 
-Pour faciliter le processus de remboursement, un système a été mis en place par l'eglise. Ce système vise à encourager la participation active des membres de l'église qui souhaitent contribuer financièrement, tout en garantissant une gestion transparente et efficace des fonds.
+To facilitate the repayment process, the church has implemented a system to encourage the active participation of members who wish to contribute financially, ensuring transparent and efficient fund management.
 
-## Objectifs
+## Objectives
 
-### Objectif general
-Permettre une gestion numérique et digitale du processus de mise en place par L'église remboursements du crédit.
+### General Objective
+Enable a digital and automated management system for the church's loan repayment process.
 
-### Objectifs spécifiques
-- Automatiser les enregistrements:
-A ce stade, il sera question de mettre en place un système informatisé pour enregistrer les promesses et cotisations de versement mensuel des membres, leurs informations personnelles, ainsi que les paiements effectués.
+### Specific Objectives
+- Automate Record Keeping: Establish a computerized system to record pledges and monthly contributions from members, their personal information, and payments made.
 
-- Communiquer efficacement avec les membres :
-Permettre une communication automatisée pour informer les membres des échéances de paiement à venir, des rappels de paiement, et des confirmations de paiement reçues.
+- Communicate Effectively with Members: Provide automated communication to inform members of upcoming payment deadlines, payment reminders, and payment confirmations.
 
-- Permettre aux membres d’avoir un suivi général sur les paiements des remboursements effectués.
+- Allow Members to Track Payments: Provide members with an overview of the loan repayments made.
 
-Ce projet vise à garantir une gestion transparente et efficiente des ressources tout en promouvant l'engagement financier et la solidarité au sein de la communauté ecclésiastique.
+This project aims to ensure transparent and efficient resource management while promoting financial engagement and solidarity within the church community.
 
-## Analyse et Conception
-- Diagramme des classes:
-https://drive.google.com/file/d/1cpIfbfe6AnzsuD2QBkst9UwtQalsLOoU/view?usp=sharing
+## Analysis and Design
+- Class Diagram: https://drive.google.com/file/d/1cpIfbfe6AnzsuD2QBkst9UwtQalsLOoU/view?usp=sharing
 
-- Cahier de charges:
-https://docs.google.com/document/d/1OqdOueNHKPIMTMiStkIc2vH638FM_pntFMQx6MfmpbM/edit?usp=sharing
+- Requirements Document: Link to Document
+  https://docs.google.com/document/d/1OqdOueNHKPIMTMiStkIc2vH638FM_pntFMQx6MfmpbM/edit?usp=sharing
 
-## Installations et configurations
-
-Le projet est réalisé avec Jakarta EE 10,
+## Installations and Configurations
+The project is developed using Jakarta EE 10.
 
 1- Maven, version 3
+2- JDK, version 17 required
+3- Payara, version 6 required
+4- PostgreSQL Database
 
-2- JDK, version required is 17
-
-3- Payara, version required is 6
-
-4- Postgresql database
-To configure the database connection, go to the folder /src/main/resoources/filters directory and change the configuration in the snapshot.properties file and enter the coorect values for posgresql username and password.
-
-
+To configure the database connection, go to the '/src/main/resources/filters' directory and modify the snapshot.properties file with the correct PostgreSQL username and password values.

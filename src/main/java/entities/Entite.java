@@ -6,9 +6,9 @@ package entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Mediasoft

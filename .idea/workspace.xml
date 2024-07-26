@@ -4,36 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="model wrapper dependency">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/MemberBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/PersonBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/MemberDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/MemberServiceLocal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nb-configuration.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Address.java" afterDir="false" />
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="- Person and members Dao, services, and Bean managment&#10;- Readme update">
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Entite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Entite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Sexe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Sexe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/entites/eglises/edit.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/LocalityServiceLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/MemberServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/MemberServiceLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/LocalityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/LocalityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/members/list.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/promised/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/list.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/persons/list.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bean/GenericBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/RepositoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Entite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/menu/AppMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/roles/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/users/list.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +182,7 @@
       <workItem from="1721300125580" duration="12000" />
       <workItem from="1721954577303" duration="539000" />
       <workItem from="1721955580525" duration="1340000" />
-      <workItem from="1722006487255" duration="645000" />
+      <workItem from="1722006487255" duration="1088000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -278,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721244516840</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="- Person and members Dao, services, and Bean managment&#10;- Readme update">
+      <option name="closed" value="true" />
+      <created>1722007211413</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722007211413</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +325,8 @@
     <MESSAGE value="References pages: lis - edition - details" />
     <MESSAGE value="git ignore" />
     <MESSAGE value="model wrapper dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="model wrapper dependency" />
+    <MESSAGE value="- Person and members Dao, services, and Bean managment&#10;- Readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Person and members Dao, services, and Bean managment&#10;- Readme update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,7 +8,6 @@ import entities.Country;
 import entities.Locality;
 import entities.TypeLocality;
 import jakarta.ejb.Local;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 

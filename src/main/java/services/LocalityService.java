@@ -11,9 +11,9 @@ import entities.Locality;
 import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.util.ArrayList;
 import service.interfaces.LocalityServiceLocal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
