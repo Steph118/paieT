@@ -46,7 +46,7 @@
                                      requiredMessage="#{msg['localities.type-locality.edit.parent.required']}"
                                      value="#{personBean.entity.sexe}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{personBean.listSexes()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                        <f:selectItems value="#{personBean.listRoles()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
                     </p:selectOneMenu>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">

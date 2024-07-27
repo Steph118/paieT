@@ -8,6 +8,7 @@ import entities.Address;
 import entities.Country;
 import entities.Locality;
 import entities.Person;
+import entities.Role;
 import entities.Sexe;
 import entities.TypeLocality;
 import jakarta.ejb.EJB;
@@ -98,8 +99,8 @@ public class PersonBean extends GenericBean<Person, Integer> {
         }
     }
 
-    public List<Sexe> listSexes() {
-        return sexeService.getAll();
+    public List<Role> listRoles() {
+        return new ArrayList<>();
     }
 
     public List<Locality> listSexes2() {

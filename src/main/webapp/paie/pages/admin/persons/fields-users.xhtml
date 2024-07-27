@@ -41,10 +41,9 @@
                     <div class="field w-full">
                         <p:outputLabel value="#{msg['roles.title']}" for="role"/>
                         <p:selectCheckboxMenu id="role" class="w-full" filter="true" filterMatchMode="startsWith"
-                                  label="#{msg['choice-label']}" multiple="true" updateLabel="true" required="true" 
-                                  requiredMessage="#{msg['roles.required']}" >
-                           
-                            <f:selectItems value="#{personBean.listSexes()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                                              label="#{msg['choice-label']}" multiple="true" updateLabel="true" required="true" 
+                                              requiredMessage="#{msg['roles.required']}" >
+                            <f:selectItems value="#{personBean.listRoles()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
                         </p:selectCheckboxMenu>
                     </div>
                 </div>

@@ -10,9 +10,8 @@ package entities;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
+import org.apache.commons.lang3.StringUtils;
 
 @Entity
 @Table(name = "persons")
@@ -39,7 +38,7 @@ public class Person extends BaseEntity {
     @Column(name = "birth_place")
     private String birthplace;
 
-    @Column(name = "mail", nullable = false, unique = true)
+    @Column(name = "mail", unique = true)
     private String mail;
 
     @Column(name = "phone_code", nullable = false)
@@ -174,6 +173,10 @@ public class Person extends BaseEntity {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+    
+    public String getContact() {
+        return this.phoneCode + StringUtils.deleteWhitespace(this.telephone);
     }
 
 //    public Set<String> getPhones() {

@@ -30,7 +30,7 @@ public class Entite extends BaseEntity {
     @Column(name = "label", length = 31, nullable = false)
     private String label;
 
-    @Column(name = "mail", unique = true, nullable = false)
+    @Column(name = "mail", unique = true)
     private String mail;
 
     @Column(name = "phone_code1", nullable = false)

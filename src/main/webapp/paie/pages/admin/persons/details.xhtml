@@ -19,30 +19,81 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 
         <ui:param name="crudBean" value="#{personBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+        <ui:param name="fieldsTitle" value="#{msg['persons.title']}"/>
 
         <ui:define name="list-title">
+            #{msg['persons.details.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['persons.breadCrumb']}
         </ui:define>
-        <ui:define name="fields-content">
-            <p:outputPanel>
+        <ui:define name="fields">
+            <p:fieldset legend="#{msg['person.title']}">
                 <div class="form-grid grid">
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel value="#{msg['persons.edit.firstname']}" for="firstname"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="firstname" value="#{personBean.entity.firstname}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel value="#{msg['persons.edit.name']}" for="name"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="name" value="#{personBean.entity.name}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel class="w-full" value="#{msg['persons.edit.birthdate']}" for="birthdate"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="birthdate" value="#{personBean.entity.birthdate}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel value="#{msg['persons.edit.birthplace']}" for="birthplace"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="birthplace" value="#{personBean.entity.birthplace}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="sexe" value="#{msg['references.sexe.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="sexe" value="#{personBean.entity.sexe.label}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="contact" value="#{msg['contact']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="contact" value="#{personBean.entity.contact}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="mail" value="#{msg['mail']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="mail" value="#{personBean.entity.mail}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="locality" value="#{msg['locality']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="locality" value="#{personBean.entity.locality.label}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel value="#{msg['entites.eglises.edit.street']}" for="street"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="street" value="#{personBean.entity.address.street}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel value="#{msg['entites.eglises.edit.city']}" for="city"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="city" value="#{personBean.entity.address.city}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel value="#{msg['entites.eglises.edit.zip']}" for="zip"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="zip" value="#{personBean.entity.address.zip}"/>
+                    </div>
+
+
+
+                </div>
+            </p:fieldset>
+            <p:fieldset legend="#{msg['user.title']}" class="mt-5">
+                <div class="form-grid grid">
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel value="#{msg['users.edit.username']}" for="username"/>
+                        <p:outputLabel value="#{personBean.entity.user.userName}" id="username"/>
 
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel value="#{msg['roles.title']}" for="role"/>
+                        <ui:repeat value="#{personBean.entity.user.roles}" var="r" id="role">
+                        </ui:repeat>
                     </div>
 
                 </div>
-            </p:outputPanel>
+            </p:fieldset>
         </ui:define>
     </ui:composition>
 </html>
