@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-        xmlns:ui="jakarta.faces.facelets"
-        xmlns:f="jakarta.faces.core">
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="http://primefaces.org/ui">
     <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
@@ -16,33 +17,23 @@
 
         <ui:param name="crudBean" value="#{personBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+        <ui:param name="fieldsTitle" value="#{msg['persons.title']}"/>
 
         <ui:define name="list-title">
+            #{msg['persons.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['persons.breadCrumb']}
         </ui:define>
-        <ui:define name="fields-content">
-            <div class="form-grid grid">
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-            </div>
+        <ui:define name="fields">
+            <p:tabView>
+                <p:tab id="personTab" title="#{msg['person.title']}">
+                    <ui:include src="fields-persons.xhtml"/>
+                </p:tab>
+                <p:tab id="userTab" title="#{msg['user.title']}">
+                    <ui:include src="fields-users.xhtml"/>
+                </p:tab>
+            </p:tabView>
         </ui:define>
 
     </ui:composition>

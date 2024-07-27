@@ -3,41 +3,37 @@
 <html xmlns:f="jakarta.faces.core"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui">
-<ui:composition
+    <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
-    <ui:define name="metadata">
-        <f:metadata>
-            <f:viewParam name="entityId" value="#{yearBean.entityId}"/>
-            <f:viewAction action="#{yearBean.initEntity()}"/>
-        </f:metadata>
-    </ui:define>
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{yearBean.entityId}"/>
+                <f:viewAction action="#{yearBean.initEntity()}"/>
+            </f:metadata>
+        </ui:define>
 
-    <ui:param name="crudBean" value="#{yearBean}"/>
+        <ui:param name="crudBean" value="#{yearBean}"/>
 
-    <ui:param name="fieldsTitle" value="#{msg['references.annees.title']}"/>
+        <ui:param name="fieldsTitle" value="#{msg['references.annees.title']}"/>
 
-    <ui:define name="list-title">
-        #{msg['references.annees.edit.title']}
-    </ui:define>
+        <ui:define name="list-title">
+            #{msg['references.annees.edit.title']}
+        </ui:define>
 
-    <ui:define name="breadCrumb">
-        #{msg['references.annees.breadCrumb']}
-    </ui:define>
+        <ui:define name="breadCrumb">
+            #{msg['references.annees.breadCrumb']}
+        </ui:define>
 
-    <ui:define name="fields">
-        <p:fieldset legend="#{msg['references.annees.title']}">
-            <div class="form-grid grid">
-                <div class="field col-12">
-                    <p:outputLabel value="#{msg['references.annees.edit.value']}" for="value"/>
-                    <p:inputText id="value" placeholder="#{msg['references.annees.edit.value.placeholder']}"
-                                 value="#{yearBean.entity.value}" class="w-full"
-                                 required="true" requiredMessage="#{msg['references.annees.edit.value.required']}"
-                    />
-                </div>
+        <ui:define name="fields-content">
+            <div class="field col-12">
+                <p:outputLabel value="#{msg['references.annees.edit.value']}" for="value"/>
+                <p:inputText id="value" placeholder="#{msg['references.annees.edit.value.placeholder']}"
+                             value="#{yearBean.entity.value}" class="w-full"
+                             required="true" requiredMessage="#{msg['references.annees.edit.value.required']}"
+                             />
             </div>
-        </p:fieldset>
-    </ui:define>
+        </ui:define>
 
-</ui:composition>
+    </ui:composition>
 </html>

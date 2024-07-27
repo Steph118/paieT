@@ -34,8 +34,6 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
     private Country country;
     private Address address;
     private TypeLocality typeLocality;
-    private String phoneCode1;
-    private String phoneCode2;
 
     private List<Country> countries = new ArrayList<>();
     private List<Locality> localities = new ArrayList<>();
@@ -78,9 +76,9 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
     }
 
     public void filterLocality() {
-        Objects.requireNonNull(country, "country null");
-        Objects.requireNonNull(typeLocality, "typeLocality null");
-        this.localities = this.localityService.getAll(this.getCountry(), this.getTypeLocality());
+        if (Objects.nonNull(country) && Objects.nonNull(typeLocality)) {
+            this.localities = this.localityService.getAll(this.getCountry(), this.getTypeLocality());
+        }
     }
 
     @Override
@@ -125,22 +123,6 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
 
     public void setTypeLocality(TypeLocality typeLocality) {
         this.typeLocality = typeLocality;
-    }
-
-    public String getPhoneCode1() {
-        return phoneCode1;
-    }
-
-    public void setPhoneCode1(String phoneCode1) {
-        this.phoneCode1 = phoneCode1;
-    }
-
-    public String getPhoneCode2() {
-        return phoneCode2;
-    }
-
-    public void setPhoneCode2(String phoneCode2) {
-        this.phoneCode2 = phoneCode2;
     }
 
     public Address getAddress() {

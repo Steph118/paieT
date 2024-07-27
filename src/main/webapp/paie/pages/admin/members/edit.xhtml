@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-        xmlns:ui="jakarta.faces.facelets"
-        xmlns:f="jakarta.faces.core">
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core">
     <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
@@ -14,35 +14,35 @@
             </f:metadata>
         </ui:define>
 
-        <ui:param name="crudBean" value="# {memberBean}"/>
+        <ui:param name="crudBean" value="#{memberBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+        <ui:param name="fieldsTitle" value="#{msg['member']}"/>
 
         <ui:define name="list-title">
+            #{msg['members.edit.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['members.breadCrumb']}
         </ui:define>
         <ui:define name="fields-content">
-            <div class="form-grid grid">
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
             </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
         </ui:define>
 
     </ui:composition>

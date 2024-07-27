@@ -1,0 +1,139 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="jakarta.faces.html"
+    xmlns:f="jakarta.faces.core">
+
+    <div class="p-1">
+        <p:fieldset legend="Informations" class="mt-3">
+            <div class="form-grid grid ui-fluid">
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['persons.edit.firstname']}" for="firstname"/>
+                    <p:inputText id="firstname" class="w-full" placeholder="#{msg['persons.edit.firstname.placeholder']}"
+                                 value="#{personBean.entity.firstname}"
+                                 required="true" requiredMessage="#{msg['persons.edit.firstname.required']}"/>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['persons.edit.name']}" for="name"/>
+                    <p:inputText id="name" class="w-full" placeholder="#{msg['persons.edit.name.placeholder']}"
+                                 value="#{personBean.entity.name}"
+                                 required="true" requiredMessage="#{msg['persons.edit.name.required']}"/>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel class="w-full" value="#{msg['persons.edit.birthdate']}" for="birthdate"/>
+                    <div class="w-full">
+                        <p:calendar class="w-full" id="birthdate" placeholder="#{msg['persons.edit.birthdate.placeholder']}"
+                                    value="#{personBean.entity.birthdate}" 
+                                    />
+                    </div>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['persons.edit.birthplace']}" for="birthplace"/>
+                    <p:inputText id="birthplace" class="w-full" placeholder="#{msg['persons.edit.birthplace.placeholder']}"
+                                 value="#{personBean.entity.birthplace}"
+                                 />
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="sexe" value="#{msg['references.sexe.title']}"/>
+                    <p:selectOneMenu id="sexe" class="w-full" filterMatchMode="startsWith"
+                                     filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                     converter="omnifaces.SelectItemsConverter" required="true"
+                                     requiredMessage="#{msg['localities.type-locality.edit.parent.required']}"
+                                     value="#{personBean.entity.sexe}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{personBean.listSexes()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['mail']}" for="mail"/>
+                    <p:inputText id="mail" class="w-full" placeholder="#{msg['mail.edit']}"
+                                 value="#{personBean.entity.mail}"
+                                 required="false" requiredMessage="#{msg['mail.required']}"/>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['contact']}" for="contact"/>
+                    <div class="ui-inputgroup">
+                        <p:selectOneMenu class="ui-inputgroup-addon lg:w-4 md:w-8 sm:w-5 w-5" filter="true"
+                                         filterMatchMode="contains" value="#{personBean.entity.phoneCode}"
+                                         style="height: 32px; padding-top: 1px;"
+                                         id="phoneCode" converter="omnifaces.SelectItemsConverter" required="true"
+                                         requiredMessage="#{msg['phonecode.required']}">
+                            <f:selectItem itemLabel="#{msg['choice-label']}"/>
+                            <f:selectItems value="#{personBean.countries}" var="p" itemValue="#{p.phoneCode}"
+                                           itemLabel="#{p.phoneCode} (#{p.label})"/>
+                        </p:selectOneMenu>
+                        <p:inputText id="contact" class="w-full"
+                                     placeholder="#{msg['contact.edit']}"
+                                     value="#{personBean.entity.telephone}"
+                                     required="true" requiredMessage="#{msg['contact.required']}"/>
+                    </div>
+                </div>
+            </div>
+        </p:fieldset>
+        <p:fieldset legend="Addresse" class="mt-5">
+            <div class="form-grid grid ui-fluid">
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="country" value="#{msg['references.country.title']}"/>
+                    <p:selectOneMenu id="country" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                     filter="true" filterPlaceholder="#{msg['search']}"
+                                     converter="omnifaces.SelectItemsConverter"
+                                     value="#{personBean.country}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{personBean.countries}" itemValue="#{c}" var="c" itemLabel="#{c.label}"/>
+                        <p:ajax update="locality" listener="#{personBean.filterLocality()}"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="localityType" value="#{msg['localities.locality.edit.localityType']}"/>
+                    <p:selectOneMenu id="localityType" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                     filter="true" filterPlaceholder="#{msg['search']}"
+                                     converter="omnifaces.SelectItemsConverter"
+                                     value="#{personBean.typeLocality}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{personBean.typeLocalities}" itemValue="#{t}" var="t"
+                                       itemLabel="#{t.label}"/>
+                        <p:ajax update="locality" listener="#{personBean.filterLocality()}"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="locality" value="#{msg['locality']}"/>
+                    <p:selectOneMenu id="locality" class="w-full" filterMatchMode="startsWith"
+                                     filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                     converter="omnifaces.SelectItemsConverter" required="true"
+                                     requiredMessage="#{msg['localities.type-locality.edit.parent.required']}"
+                                     value="#{personBean.entity.locality}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{personBean.localities}" itemValue="#{l}" var="l" itemLabel="#{l.label}"/>
+                    </p:selectOneMenu>
+                </div>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['entites.eglises.edit.street']}" for="street"/>
+                    <p:inputText id="street" class="w-full" placeholder="#{msg['entites.eglises.edit.street.placeholder']}"
+                                 value="#{personBean.address.street}"
+                                 />
+                </div>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['entites.eglises.edit.city']}" for="city"/>
+                    <p:inputText id="city" class="w-full" placeholder="#{msg['entites.eglises.edit.city.placeholder']}"
+                                 value="#{personBean.address.city}"
+                                 />
+                </div>
+                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['entites.eglises.edit.zip']}" for="zip"/>
+                    <p:inputText id="zip" class="w-full" placeholder="#{msg['entites.eglises.edit.zip.placeholder']}"
+                                 value="#{personBean.address.zip}"
+                                 />
+                </div>
+            </div>
+        </p:fieldset>
+    </div>
+</ui:composition>

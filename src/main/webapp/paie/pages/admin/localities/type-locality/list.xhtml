@@ -12,22 +12,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
     <ui:param name="crudBean" value="#{typeLocalityBean}"/>
 
     <ui:define name="list-title">
-        Types de localités
+        #{msg['localities.type-locality.edit.title']}
     </ui:define>
     <ui:define name="breadCrumb">
-        Administration > Types de localités
+        #{msg['localities.type-locality.breadCrumb']}
     </ui:define>
     <ui:define name="table-title">
-        Types de localités
+        #{msg['localities.type-locality.edit.title']}
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="Libellé">
+        <p:column headerText="#{msg['label']}">
             <p:outputLabel value="#{e.label}"/>
         </p:column>
-        <p:column headerText="Racine">
+        <p:column headerText="#{msg['is-root']}">
             <p:outputLabel value="#{e.root}"/>
         </p:column>
-        <p:column headerText="Type Localité parent">
+        <p:column headerText="#{msg['localities.type-locality.edit.parent']}">
             <p:outputLabel value="#{e.typeLocalityParent != null ? e.typeLocalityParent.label : ' - '}"/>
         </p:column>
     </ui:define>

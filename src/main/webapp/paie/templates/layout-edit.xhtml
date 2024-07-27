@@ -25,7 +25,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                             <div class="ui-g-12 col-12">
                                 <ui:insert name="fields">
                                     <p:fieldset legend="#{fieldsTitle}">
-                                        <ui:insert name="fields-content"/>
+                                        <div class="form-grid grid ui-fluid">
+                                            <ui:insert name="fields-content"/>
+                                        </div>
                                     </p:fieldset>
                                 </ui:insert>
                             </div>

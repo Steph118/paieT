@@ -7,24 +7,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui">
-<ui:composition template="/paie/templates/layout-list.xhtml">
-    <ui:param name="crudBean" value="#{sexeBean}"/>
-    <ui:define name="list-title">
-        Sexe
-    </ui:define>
-    <ui:define name="breadCrumb">
-        Reference > Pays
-    </ui:define>
-    <ui:define name="table-title">
-        Sexes
-    </ui:define>
-    <ui:define name="add-column">
-        <p:column headerText="Libelle" field="l">
-            <p:outputLabel value="#{e.label}"/>
-        </p:column>
-        <p:column headerText="Code" field="l">
-            <p:outputLabel value="#{e.code}"/>
-        </p:column>
-    </ui:define>
-</ui:composition>
+    <ui:composition template="/paie/templates/layout-list.xhtml">
+        <ui:param name="crudBean" value="#{sexeBean}"/>
+        <ui:define name="list-title">
+            #{msg['references.sexe.title']}
+        </ui:define>
+        <ui:define name="breadCrumb">
+            #{msg['references.sexe.breadCrumb']}
+        </ui:define>
+        <ui:define name="table-title">
+            #{msg['references.sexe.title']}
+        </ui:define>
+        <ui:define name="add-column">
+            <p:column headerText="#{msg['label']}" field="l">
+                <p:outputLabel value="#{e.label}"/>
+            </p:column>
+            <p:column headerText="#{msg['code']}" field="l">
+                <p:outputLabel value="#{e.code}"/>
+            </p:column>
+        </ui:define>
+    </ui:composition>
 </html>

@@ -8,36 +8,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="jakarta.faces.core"
->
-<ui:composition template="/paie/templates/layout-details.xhtml">
-    <ui:define name="metadata">
-        <f:metadata>
-            <f:viewParam name="entityId" value="#{sexeBean.entityId}"/>
-            <f:viewAction action="#{sexeBean.initDetails()}"/>
-        </f:metadata>
-    </ui:define>
-    <ui:param name="crudBean" value="#{sexeBean}"/>
-    <ui:param name="fieldsTitle" value="Sexe"/>
+      >
+    <ui:composition template="/paie/templates/layout-details.xhtml">
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{sexeBean.entityId}"/>
+                <f:viewAction action="#{sexeBean.initDetails()}"/>
+            </f:metadata>
+        </ui:define>
+        <ui:param name="crudBean" value="#{sexeBean}"/>
+        <ui:param name="fieldsTitle" value="#{msg['references.sexe.title']}"/>
 
-    <ui:define name="list-title">
-        Détails Sexe
-    </ui:define>
-    <ui:define name="breadCrumb">
-        Référence > Sexe
-    </ui:define> <ui:define name="fields-content">
-    <p:outputPanel>
-        <div class="form-grid grid">
-            <div class="field flex flex-column sm:col-12 col-12 md:col-6 lg:col-6">
-                <p:outputLabel for="code" value="Code"/>
-                <p:outputLabel class="font-bold text-900 text-xl" id="code" value="#{sexeBean.entity.code}"/>
+        <ui:define name="list-title">
+            #{msg['references.sexe.details.title']}
+        </ui:define>
+        <ui:define name="breadCrumb">
+            #{msg['references.sexe.breadCrumb']}
+        </ui:define> 
+        <ui:define name="fields-content">
+            <p:outputPanel>
+                <div class="form-grid grid">
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-6 lg:col-6">
+                        <p:outputLabel for="code" value="#{msg['code']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="code" value="#{sexeBean.entity.code}"/>
 
-            </div>
-            <div class="field flex flex-column sm:col-12 col-12 md:col-6 lg:col-6">
-                <p:outputLabel for="label" value="Libelle"/>
-                <p:outputLabel class="font-bold text-900 text-xl" id="label" value="#{sexeBean.entity.label}"/>
-            </div>
-        </div>
-    </p:outputPanel>
-</ui:define>
-</ui:composition>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-6 lg:col-6">
+                        <p:outputLabel for="label" value="#{msg['label']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="label" value="#{sexeBean.entity.label}"/>
+                    </div>
+                </div>
+            </p:outputPanel>
+        </ui:define>
+    </ui:composition>
 </html>

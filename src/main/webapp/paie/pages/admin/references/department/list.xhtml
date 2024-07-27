@@ -10,19 +10,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <ui:composition template="/paie/templates/layout-list.xhtml">
     <ui:param name="crudBean" value="#{departmentBean}"/>
     <ui:define name="list-title">
-        Départements
+        #{msg['departements.title']}
     </ui:define>
     <ui:define name="breadCrumb">
-        Reference > Départements
+        #{msg['departements.breadCrumb']}
     </ui:define>
     <ui:define name="table-title">
-        Départements
+         #{msg['departements.title']}
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="Libelle" field="l">
+        <p:column headerText="#{msg['label']}" field="label">
             <p:outputLabel value="#{e.label}"/>
         </p:column>
-        <p:column headerText="Code" field="l">
+        <p:column headerText="#{msg['code']}" field="code">
             <p:outputLabel value="#{e.code}"/>
         </p:column>
     </ui:define>

@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-        xmlns:ui="jakarta.faces.facelets"
-        xmlns:f="jakarta.faces.core"
-        xmlns:p="http://primefaces.org/ui">
-<ui:composition
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="http://primefaces.org/ui">
+    <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
-    <ui:define name="metadata">
-        <f:metadata>
-            <f:viewParam name="entityId" value="#{departmentBean.entityId}"/>
-            <f:viewAction action="#{departmentBean.initEntity()}"/>
-        </f:metadata>
-    </ui:define>
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{departmentBean.entityId}"/>
+                <f:viewAction action="#{departmentBean.initEntity()}"/>
+            </f:metadata>
+        </ui:define>
 
-    <ui:param name="crudBean" value="#{departmentBean}"/>
+        <ui:param name="crudBean" value="#{departmentBean}"/>
 
-    <ui:param name="fieldsTitle" value="Départements"/>
-    <ui:define name="list-title">
-        Édition Départements
-    </ui:define>
-    <ui:define name="breadCrumb">
-        Référence > Départements
-    </ui:define>
-    <ui:define name="fields">
-        <p:fieldset legend="Département">
-            <div class="form-grid grid">
-                <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel value="Libelle" for="label"/>
-                    <p:inputText id="label" class="w-full" value="#{departmentBean.entity.label}"
-                                 placeholder="saisir le libelle" required="true"
-                                 requiredMessage="Le libelle est recquis"/>
-                </div>
-                <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel for="code" value="Code"/>
-                    <p:inputText id="code" class="w-full" value="#{departmentBean.entity.code}"
-                                 placeholder="saisir le code" required="true"
-                                 requiredMessage="Le code est recquis"/>
-                </div>
+        <ui:param name="fieldsTitle" value="#{msg['departements.title']}"/>
+        <ui:define name="list-title">
+            #{msg['departements.edit']}
+        </ui:define>
+        <ui:define name="breadCrumb">
+            #{msg['departements.breadCrumb']}
+        </ui:define>
+        <ui:define name="fields-content">
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel value="#{msg['label']}" for="label"/>
+                <p:inputText id="label" class="w-full" value="#{departmentBean.entity.label}"
+                             placeholder="#{msg['label.edit']}" required="true"
+                             requiredMessage="#{msg['label.required']}"/>
             </div>
-        </p:fieldset>
-    </ui:define>
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel for="code" value="#{msg['code']}"/>
+                <p:inputText id="code" class="w-full" value="#{departmentBean.entity.code}"
+                             placeholder="#{msg['code.edit']}" required="true"
+                             requiredMessage="#{msg['code.required']}"/>
+            </div>
+        </ui:define>
 
-</ui:composition>
+    </ui:composition>
 </html>

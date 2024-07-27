@@ -6,22 +6,22 @@
 <ui:composition template="/paie/templates/layout-list.xhtml">
     <ui:param name="crudBean" value="#{countryBean}"/>
     <ui:define name="list-title">
-        Pays
+        #{msg['references.country.title']}
     </ui:define>
     <ui:define name="breadCrumb">
-        Reference > Pays
+         #{msg['references.country.breadCrumb']}
     </ui:define>
     <ui:define name="table-title">
-        Pays
+         #{msg['references.country.title']}
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="Libelle" field="label">
+        <p:column headerText="#{msg['label']}" field="label">
             <p:outputLabel value="#{e.label}"/>
         </p:column>
-        <p:column headerText="Code ISO" field="codeIso">
+        <p:column headerText="#{msg['references.country.edit.codeIso']}" field="codeIso">
             <p:outputLabel value="#{e.codeIso}"/>
         </p:column>
-        <p:column headerText="Code téléponique" field="phoneCode">
+        <p:column headerText="#{msg['phonecode']}" field="phoneCode">
             <p:outputLabel value="#{e.phoneCode}"/>
         </p:column>
     </ui:define>
