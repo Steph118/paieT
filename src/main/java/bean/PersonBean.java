@@ -16,6 +16,7 @@ import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 import service.interfaces.CountryServiceLocal;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.LocalityServiceLocal;
@@ -62,10 +63,33 @@ public class PersonBean extends GenericBean<Person, Integer> {
     }
 
     @Override
+    public void loadEntity() {
+        super.loadEntity();
+        this.loadData();
+    }
+
+    private void loadData() {
+        this.address = this.entity.getAddress();
+        this.localities = this.localityService.getAll(this.entity.getLocality().getCountry(),
+                this.entity.getLocality().getLocalityType());
+    }
+
+    @Override
     public void initEntity() {
         super.initEntity();
         this.countries = this.countryService.getAll();
         this.typeLocalities = this.typeLocalityService.getAll();
+    }
+
+    @Override
+    public void beforeSave() {
+        this.entity.setAddress(getAddress());
+        //this.entity.setTelephone(StringUtils.deleteWhitespace(this.entity.getTelephone()));
+    }
+
+    @Override
+    public void beforeUpdate() {
+        this.beforeSave();
     }
 
     public void filterLocality() {
@@ -76,6 +100,10 @@ public class PersonBean extends GenericBean<Person, Integer> {
 
     public List<Sexe> listSexes() {
         return sexeService.getAll();
+    }
+
+    public List<Locality> listSexes2() {
+        return localityService.getAll();
     }
 
     @Override
@@ -141,5 +169,5 @@ public class PersonBean extends GenericBean<Person, Integer> {
     public void setAddUser(boolean addUser) {
         this.addUser = addUser;
     }
-    
+
 }

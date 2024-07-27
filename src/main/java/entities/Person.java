@@ -69,13 +69,13 @@ public class Person extends BaseEntity {
     })
     private Address address;
 
-    @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "person_phones",
-            joinColumns = {
-                @JoinColumn(name = "person_id")
-            })
-    @Column(name = "phone_number")
-    private Set<String> phones = new HashSet<>();
+//    @ElementCollection(fetch = FetchType.LAZY)
+//    @CollectionTable(name = "person_phones",
+//            joinColumns = {
+//                @JoinColumn(name = "person_id")
+//            })
+//    @Column(name = "phone_number")
+//    private Set<String> phones = new HashSet<>();
 
     public Person() {
     }
@@ -132,6 +132,14 @@ public class Person extends BaseEntity {
         return phoneCode;
     }
 
+    public void setPhoneCode(String phoneCode) {
+        this.phoneCode = phoneCode;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
     public String getTelephone() {
         return telephone;
     }
@@ -168,13 +176,13 @@ public class Person extends BaseEntity {
         this.address = address;
     }
 
-    public Set<String> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(Set<String> phones) {
-        this.phones = phones;
-    }
+//    public Set<String> getPhones() {
+//        return phones;
+//    }
+//
+//    public void setPhones(Set<String> phones) {
+//        this.phones = phones;
+//    }
 
     @Override
     public int hashCode() {
