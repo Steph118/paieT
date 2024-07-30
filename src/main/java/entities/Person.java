@@ -68,13 +68,13 @@ public class Person extends BaseEntity {
     })
     private Address address;
 
-//    @ElementCollection(fetch = FetchType.LAZY)
-//    @CollectionTable(name = "person_phones",
-//            joinColumns = {
-//                @JoinColumn(name = "person_id")
-//            })
-//    @Column(name = "phone_number")
-//    private Set<String> phones = new HashSet<>();
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "eglise_id")
+    private Eglise eglise;
+
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     public Person() {
     }
@@ -174,18 +174,26 @@ public class Person extends BaseEntity {
     public void setAddress(Address address) {
         this.address = address;
     }
-    
+
     public String getContact() {
         return this.phoneCode + StringUtils.deleteWhitespace(this.telephone);
     }
 
-//    public Set<String> getPhones() {
-//        return phones;
-//    }
-//
-//    public void setPhones(Set<String> phones) {
-//        this.phones = phones;
-//    }
+    public Eglise getEglise() {
+        return eglise;
+    }
+
+    public void setEglise(Eglise eglise) {
+        this.eglise = eglise;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
     @Override
     public int hashCode() {
@@ -211,7 +219,7 @@ public class Person extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", address=" + address + ", phoneCode=" + phoneCode + ", telephone=" + telephone + '}';
+        return "Person{" + "id=" + id + ", firstname=" + firstname + ", name=" + name + ", birthdate=" + birthdate + ", birthplace=" + birthplace + ", mail=" + mail + ", phoneCode=" + phoneCode + ", telephone=" + telephone + ", address=" + address + '}';
     }
 
 }
