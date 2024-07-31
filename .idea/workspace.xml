@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Optimise import and readme">
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Person.java" afterDir="false" />
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Review class members and persons relations">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +161,8 @@
       <workItem from="1721954577303" duration="539000" />
       <workItem from="1721955580525" duration="1340000" />
       <workItem from="1722006487255" duration="2054000" />
-      <workItem from="1722331951535" duration="591000" />
+      <workItem from="1722331951535" duration="1290000" />
+      <workItem from="1722337213361" duration="863000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -268,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722007922048</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Review class members and persons relations">
+      <option name="closed" value="true" />
+      <created>1722332629980</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722332629980</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +323,8 @@
     <MESSAGE value="model wrapper dependency" />
     <MESSAGE value="- Person and members Dao, services, and Bean managment&#10;- Readme update" />
     <MESSAGE value="Optimise import and readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimise import and readme" />
+    <MESSAGE value="Review class members and persons relations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Review class members and persons relations" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
