@@ -50,11 +50,11 @@
                     </p:selectOneMenu>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                    <p:outputLabel for="eglise" value="#{msg['eglise.title']}"/>
+                    <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
                     <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
                                      filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
                                      converter="omnifaces.SelectItemsConverter" required="true"
-                                     requiredMessage="#{msg['eglise.title']}"
+                                     requiredMessage="#{msg['persons.edit.eglise.required']}"
                                      value="#{personBean.entity.eglise}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{personBean.listEglises()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
@@ -65,7 +65,7 @@
                     <p:selectOneMenu id="dpt" class="w-full" filterMatchMode="startsWith"
                                      filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
                                      converter="omnifaces.SelectItemsConverter" required="true"
-                                     requiredMessage="#{msg['departement.title']}"
+                                     requiredMessage="#{msg['persons.edit.departement.required']}"
                                      value="#{personBean.entity.department}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{personBean.listDepartements()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>

@@ -51,6 +51,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                         <p:outputLabel class="font-bold text-900 text-xl" id="sexe" value="#{personBean.entity.sexe.label}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="eglise" value="#{personBean.entity.eglise.label}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="dpt" value="#{msg['departement.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="dpt" value="#{personBean.entity.department.label}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
                         <p:outputLabel for="contact" value="#{msg['contact']}"/>
                         <p:outputLabel class="font-bold text-900 text-xl" id="contact" value="#{personBean.entity.contact}"/>
                     </div>
