@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html
     xmlns:ui="jakarta.faces.facelets"
-    xmlns:f="jakarta.faces.core">
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="http://primefaces.org/ui">
     <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
@@ -26,9 +27,26 @@
         </ui:define>
         <ui:define name="fields-content">
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 requiredMessage="#{msg['persons.edit.eglise.required']}"
+                                 value="#{personBean.entity.eglise}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{personBean.listEglises()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                </p:selectOneMenu>
             </div>
-
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="dpt" value="#{msg['departement.title']}"/>
+                <p:selectOneMenu id="dpt" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 requiredMessage="#{msg['persons.edit.departement.required']}"
+                                 value="#{personBean.entity.department}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{personBean.listDepartements()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                </p:selectOneMenu>
             </div>
 
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
