@@ -216,6 +216,10 @@ public class Person extends BaseEntity {
         final Person other = (Person) obj;
         return Objects.equals(this.id, other.id);
     }
+    
+    public String getFullName(){
+        return this.name + " " + this.firstname;
+    }
 
     @Override
     public String toString() {

@@ -4,12 +4,18 @@
  */
 package service.interfaces;
 
+import entities.Department;
+import entities.Eglise;
 import entities.Person;
+import entities.Sexe;
 import jakarta.ejb.Local;
+import java.util.List;
 
 /**
  * @author steph18
  */
 @Local
 public interface PersonServiceLocal extends GenericServiceLocal<Person, Integer> {
+
+    List<Person> getAll(Eglise eglise, Department departement, Sexe sexe);
 }

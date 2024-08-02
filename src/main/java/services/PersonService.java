@@ -6,9 +6,15 @@ package services;
 
 import dao.PersonDao;
 import dao.RepositoryDao;
+import entities.Department;
+import entities.Eglise;
 import entities.Person;
+import entities.Sexe;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import service.interfaces.PersonServiceLocal;
 
 /**
@@ -17,13 +23,21 @@ import service.interfaces.PersonServiceLocal;
 @Stateless
 public class PersonService extends GenericServiceLocalImpl<Person, Integer>
         implements PersonServiceLocal {
-
+    
     @EJB
     private PersonDao dao;
-
+    
     @Override
     protected RepositoryDao<Person, Integer> getDAO() {
         return dao;
     }
-
+    
+    @Override
+    public List<Person> getAll(Eglise eglise, Department departement, Sexe sexe) {
+        if (Objects.nonNull(eglise)) {
+            return this.dao.getAll(eglise.getId(), departement, sexe);
+        }
+        return new ArrayList<>();
+    }
+    
 }

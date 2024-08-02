@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Review class members and persons relations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Review class members and persons relations" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,6 +161,7 @@
       <workItem from="1722006487255" duration="2054000" />
       <workItem from="1722331951535" duration="1290000" />
       <workItem from="1722337213361" duration="863000" />
+      <workItem from="1722537003820" duration="248000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -276,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722332629980</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Review class members and persons relations">
+      <option name="closed" value="true" />
+      <created>1722537214290</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722537214290</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
