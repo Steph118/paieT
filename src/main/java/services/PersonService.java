@@ -23,15 +23,15 @@ import service.interfaces.PersonServiceLocal;
 @Stateless
 public class PersonService extends GenericServiceLocalImpl<Person, Integer>
         implements PersonServiceLocal {
-    
+
     @EJB
     private PersonDao dao;
-    
+
     @Override
     protected RepositoryDao<Person, Integer> getDAO() {
         return dao;
     }
-    
+
     @Override
     public List<Person> getAll(Eglise eglise, Department departement, Sexe sexe) {
         if (Objects.nonNull(eglise)) {
@@ -39,5 +39,5 @@ public class PersonService extends GenericServiceLocalImpl<Person, Integer>
         }
         return new ArrayList<>();
     }
-    
+
 }

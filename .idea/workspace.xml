@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Review class members and persons relations" />
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Review class members and persons relations">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Member.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +46,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Steph118/paieT.git&quot;,
+    &quot;url&quot;: &quot;https://steph118@github.com/Steph118/paieT.git&quot;,
     &quot;accountId&quot;: &quot;09c956ff-f0f8-4d0f-8d0c-480c749a199e&quot;
   }
 }</component>
@@ -162,6 +165,8 @@
       <workItem from="1722331951535" duration="1290000" />
       <workItem from="1722337213361" duration="863000" />
       <workItem from="1722537003820" duration="248000" />
+      <workItem from="1722619128660" duration="68000" />
+      <workItem from="1722724851800" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />

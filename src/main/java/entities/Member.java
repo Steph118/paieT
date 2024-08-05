@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author steph18
@@ -64,6 +66,47 @@ public class Member extends BaseEntity {
     public void setEglise(Eglise eglise) {
         this.eglise = eglise;
     }
+
+    @PrePersist
+    public void genererNumeroMembre() {
+        AtomicInteger compteur = eglise.getCompteur();
+        this.setMemberNumber(compteur.getAndIncrement());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.id);
+        hash = 29 * hash + Objects.hashCode(this.memberNumber);
+        hash = 29 * hash + Objects.hashCode(this.person);
+        hash = 29 * hash + Objects.hashCode(this.eglise);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Member other = (Member) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.memberNumber, other.memberNumber)) {
+            return false;
+        }
+        if (!Objects.equals(this.person, other.person)) {
+            return false;
+        }
+        return Objects.equals(this.eglise, other.eglise);
+    }
+
 
     @Override
     public String toString() {

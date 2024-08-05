@@ -55,6 +55,7 @@ resources/JakartaEE10Resource.class
 entities/Sexe.class
 service/interfaces/DepartmentServiceLocal.class
 dao/DepartmentDao.class
+converters/PersonConverter.class
 services/PersonService.class
 services/LocalityService.class
 bean/DepartmentBean.class

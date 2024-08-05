@@ -35,27 +35,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                             <div class="ui-g grid mt-2">
                                 <div class="ui-g-12 col-12">
                                     <ui:insert name="form-actions">
-                                        <p:commandButton value="#{msg['save.button']}" icon="fa fa-save"
-                                                         class="ui-button-primary"
-                                                         actionListener="#{crudBean.beforeSave()}"
-                                                         action="#{crudBean.save()}"
-                                                         rendered="#{!crudBean.isUpdating()}">
-                                            <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
-                                                       message="#{msg['confirmer.placeholder']}"/>
-                                        </p:commandButton>
+                                        <ui:insert name="saveBtn">
+                                            <p:commandButton value="#{msg['save.button']}" icon="fa fa-save"
+                                                             class="ui-button-primary"
+                                                             actionListener="#{crudBean.beforeSave()}"
+                                                             action="#{crudBean.save()}"
+                                                             rendered="#{!crudBean.isUpdating()}">
+                                                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                                                           message="#{msg['confirmer.placeholder']}"/>
+                                            </p:commandButton>
+                                        </ui:insert>
                                         <p:spacer width="5"/>
-                                        <p:commandButton value="#{msg['save.button']}" icon="fa fa-edit"
-                                                         class="ui-button-primary"
-                                                         actionListener="#{crudBean.beforeUpdate()}"
-                                                         action="#{crudBean.update()}"
-                                                         rendered="#{crudBean.isUpdating()}">
-                                            <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
-                                                       message="#{msg['confirmer.placeholder']}"/>
-                                        </p:commandButton>
+                                        <ui:insert name="updateBtn">
+                                            <p:commandButton value="#{msg['save.button']}" icon="fa fa-edit"
+                                                             class="ui-button-primary"
+                                                             actionListener="#{crudBean.beforeUpdate()}"
+                                                             action="#{crudBean.update()}"
+                                                             rendered="#{crudBean.isUpdating()}">
+                                                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                                                           message="#{msg['confirmer.placeholder']}"/>
+                                            </p:commandButton>
+                                        </ui:insert>
                                         <p:spacer width="5"/>
-                                        <p:button value="#{msg['cancel.button']}" icon="fa fa-remove"
-                                                  class="ui-button-danger"
-                                                  outcome="list?faces-redirect=true" />
+                                        <ui:insert name="cancelBtn">
+                                            <p:button value="#{msg['cancel.button']}" icon="fa fa-remove"
+                                                      class="ui-button-danger"
+                                                      outcome="list?faces-redirect=true" />
+                                        </ui:insert>
                                         <p:spacer width="5"/>
                                         <ui:insert name="actions-plus"/>
                                     </ui:insert>

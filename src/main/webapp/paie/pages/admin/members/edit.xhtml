@@ -34,86 +34,124 @@
                 </ui:insert>-->
         <ui:define name="fields">
             <p:fieldset legend="#{fieldsTitle}">
-                <p:fieldset>
-                    <div class="form-grid grid ui-fluid">
-                        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                            <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
-                            <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             converter="omnifaces.SelectItemsConverter"
-                                             value="#{memberBean.entity.eglise}">
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.listEglises()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
-                                <p:ajax update="person"/>
-                            </p:selectOneMenu>
-                        </div>
-                        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                            <p:outputLabel for="dpt" value="#{msg['departement.title']}"/>
-                            <p:selectOneMenu id="dpt" class="w-full" filterMatchMode="startsWith"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             converter="omnifaces.SelectItemsConverter"
-                                             value="#{memberBean.department}">
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.listDepartments()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
-                                <p:ajax update="person"/>
-                            </p:selectOneMenu>
-                        </div>
-
-                        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                            <p:outputLabel for="sexe" value="#{msg['references.sexe.title']}"/>
-                            <p:selectOneMenu id="sexe" class="w-full" filterMatchMode="startsWith"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             converter="omnifaces.SelectItemsConverter"
-                                             value="#{memberBean.sexe}">
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.listSexes()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
-                                <p:ajax update="person"/>
-                            </p:selectOneMenu>
-                        </div>
-
-                        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                            <p:outputLabel for="person" value="#{msg['person.title']}"/>
-                            <p:selectOneMenu id="person" class="w-full" filterMatchMode="startsWith"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             converter="omnifaces.SelectItemsConverter"
-                                             dynamic="true"
-                                             value="#{memberBean.entity.person}">
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.listPersons()}" itemValue="#{p}" var="p" itemLabel="#{p.getFullName()}"/>
-                            </p:selectOneMenu>
-                        </div>
-                        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                            <p:outputLabel value="#{msg['members.edit.nummember']}" for="numMember"/>
-                            <p:inputText id="numMember" class="w-full"
-                                         value="#{memberBean.entity.memberNumber}"
-                                         disabled="true"/>
-                        </div>
-                        <div class="field col-12">
-                            <p:outputLabel value="#{msg['person.title']}" for="person1"/>
-                            <p:autoComplete id="person1" converter="omnifaces.SelectItemsConverter"
-                                            value="#{memberBean.entity.person}"
-                                            var="p" itemLabel="#{p.getFullName()}" itemValue="#{p}"
-                                            completeMethod="#{memberBean.listPersons2}"
-                                            >
-                            </p:autoComplete>
-                        </div> 
-                        <div class="p-2 field">
-                            <p:commandButton value="Ajouter" icon="pi pi-plus"/>
-                        </div>
-                    </div>
-                </p:fieldset>
-                <ui:fragment>
-                    <p:fieldset class="mt-3">
+                <ui:fragment >
+                    <p:fieldset id="addMember">
                         <div class="form-grid grid ui-fluid">
-                            <p:dataTable >
-                                <p:column headerText="#{msg['members.edit.nummember']}"/>
-                                <p:column headerText="#{msg['person.title']}"/>
-                                <p:column headerText="#{msg['entites.eglise.title']}"/>
+                            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                                <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                                <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
+                                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                                 value="#{memberBean.entity.eglise}">
+                                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                                    <f:selectItems value="#{memberBean.eglises}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                                    <p:ajax update="person"/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                                <p:outputLabel for="dpt" value="#{msg['departement.title']}"/>
+                                <p:selectOneMenu id="dpt" class="w-full" filterMatchMode="startsWith"
+                                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                                 converter="omnifaces.SelectItemsConverter"
+                                                 value="#{memberBean.department}">
+                                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                                    <f:selectItems value="#{memberBean.departments}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                                    <p:ajax update="person"/>
+                                </p:selectOneMenu>
+                            </div>
+
+                            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                                <p:outputLabel for="sexe" value="#{msg['references.sexe.title']}"/>
+                                <p:selectOneMenu id="sexe" class="w-full" filterMatchMode="startsWith"
+                                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                                 converter="omnifaces.SelectItemsConverter"
+                                                 value="#{memberBean.sexe}">
+                                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                                    <f:selectItems value="#{memberBean.sexes}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                                    <p:ajax update="person"/>
+                                </p:selectOneMenu>
+                            </div>
+
+                            <!--                        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                                                        <p:outputLabel for="person" value="# {msg['person.title']}"/>
+                                                        <p:selectOneMenu id="person" class="w-full" filterMatchMode="startsWith"
+                                                                         filterNormalize="true" filter="true" filterPlaceholder="# {msg['search']}"
+                                                                         converter="omnifaces.SelectItemsConverter"
+                                                                         dynamic="true"
+                                                                         >
+                                                            <f:selectItem noSelectionOption="true" itemLabel="# {msg['choice-label']}"/>
+                                                            <f:selectItems value="# {memberBean.listPersons()}" itemValue="# {p}" var="p" itemLabel="# {p.getFullName()}"/>
+                                                        </p:selectOneMenu>
+                                                    </div>
+                                                    <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                                                        <p:outputLabel value="# {msg['members.edit.nummember']}" for="numMember"/>
+                                                        <p:inputText id="numMember" class="w-full"
+                                                                     value="# {memberBean.entity.memberNumber}"
+                                                                     disabled="true"/>
+                                                    </div>-->
+                            <div class="field col-12">
+                                <p:outputLabel value="#{msg['person.title']}" for="person"/>
+                                <p:autoComplete id="person" value="#{memberBean.entity.person}"
+                                                converter="#{personConverter}" forceSelection="true"
+                                                var="p" itemLabel="#{p.getFullName()}" itemValue="#{p}"
+                                                completeMethod="#{memberBean.listPersons(query)}" required="true"
+                                                />  
+
+                            </div> 
+                            <div class="p-2 field">
+                                <p:commandButton value="addmember" icon="pi pi-plus" process="addMember" 
+                                                 action="#{memberBean.addMemberToList()}"
+                                                 update="membersData save eglise person dpt sexe"/>
+                            </div>
+                        </div>
+                    </p:fieldset>
+                </ui:fragment>
+                <ui:fragment>
+                    <p:fieldset class="mt-3" id="membersData">
+                        <div class="form-grid grid ui-fluid">
+                            <p:dataTable value="#{memberBean.members}" var="m" paginator="true"
+                                         rowKey="#{m.person.id}" rows="5">
+                                <p:column headerText="#{msg['members.edit.nummember']}">
+                                    <p:outputLabel value="#{m.memberNumber}"/>
+                                </p:column>
+                                <p:column headerText="#{msg['person.title']}">
+                                    <p:outputLabel value="#{m.person.fullName}"/>
+                                </p:column>
+                                <p:column headerText="#{msg['entites.eglise.title']}">
+                                    <p:outputLabel value="#{m.eglise.label}"/>
+                                </p:column>
+                                <p:column headerText="Opérations" style="text-align: center">
+                                    <div class="flex align-items-center justify-content-center">
+                                        <ui:insert name="operations-btn">
+                                            <p:tooltip value="#{msg['edit']}" for="editButton" position="top"/>
+                                            <p:commandButton id="editButton" class="ui-button-primary m-1" update="editForm:membersData editForm:saveBtn
+                                                             editForm:addMember" 
+                                                             icon="fa fa-edit" action="#{memberBean.updateMemberToList(m)}"/>
+
+                                            <p:tooltip value="#{msg['delete']}" for="deleteButton" position="top"/>
+                                            <p:commandButton id="deleteButton" class="ui-button-danger m-1" update="editForm:membersData editForm:saveBtn
+                                                             editForm:addMember" 
+                                                             icon="pi pi-trash" action="#{memberBean.removeMemberToList(m)}"/>
+                                        </ui:insert>
+                                    </div>
+                                </p:column>
                             </p:dataTable>
                         </div>
                     </p:fieldset> 
                 </ui:fragment>
             </p:fieldset>
+        </ui:define>
+
+        <ui:define name="saveBtn">
+            <p:commandButton id="save" value="#{msg['save.button']}" icon="fa fa-save"
+                             class="ui-button-primary" process="membersData"
+                             actionListener="#{memberBean.beforeSave()}"
+                             action="#{memberBean.save()}" 
+                             disabled="#{empty memberBean.members}"
+                             rendered="#{!memberBean.isUpdating()}">
+                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                           message="#{msg['confirmer.placeholder']}"/>
+            </p:commandButton>
         </ui:define>
     </ui:composition>
 </html>

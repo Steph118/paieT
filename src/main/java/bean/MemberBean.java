@@ -15,6 +15,7 @@ import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.omnifaces.util.Messages;
 import service.interfaces.DepartmentServiceLocal;
 import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
@@ -44,10 +45,42 @@ public class MemberBean extends GenericBean<Member, Integer> {
     private Department department;
 
     private List<Person> persons = new ArrayList<>();
+    private List<Sexe> sexes = new ArrayList<>();
+    private List<Department> departments = new ArrayList<>();
+    private List<Eglise> eglises = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<Member, Integer> getService() {
         return memberService;
+    }
+
+    @Override
+    public void initEntity() {
+        super.initEntity();
+        this.eglises = this.egliseService.getAll();
+        this.departments = this.departmentService.getAll();
+        this.sexes = this.sexeService.getAll();
+    }
+
+    public void addMemberToList() {
+        if (!members.contains(this.entity)) {
+            this.members.add(this.entity);
+            this.entity = new Member();
+            this.department = null;
+            this.sexe = null;
+        } else {
+            Messages.addFlashGlobalError("Cette personne est deja ajoute");
+        }
+    }
+
+    public void removeMemberToList(Member m) {
+        this.members.remove(m);
+    }
+
+    public void updateMemberToList(Member m) {
+        this.removeMemberToList(m);
+        this.entity = m;
     }
 
     @Override
@@ -75,26 +108,19 @@ public class MemberBean extends GenericBean<Member, Integer> {
         return true;
     }
 
-    public List<Eglise> listEglises() {
-        return this.egliseService.getAll();
+    @Override
+    public String save() {
+        return super.save();
     }
+    
+    
+    
 
-    public List<Department> listDepartments() {
-        return this.departmentService.getAll();
-    }
-
-    public List<Sexe> listSexes() {
-        return this.sexeService.getAll();
-    }
-
-    public List<Person> listPersons() {
-        return personService.getAll(this.entity.getEglise(), this.department, this.sexe);
-    }
-
-    public List<Person> listPersons2(String query) {
+    public List<Person> listPersons(String query) {
         String queryLowerCase = query.toLowerCase();
-        return personService.getAll(this.entity.getEglise(), this.department, this.sexe)
+        this.persons = personService.getAll(this.entity.getEglise(), this.department, this.sexe)
                 .stream().filter(t -> t.getFullName().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
+        return this.persons;
 
     }
 
@@ -112,6 +138,26 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public List<Sexe> getSexes() {
+        return sexes;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public List<Eglise> getEglises() {
+        return eglises;
+    }
+
+    public List<Member> getMembers() {
+        return members;
     }
 
 }
