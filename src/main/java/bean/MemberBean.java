@@ -43,6 +43,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     private Sexe sexe;
     private Department department;
+    private boolean updateIntoList;
 
     private List<Person> persons = new ArrayList<>();
     private List<Sexe> sexes = new ArrayList<>();
@@ -64,13 +65,16 @@ public class MemberBean extends GenericBean<Member, Integer> {
     }
 
     public void addMemberToList() {
+        this.updateIntoList = false;
         if (!members.contains(this.entity)) {
             this.members.add(this.entity);
+            Eglise e = this.entity.getEglise();
             this.entity = new Member();
             this.department = null;
             this.sexe = null;
+            this.entity.setEglise(e);
         } else {
-            Messages.addFlashGlobalError("Cette personne est deja ajoute");
+            Messages.addFlashGlobalError("Cette personne a déjà été ajoutée");
         }
     }
 
@@ -81,6 +85,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public void updateMemberToList(Member m) {
         this.removeMemberToList(m);
         this.entity = m;
+        this.updateIntoList = true;
     }
 
     @Override
@@ -112,12 +117,18 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public String save() {
         return super.save();
     }
-    
-    
-    
+
+    public boolean isUpdateIntoList() {
+        return updateIntoList;
+    }
+
+    public void setUpdateIntoList(boolean updateIntoList) {
+        this.updateIntoList = updateIntoList;
+    }
 
     public List<Person> listPersons(String query) {
         String queryLowerCase = query.toLowerCase();
+        this.entity.setPerson(null);
         this.persons = personService.getAll(this.entity.getEglise(), this.department, this.sexe)
                 .stream().filter(t -> t.getFullName().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
         return this.persons;

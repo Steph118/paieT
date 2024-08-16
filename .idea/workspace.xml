@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Review class members and persons relations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Member.java" afterDir="false" />
-    </list>
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Members register" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,6 +164,7 @@
       <workItem from="1722537003820" duration="248000" />
       <workItem from="1722619128660" duration="68000" />
       <workItem from="1722724851800" duration="49000" />
+      <workItem from="1722866542328" duration="80000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -288,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722537214290</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Members register">
+      <option name="closed" value="true" />
+      <created>1722866573514</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722866573514</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +342,8 @@
     <MESSAGE value="- Person and members Dao, services, and Bean managment&#10;- Readme update" />
     <MESSAGE value="Optimise import and readme" />
     <MESSAGE value="Review class members and persons relations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Review class members and persons relations" />
+    <MESSAGE value="Members register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Members register" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -4,6 +4,7 @@
  */
 package bean;
 
+import com.google.common.base.Strings;
 import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
@@ -85,6 +86,9 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
         this.entity.setAddress(getAddress());
         if (StringUtils.isBlank(this.entity.getTelephone2())) {
             this.entity.setPhoneCode2("");
+        }
+        if (StringUtils.isEmpty(this.entity.getMail())) {
+            this.entity.setMail(null);
         }
     }
 

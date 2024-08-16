@@ -110,7 +110,7 @@
                     <p:fieldset class="mt-3" id="membersData">
                         <div class="form-grid grid ui-fluid">
                             <p:dataTable value="#{memberBean.members}" var="m" paginator="true"
-                                         rowKey="#{m.person.id}" rows="5">
+                                         rowKey="#{m.person.id}" rows="5" id="data">
                                 <p:column headerText="#{msg['members.edit.nummember']}">
                                     <p:outputLabel value="#{m.memberNumber}"/>
                                 </p:column>
@@ -124,13 +124,15 @@
                                     <div class="flex align-items-center justify-content-center">
                                         <ui:insert name="operations-btn">
                                             <p:tooltip value="#{msg['edit']}" for="editButton" position="top"/>
-                                            <p:commandButton id="editButton" class="ui-button-primary m-1" update="editForm:membersData editForm:saveBtn
-                                                             editForm:addMember" 
+                                            <p:commandButton id="editButton" class="ui-button-primary m-1" 
+                                                             update="membersData editForm:saveBtn editForm:addMember data" process="editButton" 
+                                                             disabled="#{memberBean.updateIntoList}"
                                                              icon="fa fa-edit" action="#{memberBean.updateMemberToList(m)}"/>
 
                                             <p:tooltip value="#{msg['delete']}" for="deleteButton" position="top"/>
-                                            <p:commandButton id="deleteButton" class="ui-button-danger m-1" update="editForm:membersData editForm:saveBtn
-                                                             editForm:addMember" 
+                                            <p:commandButton id="deleteButton" class="ui-button-danger m-1" 
+                                                             update="membersData editForm:saveBtn editForm:addMember data" 
+                                                             process="deleteButton"
                                                              icon="pi pi-trash" action="#{memberBean.removeMemberToList(m)}"/>
                                         </ui:insert>
                                     </div>

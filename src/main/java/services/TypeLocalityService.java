@@ -87,16 +87,14 @@ public class TypeLocalityService extends GenericServiceLocalImpl<TypeLocality, I
     @Override
     public List<TypeLocality> getDescendants(TypeLocality typeLocality) {
         List<TypeLocality> childreen = new ArrayList<>();
-        getDescendants2(typeLocality, childreen);
+        this.getDescendants2(typeLocality, childreen);
         return childreen;
     }
 
     private void getDescendants2(TypeLocality typeLocality, List<TypeLocality> childreen) {
-        if (!typeLocality.getChildreen().isEmpty()) {
-            for (TypeLocality child : typeLocality.getChildreen()) {
-                childreen.add(child);
-                getDescendants2(child, childreen);
-            }
+        for (TypeLocality child : typeLocality.getChildreen()) {
+            childreen.add(child);
+            this.getDescendants2(child, childreen);
         }
     }
 
