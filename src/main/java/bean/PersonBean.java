@@ -28,8 +28,6 @@ import service.interfaces.LocalityServiceLocal;
 import service.interfaces.PersonServiceLocal;
 import service.interfaces.SexeServiceLocal;
 import service.interfaces.TypeLocalityServiceLocal;
-import services.DepartmentService;
-import services.EgliseService;
 
 /**
  * @author steph18
@@ -58,8 +56,6 @@ public class PersonBean extends GenericBean<Person, Integer> {
     private TypeLocality typeLocality;
     private boolean addUser;
 
-    //private List<Country> countries = new ArrayList<>();
-    //private List<TypeLocality> typeLocalities = new ArrayList<>();
     private List<Locality> localities = new ArrayList<>();
 
     @Override
@@ -88,14 +84,14 @@ public class PersonBean extends GenericBean<Person, Integer> {
     @Override
     public void initEntity() {
         super.initEntity();
-        ///this.countries = this.countryService.getAll();
-        //this.typeLocalities = this.typeLocalityService.getAll();
     }
 
     @Override
     public void beforeSave() {
         this.entity.setAddress(getAddress());
-        //this.entity.setTelephone(StringUtils.deleteWhitespace(this.entity.getTelephone()));
+        if (StringUtils.isEmpty(this.entity.getMail())) {
+            this.entity.setMail(null);
+        }
     }
 
     @Override
@@ -153,13 +149,6 @@ public class PersonBean extends GenericBean<Person, Integer> {
         return true;
     }
 
-//    public List<Country> getCountries() {
-//        return countries;
-//    }
-//
-//    public List<TypeLocality> getTypeLocalities() {
-//        return typeLocalities;
-//    }
     public List<Locality> getLocalities() {
         return localities;
     }

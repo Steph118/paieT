@@ -22,14 +22,13 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
         super(Person.class);
     }
 
-    public List<Person> getAll(Integer egliseId, Department department, Sexe sexe) {
-        String jpql = "SELECT e FROM " + Person.class.getSimpleName()
-                + " e WHERE e.eglise.id = :egliseId ";
+    public List<Person> getPersonsNotMember(Integer egliseId, Department department, Sexe sexe) {
+        String jpql = "SELECT p FROM Person p WHERE p.eglise.id = :egliseId AND p.id NOT IN (SELECT m.person.id FROM Member m)";
         if (Objects.nonNull(department)) {
-            jpql += " AND e.department.id = :departmentId ";
+            jpql += " AND p.department.id = :departmentId ";
         }
         if (Objects.nonNull(sexe)) {
-            jpql += " AND e.sexe.id = :sexeId ";
+            jpql += " AND p.sexe.id = :sexeId ";
         }
         Query q = this.em.createQuery(jpql);
         q.setParameter("egliseId", egliseId);

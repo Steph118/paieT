@@ -22,23 +22,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
             #{msg['persons.title']}
         </ui:define>
         <ui:define name="add-column">
-            <p:column headerText="#{msg['persons.edit.firstname']}">
-                <p:outputLabel value="#{e.firstname}"/>
-            </p:column>
-            <p:column headerText="#{msg['persons.edit.name']}">
+             <p:column headerText="#{msg['persons.edit.name']}">
                 <p:outputLabel value="#{e.name}"/>
             </p:column>
-            <p:column headerText="#{msg['users.edit.username']}">
-                <p:outputLabel value="#{e.user.username}"/>
+            <p:column headerText="#{msg['persons.edit.firstname']}">
+                <p:outputLabel value="#{e.firstname}"/>
             </p:column>
             <p:column headerText="#{msg['references.sexe.title']}">
                 <p:outputLabel value="#{e.sexe.label}"/>
             </p:column>
+            <p:column headerText="#{msg['entites.eglise.title']}">
+                <p:outputLabel value="#{e.eglise.label}"/>
+            </p:column>
+            <p:column headerText="#{msg['departement.title']}">
+                <p:outputLabel value="#{e.department.label}"/>
+            </p:column>
             <p:column headerText="#{msg['contact']}">
                 <p:outputLabel value="#{e.contact}"/>
-            </p:column>
-            <p:column headerText="#{msg['locality']}">
-                <p:outputLabel value="#{e.locality.label}"/>
             </p:column>
         </ui:define>
     </ui:composition>

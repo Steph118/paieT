@@ -38,7 +38,7 @@ public class Person extends BaseEntity {
     @Column(name = "birth_place")
     private String birthplace;
 
-    @Column(name = "mail", unique = true)
+    @Column(name = "mail", unique = true, nullable = false)
     private String mail;
 
     @Column(name = "phone_code", nullable = false)

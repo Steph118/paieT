@@ -4,7 +4,6 @@
  */
 package bean;
 
-import com.google.common.base.Strings;
 import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;

@@ -49,7 +49,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
     private List<Sexe> sexes = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
     private List<Eglise> eglises = new ArrayList<>();
-    private List<Member> members = new ArrayList<>();
+    private final List<Member> members = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<Member, Integer> getService() {
@@ -83,9 +83,10 @@ public class MemberBean extends GenericBean<Member, Integer> {
     }
 
     public void updateMemberToList(Member m) {
-        this.removeMemberToList(m);
         this.entity = m;
+        this.removeMemberToList(m);
         this.updateIntoList = true;
+        this.listPersons();
     }
 
     @Override
@@ -129,10 +130,14 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public List<Person> listPersons(String query) {
         String queryLowerCase = query.toLowerCase();
         this.entity.setPerson(null);
-        this.persons = personService.getAll(this.entity.getEglise(), this.department, this.sexe)
+        this.persons = personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe)
                 .stream().filter(t -> t.getFullName().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
         return this.persons;
 
+    }
+
+    public void listPersons() {
+        this.persons = personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe);
     }
 
     public Sexe getSexe() {

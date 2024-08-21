@@ -35,6 +35,21 @@ public class Member extends BaseEntity {
     public Member() {
     }
 
+    public Member getMember(Member m) {
+        this.id = m.getId();
+        this.memberNumber = m.getMemberNumber();
+        this.person = m.getPerson();
+        this.eglise = m.getEglise();
+        return this;
+    }
+
+    public Member(Member m) {
+        this.id = m.getId();
+        this.memberNumber = m.getMemberNumber();
+        this.person = m.getPerson();
+        this.eglise = m.getEglise();
+    }
+
     public Integer getId() {
         return id;
     }
@@ -106,7 +121,6 @@ public class Member extends BaseEntity {
         }
         return Objects.equals(this.eglise, other.eglise);
     }
-
 
     @Override
     public String toString() {

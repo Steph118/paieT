@@ -10,7 +10,6 @@ import entities.Person;
 import entities.Sexe;
 import jakarta.ejb.Local;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author steph18
@@ -18,5 +17,5 @@ import java.util.Map;
 @Local
 public interface PersonServiceLocal extends GenericServiceLocal<Person, Integer> {
 
-    List<Person> getAll(Eglise eglise, Department departement, Sexe sexe);
+    List<Person> getPersonsNotMember(Eglise eglise, Department departement, Sexe sexe);
 }
