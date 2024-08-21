@@ -144,7 +144,7 @@
 
         <ui:define name="saveBtn">
             <p:commandButton id="save" value="#{msg['save.button']}" icon="fa fa-save"
-                             class="ui-button-primary" process="data"
+                             class="ui-button-primary" process="save data"
                              actionListener="#{memberBean.beforeSave()}"
                              action="#{memberBean.save()}" 
                              disabled="#{empty memberBean.members or memberBean.members==null}"

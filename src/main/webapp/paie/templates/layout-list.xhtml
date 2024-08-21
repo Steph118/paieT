@@ -82,7 +82,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                         <div class="mt-5">
                             <ui:insert name="content-list">
                                 <p:dataTable id="table" rows="10" paginatorPosition="bottom" paginator="true"
-                                             rowKey="#{e.id}"
+                                             rowKey="#{e.id}" widgetVar="customersTable"
                                              value="#{crudBean.list}" var="e" emptyMessage="#{msg['emptyMessage']}">
                                     <f:facet name="header">
                                         <div class="flex align-items-center justify-content-between">

@@ -35,19 +35,9 @@ public class Member extends BaseEntity {
     public Member() {
     }
 
-    public Member getMember(Member m) {
-        this.id = m.getId();
-        this.memberNumber = m.getMemberNumber();
-        this.person = m.getPerson();
-        this.eglise = m.getEglise();
-        return this;
-    }
-
-    public Member(Member m) {
-        this.id = m.getId();
-        this.memberNumber = m.getMemberNumber();
-        this.person = m.getPerson();
-        this.eglise = m.getEglise();
+    public String formatNumberNum() {
+        int length = (int) (Math.log10(memberNumber) + 1);
+        return length <= 1 ? "0" + String.valueOf(memberNumber) : String.valueOf(memberNumber);
     }
 
     public Integer getId() {

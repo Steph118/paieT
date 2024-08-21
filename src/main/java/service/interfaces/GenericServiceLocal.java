@@ -17,6 +17,8 @@ public interface GenericServiceLocal<E extends Serializable, ID> {
 
     void save(E e);
 
+    void saveAll(List<E> es);
+
     E update(E e);
 
     boolean isUpdate(E e);

@@ -87,4 +87,11 @@ public abstract class GenericServiceLocalImpl<E extends Serializable, ID>
     public E update(E e) {
         return this.getDAO().update(e);
     }
+
+    @Override
+    public void saveAll(List<E> es) {
+        for (E e : es) {
+            this.save(e);
+        }
+    }
 }

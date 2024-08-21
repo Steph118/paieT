@@ -17,4 +17,11 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
         super(Member.class);
     }
 
+    public Long countMemberByCurch(Integer egliseId) {
+        return this.em.createQuery("SELECT COUNT(m) FROM Member m WHERE m.eglise.id = :egliseId", Long.class)
+                .setParameter("egliseId", egliseId)
+                .getSingleResult();
+
+    }
+
 }

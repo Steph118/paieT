@@ -40,5 +40,4 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
         }
         return q.getResultList();
     }
-
 }

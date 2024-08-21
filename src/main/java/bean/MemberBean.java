@@ -9,11 +9,13 @@ import entities.Eglise;
 import entities.Member;
 import entities.Person;
 import entities.Sexe;
+import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 import org.omnifaces.util.Messages;
 import service.interfaces.DepartmentServiceLocal;
@@ -114,11 +116,6 @@ public class MemberBean extends GenericBean<Member, Integer> {
         return true;
     }
 
-    @Override
-    public String save() {
-        return super.save();
-    }
-
     public boolean isUpdateIntoList() {
         return updateIntoList;
     }
@@ -138,6 +135,26 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     public void listPersons() {
         this.persons = personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe);
+    }
+
+    @Override
+    public String save() {
+        try {
+            logger.log(Level.INFO, "MemberBean Save...");
+            this.memberService.saveAll(this.members);
+            Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
+            this.logger.info("Enregistrement effectué");
+            return cancel();
+        } catch (BusinessException ex) {
+            Messages.addGlobalError(ex.getMessage());
+            this.logger.log(Level.SEVERE, ex.getMessage(), ex);
+            return null;
+        } catch (Exception ex) {
+            Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
+            this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet");
+            return null;
+        }
+
     }
 
     public Sexe getSexe() {
