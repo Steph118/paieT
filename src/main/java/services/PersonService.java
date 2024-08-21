@@ -40,4 +40,12 @@ public class PersonService extends GenericServiceLocalImpl<Person, Integer>
         return new ArrayList<>();
     }
 
+    @Override
+    public List<Person> getPersons(Eglise eglise, Department departement, Sexe sexe) {
+        if (Objects.nonNull(eglise)) {
+            return this.dao.getPersons(eglise.getId(), departement, sexe);
+        }
+        return new ArrayList<>();
+    }
+
 }

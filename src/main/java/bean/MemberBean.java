@@ -134,7 +134,8 @@ public class MemberBean extends GenericBean<Member, Integer> {
     }
 
     public void listPersons() {
-        this.persons = personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe);
+        this.persons = !isUpdating() ? this.personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe)
+                : this.personService.getPersons(this.entity.getEglise(), this.department, this.sexe);
     }
 
     @Override

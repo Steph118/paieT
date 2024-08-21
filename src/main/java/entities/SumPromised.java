@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 import java.util.Objects;
 
@@ -21,7 +22,7 @@ public class SumPromised extends BaseEntity {
     private Integer id;
 
     @Column(name = "montant", nullable = false)
-    private Double montant;
+    private BigDecimal montant;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "year")
@@ -46,11 +47,11 @@ public class SumPromised extends BaseEntity {
         this.id = id;
     }
 
-    public Double getMontant() {
+    public BigDecimal getMontant() {
         return montant;
     }
 
-    public void setMontant(Double montant) {
+    public void setMontant(BigDecimal montant) {
         this.montant = montant;
     }
 

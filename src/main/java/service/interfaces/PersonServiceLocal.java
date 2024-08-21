@@ -18,4 +18,6 @@ import java.util.List;
 public interface PersonServiceLocal extends GenericServiceLocal<Person, Integer> {
 
     List<Person> getPersonsNotMember(Eglise eglise, Department departement, Sexe sexe);
+
+    List<Person> getPersons(Eglise eglise, Department departement, Sexe sexe);
 }

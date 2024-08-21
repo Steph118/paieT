@@ -8,6 +8,7 @@ package entities;
  * @author steph18
  */
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 import java.util.Date;
 import java.util.Objects;
@@ -31,9 +32,8 @@ public class Person extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "birth_date")
-    @Temporal(TemporalType.DATE)
-    private Date birthdate;
+    @Column(name = "birth_date", columnDefinition = "DATE")
+    private LocalDate birthdate;
 
     @Column(name = "birth_place")
     private String birthplace;
@@ -103,11 +103,11 @@ public class Person extends BaseEntity {
         this.name = name;
     }
 
-    public Date getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

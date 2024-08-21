@@ -25,9 +25,6 @@ public class Locality extends BaseEntity {
     @Column(name = "label", nullable = false)
     private String label;
 
-    @Column(name = "root", nullable = false)
-    private boolean root;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_locality")
     private Locality localityParent;
@@ -69,14 +66,6 @@ public class Locality extends BaseEntity {
 
     public void setLabel(String label) {
         this.label = label;
-    }
-
-    public boolean isRoot() {
-        return root;
-    }
-
-    public void setRoot(boolean root) {
-        this.root = root;
     }
 
     public Locality getLocalityParent() {
@@ -135,7 +124,7 @@ public class Locality extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Locality{" + "id=" + id + ", label=" + label + ", root=" + root + ", localityParent=" + localityParent + ", localityType=" + localityType + ", country=" + country + '}';
+        return "Locality{" + "id=" + id + ", label=" + label + ", localityParent=" + localityParent + ", localityType=" + localityType + ", country=" + country + '}';
     }
 
 }

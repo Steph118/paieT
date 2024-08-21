@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import java.util.Date;
 import java.util.Objects;
@@ -25,16 +27,16 @@ public class Loan extends BaseEntity {
     private String label;
 
     @Column(name = "montant", nullable = false)
-    private Double montant;
+    private BigDecimal montant;
 
     @Column(name = "rembourse")
     private boolean rembourse;
 
-    @Column(name = "start_date", nullable = false)
-    private Date startDate;
+    @Column(name = "start_date", nullable = false, columnDefinition = "DATE")
+    private LocalDate startDate;
 
-    @Column(name = "end_date", nullable = false)
-    private Date endDate;
+    @Column(name = "end_date", nullable = false, columnDefinition = "DATE")
+    private LocalDate endDate;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "eglise_id")
@@ -59,11 +61,11 @@ public class Loan extends BaseEntity {
         this.label = label;
     }
 
-    public Double getMontant() {
+    public BigDecimal getMontant() {
         return montant;
     }
 
-    public void setMontant(Double montant) {
+    public void setMontant(BigDecimal montant) {
         this.montant = montant;
     }
 
@@ -75,19 +77,19 @@ public class Loan extends BaseEntity {
         this.rembourse = rembourse;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

@@ -40,7 +40,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
                         <p:outputLabel class="w-full" value="#{msg['persons.edit.birthdate']}" for="birthdate"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="birthdate" value="#{personBean.entity.birthdate}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="birthdate" value="#{personBean.entity.birthdate}">
+                         <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
+                        </p:outputLabel>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
                         <p:outputLabel value="#{msg['persons.edit.birthplace']}" for="birthplace"/>

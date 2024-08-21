@@ -26,8 +26,7 @@
                     <p:outputLabel class="w-full" value="#{msg['persons.edit.birthdate']}" for="birthdate"/>
                     <div class="w-full">
                         <p:calendar class="w-full" id="birthdate" placeholder="#{msg['persons.edit.birthdate.placeholder']}"
-                                    value="#{personBean.entity.birthdate}" 
-                                    />
+                                    value="#{personBean.entity.birthdate}" navigator="true" locale="de" pattern="dd.MM.yyyy"/>
                     </div>
                 </div>
 
@@ -131,7 +130,7 @@
                     <p:selectOneMenu id="locality" class="w-full" filterMatchMode="startsWith"
                                      filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
                                      converter="omnifaces.SelectItemsConverter" required="true"
-                                     requiredMessage="#{msg['locality.required ']}"
+                                     requiredMessage="#{msg['locality.required']}"
                                      value="#{personBean.entity.locality}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{personBean.localities}" itemValue="#{l}" var="l" itemLabel="#{l.label}"/>

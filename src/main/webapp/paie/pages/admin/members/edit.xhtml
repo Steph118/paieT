@@ -100,14 +100,17 @@
                                                                         />  
                         
                                                     </div> -->
-                        <div class="p-2 field">
-                            <p:commandButton value="addmember" icon="pi pi-plus" process="addMember" 
-                                             action="#{memberBean.addMemberToList()}"
-                                             update="addMember data save"/>
-                        </div>
+                        
+                        <ui:fragment rendered="#{!memberBean.updating}">
+                            <div class="p-2 field">
+                                <p:commandButton value="addmember" icon="pi pi-plus" process="addMember" 
+                                                 action="#{memberBean.addMemberToList()}"
+                                                 update="addMember data save"/>
+                            </div>
+                        </ui:fragment>
                     </div>
                 </p:fieldset>
-                <p:fieldset class="mt-3">
+                <p:fieldset class="mt-3" rendered="#{!memberBean.updating}">
                     <div class="form-grid grid ui-fluid">
                         <p:dataTable value="#{memberBean.members}" var="m" paginator="true"
                                      rowKey="#{m.person.id}" rows="5" id="data">

@@ -40,4 +40,23 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
         }
         return q.getResultList();
     }
+    
+     public List<Person> getPersons(Integer egliseId, Department department, Sexe sexe) {
+        String jpql = "SELECT p FROM Person p WHERE p.eglise.id = :egliseId ";
+        if (Objects.nonNull(department)) {
+            jpql += " AND p.department.id = :departmentId ";
+        }
+        if (Objects.nonNull(sexe)) {
+            jpql += " AND p.sexe.id = :sexeId ";
+        }
+        Query q = this.em.createQuery(jpql);
+        q.setParameter("egliseId", egliseId);
+        if (Objects.nonNull(department)) {
+            q.setParameter("departmentId", department.getId());
+        }
+        if (Objects.nonNull(sexe)) {
+            q.setParameter("sexeId", sexe.getId());
+        }
+        return q.getResultList();
+    }
 }

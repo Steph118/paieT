@@ -6,7 +6,6 @@ package entities;
 
 import jakarta.persistence.*;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author steph18
@@ -36,8 +35,7 @@ public class Member extends BaseEntity {
     }
 
     public String formatNumberNum() {
-        int length = (int) (Math.log10(memberNumber) + 1);
-        return length <= 1 ? "0" + String.valueOf(memberNumber) : String.valueOf(memberNumber);
+        return String.format("%04d", memberNumber);
     }
 
     public Integer getId() {
@@ -70,12 +68,6 @@ public class Member extends BaseEntity {
 
     public void setEglise(Eglise eglise) {
         this.eglise = eglise;
-    }
-
-    @PrePersist
-    public void genererNumeroMembre() {
-        AtomicInteger compteur = eglise.getCompteur();
-        this.setMemberNumber(compteur.getAndIncrement());
     }
 
     @Override

@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import java.util.Date;
 import java.util.Objects;
@@ -22,10 +24,10 @@ public class SumContributor extends BaseEntity {
     private Integer id;
 
     @Column(name = "amount", nullable = false)
-    private Double amount;
+    private BigDecimal amount;
 
     @Column(name = "paymentDate", nullable = false)
-    private Date paymentDate;
+    private LocalDate paymentDate;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_contributor")
@@ -46,19 +48,19 @@ public class SumContributor extends BaseEntity {
         this.id = id;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public Date getPaymentDate() {
+    public LocalDate getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
     }
 

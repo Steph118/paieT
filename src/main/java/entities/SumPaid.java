@@ -10,6 +10,7 @@ package entities;
 
 import enumeration.Month;
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class SumPaid extends BaseEntity {
     private Integer id;
 
     @Column(name = "amount", nullable = false)
-    private Double amount;
+    private BigDecimal amount;
 
     @Column(name = "paid")
     private boolean paid;
@@ -47,11 +48,11 @@ public class SumPaid extends BaseEntity {
         this.id = id;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

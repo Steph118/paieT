@@ -30,18 +30,23 @@ public class MemberService extends GenericServiceLocalImpl<Member, Integer>
 
     @Override
     public Long countMemberByCurch(Eglise e) {
-        return this.dao.countMemberByCurch(e.getId());
+        return this.dao.countMemberByCurch(e);
     }
 
     @Override
     public void saveAll(List<Member> es) {
         for (Member m : es) {
-            int i = this.countMemberByCurch(m.getEglise()).intValue();
-            System.err.println("num : " + (int) i++);
-            m.setMemberNumber(i++);
+            System.err.println("inum ==>  " + this.dao.genererNumeroMembre(m.getEglise()));
+            m.setMemberNumber(this.dao.genererNumeroMembre(m.getEglise()));
             this.save(m);
-            System.err.println("m : " + m);
         }
+    }
+
+    @Override
+    public Member update(Member e) {
+        System.err.println("inum ==>  " + this.dao.genererNumeroMembre(e.getEglise()));
+        e.setMemberNumber(this.dao.genererNumeroMembre(e.getEglise()));
+        return this.dao.update(e);
     }
 
 }

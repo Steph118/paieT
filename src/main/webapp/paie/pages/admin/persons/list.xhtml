@@ -7,7 +7,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
 
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="jakarta.faces.html">
     <ui:composition template="/paie/templates/layout-list.xhtml">
 
         <ui:param name="crudBean" value="#{personBean}"/>
@@ -22,7 +23,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
             #{msg['persons.title']}
         </ui:define>
         <ui:define name="add-column">
-             <p:column headerText="#{msg['persons.edit.name']}">
+            <p:headerRow field="eglise.label"
+                         expandable="true"
+                         expanded="true">
+                <p:column colspan="6">
+                    <div class="inline-flex align-items-center" style="vertical-align: middle">
+                        <h:outputText styleClass="ml-2" value="#{e.eglise.label}"/>
+                    </div>
+                </p:column>
+            </p:headerRow>
+            <p:column headerText="#{msg['persons.edit.name']}">
                 <p:outputLabel value="#{e.name}"/>
             </p:column>
             <p:column headerText="#{msg['persons.edit.firstname']}">

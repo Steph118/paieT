@@ -4,6 +4,7 @@
  */
 package dao;
 
+import entities.Eglise;
 import entities.Member;
 import jakarta.ejb.Stateless;
 
@@ -17,11 +18,22 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
         super(Member.class);
     }
 
-    public Long countMemberByCurch(Integer egliseId) {
-        return this.em.createQuery("SELECT COUNT(m) FROM Member m WHERE m.eglise.id = :egliseId", Long.class)
-                .setParameter("egliseId", egliseId)
+    public Long countMemberByCurch(Eglise eglise) {
+        return this.em.createQuery("SELECT COUNT(m) FROM Member m WHERE m.eglise = :eglise", Long.class)
+                .setParameter("eglise", eglise)
                 .getSingleResult();
 
+    }
+
+    public Integer genererNumeroMembre(Eglise eglise) {
+        Integer nextNumero = this.em.createQuery(
+                "SELECT ( MAX(m.memberNumber) + 1 ) FROM Member m WHERE m.eglise = :eglise", Integer.class)
+                .setParameter("eglise", eglise)
+                .getSingleResult();
+        if (nextNumero == null) {
+            nextNumero = 1;
+        }
+        return nextNumero;
     }
 
 }

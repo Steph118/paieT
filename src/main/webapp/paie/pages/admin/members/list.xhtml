@@ -6,21 +6,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="jakarta.faces.html">
     <ui:composition template="/paie/templates/layout-list.xhtml">
 
         <ui:param name="crudBean" value="#{memberBean}"/>
 
         <ui:define name="list-title">
-             #{msg['members.title']}
+            #{msg['members.title']}
         </ui:define>
         <ui:define name="breadCrumb">
-             #{msg['members.breadCrumb']}
+            #{msg['members.breadCrumb']}
         </ui:define>
         <ui:define name="table-title">
-             #{msg['members.title']}
+            #{msg['members.title']}
         </ui:define>
         <ui:define name="add-column">
+
+            <p:headerRow field="eglise.label"
+                         expandable="true"
+                         expanded="true">
+                <p:column colspan="6">
+                    <div class="inline-flex align-items-center" style="vertical-align: middle">
+                        <h:outputText styleClass="ml-2" value="#{e.eglise.label}"/>
+                    </div>
+                </p:column>
+            </p:headerRow>
+            
             <p:column headerText="#{msg['members.edit.nummember']}" sortBy="#{e.formatNumberNum()}" 
                       filterBy="#{e.formatNumberNum()}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
                 <p:outputLabel value="#{e.formatNumberNum()}"/>
@@ -37,22 +49,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                       filterBy="#{e.person.department.label}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
                 <p:outputLabel value="#{e.person.department.label}"/>
             </p:column>
-            <p:column headerText="#{msg['references.sexe.title']}" sortBy="#{e.person.sexe.label}" 
+            <p:column style="text-align: center" headerText="#{msg['references.sexe.title']}" sortBy="#{e.person.sexe.label}" 
                       filterBy="#{e.person.sexe.label}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
                 <p:outputLabel value="#{e.person.sexe.label}"/>
             </p:column>
 
 
-<!--            <p:column field="eglise" headerText="eglise2" filterMatchMode="exact">
-                <f:facet name="filter">
-                    <p:selectOneMenu onchange="PF('customersTable').filter()" styleClass="ui-custom-filter">
-                        <f:selectItem itemLabel="All" itemValue="# {null}" noSelectionOption="true" />
-                        <f:selectItems var="eg" value="# {memberBean.eglises}" itemValue="# {eg}" itemLabel="# {eg.label}"/>
-                    </p:selectOneMenu>
-                </f:facet>
-
-                <span class="customer-badge"># {e.eglise.label}</span>
-            </p:column>-->
+            <!--            <p:column field="eglise" headerText="eglise2" filterMatchMode="exact">
+                            <f:facet name="filter">
+                                <p:selectOneMenu onchange="PF('customersTable').filter()" styleClass="ui-custom-filter">
+                                    <f:selectItem itemLabel="All" itemValue="# {null}" noSelectionOption="true" />
+                                    <f:selectItems var="eg" value="# {memberBean.eglises}" itemValue="# {eg}" itemLabel="# {eg.label}"/>
+                                </p:selectOneMenu>
+                            </f:facet>
+            
+                            <span class="customer-badge"># {e.eglise.label}</span>
+                        </p:column>-->
 
         </ui:define>
     </ui:composition>

@@ -21,9 +21,6 @@ public class Eglise extends Entite {
     @Column(name = "temple", length = 31, nullable = false)
     private String temple;
 
-    @Transient
-    private AtomicInteger compteur = new AtomicInteger(1);
-
     public Eglise() {
     }
 
@@ -33,14 +30,6 @@ public class Eglise extends Entite {
 
     public void setTemple(String temple) {
         this.temple = temple;
-    }
-
-    public AtomicInteger getCompteur() {
-        return compteur;
-    }
-
-    public void setCompteur(AtomicInteger compteur) {
-        this.compteur = compteur;
     }
 
     @Override
@@ -66,7 +55,7 @@ public class Eglise extends Entite {
 
     @Override
     public String toString() {
-        return "Eglise{" + "temple=" + temple + ", compteur=" + compteur + '}';
+        return "Eglise{" + "temple=" + temple + '}';
     }
 
 }

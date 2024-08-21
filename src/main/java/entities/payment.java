@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import java.util.Date;
 import java.util.Objects;
@@ -22,10 +24,10 @@ public class payment extends BaseEntity {
     private Integer id;
 
     @Column(name = "amount", nullable = false)
-    private Double amount;
+    private BigDecimal amount;
 
-    @Column(name = "paymentDate", nullable = false)
-    private Date paymentDate;
+    @Column(name = "paymentDate", nullable = false, columnDefinition = "TIMESTAMP")
+    private LocalDateTime paymentDate;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_member")
@@ -43,19 +45,19 @@ public class payment extends BaseEntity {
         this.id = id;
     }
 
-    public Double getMontant() {
+    public BigDecimal getMontant() {
         return amount;
     }
 
-    public void setMontant(Double montant) {
+    public void setMontant(BigDecimal montant) {
         this.amount = montant;
     }
 
-    public Date getDateVersement() {
+    public LocalDateTime getDateVersement() {
         return paymentDate;
     }
 
-    public void setDateVersement(Date dateVersement) {
+    public void setDateVersement(LocalDateTime dateVersement) {
         this.paymentDate = dateVersement;
     }
 
