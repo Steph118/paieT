@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "entites", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"phone_code1", "contact1", "phone_code2", "contact2"})})
+    @UniqueConstraint(columnNames = {"phone_code1", "phone1", "phone_code2", "phone2"})})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "entite_type")
 @DiscriminatorValue(value = "E")
@@ -36,13 +36,13 @@ public class Entite extends BaseEntity {
     @Column(name = "phone_code1", nullable = false)
     private String phoneCode1;
 
-    @Column(name = "telephone1", nullable = false)
+    @Column(name = "phone1", nullable = false)
     private String telephone1;
 
     @Column(name = "phone_code2")
     private String phoneCode2;
 
-    @Column(name = "telephone2")
+    @Column(name = "phone2")
     private String telephone2;
 
     @Lob

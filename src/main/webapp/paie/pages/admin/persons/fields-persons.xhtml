@@ -25,8 +25,11 @@
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                     <p:outputLabel class="w-full" value="#{msg['persons.edit.birthdate']}" for="birthdate"/>
                     <div class="w-full">
-                        <p:calendar class="w-full" id="birthdate" placeholder="#{msg['persons.edit.birthdate.placeholder']}"
-                                    value="#{personBean.entity.birthdate}" navigator="true" locale="de" pattern="dd.MM.yyyy"/>
+                        <p:calendar
+                                class="w-full" id="birthdate" placeholder="#{msg['persons.edit.birthdate.placeholder']}"
+                                value="#{personBean.entity.birthdate}" locale="de" navigator="true"
+                                pattern="yyyy-MMM-dd"
+                                    />
                     </div>
                 </div>
 
@@ -92,8 +95,7 @@
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                     <p:outputLabel value="#{msg['mail']}" for="mail"/>
                     <p:inputText id="mail" class="w-full" placeholder="#{msg['mail.edit']}"
-                                 value="#{personBean.entity.mail}"
-                                 required="false" requiredMessage="#{msg['mail.required']}"/>
+                                 value="#{personBean.entity.mail}"/>
                 </div>
 
             </div>

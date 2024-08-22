@@ -67,7 +67,7 @@
                 </p:selectOneMenu>
             </div>
 
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                 <p:outputLabel for="localityType" value="#{msg['localities.locality.edit.localityType']}"/>
                 <p:selectOneMenu id="localityType" class="w-full"
                                  value="#{localityBean.entity.localityType}" filterMatchMode="startsWith"
@@ -82,19 +82,19 @@
                 </p:selectOneMenu>
             </div>
 
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                 <p:outputLabel value="#{msg['label']}" for="label"/>
                 <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
                              value="#{localityBean.entity.label}"
                              required="true" requiredMessage="#{msg['label.required']}"/>
             </div>
 
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+           <!-- <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel value="#{msg['is-root']}" for="root"/>
                 <div>
                     <p:toggleSwitch id="root"/>
                 </div>
-            </div>
+            </div>-->
 
         </ui:define>
 

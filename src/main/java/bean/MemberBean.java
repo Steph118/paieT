@@ -46,7 +46,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
     private Sexe sexe;
     private Department department;
     private boolean updateIntoList;
-
+    private Person personToUpdate;
     private List<Person> persons = new ArrayList<>();
     private List<Sexe> sexes = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
@@ -66,6 +66,14 @@ public class MemberBean extends GenericBean<Member, Integer> {
         this.sexes = this.sexeService.getAll();
     }
 
+    @Override
+    public void loadEntity() {
+        super.loadEntity();
+        this.listPersons();
+        this.personToUpdate = this.entity.getPerson();
+        this.persons.add(personToUpdate);
+    }
+
     public void addMemberToList() {
         this.updateIntoList = false;
         if (!members.contains(this.entity)) {
@@ -76,7 +84,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
             this.sexe = null;
             this.entity.setEglise(e);
         } else {
-            Messages.addFlashGlobalError("Cette personne a déjà été ajoutée");
+            Messages.addFlashGlobalError("Cette personne est déjà ajoutée dans la liste de membres");
         }
     }
 
@@ -89,6 +97,42 @@ public class MemberBean extends GenericBean<Member, Integer> {
         this.removeMemberToList(m);
         this.updateIntoList = true;
         this.listPersons();
+    }
+
+    public List<Person> listPersons(String query) {
+        String queryLowerCase = query.toLowerCase();
+        this.entity.setPerson(null);
+        this.persons = personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe)
+                .stream().filter(t -> t.getFullName().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
+        return this.persons;
+
+    }
+
+    public void listPersons() {
+        this.persons = this.personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe);
+        if (isUpdating()){
+            this.persons.add(personToUpdate);
+        }
+    }
+
+    @Override
+    public String save() {
+        try {
+            logger.log(Level.INFO, "MemberBean Save...");
+            this.memberService.saveAll(this.members);
+            Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
+            this.logger.info("Enregistrement effectué");
+            return cancel();
+        } catch (BusinessException ex) {
+            Messages.addGlobalError(ex.getMessage());
+            this.logger.log(Level.SEVERE, ex.getMessage(), ex);
+            return null;
+        } catch (Exception ex) {
+            Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
+            this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet");
+            return null;
+        }
+
     }
 
     @Override
@@ -119,45 +163,9 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public boolean isUpdateIntoList() {
         return updateIntoList;
     }
-
     public void setUpdateIntoList(boolean updateIntoList) {
         this.updateIntoList = updateIntoList;
     }
-
-    public List<Person> listPersons(String query) {
-        String queryLowerCase = query.toLowerCase();
-        this.entity.setPerson(null);
-        this.persons = personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe)
-                .stream().filter(t -> t.getFullName().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
-        return this.persons;
-
-    }
-
-    public void listPersons() {
-        this.persons = !isUpdating() ? this.personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe)
-                : this.personService.getPersons(this.entity.getEglise(), this.department, this.sexe);
-    }
-
-    @Override
-    public String save() {
-        try {
-            logger.log(Level.INFO, "MemberBean Save...");
-            this.memberService.saveAll(this.members);
-            Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
-            this.logger.info("Enregistrement effectué");
-            return cancel();
-        } catch (BusinessException ex) {
-            Messages.addGlobalError(ex.getMessage());
-            this.logger.log(Level.SEVERE, ex.getMessage(), ex);
-            return null;
-        } catch (Exception ex) {
-            Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
-            this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet");
-            return null;
-        }
-
-    }
-
     public Sexe getSexe() {
         return sexe;
     }
@@ -193,5 +201,4 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public List<Member> getMembers() {
         return members;
     }
-
 }
