@@ -4,17 +4,13 @@
  */
 package service.interfaces;
 
-import entities.Eglise;
-import entities.Member;
+import entities.Contributor;
+import entities.SumContributor;
 import jakarta.ejb.Local;
 
 /**
  * @author steph18
  */
 @Local
-public interface MemberServiceLocal extends GenericServiceLocal<Member, Integer> {
-
-    Long countMemberByCurch(Eglise e);
-
-    Integer genererNumeroMembre (Member m);
+public interface SumContributorServiceLocal extends GenericServiceLocal<SumContributor, Integer> {
 }

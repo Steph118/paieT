@@ -26,13 +26,6 @@
         <ui:define name="breadCrumb">
             #{msg['members.breadCrumb']}
         </ui:define>
-        <!--        <ui:insert name="fields">
-                    <p:fieldset legend="#{fieldsTitle}">
-                        <div class="form-grid grid ui-fluid">
-                            <ui:insert name="fields-content"/>
-                        </div>
-                    </p:fieldset>
-                </ui:insert>-->
         <ui:define name="fields">
             <p:fieldset legend="#{fieldsTitle}">
                 <p:fieldset id="addMember">
@@ -72,7 +65,7 @@
                             </p:selectOneMenu>
                         </div>
 
-                        <div class="field sm:col-12 col-12 md:col-12 lg:col-12">
+                        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                             <p:outputLabel for="person" value="#{msg['person.title']}"/>
                             <p:selectOneMenu id="person" class="w-full" filterMatchMode="startsWith" required="true"
                                              filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
@@ -85,22 +78,21 @@
 
                             </p:selectOneMenu>
                         </div>
-                        <!--<div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                            <p:outputLabel value="# {msg['members.edit.nummember']}" for="numMember"/>
-                            <p:inputText id="numMember" class="w-full"
-                                         value="# {memberBean.entity.memberNumber}"
-                                         disabled="true"/>
-                        </div>-->
-                        <!--                            <div class="field col-12">
-                                                        <p:outputLabel value="# {msg['person.title']}" for="person"/>
-                                                        <p:autoComplete id="person" value="# {memberBean.entity.person}"
-                                                                        converter="# {personConverter}" forceSelection="true"
-                                                                        var="p" itemLabel="# {p.getFullName()}" itemValue="# {p}"
-                                                                        completeMethod="# {memberBean.listPersons(query)}" required="true"
-                                                                        />  
-                        
-                                                    </div> -->
-                        
+                        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                            <p:outputLabel value="#{msg['members.edit.nummember']}" for="numMember"/>
+                            <div class="ui-inputgroup">
+                                <p:inputText id="numMember" class="w-full"
+                                             value="#{memberBean.entity.memberNumber}"
+                                             disabled="true"/>
+                                <p:commandButton id="generer" icon="#{!memberBean.customizeNumMember ? 'pi pi-home' : 'pi pi-save'}" 
+                                                 ajax="false" disabled="true"
+                                                 class="ui-inputgroup-addon" style="height: 32px; padding-top: 1px;">
+                                    <p:ajax update="numMember generer editForm:datafield" process="generer" listener="#{memberBean.toCustomizeNumMember()}"/>
+                                </p:commandButton>
+                            </div>
+                        </div>
+
+
                         <ui:fragment rendered="#{!memberBean.updating}">
                             <div class="p-2 field">
                                 <p:commandButton value="addmember" icon="pi pi-plus" process="addMember" 
@@ -110,13 +102,14 @@
                         </ui:fragment>
                     </div>
                 </p:fieldset>
+
                 <p:fieldset class="mt-3" rendered="#{!memberBean.updating}">
                     <div class="form-grid grid ui-fluid">
                         <p:dataTable value="#{memberBean.members}" var="m" paginator="true"
                                      rowKey="#{m.person.id}" rows="5" id="data">
-                            <p:column headerText="#{msg['members.edit.nummember']}">
-                                <p:outputLabel value="#{m.memberNumber}"/>
-                            </p:column>
+                            <!--                            <p:column headerText="# {msg['members.edit.nummember']}">
+                                                            <p:outputLabel value="# {m.memberNumber}"/>
+                                                        </p:column>-->
                             <p:column headerText="#{msg['person.title']}">
                                 <p:outputLabel value="#{m.person.fullName}"/>
                             </p:column>

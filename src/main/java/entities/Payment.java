@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -16,7 +15,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "payments")
-public class payment extends BaseEntity {
+public class Payment extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,7 +94,7 @@ public class payment extends BaseEntity {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final payment other = (payment) obj;
+        final Payment other = (Payment) obj;
         return Objects.equals(this.id, other.id);
     }
 

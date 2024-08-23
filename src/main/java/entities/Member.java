@@ -33,9 +33,9 @@ public class Member extends BaseEntity {
 
     public Member() {
     }
-
+    
     public String formatNumberNum() {
-        return String.format("%04d", memberNumber);
+        return String.format("%03d", memberNumber);
     }
 
     public Integer getId() {

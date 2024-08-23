@@ -46,12 +46,13 @@ public class MemberBean extends GenericBean<Member, Integer> {
     private Sexe sexe;
     private Department department;
     private boolean updateIntoList;
-    private Person personToUpdate;
+    private boolean customizeNumMember;
+    private int previousMemberId;
     private List<Person> persons = new ArrayList<>();
     private List<Sexe> sexes = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
     private List<Eglise> eglises = new ArrayList<>();
-    private final List<Member> members = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<Member, Integer> getService() {
@@ -67,11 +68,15 @@ public class MemberBean extends GenericBean<Member, Integer> {
     }
 
     @Override
+    public void initAdd() {
+        this.entity = new Member();
+    }
+
+    @Override
     public void loadEntity() {
         super.loadEntity();
         this.listPersons();
-        this.personToUpdate = this.entity.getPerson();
-        this.persons.add(personToUpdate);
+        this.previousMemberId = this.entity.getEglise().getId();
     }
 
     public void addMemberToList() {
@@ -110,9 +115,6 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     public void listPersons() {
         this.persons = this.personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe);
-        if (isUpdating()){
-            this.persons.add(personToUpdate);
-        }
     }
 
     @Override
@@ -135,9 +137,16 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     }
 
+    public void toCustomizeNumMember() {
+        customizeNumMember = !customizeNumMember;
+        this.members = new ArrayList<>();
+    }
+
     @Override
-    public void initAdd() {
-        this.entity = new Member();
+    public void beforeUpdate() {
+        if (!(this.entity.getEglise().getId() == previousMemberId)) {
+            this.entity.setMemberNumber(this.memberService.genererNumeroMembre(this.entity));
+        }
     }
 
     @Override
@@ -163,9 +172,11 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public boolean isUpdateIntoList() {
         return updateIntoList;
     }
+
     public void setUpdateIntoList(boolean updateIntoList) {
         this.updateIntoList = updateIntoList;
     }
+
     public Sexe getSexe() {
         return sexe;
     }
@@ -201,4 +212,13 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public List<Member> getMembers() {
         return members;
     }
+
+    public boolean isCustomizeNumMember() {
+        return customizeNumMember;
+    }
+
+    public void setCustomizeNumMember(boolean customizeNumMember) {
+        this.customizeNumMember = customizeNumMember;
+    }
+
 }

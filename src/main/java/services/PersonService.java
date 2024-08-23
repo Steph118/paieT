@@ -48,4 +48,11 @@ public class PersonService extends GenericServiceLocalImpl<Person, Integer>
         return new ArrayList<>();
     }
 
+    @Override
+    public Person update(Person e) {
+        return super.update(e); 
+    }
+    
+    
+
 }

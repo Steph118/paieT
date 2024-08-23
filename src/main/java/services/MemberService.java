@@ -37,16 +37,14 @@ public class MemberService extends GenericServiceLocalImpl<Member, Integer>
     public void saveAll(List<Member> es) {
         for (Member m : es) {
             System.err.println("inum ==>  " + this.dao.genererNumeroMembre(m.getEglise()));
-            m.setMemberNumber(this.dao.genererNumeroMembre(m.getEglise()));
+            m.setMemberNumber(this.genererNumeroMembre(m));
             this.save(m);
         }
     }
 
     @Override
-    public Member update(Member e) {
-        System.err.println("inum ==>  " + this.dao.genererNumeroMembre(e.getEglise()));
-        e.setMemberNumber(this.dao.genererNumeroMembre(e.getEglise()));
-        return this.dao.update(e);
+    public Integer genererNumeroMembre(Member m) {
+        return this.dao.genererNumeroMembre(m.getEglise());
     }
 
 }
