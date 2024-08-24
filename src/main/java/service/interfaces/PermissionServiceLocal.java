@@ -4,12 +4,12 @@
  */
 package service.interfaces;
 
-import entities.Loan;
+import entities.Permission;
 import jakarta.ejb.Local;
 
 /**
  * @author steph18
  */
 @Local
-public interface PermissionServiceLocal extends GenericServiceLocal<Loan, Integer> {
+public interface PermissionServiceLocal extends GenericServiceLocal<Permission, Integer> {
 }

@@ -34,8 +34,11 @@ import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.LoanServiceLocal;
 import service.interfaces.LocalityServiceLocal;
+import service.interfaces.MemberServiceLocal;
 import service.interfaces.PersonServiceLocal;
+import service.interfaces.RoleServiceLocal;
 import service.interfaces.SexeServiceLocal;
+import service.interfaces.SumPromisedServiceLocal;
 import service.interfaces.TypeLocalityServiceLocal;
 import service.interfaces.YearServiceLocal;
 
@@ -64,6 +67,10 @@ public class PersonBean extends GenericBean<Person, Integer> {
     private LoanServiceLocal loanService;
     @EJB
     private YearServiceLocal yearService;
+    @EJB
+    private MemberServiceLocal memberService;
+    @EJB
+    private RoleServiceLocal roleService;
 
     private int previousEgliseId;
     private Country country;
@@ -78,6 +85,11 @@ public class PersonBean extends GenericBean<Person, Integer> {
     private List<Locality> localities = new ArrayList<>();
     private List<Year> years = new ArrayList<>();
     private List<Loan> loans = new ArrayList<>();
+    private List<Sexe> sexes = new ArrayList<>();
+    private List<Eglise> eglises = new ArrayList<>();
+    private List<Department> departments = new ArrayList<>();
+    private List<Country> countries = new ArrayList<>();
+    private List<Role> roles = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<Person, Integer> getService() {
@@ -106,6 +118,10 @@ public class PersonBean extends GenericBean<Person, Integer> {
     @Override
     public void initEntity() {
         super.initEntity();
+        this.sexes = this.sexeService.getAll();
+        this.eglises = egliseService.getAll();
+        this.departments = departmentService.getAll();
+        this.countries = countryService.getAll();
     }
 
     @Override
@@ -114,6 +130,20 @@ public class PersonBean extends GenericBean<Person, Integer> {
         if (StringUtils.isEmpty(this.entity.getMail())) {
             this.entity.setMail(null);
         }
+        if (addMember) {
+            this.member.setEglise(this.entity.getEglise());
+            this.member.setMemberNumber(memberService.genererNumeroMembre(this.entity.getEglise()));
+            this.member.setPerson(this.entity);
+            this.member.addSumPromised(sumPromised);
+            this.entity.setMember(member);
+        }
+
+        /*if (addUser) {
+            User = new User();
+            user.setActif(true);
+            user.setChangePassword(true);
+            this.entity.setUser(user);
+        }*/
     }
 
     @Override
@@ -123,7 +153,6 @@ public class PersonBean extends GenericBean<Person, Integer> {
 
     @Override
     public String update() {
-        System.err.println("verify : " + (this.entity.getEglise().getId() == previousEgliseId));
         return (this.entity.getEglise().getId() == previousEgliseId) ? super.update() : update2();
     }
 
@@ -152,50 +181,22 @@ public class PersonBean extends GenericBean<Person, Integer> {
     }
 
     public void addMember() {
+        this.member = new Member();
+        this.sumPromised = new SumPromised();
         this.years = yearService.getAll();
         //Recuperer en fonction de eglise;
         this.loans = loanService.getAll();
-        System.err.println("eglise : " + this.entity.getEglise());
     }
 
     public void addUser() {
-
+        this.user = new User();
+        this.roles = roleService.getAll();
     }
 
-    public String memberChurche() {
-        return this.entity.getEglise() != null ? this.entity.getEglise().getLabel() : null;
-    }
-
-    public List<Role> listRoles() {
-        return new ArrayList<>();
-    }
-
-    public List<Sexe> listSexes() {
-        return sexeService.getAll();
-    }
-
-    public List<Eglise> listEglises() {
-        return egliseService.getAll();
-    }
-
-    public List<Department> listDepartements() {
-        return departmentService.getAll();
-    }
-
-    public List<Country> listCountries() {
-        return countryService.getAll();
-    }
-
-    public List<TypeLocality> listTypeLocalities() {
-        return typeLocalityService.getAll();
-    }
-
-    public List<Year> getYears() {
-        return years;
-    }
-
-    public List<Loan> getLoans() {
-        return loans;
+    public void loadChurcheSelected() {
+        if (!updating) {
+            this.entity.getEglise().getLabel();
+        }
     }
 
     @Override
@@ -224,10 +225,6 @@ public class PersonBean extends GenericBean<Person, Integer> {
 
     public void setAddMember(boolean addMember) {
         this.addMember = addMember;
-    }
-
-    public List<Locality> getLocalities() {
-        return localities;
     }
 
     public Country getCountry() {
@@ -286,4 +283,39 @@ public class PersonBean extends GenericBean<Person, Integer> {
         this.sumPromised = sumPromised;
     }
 
+    public List<Locality> getLocalities() {
+        return localities;
+    }
+
+    public List<Sexe> getSexes() {
+        return sexes;
+    }
+
+    public List<Eglise> getEglises() {
+        return eglises;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public List<Country> getCountries() {
+        return countries;
+    }
+
+    public List<TypeLocality> listTypeLocalities() {
+        return typeLocalityService.getAll();
+    }
+
+    public List<Year> getYears() {
+        return years;
+    }
+
+    public List<Loan> getLoans() {
+        return loans;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
 }

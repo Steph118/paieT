@@ -26,8 +26,8 @@
                 <div class="form-grid grid ui-fluid">
                     <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                         <p:outputLabel value="#{msg['entites.eglise.title']}" for="egliseMember"/>
-                        <p:inputText id="egliseMember" class="w-full" disabled="true"
-                                     value="#{personBean.memberChurche()}"
+                        <p:inputText id="egliseMember" class="w-full bold" disabled="true"
+                                     value="#{personBean.entity.eglise.label}"
                                      required="true" requiredMessage="#{msg['persons.edit.member.person.input']}"/>
                     </div>
                     <div class="field sm:col-12 col-12 md:col-6 lg:col-6">

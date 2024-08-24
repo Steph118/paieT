@@ -10,7 +10,6 @@ package entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
-import java.util.Date;
 import java.util.Objects;
 import org.apache.commons.lang3.StringUtils;
 
@@ -75,6 +74,9 @@ public class Person extends BaseEntity {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "person", cascade = {CascadeType.PERSIST})
+    private Member member;
 
     public Person() {
     }
@@ -216,8 +218,16 @@ public class Person extends BaseEntity {
         final Person other = (Person) obj;
         return Objects.equals(this.id, other.id);
     }
-    
-    public String getFullName(){
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public String getFullName() {
         return this.name + " " + this.firstname;
     }
 

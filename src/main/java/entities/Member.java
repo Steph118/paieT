@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -31,12 +33,20 @@ public class Member extends BaseEntity {
     @JoinColumn(name = "eglise_id")
     private Eglise eglise;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "member", cascade = {CascadeType.PERSIST})
+    private List<SumPromised> sumPromiseds = new ArrayList<>();
+
     public Member() {
     }
 
     public Member(Person p) {
         this.person = p;
         this.eglise = p.getEglise();
+    }
+
+    public void addSumPromised(SumPromised s) {
+        s.setMember(this);
+        this.sumPromiseds.add(s);
     }
 
     public String formatNumberNum() {
@@ -73,6 +83,14 @@ public class Member extends BaseEntity {
 
     public void setEglise(Eglise eglise) {
         this.eglise = eglise;
+    }
+
+    public List<SumPromised> getSumPromiseds() {
+        return sumPromiseds;
+    }
+
+    public void setSumPromiseds(List<SumPromised> sumPromiseds) {
+        this.sumPromiseds = sumPromiseds;
     }
 
     @Override

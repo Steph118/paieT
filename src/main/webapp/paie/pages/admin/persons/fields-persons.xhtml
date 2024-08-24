@@ -43,10 +43,10 @@
                     <p:selectOneMenu id="sexe" class="w-full" filterMatchMode="startsWith"
                                      filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
                                      converter="omnifaces.SelectItemsConverter" required="true"
-                                     requiredMessage="#{msg['localities.type-locality.edit.parent.required']}"
+                                     requiredMessage="#{msg['persons.edit.sexe.required']}"
                                      value="#{personBean.entity.sexe}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{personBean.listSexes()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                        <f:selectItems value="#{personBean.sexes}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
                     </p:selectOneMenu>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
@@ -57,7 +57,8 @@
                                      requiredMessage="#{msg['persons.edit.eglise.required']}"
                                      value="#{personBean.entity.eglise}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{personBean.listEglises()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                        <f:selectItems value="#{personBean.eglises}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                        <p:ajax listener="#{personBean.loadChurcheSelected()}" update="egliseMember loan"/>
                     </p:selectOneMenu>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
@@ -68,7 +69,7 @@
                                      requiredMessage="#{msg['persons.edit.departement.required']}"
                                      value="#{personBean.entity.department}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{personBean.listDepartements()}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                        <f:selectItems value="#{personBean.departments}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
                     </p:selectOneMenu>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
@@ -80,7 +81,7 @@
                                          id="phoneCode" converter="omnifaces.SelectItemsConverter" required="true"
                                          requiredMessage="#{msg['phonecode.required']}">
                             <f:selectItem itemLabel="#{msg['choice-label']}"/>
-                            <f:selectItems value="#{personBean.listCountries()}" var="p" itemValue="#{p.phoneCode}"
+                            <f:selectItems value="#{personBean.countries}" var="p" itemValue="#{p.phoneCode}"
                                            itemLabel="#{p.phoneCode} (#{p.label})"/>
                         </p:selectOneMenu>
                         <p:inputText id="contact" class="w-full"
@@ -107,7 +108,7 @@
                                      converter="omnifaces.SelectItemsConverter"
                                      value="#{personBean.country}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{personBean.listCountries()}" itemValue="#{c}" var="c" itemLabel="#{c.label}"/>
+                        <f:selectItems value="#{personBean.countries}" itemValue="#{c}" var="c" itemLabel="#{c.label}"/>
                         <p:ajax update="locality" listener="#{personBean.filterLocality()}"/>
                     </p:selectOneMenu>
                 </div>
