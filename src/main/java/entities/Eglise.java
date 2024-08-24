@@ -7,9 +7,7 @@ package entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author steph18
@@ -55,7 +53,7 @@ public class Eglise extends Entite {
 
     @Override
     public String toString() {
-        return "Eglise{" + "temple=" + temple + '}';
+        return "Eglise{" + "temple=" + temple + '}' + super.toString();
     }
 
 }

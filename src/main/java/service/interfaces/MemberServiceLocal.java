@@ -6,6 +6,7 @@ package service.interfaces;
 
 import entities.Eglise;
 import entities.Member;
+import entities.Person;
 import jakarta.ejb.Local;
 
 /**
@@ -16,5 +17,9 @@ public interface MemberServiceLocal extends GenericServiceLocal<Member, Integer>
 
     Long countMemberByCurch(Eglise e);
 
-    Integer genererNumeroMembre (Member m);
+    Integer genererNumeroMembre(Member m);
+
+    Integer genererNumeroMembre(Eglise e);
+
+    int updateEglise(Person p, Integer num);
 }

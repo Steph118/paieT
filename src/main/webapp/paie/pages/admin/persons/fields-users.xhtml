@@ -5,14 +5,14 @@
     xmlns:h="jakarta.faces.html"
     xmlns:f="jakarta.faces.core">
     <div>
-        <p:fieldset legend="#{msg['person.edit.user']}" class="mt-3" id="block">
+        <p:fieldset legend="#{msg['person.edit.user']}" class="mt-3" id="block-user">
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel for="addUser" value="#{msg['person.edit.addUser']}"/>
                 <div>
                     <p:toggleSwitch id="addUser" value="#{personBean.addUser}"  
                                     onIcon="pi pi-check"
                                     offIcon="pi pi-times" >
-                        <p:ajax update="block"/>
+                        <p:ajax update="block-user" listener="#{personBean.addUser()}"/>
                     </p:toggleSwitch>
                 </div>
 

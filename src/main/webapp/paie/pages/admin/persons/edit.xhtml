@@ -30,7 +30,10 @@
                 <p:tab id="personTab" title="#{msg['person.title']}">
                     <ui:include src="fields-persons.xhtml"/>
                 </p:tab>
-                <p:tab id="userTab" title="#{msg['user.title']}">
+                <p:tab id="memberTab" title="#{msg['member']}" rendered="#{!personBean.updating}">
+                    <ui:include src="fields-members.xhtml"/>
+                </p:tab>
+                <p:tab id="userTab" title="#{msg['user.title']}" rendered="#{!personBean.updating}">
                     <ui:include src="fields-users.xhtml"/>
                 </p:tab>
             </p:tabView>

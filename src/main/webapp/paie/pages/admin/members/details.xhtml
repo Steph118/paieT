@@ -17,30 +17,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
             </f:metadata>
         </ui:define>
 
-        <ui:param name="crudBean" value="# {memberBean}"/>
+        <ui:param name="crudBean" value="#{memberBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+        <ui:param name="fieldsTitle" value="#{msg['members.breadCrumb']}"/>
 
         <ui:define name="list-title">
+            #{msg['members.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['members.breadCrumb']}
         </ui:define>
         <ui:define name="fields-content">
             <p:outputPanel>
                 <div class="form-grid grid">
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="num" value="#{msg['members.edit.nummember']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="num"
+                                       value="#{memberBean.entity.formatNumberNum()}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="person" value="#{msg['person.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="person"
+                                       value="#{memberBean.entity.person.fullName}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="eglise"
+                                       value="#{memberBean.entity.eglise.label}"/>
                     </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
-                    </div>
-
                 </div>
             </p:outputPanel>
         </ui:define>

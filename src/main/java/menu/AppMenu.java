@@ -33,6 +33,7 @@ public class AppMenu {
         administrationMenus.add(new MenuItem("Localités", "/paie/pages/admin/localities/locality/list.xhtml", "fa-solid fa-location-dot"));
         administrationMenus.add(new MenuItem("Types de localités", "/paie/pages/admin/localities/type-locality/list.xhtml", "fa-solid fa-location-dot"));
         administrationMenus.add(new MenuItem("Paramètres", "/paie/pages/admin/roles/list.xhtml", "fa-solid fa-gear"));
+        administrationMenus.add(new MenuItem("Crédits", "/paie/pages/admin/loan/list.xhtml", "fa-solid fa-bills"));
 
         referenceMenus.add(new MenuItem("Pays", "/paie/pages/admin/references/country/list.xhtml", "fa-solid fa-globe"));
         referenceMenus.add(new MenuItem("Sexe", "/paie/pages/admin/references/sexe/list.xhtml", "fa-solid fa-genderless"));

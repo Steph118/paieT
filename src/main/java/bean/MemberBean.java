@@ -161,7 +161,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     @Override
     public boolean canDetails() {
-        return true;
+        return false;
     }
 
     @Override

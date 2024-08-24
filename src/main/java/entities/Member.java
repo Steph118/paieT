@@ -33,7 +33,12 @@ public class Member extends BaseEntity {
 
     public Member() {
     }
-    
+
+    public Member(Person p) {
+        this.person = p;
+        this.eglise = p.getEglise();
+    }
+
     public String formatNumberNum() {
         return String.format("%03d", memberNumber);
     }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+    xmlns:ui="jakarta.faces.facelets"
+
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="http://primefaces.org/ui">
+    <ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        template="/paie/templates/layout-edit.xhtml">
+
+        <ui:define name="metadata">
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{loanBean.entityId}"/>
+                <f:viewAction action="#{loanBean.initEntity()}"/>
+            </f:metadata>
+        </ui:define>
+
+        <ui:param name="crudBean" value="#{loanBean}"/>loans.title
+
+        <ui:param name="fieldsTitle" value="#{msg['loan.title']}"/>
+
+        <ui:define name="list-title">
+            #{msg['loans.title']}
+        </ui:define>
+        <ui:define name="breadCrumb">
+            #{msg['loan.breadCrumb']}
+        </ui:define>
+        <ui:define name="fields-content">
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 value="#{loanBean.entity.eglise}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{loanBean.eglises}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                </p:selectOneMenu>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['label']}" for="label"/>
+                <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
+                             value="#{loanBean.entity.label}"
+                             required="true" requiredMessage="#{msg['label.required']}"/>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['montant']}" for="montant"/>
+                <p:inputText id="montant" class="w-full" placeholder="#{msg['montant.placeholder']}"
+                             value="#{loanBean.entity.montant}"
+                             required="true" requiredMessage="#{msg['montant.required']}"/>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel class="w-full" value="#{msg['loan.list.startdate']}" for="startdate"/>
+                <div class="w-full">
+                    <p:calendar
+                        class="w-full" id="startdate" placeholder="#{msg['loan.list.startdate.placeholder']}"
+                        value="#{loanBean.entity.startDate}" locale="fr" navigator="true" 
+                        pattern="MM/dd/yyyy" required="true" requiredMessage="#{msg['loan.list.startdate']}"
+                        />
+                </div>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel class="w-full" value="#{msg['loan.list.enddate']}" for="enddate"/>
+                <div class="w-full">
+                    <p:calendar
+                        class="w-full" id="enddate" placeholder="#{msg['loan.list.enddate.placeholder']}"
+                        value="#{loanBean.entity.endDate}" locale="fr" navigator="true" 
+                        pattern="MM/dd/yyyy" required="true" requiredMessage="#{msg['loan.list.enddate.required']}"
+                        />
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

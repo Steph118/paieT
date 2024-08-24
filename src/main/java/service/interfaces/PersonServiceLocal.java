@@ -20,4 +20,6 @@ public interface PersonServiceLocal extends GenericServiceLocal<Person, Integer>
     List<Person> getPersonsNotMember(Eglise eglise, Department departement, Sexe sexe);
 
     List<Person> getPersons(Eglise eglise, Department departement, Sexe sexe);
+
+    Person update2(Person p);
 }

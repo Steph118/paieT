@@ -6,6 +6,7 @@ package dao;
 
 import entities.Eglise;
 import entities.Member;
+import entities.Person;
 import jakarta.ejb.Stateless;
 
 /**
@@ -36,4 +37,16 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
         return nextNumero;
     }
 
+    public int updateEglise(Person p, Integer num) {
+        return this.em.createQuery("""
+                            UPDATE Member m SET 
+                            m.eglise = :e , 
+                            m.memberNumber = :num
+                            WHERE m.person = :p 
+                            """)
+                .setParameter("e", p.getEglise())
+                .setParameter("num", num)
+                .setParameter("p", p)
+                .executeUpdate();
+    }
 }

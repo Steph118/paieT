@@ -26,18 +26,16 @@
                     <p:outputLabel class="w-full" value="#{msg['persons.edit.birthdate']}" for="birthdate"/>
                     <div class="w-full">
                         <p:calendar
-                                class="w-full" id="birthdate" placeholder="#{msg['persons.edit.birthdate.placeholder']}"
-                                value="#{personBean.entity.birthdate}" locale="de" navigator="true"
-                                pattern="yyyy-MMM-dd"
-                                    />
+                            class="w-full" id="birthdate" placeholder="#{msg['persons.edit.birthdate.placeholder']}"
+                            value="#{personBean.entity.birthdate}" locale="de" navigator="true"
+                            pattern="MM/dd/yyyy"/>
                     </div>
                 </div>
 
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                     <p:outputLabel value="#{msg['persons.edit.birthplace']}" for="birthplace"/>
                     <p:inputText id="birthplace" class="w-full" placeholder="#{msg['persons.edit.birthplace.placeholder']}"
-                                 value="#{personBean.entity.birthplace}"
-                                 />
+                                 value="#{personBean.entity.birthplace}" />
                 </div>
 
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
@@ -141,20 +139,17 @@
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                     <p:outputLabel value="#{msg['entites.eglises.edit.street']}" for="street"/>
                     <p:inputText id="street" class="w-full" placeholder="#{msg['entites.eglises.edit.street.placeholder']}"
-                                 value="#{personBean.address.street}"
-                                 />
+                                 value="#{personBean.address.street}"/>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                     <p:outputLabel value="#{msg['entites.eglises.edit.city']}" for="city"/>
                     <p:inputText id="city" class="w-full" placeholder="#{msg['entites.eglises.edit.city.placeholder']}"
-                                 value="#{personBean.address.city}"
-                                 />
+                                 value="#{personBean.address.city}" />
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                     <p:outputLabel value="#{msg['entites.eglises.edit.zip']}" for="zip"/>
                     <p:inputText id="zip" class="w-full" placeholder="#{msg['entites.eglises.edit.zip.placeholder']}"
-                                 value="#{personBean.address.zip}"
-                                 />
+                                 value="#{personBean.address.zip}" />
                 </div>
             </div>
         </p:fieldset>

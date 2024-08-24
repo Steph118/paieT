@@ -10,11 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Members register">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/MonthDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/MonthServiceLocal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/LoanService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/MonthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/SumPromisedService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/MemberBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/MemberBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/MemberServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/MemberServiceLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/SumPromisedBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/SumPromisedBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MemberDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,12 +274,60 @@
         </option>
       </method>
     </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="map-jpa" />
       <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
     <configuration default="true" type="PAYARA_MICRO_CONFIGURATION" factoryName="Gradle">
       <ExternalSystemSettings>
@@ -567,6 +621,7 @@
       <workItem from="1724324147515" duration="8709000" />
       <workItem from="1724351483397" duration="388000" />
       <workItem from="1724364249818" duration="2075000" />
+      <workItem from="1724408137278" duration="8007000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -704,7 +759,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724339794774</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Members register">
+      <option name="closed" value="true" />
+      <created>1724408366047</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1724408366048</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -8,6 +8,7 @@ import dao.PersonDao;
 import dao.RepositoryDao;
 import entities.Department;
 import entities.Eglise;
+import entities.Member;
 import entities.Person;
 import entities.Sexe;
 import jakarta.ejb.EJB;
@@ -15,6 +16,7 @@ import jakarta.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import service.interfaces.MemberServiceLocal;
 import service.interfaces.PersonServiceLocal;
 
 /**
@@ -26,6 +28,9 @@ public class PersonService extends GenericServiceLocalImpl<Person, Integer>
 
     @EJB
     private PersonDao dao;
+
+    @EJB
+    private MemberServiceLocal memberService;
 
     @Override
     protected RepositoryDao<Person, Integer> getDAO() {
@@ -50,9 +55,18 @@ public class PersonService extends GenericServiceLocalImpl<Person, Integer>
 
     @Override
     public Person update(Person e) {
-        return super.update(e); 
+        return super.update(e);
     }
-    
-    
+
+    @Override
+    public Person update2(Person p) {
+        Person p1 = this.update(p);
+        if (p1 != null) {
+            Eglise e = p1.getEglise();
+            int i = this.memberService.genererNumeroMembre(e);
+            this.memberService.updateEglise(p, i);
+        }
+        return p1;
+    }
 
 }

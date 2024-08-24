@@ -5,12 +5,11 @@
 package bean;
 
 import entities.SumPromised;
-import entities.Year;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import service.interfaces.GenericServiceLocal;
-import service.interfaces.YearServiceLocal;
+import service.interfaces.SumPromisedServiceLocal;
 
 /**
  * @author steph18
@@ -20,16 +19,16 @@ import service.interfaces.YearServiceLocal;
 public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
 
     @EJB
-    private Sum yearService;
+    private SumPromisedServiceLocal sumPromisedService;
 
     @Override
-    public GenericServiceLocal<Year, Integer> getService() {
-        return yearService;
+    public GenericServiceLocal<SumPromised, Integer> getService() {
+        return sumPromisedService;
     }
 
     @Override
     public void initAdd() {
-        this.entity = new Year();
+        this.entity = new SumPromised();
     }
 
     @Override

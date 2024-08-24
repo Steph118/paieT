@@ -8,6 +8,7 @@ import dao.MemberDao;
 import dao.RepositoryDao;
 import entities.Eglise;
 import entities.Member;
+import entities.Person;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import java.util.List;
@@ -36,7 +37,6 @@ public class MemberService extends GenericServiceLocalImpl<Member, Integer>
     @Override
     public void saveAll(List<Member> es) {
         for (Member m : es) {
-            System.err.println("inum ==>  " + this.dao.genererNumeroMembre(m.getEglise()));
             m.setMemberNumber(this.genererNumeroMembre(m));
             this.save(m);
         }
@@ -45,6 +45,16 @@ public class MemberService extends GenericServiceLocalImpl<Member, Integer>
     @Override
     public Integer genererNumeroMembre(Member m) {
         return this.dao.genererNumeroMembre(m.getEglise());
+    }
+
+    @Override
+    public Integer genererNumeroMembre(Eglise e) {
+        return this.dao.genererNumeroMembre(e);
+    }
+
+    @Override
+    public int updateEglise(Person p, Integer num) {
+        return this.dao.updateEglise(p, num);
     }
 
 }
