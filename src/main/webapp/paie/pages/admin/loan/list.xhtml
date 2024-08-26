@@ -58,8 +58,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
             </p:column>
             <p:column style="text-align: start" headerText="#{msg['loan.list.rembourse']}" sortBy="#{e.rembourse}" 
                       filterBy="#{e.rembourse}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
-                <h:outputText value="#{e.rembourse ? msg['yes.label'] : msg['no.label']}" 
-                               class="badge p-1 border-round text-white #{e.rembourse ? 'bg-green-300' : 'bg-red-600'}"/>
+                <p:badge value="#{e.rembourse ? msg['yes.label'] : msg['no.label']}" severity="#{e.rembourse ? 'success' : 'danger'}"
+                               />
             </p:column>
 
         </ui:define>

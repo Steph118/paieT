@@ -33,7 +33,7 @@ public class AppMenu {
         administrationMenus.add(new MenuItem("Localités", "/paie/pages/admin/localities/locality/list.xhtml", "fa-solid fa-location-dot"));
         administrationMenus.add(new MenuItem("Types de localités", "/paie/pages/admin/localities/type-locality/list.xhtml", "fa-solid fa-location-dot"));
         administrationMenus.add(new MenuItem("Paramètres", "/paie/pages/admin/roles/list.xhtml", "fa-solid fa-gear"));
-        administrationMenus.add(new MenuItem("Crédits", "/paie/pages/admin/loan/list.xhtml", "fa-solid fa-bills"));
+        administrationMenus.add(new MenuItem("Crédits", "/paie/pages/admin/loan/list.xhtml", "fa-solid fa-coins"));
 
         referenceMenus.add(new MenuItem("Pays", "/paie/pages/admin/references/country/list.xhtml", "fa-solid fa-globe"));
         referenceMenus.add(new MenuItem("Sexe", "/paie/pages/admin/references/sexe/list.xhtml", "fa-solid fa-genderless"));
@@ -41,8 +41,8 @@ public class AppMenu {
         referenceMenus.add(new MenuItem("Années", "/paie/pages/admin/references/annees/list.xhtml", "fa-regular fa-calendar"));
 
         paiMenus.add(new MenuItem("Promesses", "/paie/pages/admin/pay/promised/list.xhtml", "fa-solid fa-handshake-slash"));
-        paiMenus.add(new MenuItem("Paiements", "/paie/pages/admin/pay/payment/list.xhtml", "fa-solid fa-money-check"));
-        paiMenus.add(new MenuItem("Sommes payés", "/paie/pages/admin/pay/sum-pay/list.xhtml", "fa-solid fa-money-bills"));
+        paiMenus.add(new MenuItem("Paiements", "/paie/pages/admin/pay/payment/list.xhtml", "fa-solid fa-money-bill-transfer"));
+        paiMenus.add(new MenuItem("Sommes payés", "/paie/pages/admin/pay/sum-pay/list.xhtml", "fa-solid fa-circle-dollar-to-slot"));
 
         menuCategories.add(new MenuCategory("Administration", administrationMenus));
         menuCategories.add(new MenuCategory("References", referenceMenus));

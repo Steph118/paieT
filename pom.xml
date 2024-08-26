@@ -59,6 +59,11 @@
             <artifactId>guava</artifactId>
             <version>33.2.1-jre</version>
         </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>3.1.2.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>

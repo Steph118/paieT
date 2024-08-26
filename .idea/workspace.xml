@@ -9,18 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Members register">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/MonthDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/MonthServiceLocal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/LoanService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/MonthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/SumPromisedService.java" afterDir="false" />
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="git ignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/SumPromisedBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/SumPromisedBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/MemberDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Eglise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/AppMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/loan/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/loan/list.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -719,7 +711,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724408366048</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="git ignore">
+      <option name="closed" value="true" />
+      <created>1724674413141</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1724674413141</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -762,13 +762,13 @@
     <MESSAGE value="Details and edit Template for pages" />
     <MESSAGE value="Edition of layouts page" />
     <MESSAGE value="References pages: lis - edition - details" />
-    <MESSAGE value="git ignore" />
     <MESSAGE value="model wrapper dependency" />
     <MESSAGE value="- Person and members Dao, services, and Bean managment&#10;- Readme update" />
     <MESSAGE value="Optimise import and readme" />
     <MESSAGE value="Review class members and persons relations" />
     <MESSAGE value="Members register" />
-    <option name="LAST_COMMIT_MESSAGE" value="Members register" />
+    <MESSAGE value="git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="git ignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
