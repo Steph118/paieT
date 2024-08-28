@@ -1,44 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-        xmlns:ui="jakarta.faces.facelets">
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="http://primefaces.org/ui">
     <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
 
         <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {localityBean.entityId}"/>
-                            <f:viewAction action="# {localityBean.initEntity()}"/>
-                        </f:metadata>-->
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{sumPromisedBean.entityId}"/>
+                <f:viewAction action="#{sumPromisedBean.initEntity()}"/>
+            </f:metadata>
         </ui:define>
 
-<!--        <ui:param name="crudBean" value="# {localityBean}"/>-->
+        <ui:param name="crudBean" value="#{sumPromisedBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+        <ui:param name="fieldsTitle" value="#{msg['promised.list.title']}"/>
 
         <ui:define name="list-title">
+            #{msg['promised.list.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['promised.list.breadCrumb']}
         </ui:define>
         <ui:define name="fields-content">
             <div class="form-grid grid">
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                    <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
+                                     filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                     converter="omnifaces.SelectItemsConverter" required="true"
+                                     requiredMessage="#{msg['persons.edit.eglise.required']}"
+                                     value="#{sumPromisedBean.eglise}">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{sumPromisedBean.eglises}" itemValue="#{e}" var="e" itemLabel="#{e.label}"/>
+                        <p:ajax listener="#{sumPromisedBean.loadMembers()}" update="membre loan"/>
+                    </p:selectOneMenu>
                 </div>
 
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="dpt" value="#{msg['departement.title']}"/>
+                        <p:selectOneMenu id="dpt" class="w-full" filterMatchMode="startsWith"
+                                         filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                         converter="omnifaces.SelectItemsConverter" required="true"
+                                         requiredMessage="#{msg['persons.edit.departement.required']}"
+                                         value="#{sumPromisedBean.dptment}">
+                            <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                            <f:selectItems value="#{sumPromisedBean.departments}" itemValue="#{d}" var="d" itemLabel="#{d.label}"/>
+                            <p:ajax listener="#{sumPromisedBean.loadMembers()}" update="membre"/>
+                        </p:selectOneMenu>
                 </div>
 
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="membre" value="#{msg['member']}"/>
+                        <p:selectOneMenu id="membre" class="w-full" filterMatchMode="startsWith"
+                                         filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                         converter="omnifaces.SelectItemsConverter" required="true"
+                                         requiredMessage="#{msg['member.required']}"
+                                         value="#{sumPromisedBean.entity.member}">
+                            <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                            <f:selectItems value="#{sumPromisedBean.members}" itemValue="#{ù}" var="m" itemLabel="#{m.fullPersonFromMember()}"/>
+                        </p:selectOneMenu>
                 </div>
 
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="loan" value="#{msg['loan.title']}"/>
+                    <p:selectOneMenu id="loan" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                     filter="true" filterPlaceholder="#{msg['search']}" required="true"
+                                     requiredMessage="#{msg['persons.edit.member.loan']}"
+                                     value="#{sumPromisedBean.entity.loan}"
+                                     converter="omnifaces.SelectItemsConverter">
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{sumPromisedBean.loans}" itemValue="#{l}" var="l" itemLabel="#{l.label}"/>
+                    </p:selectOneMenu>
                 </div>
 
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel value="#{msg['montant']}" for="montant"/>
+                    <p:inputText id="montant" class="w-full" placeholder="#{msg['montant.placeholder']}"
+                                 value="#{personBean.sumPromised.montant}"
+                                 required="true" requiredMessage="#{msg['montant.required']}"/>
                 </div>
-
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                    <p:outputLabel for="year" value="#{msg['references.annees.title']}"/>
+                    <p:selectOneMenu id="year" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                     filter="true" filterPlaceholder="#{msg['search']}" required="true"
+                                     requiredMessage="#{msg['persons.edit.member.year']}"
+                                     value="#{sumPromisedBean.entity.year}"
+                                     converter="omnifaces.SelectItemsConverter" >
+                        <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                        <f:selectItems value="#{sumPromisedBean.years}" itemValue="#{y}" var="y" itemLabel="#{y.value}"/>
+                    </p:selectOneMenu>
                 </div>
 
             </div>

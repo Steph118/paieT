@@ -13,7 +13,8 @@ import java.util.Objects;
  * @author steph18
  */
 @Entity
-@Table(name = "sumpromised")
+@Table(name = "sumpromised", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"year_id", "member_id", "loan_id"})})
 public class SumPromised extends BaseEntity {
 
     @Id
@@ -25,7 +26,7 @@ public class SumPromised extends BaseEntity {
     private BigDecimal montant;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "year")
+    @JoinColumn(name = "year_id")
     private Year year;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

@@ -7,38 +7,64 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui"
->
+
+      xmlns:f="jakarta.faces.core">
 
     <ui:composition template="/paie/templates/layout-details.xhtml">
         <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {egliseBean.entityId}"/>
-                            <f:viewAction action="# {egliseBean.initDetails()}"/>
-                        </f:metadata>-->
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{loanBean.entityId}"/>
+                <f:viewAction action="#{loanBean.initDetails()}"/>
+            </f:metadata>
         </ui:define>
 
-        <!--        <ui:param name="crudBean" value="# {egliseBean}"/>-->
+        <ui:param name="crudBean" value="#{loanBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+        <ui:param name="fieldsTitle" value="#{msg['loan.details']}"/>
 
         <ui:define name="list-title">
+            #{msg['loans.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['loan.breadCrumb']}
         </ui:define>
         <ui:define name="fields-content">
             <p:outputPanel>
                 <div class="form-grid grid">
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="label" value="#{msg['label']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="label"
+                                       value="#{loanBean.entity.label}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="montant" value="#{msg['montant']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="montant"
+                                       value="#{loanBean.entity.montant}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="startdate" value="#{msg['loan.list.startdate']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="startdate"
+                                       value="#{loanBean.entity.startDate}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
+                        </p:outputLabel>
+                    </div>
 
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="enddate" value="#{msg['loan.list.enddate']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="enddate"
+                                       value="#{loanBean.entity.endDate}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
+                        </p:outputLabel>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="rembourse" value="#{msg['loan.list.rembourse']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="rembourse"
+                                       value="#{loanBean.entity.rembourse ? msg['yes.label'] : msg['no.label']}"/>
+                    </div>
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="eglise"
+                                       value="#{loanBean.entity.eglise.label}"/>
                     </div>
 
                 </div>

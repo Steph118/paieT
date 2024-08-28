@@ -53,6 +53,11 @@ public class Member extends BaseEntity {
         return String.format("%03d", memberNumber);
     }
 
+    public String fullPersonFromMember() {
+        return this.formatNumberNum()
+                + " - " + this.getPerson().getFullName();
+    }
+
     public Integer getId() {
         return id;
     }

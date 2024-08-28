@@ -7,40 +7,55 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui"
->
+
+      xmlns:f="jakarta.faces.core">
 
     <ui:composition template="/paie/templates/layout-details.xhtml">
         <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {egliseBean.entityId}"/>
-                            <f:viewAction action="# {egliseBean.initDetails()}"/>
-                        </f:metadata>-->
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{sumPromisedBean.entityId}"/>
+                <f:viewAction action="#{sumPromisedBean.initDetails()}"/>
+            </f:metadata>
         </ui:define>
 
-        <!--        <ui:param name="crudBean" value="# {egliseBean}"/>-->
+        <ui:param name="crudBean" value="#{sumPromisedBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+        <ui:param name="fieldsTitle" value="#{msg['promised.list.title']}"/>
 
         <ui:define name="list-title">
+            #{msg['promised.list.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['promised.list.breadCrumb']}
         </ui:define>
         <ui:define name="fields-content">
             <p:outputPanel>
                 <div class="form-grid grid">
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="member" value="#{msg['members.edit.nummember']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="member"
+                                       value="#{sumPromisedBean.entity.member.formatNumberNum()}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="person" value="#{msg['person.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="person"
+                                       value="#{sumPromisedBean.entity.member.person.fullName}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="montant" value="#{msg['montant']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="montant"
+                                       value="#{sumPromisedBean.entity.montant}"/>
                     </div>
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel for="year" value="#{msg['references.annee.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="year"
+                                       value="#{sumPromisedBean.entity.year.value}"/>
                     </div>
-
+                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                        <p:outputLabel for="loan" value="#{msg['loan.title']}"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="loan"
+                                       value="#{sumPromisedBean.entity.loan.label}"/>
+                    </div>
                 </div>
             </p:outputPanel>
         </ui:define>
