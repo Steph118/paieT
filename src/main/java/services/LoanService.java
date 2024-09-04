@@ -6,9 +6,11 @@ package services;
 
 import dao.LoanDao;
 import dao.RepositoryDao;
+import entities.Eglise;
 import entities.Loan;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import java.util.List;
 import service.interfaces.LoanServiceLocal;
 
 /**
@@ -23,6 +25,11 @@ public class LoanService extends GenericServiceLocalImpl<Loan, Integer> implemen
     @Override
     protected RepositoryDao<Loan, Integer> getDAO() {
         return dao;
+    }
+
+    @Override
+    public List<Loan> getLoansByEglise(Eglise eglise) {
+        return this.dao.getLoansByEglise(eglise);
     }
 
 }

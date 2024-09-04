@@ -11,16 +11,15 @@ import entities.Member;
 import entities.SumPromised;
 import entities.Year;
 import jakarta.ejb.EJB;
-import jakarta.enterprise.inject.Default;
 import jakarta.faces.view.ViewScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
-import repository.MemberRepository;
+import java.util.Objects;
 import service.interfaces.DepartmentServiceLocal;
 import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
+import service.interfaces.LoanServiceLocal;
 import service.interfaces.MemberServiceLocal;
 import service.interfaces.SumPromisedServiceLocal;
 import service.interfaces.YearServiceLocal;
@@ -42,9 +41,8 @@ public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
     private MemberServiceLocal memberService;
     @EJB
     private YearServiceLocal yearService;
-
-    @Inject
-    MemberRepository memberRepository;
+    @EJB
+    private LoanServiceLocal loanService;
 
     private Eglise eglise;
     private Department dptment;
@@ -72,13 +70,20 @@ public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
         this.eglise = new Eglise();
         this.years = this.yearService.getAll();
         this.departments = this.departmentService.getAll();
+        this.eglises = this.egliseService.getAll();
     }
 
     public void loadMembers() {
-        this.members = memberRepository.getByEgliseDepartment(eglise, dptment);
+        if (Objects.nonNull(this.eglise) && Objects.nonNull(this.dptment)) {
+            this.members = this.memberService.getByEgliseAndDptmnt(this.eglise, this.dptment);
+        }
     }
 
-    public void loadMembersAndLoans() {
+    public void loadLoansAndMembers() {
+        if (Objects.nonNull(this.eglise)) {
+            this.loans = this.loanService.getLoansByEglise(this.eglise);
+        }
+        this.loadMembers();
     }
 
     @Override

@@ -57,7 +57,7 @@ public class Member extends BaseEntity {
         return this.formatNumberNum()
                 + " - " + this.getPerson().getFullName();
     }
-
+    
     public Integer getId() {
         return id;
     }

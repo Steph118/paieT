@@ -36,7 +36,7 @@
                                      value="#{sumPromisedBean.eglise}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems value="#{sumPromisedBean.eglises}" itemValue="#{e}" var="e" itemLabel="#{e.label}"/>
-                        <p:ajax listener="#{sumPromisedBean.loadMembers()}" update="membre loan"/>
+                        <p:ajax listener="#{sumPromisedBean.loadLoansAndMembers()}" update="loan" process="@this"/>
                     </p:selectOneMenu>
                 </div>
 
@@ -80,7 +80,7 @@
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                     <p:outputLabel value="#{msg['montant']}" for="montant"/>
                     <p:inputText id="montant" class="w-full" placeholder="#{msg['montant.placeholder']}"
-                                 value="#{personBean.sumPromised.montant}"
+                                 value="#{sumPromisedBean.entity.montant}"
                                  required="true" requiredMessage="#{msg['montant.required']}"/>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-4 lg:col-4">

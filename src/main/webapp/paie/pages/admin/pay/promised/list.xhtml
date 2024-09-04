@@ -32,6 +32,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                 <h:outputText value="#{e.member.person.getFullName()}" 
                               />
             </p:column>
+            <p:column style="text-align: start" headerText="#{msg['entites.eglise.title']}" sortBy="#{e.member.eglise.label}" 
+                      filterBy="#{e.member.person.getFullName()}" filterMatchMode="contains" filterPlaceholder="Filter">
+                <h:outputText value="#{e.member.eglise.label}" 
+                              />
+            </p:column>
             <p:column headerText="#{msg['montant']}" sortBy="#{e.montant}" 
                       filterBy="#{e.montant}" filterMatchMode="contains" filterPlaceholder="Filter">
                 <p:outputLabel value="#{e.montant}"/>

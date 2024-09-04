@@ -184,8 +184,14 @@ public class PersonBean extends GenericBean<Person, Integer> {
         this.member = new Member();
         this.sumPromised = new SumPromised();
         this.years = yearService.getAll();
-        //Recuperer en fonction de eglise;
-        this.loans = loanService.getAll();
+        this.loadLoan();
+
+    }
+
+    private void loadLoan() {
+        if (Objects.nonNull(this.entity.getEglise())) {
+            this.loans = loanService.getLoansByEglise(this.entity.getEglise());
+        }
     }
 
     public void addUser() {
@@ -194,8 +200,9 @@ public class PersonBean extends GenericBean<Person, Integer> {
     }
 
     public void loadChurcheSelected() {
-        if (!updating) {
+        if (addMember) {
             this.entity.getEglise().getLabel();
+            this.loadLoan();
         }
     }
 

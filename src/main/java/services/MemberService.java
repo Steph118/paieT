@@ -6,6 +6,7 @@ package services;
 
 import dao.MemberDao;
 import dao.RepositoryDao;
+import entities.Department;
 import entities.Eglise;
 import entities.Member;
 import entities.Person;
@@ -55,6 +56,11 @@ public class MemberService extends GenericServiceLocalImpl<Member, Integer>
     @Override
     public int updateEglise(Person p, Integer num) {
         return this.dao.updateEglise(p, num);
+    }
+
+    @Override
+    public List<Member> getByEgliseAndDptmnt(Eglise e, Department d) {
+        return this.dao.getByEgliseAndDptmnt(e, d);
     }
 
 }

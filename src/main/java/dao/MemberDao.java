@@ -4,10 +4,13 @@
  */
 package dao;
 
+import entities.Department;
 import entities.Eglise;
+import entities.Locality;
 import entities.Member;
 import entities.Person;
 import jakarta.ejb.Stateless;
+import java.util.List;
 
 /**
  * @author steph18
@@ -48,5 +51,15 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
                 .setParameter("num", num)
                 .setParameter("p", p)
                 .executeUpdate();
+    }
+
+    public List<Member> getByEgliseAndDptmnt(Eglise eglise, Department dptmnt) {
+        String jpql = """ 
+                      SELECT e FROM Member e WHERE e.eglise = :eglise AND e.person.department = :dptmnt
+                      """;
+        return this.em.createQuery(jpql)
+                .setParameter("eglise", eglise)
+                .setParameter("dptmnt", dptmnt)
+                .getResultList();
     }
 }

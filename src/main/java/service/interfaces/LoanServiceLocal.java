@@ -4,12 +4,16 @@
  */
 package service.interfaces;
 
+import entities.Eglise;
 import entities.Loan;
 import jakarta.ejb.Local;
+import java.util.List;
 
 /**
  * @author steph18
  */
 @Local
 public interface LoanServiceLocal extends GenericServiceLocal<Loan, Integer> {
+
+    public List<Loan> getLoansByEglise(Eglise eglise);
 }

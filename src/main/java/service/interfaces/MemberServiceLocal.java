@@ -4,10 +4,12 @@
  */
 package service.interfaces;
 
+import entities.Department;
 import entities.Eglise;
 import entities.Member;
 import entities.Person;
 import jakarta.ejb.Local;
+import java.util.List;
 
 /**
  * @author steph18
@@ -22,4 +24,6 @@ public interface MemberServiceLocal extends GenericServiceLocal<Member, Integer>
     Integer genererNumeroMembre(Eglise e);
 
     int updateEglise(Person p, Integer num);
+
+    List<Member> getByEgliseAndDptmnt(Eglise e, Department d);
 }

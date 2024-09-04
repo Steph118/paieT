@@ -4,8 +4,10 @@
  */
 package dao;
 
+import entities.Eglise;
 import entities.Loan;
 import jakarta.ejb.Stateless;
+import java.util.List;
 
 /**
  * @author steph18
@@ -15,6 +17,16 @@ public class LoanDao extends RepositoryDao<Loan, Integer> {
 
     public LoanDao() {
         super(Loan.class);
+    }
+
+    public List<Loan> getLoansByEglise(Eglise eglise) {
+        String jpql = """ 
+                      SELECT e FROM Loan e WHERE e.eglise = :eglise
+                      """;
+        return this.em.createQuery(jpql)
+                .setParameter("eglise", eglise)
+                .getResultList();
+
     }
 
 }
