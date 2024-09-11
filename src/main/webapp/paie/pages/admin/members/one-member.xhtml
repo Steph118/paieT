@@ -1,0 +1,109 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="jakarta.faces.html"
+    xmlns:f="jakarta.faces.core">
+    <p:fieldset id="addMember2">
+        <div class="form-grid grid ui-fluid">
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="eglise2" value="#{msg['entites.eglise.title']}"/>
+                <p:selectOneMenu id="eglise2" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 requiredMessage="#{msg['members.edit.eglise.required']}"
+                                 value="#{memberBean.entity.eglise}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{memberBean.eglises}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                    <p:ajax update="person2 loan" listener="#{memberBean.listPersons()}" process="eglise2"/>
+                </p:selectOneMenu>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="dpt2" value="#{msg['departement.title']}"/>
+                <p:selectOneMenu id="dpt2" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter"
+                                 value="#{memberBean.department}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{memberBean.departments}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                    <p:ajax update="person2" listener="#{memberBean.listPersons()}" process="dpt2"/>
+                </p:selectOneMenu>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="sexe2" value="#{msg['references.sexe.title']}"/>
+                <p:selectOneMenu id="sexe2" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter"
+                                 value="#{memberBean.sexe}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{memberBean.sexes}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
+                    <p:ajax update="person2" listener="#{memberBean.listPersons()}" process="sexe2"/>
+                </p:selectOneMenu>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel for="person2" value="#{msg['person.title']}"/>
+                <p:selectOneMenu id="person2" class="w-full" filterMatchMode="startsWith" required="true"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 requiredMessage="#{msg['members.edit.person.required']}"
+                                 converter="omnifaces.SelectItemsConverter" value="#{memberBean.entity.person}"
+                                 dynamic="true"
+                                 >
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{memberBean.persons}" itemValue="#{p}" var="p" itemLabel="#{p.getFullName()}"/>
+
+                </p:selectOneMenu>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel value="#{msg['members.edit.nummember']}" for="numMember"/>
+                <div class="ui-inputgroup">
+                    <p:inputText id="numMember2" class="w-full"
+                                 value="#{memberBean.entity.memberNumber}"
+                                 disabled="true"/>
+                    <p:commandButton id="generer2" icon="#{!memberBean.customizeNumMember ? 'pi pi-home' : 'pi pi-save'}" 
+                                     ajax="false" disabled="true"
+                                     class="ui-inputgroup-addon" style="height: 32px; padding-top: 1px;">
+                        <p:ajax update="numMember2 generer2 editForm:datafield2" process="generer2" listener="#{memberBean.toCustomizeNumMember()}"/>
+                    </p:commandButton>
+                </div>
+            </div>
+        </div>
+    </p:fieldset>
+
+    <p:fieldset  class="mt-3">
+        <div style="text-align: start">
+            <h5>
+                <h:outputText value="Promesse de montant" class="text-1xl bold"/>
+            </h5>
+        </div>
+        <div class="form-grid grid ui-fluid">
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel for="loan" value="#{msg['loan.title']}"/>
+                <p:selectOneMenu id="loan" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                 filter="true" filterPlaceholder="#{msg['search']}" required="true"
+                                 requiredMessage="#{msg['persons.edit.member.loan']}"
+                                 value="#{memberBean.sumPromised.loan}"
+                                 converter="omnifaces.SelectItemsConverter">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{memberBean.loans}" itemValue="#{l}" var="l" itemLabel="#{l.label}"/>
+                </p:selectOneMenu>
+            </div>
+            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+                <p:outputLabel value="#{msg['montant']}" for="montant"/>
+                <p:inputText id="montant" class="w-full" placeholder="#{msg['montant.placeholder']}"
+                             value="#{memberBean.sumPromised.montant}"
+                             required="true" requiredMessage="#{msg['montant.required']}"/>
+            </div>
+            <div class="field col-12">
+                <p:outputLabel for="year" value="#{msg['references.annees.title']}"/>
+                <p:selectOneMenu id="year" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                 filter="true" filterPlaceholder="#{msg['search']}" required="true"
+                                 requiredMessage="#{msg['persons.edit.member.year']}"
+                                 value="#{memberBean.sumPromised.year}"
+                                 converter="omnifaces.SelectItemsConverter" >
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems value="#{memberBean.years}" itemValue="#{y}" var="y" itemLabel="#{y.value}"/>
+                </p:selectOneMenu>
+            </div>
+        </div>
+    </p:fieldset>
+</ui:composition>

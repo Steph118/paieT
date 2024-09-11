@@ -3,7 +3,8 @@
 <html
     xmlns:ui="jakarta.faces.facelets"
     xmlns:f="jakarta.faces.core"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="jakarta.faces.html">
     <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
@@ -26,127 +27,44 @@
             #{msg['members.breadCrumb']}
         </ui:define>
         <ui:define name="fields">
-            <p:fieldset legend="#{fieldsTitle}">
-                <p:fieldset id="addMember">
-                    <div class="form-grid grid ui-fluid">
-                        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                            <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
-                            <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             converter="omnifaces.SelectItemsConverter" required="true"
-                                             value="#{memberBean.entity.eglise}">
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.eglises}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
-                                <p:ajax update="person" listener="#{memberBean.listPersons()}" process="eglise"/>
-                            </p:selectOneMenu>
-                        </div>
-                        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                            <p:outputLabel for="dpt" value="#{msg['departement.title']}"/>
-                            <p:selectOneMenu id="dpt" class="w-full" filterMatchMode="startsWith"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             converter="omnifaces.SelectItemsConverter"
-                                             value="#{memberBean.department}">
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.departments}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
-                                <p:ajax update="person" listener="#{memberBean.listPersons()}" process="dpt"/>
-                            </p:selectOneMenu>
-                        </div>
-
-                        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                            <p:outputLabel for="sexe" value="#{msg['references.sexe.title']}"/>
-                            <p:selectOneMenu id="sexe" class="w-full" filterMatchMode="startsWith"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             converter="omnifaces.SelectItemsConverter"
-                                             value="#{memberBean.sexe}">
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.sexes}" itemValue="#{s}" var="s" itemLabel="#{s.label}"/>
-                                <p:ajax update="person" listener="#{memberBean.listPersons()}" process="sexe"/>
-                            </p:selectOneMenu>
-                        </div>
-
-                        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                            <p:outputLabel for="person" value="#{msg['person.title']}"/>
-                            <p:selectOneMenu id="person" class="w-full" filterMatchMode="startsWith" required="true"
-                                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                             requiredMessage="#{msg['members.edit.person.required']}"
-                                             converter="omnifaces.SelectItemsConverter" value="#{memberBean.entity.person}"
-                                             dynamic="true"
-                                             >
-                                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                                <f:selectItems value="#{memberBean.persons}" itemValue="#{p}" var="p" itemLabel="#{p.getFullName()}"/>
-
-                            </p:selectOneMenu>
-                        </div>
-                        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                            <p:outputLabel value="#{msg['members.edit.nummember']}" for="numMember"/>
-                            <div class="ui-inputgroup">
-                                <p:inputText id="numMember" class="w-full"
-                                             value="#{memberBean.entity.memberNumber}"
-                                             disabled="true"/>
-                                <p:commandButton id="generer" icon="#{!memberBean.customizeNumMember ? 'pi pi-home' : 'pi pi-save'}" 
-                                                 ajax="false" disabled="true"
-                                                 class="ui-inputgroup-addon" style="height: 32px; padding-top: 1px;">
-                                    <p:ajax update="numMember generer editForm:datafield" process="generer" listener="#{memberBean.toCustomizeNumMember()}"/>
-                                </p:commandButton>
-                            </div>
-                        </div>
-
-
-                        <ui:fragment rendered="#{!memberBean.updating}">
-                            <div class="p-2 field">
-                                <p:commandButton value="addmember" icon="pi pi-plus" process="addMember" 
-                                                 action="#{memberBean.addMemberToList()}"
-                                                 update="addMember data save"/>
-                            </div>
-                        </ui:fragment>
+            <p:fieldset legend="#{fieldsTitle}" id="form">
+                <ui:fragment rendered="#{!memberBean.updating}">
+                    <div class="mb-4 mt-2">
+                        <p:selectBooleanButton value="#{memberBean.addManyMember}" onLabel="Ajouter des membres"
+                                               offLabel="Ajouter un membre avec promesses">
+                            <p:ajax update="form btn-grup" listener="#{memberBean.initSumPromised()}"/>
+                        </p:selectBooleanButton>
                     </div>
-                </p:fieldset>
-
-                <p:fieldset class="mt-3" rendered="#{!memberBean.updating}">
-                    <div class="form-grid grid ui-fluid">
-                        <p:dataTable value="#{memberBean.members}" var="m" paginator="true"
-                                     rowKey="#{m.person.id}" rows="5" id="data">
-                            <!--                            <p:column headerText="# {msg['members.edit.nummember']}">
-                                                            <p:outputLabel value="# {m.memberNumber}"/>
-                                                        </p:column>-->
-                            <p:column headerText="#{msg['person.title']}">
-                                <p:outputLabel value="#{m.person.fullName}"/>
-                            </p:column>
-                            <p:column headerText="#{msg['entites.eglise.title']}">
-                                <p:outputLabel value="#{m.eglise.label}"/>
-                            </p:column>
-                            <p:column headerText="Opérations" style="text-align: center">
-                                <div class="flex align-items-center justify-content-center">
-                                    <ui:insert name="operations-btn">
-                                        <p:tooltip value="#{msg['edit']}" for="editButton" position="top"/>
-                                        <p:commandButton id="editButton" class="ui-button-primary m-1" 
-                                                         update="editForm:addMember data editForm:save" process="editButton" 
-                                                         disabled="#{memberBean.updateIntoList}"
-                                                         icon="fa fa-edit" action="#{memberBean.updateMemberToList(m)}"/>
-
-                                        <p:tooltip value="#{msg['delete']}" for="deleteButton" position="top"/>
-                                        <p:commandButton id="deleteButton" class="ui-button-danger m-1" 
-                                                         update="data editForm:save" process="deleteButton"
-                                                         icon="pi pi-trash" action="#{memberBean.removeMemberToList(m)}"/>
-                                    </ui:insert>
-                                </div>
-                            </p:column>
-                        </p:dataTable>
-                    </div>
-                </p:fieldset> 
+                </ui:fragment>
+                <ui:fragment rendered="#{memberBean.addManyMember}">
+                    <ui:include src="many-members.xhtml"/>
+                </ui:fragment>
+                <ui:fragment rendered="#{!memberBean.addManyMember}">
+                    <ui:include src="one-member.xhtml"/>
+                </ui:fragment>
             </p:fieldset>
         </ui:define>
 
         <ui:define name="saveBtn">
-            <p:commandButton id="save" value="#{msg['save.button']}" icon="fa fa-save"
-                             class="ui-button-primary" process="save data"
-                             actionListener="#{memberBean.beforeSave()}"
-                             action="#{memberBean.save()}" 
-                             disabled="#{empty memberBean.members or memberBean.members==null}"
-                             rendered="#{!memberBean.isUpdating()}">
-                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
-                           message="#{msg['confirmer.placeholder']}"/>
-            </p:commandButton>
+            <h:panelGroup id="btn-grup">
+                <p:commandButton id="save" value="#{msg['save.button']}" icon="fa fa-save"
+                                 class="ui-button-primary" process="save data"
+                                 actionListener="#{memberBean.beforeSave()}"
+                                 action="#{memberBean.save()}" 
+                                 rendered="#{memberBean.addManyMember and !memberBean.updating}"
+                                 disabled="#{empty memberBean.members || memberBean.members == null}">
+                    <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                               message="#{msg['confirmer.placeholder']}"/>
+                </p:commandButton>
+                <p:commandButton id="save2" value="#{msg['save.button']}" icon="fa fa-save"
+                                 class="ui-button-primary"
+                                 rendered="#{!memberBean.addManyMember and !memberBean.updating}"
+                                 actionListener="#{memberBean.beforeSave()}"
+                                 action="#{memberBean.save()}" >
+                    <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                               message="#{msg['confirmer.placeholder']}"/>
+                </p:commandButton>
+            </h:panelGroup>
         </ui:define>
     </ui:composition>
 </html>

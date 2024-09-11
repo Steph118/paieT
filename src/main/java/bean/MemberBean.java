@@ -6,24 +6,30 @@ package bean;
 
 import entities.Department;
 import entities.Eglise;
+import entities.Loan;
 import entities.Member;
 import entities.Person;
 import entities.Sexe;
+import entities.SumPromised;
+import entities.Year;
 import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 import org.omnifaces.util.Messages;
 import service.interfaces.DepartmentServiceLocal;
 import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
+import service.interfaces.LoanServiceLocal;
 import service.interfaces.MemberServiceLocal;
 import service.interfaces.PersonServiceLocal;
 import service.interfaces.SexeServiceLocal;
+import service.interfaces.YearServiceLocal;
 
 /**
  * @author steph18
@@ -42,21 +48,38 @@ public class MemberBean extends GenericBean<Member, Integer> {
     private DepartmentServiceLocal departmentService;
     @EJB
     private SexeServiceLocal sexeService;
+    @EJB
+    private LoanServiceLocal loanService;
+    @EJB
+    private YearServiceLocal yearService;
 
     private Sexe sexe;
     private Department department;
     private boolean updateIntoList;
     private boolean customizeNumMember;
     private int previousMemberId;
+    private SumPromised sumPromised;
+
     private List<Person> persons = new ArrayList<>();
     private List<Sexe> sexes = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
     private List<Eglise> eglises = new ArrayList<>();
     private List<Member> members = new ArrayList<>();
+    private List<Loan> loans = new ArrayList<>();
+    private List<Year> years = new ArrayList<>();
+    private List<SumPromised> sums = new ArrayList<>();
+
+    private boolean addManyMember = true;
 
     @Override
     public GenericServiceLocal<Member, Integer> getService() {
         return memberService;
+    }
+
+    @Override
+    public void beforeSave() {
+        if (!this.addManyMember) {
+        }
     }
 
     @Override
@@ -65,6 +88,20 @@ public class MemberBean extends GenericBean<Member, Integer> {
         this.eglises = this.egliseService.getAll();
         this.departments = this.departmentService.getAll();
         this.sexes = this.sexeService.getAll();
+    }
+
+    public void initSumPromised() {
+        if (!addManyMember) {
+            this.sumPromised = new SumPromised();
+            this.years = yearService.getAll();
+            this.loadLoan();
+        }
+    }
+
+    private void loadLoan() {
+        if (Objects.nonNull(this.entity.getEglise())) {
+            this.loans = loanService.getLoansByEglise(this.entity.getEglise());
+        }
     }
 
     @Override
@@ -115,6 +152,9 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     public void listPersons() {
         this.persons = this.personService.getPersonsNotMember(this.entity.getEglise(), this.department, this.sexe);
+        if (!addManyMember) {
+            this.loadLoan();
+        }
     }
 
     @Override
@@ -219,6 +259,46 @@ public class MemberBean extends GenericBean<Member, Integer> {
 
     public void setCustomizeNumMember(boolean customizeNumMember) {
         this.customizeNumMember = customizeNumMember;
+    }
+
+    public boolean isAddManyMember() {
+        return addManyMember;
+    }
+
+    public void setAddManyMember(boolean addManyMember) {
+        this.addManyMember = addManyMember;
+    }
+
+    public SumPromised getSumPromised() {
+        return sumPromised;
+    }
+
+    public void setSumPromised(SumPromised sumPromised) {
+        this.sumPromised = sumPromised;
+    }
+
+    public List<Loan> getLoans() {
+        return loans;
+    }
+
+    public void setLoans(List<Loan> loans) {
+        this.loans = loans;
+    }
+
+    public List<Year> getYears() {
+        return years;
+    }
+
+    public void setYears(List<Year> years) {
+        this.years = years;
+    }
+
+    public List<SumPromised> getSums() {
+        return sums;
+    }
+
+    public void setSums(List<SumPromised> sums) {
+        this.sums = sums;
     }
 
 }

@@ -49,6 +49,10 @@ public class Member extends BaseEntity {
         this.sumPromiseds.add(s);
     }
 
+    public void removeSumPromised(SumPromised s) {
+        this.sumPromiseds.remove(s);
+    }
+
     public String formatNumberNum() {
         return String.format("%03d", memberNumber);
     }
@@ -57,7 +61,7 @@ public class Member extends BaseEntity {
         return this.formatNumberNum()
                 + " - " + this.getPerson().getFullName();
     }
-    
+
     public Integer getId() {
         return id;
     }

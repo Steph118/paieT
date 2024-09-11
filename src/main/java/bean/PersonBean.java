@@ -38,7 +38,6 @@ import service.interfaces.MemberServiceLocal;
 import service.interfaces.PersonServiceLocal;
 import service.interfaces.RoleServiceLocal;
 import service.interfaces.SexeServiceLocal;
-import service.interfaces.SumPromisedServiceLocal;
 import service.interfaces.TypeLocalityServiceLocal;
 import service.interfaces.YearServiceLocal;
 

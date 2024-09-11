@@ -99,8 +99,18 @@ public class SumPromised extends BaseEntity {
             return false;
         }
         final SumPromised other = (SumPromised) obj;
-        return Objects.equals(this.id, other.id);
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.year, other.year)) {
+            return false;
+        }
+        if (!Objects.equals(this.member, other.member)) {
+            return false;
+        }
+        return Objects.equals(this.loan, other.loan);
     }
+
 
     @Override
     public String toString() {
