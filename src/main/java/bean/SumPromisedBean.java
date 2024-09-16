@@ -10,6 +10,7 @@ import entities.Loan;
 import entities.Member;
 import entities.SumPromised;
 import entities.Year;
+import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
@@ -17,7 +18,9 @@ import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
 
+import org.omnifaces.util.Messages;
 import service.interfaces.DepartmentServiceLocal;
 import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
@@ -83,6 +86,30 @@ public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
             this.dptment = this.entity.getMember().getPerson().getDepartment();
         }
         this.loadLoansAndMembers();
+    }
+
+    @Override
+    public String save() {
+        try {
+            logger.log(Level.INFO, "GenericBean Save...");
+            this.getService().save(this.entity);
+            Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
+            this.logger.log(Level.INFO, "Enregistrement de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
+            return cancel();
+        } catch (BusinessException ex) {
+            Messages.addGlobalError(ex.getMessage());
+            this.logger.log(Level.SEVERE, ex.getMessage(), ex);
+            return null;
+        } catch (RuntimeException e) {
+            Messages.addFlashGlobalError("La promesse faite pour ce credit dans l'année "+ this.entity.getYear().getValue() +" existe dejà");
+            logger.log(Level.SEVERE, e.getMessage(), e);
+            return null;
+        }
+        catch (Exception ex) {
+            Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
+            this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet: " + this.entity);
+            return null;
+        }
     }
 
     public void loadMembers() {
