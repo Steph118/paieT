@@ -40,23 +40,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                       filterBy="#{e.label}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
                 <p:outputLabel value="#{e.label}"/>
             </p:column>
-            <p:column headerText="#{msg['montant']}" sortBy="#{e.montant}" 
+            <p:column headerText="#{msg['montant']}" sortBy="#{e.montant}" style="text-align: center"
                       filterBy="#{e.montant}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
-                <p:outputLabel value="#{e.montant}"/>
+                <p:outputLabel value="#{appUtilsBeans.numberFormat(e.montant)}"/>
             </p:column>
-            <p:column headerText="#{msg['loan.list.startdate']}" sortBy="#{e.startDate}" 
+            <p:column headerText="#{msg['loan.list.startdate']}" sortBy="#{e.startDate}" style="text-align: center"
                       filterBy="#{e.startDate}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
                 <p:outputLabel value="#{e.startDate}">
                     <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
                 </p:outputLabel>
             </p:column>
-            <p:column headerText="#{msg['loan.list.enddate']}" sortBy="#{e.endDate}" 
+            <p:column headerText="#{msg['loan.list.enddate']}" sortBy="#{e.endDate}" style="text-align: center"
                       filterBy="#{e.endDate}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
                 <p:outputLabel value="#{e.endDate}">
                     <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
                 </p:outputLabel>
             </p:column>
-            <p:column style="text-align: start" headerText="#{msg['loan.list.rembourse']}" sortBy="#{e.rembourse}" 
+            <p:column style="text-align: center" headerText="#{msg['loan.list.rembourse']}" sortBy="#{e.rembourse}"
                       filterBy="#{e.rembourse}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
                 <p:badge value="#{e.rembourse ? msg['yes.label'] : msg['no.label']}" severity="#{e.rembourse ? 'success' : 'danger'}"
                                />

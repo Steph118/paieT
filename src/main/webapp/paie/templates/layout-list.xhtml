@@ -25,7 +25,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                         <div>
                             <p:toolbar>
                                 <p:toolbarGroup>
-                                    <p:button outcome="edit?faces-redirect=true" value="Nouveau" icon="pi pi-plus"
+                                    <p:button outcome="edit?faces-redirect=true" value="#{msg['nouveau']}" icon="pi pi-plus"
                                               rendered="#{crudBean.canAdd()}"
                                               styleClass="ui-button-success sm:m-2 m-2 lg:mr-1 md:mr-1"/>
 
@@ -110,7 +110,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                                                     <f:param name="entityId" value="#{e.id}"/>
                                                 </p:button>
 
-                                                <p:tooltip value="#{msg['details']}" for="detailsButton" position="top"/>
+                                                <p:tooltip value="#{msg['details.button']}" for="detailsButton" position="top"/>
                                                 <p:button id="detailsButton" class="ui-button-success m-1"
                                                           icon="pi pi-info-circle" rendered="#{crudBean.canDetails()}"
                                                           outcome="details.xhtml" includeViewParams="true">

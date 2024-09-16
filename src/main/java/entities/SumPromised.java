@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import utils.AppUtils;
+
 import java.math.BigDecimal;
 
 import java.util.Objects;
@@ -110,7 +112,6 @@ public class SumPromised extends BaseEntity {
         }
         return Objects.equals(this.loan, other.loan);
     }
-
 
     @Override
     public String toString() {

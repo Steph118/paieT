@@ -40,10 +40,10 @@ public class Person extends BaseEntity {
     @Column(name = "mail", unique = true)
     private String mail;
 
-    @Column(name = "phone_code", nullable = false)
+    @Column(name = "phone_code", nullable = true)
     private String phoneCode;
 
-    @Column(name = "telephone", nullable = false)
+    @Column(name = "telephone", nullable = true)
     private String telephone;
 
     @OneToOne(optional = true)

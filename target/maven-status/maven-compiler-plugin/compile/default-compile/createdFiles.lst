@@ -48,6 +48,7 @@ dao/RepositoryDao.class
 dao/YearDao.class
 dao/EntiteDao.class
 bean/GenericBean.class
+repository/SumPromisedRepository.class
 service/interfaces/MemberServiceLocal.class
 service/interfaces/SumContributorServiceLocal.class
 bean/EgliseBean.class
@@ -57,6 +58,7 @@ domains/audit/LoggedUser.class
 bean/LoanBean.class
 services/EgliseService.class
 entities/Payment.class
+repository/MemberRepository.class
 bean/MemberBean.class
 dao/SumPromisedDao.class
 entities/Role.class

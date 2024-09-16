@@ -44,6 +44,12 @@ public class MemberService extends GenericServiceLocalImpl<Member, Integer>
     }
 
     @Override
+    public void save(Member e) {
+        e.setMemberNumber(this.genererNumeroMembre(e));
+        this.dao.save(e);
+    }
+
+    @Override
     public Integer genererNumeroMembre(Member m) {
         return this.dao.genererNumeroMembre(m.getEglise());
     }

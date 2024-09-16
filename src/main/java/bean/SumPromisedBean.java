@@ -13,9 +13,11 @@ import entities.Year;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import service.interfaces.DepartmentServiceLocal;
 import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
@@ -61,16 +63,26 @@ public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
     @Override
     public void initAdd() {
         this.entity = new SumPromised();
+        this.dptment = new Department();
+        this.eglise = new Eglise();
     }
 
     @Override
     public void initEntity() {
         super.initEntity();
-        this.dptment = new Department();
-        this.eglise = new Eglise();
         this.years = this.yearService.getAll();
         this.departments = this.departmentService.getAll();
         this.eglises = this.egliseService.getAll();
+    }
+
+    @Override
+    public void loadEntity() {
+        super.loadEntity();
+        if (this.entity != null) {
+            this.eglise = this.entity.getMember().getEglise();
+            this.dptment = this.entity.getMember().getPerson().getDepartment();
+        }
+        this.loadLoansAndMembers();
     }
 
     public void loadMembers() {

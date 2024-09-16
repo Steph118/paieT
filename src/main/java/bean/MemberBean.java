@@ -79,6 +79,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
     @Override
     public void beforeSave() {
         if (!this.addManyMember) {
+            this.entity.addSumPromised(sumPromised);
         }
     }
 
@@ -161,7 +162,11 @@ public class MemberBean extends GenericBean<Member, Integer> {
     public String save() {
         try {
             logger.log(Level.INFO, "MemberBean Save...");
-            this.memberService.saveAll(this.members);
+            if (addManyMember) {
+                this.memberService.saveAll(this.members);
+            } else {
+                this.memberService.save(this.entity);
+            }
             Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
             this.logger.info("Enregistrement effectué");
             return cancel();

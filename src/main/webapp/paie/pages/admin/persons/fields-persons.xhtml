@@ -78,7 +78,7 @@
                         <p:selectOneMenu class="ui-inputgroup-addon lg:w-4 md:w-8 sm:w-5 w-5" filter="true"
                                          filterMatchMode="contains" value="#{personBean.entity.phoneCode}"
                                          style="height: 32px; padding-top: 1px;"
-                                         id="phoneCode" converter="omnifaces.SelectItemsConverter" required="true"
+                                         id="phoneCode" converter="omnifaces.SelectItemsConverter"
                                          requiredMessage="#{msg['phonecode.required']}">
                             <f:selectItem itemLabel="#{msg['choice-label']}"/>
                             <f:selectItems value="#{personBean.countries}" var="p" itemValue="#{p.phoneCode}"
@@ -87,7 +87,7 @@
                         <p:inputText id="contact" class="w-full"
                                      placeholder="#{msg['contact.edit']}"
                                      value="#{personBean.entity.telephone}"
-                                     required="true" requiredMessage="#{msg['contact.required']}"/>
+                                     requiredMessage="#{msg['contact.required']}"/>
                     </div>
                 </div>
 

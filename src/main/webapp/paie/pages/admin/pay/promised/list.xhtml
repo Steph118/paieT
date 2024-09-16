@@ -37,9 +37,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
                 <h:outputText value="#{e.member.eglise.label}" 
                               />
             </p:column>
+            <p:column style="text-align: start" headerText="#{msg['departement.title']}" sortBy="#{e.member.person.department}"
+                      filterBy="#{e.member.person.department.label}" filterMatchMode="contains" filterPlaceholder="Filter">
+                <h:outputText value="#{e.member.person.department.label}"
+                />
+            </p:column>
             <p:column headerText="#{msg['montant']}" sortBy="#{e.montant}" 
                       filterBy="#{e.montant}" filterMatchMode="contains" filterPlaceholder="Filter">
-                <p:outputLabel value="#{e.montant}"/>
                 <p:outputLabel value="#{appUtilsBeans.numberFormat(e.montant)}"/>
 
             </p:column>

@@ -17,13 +17,7 @@ import java.text.NumberFormat;
 @Named
 @ViewScoped
 public class AppUtilsBeans implements Serializable {
-
-    public String numberFormat(BigDecimal somme) {
-        NumberFormat numberFormat = NumberFormat.getInstance();
-        try {
-            return (somme != null) ? numberFormat.format(somme) : "";
-        } catch (Exception e) {
-            return "";
-        }
+    public String numberFormat(BigDecimal montant) {
+        return AppUtils.formatNumber(montant);
     }
 }
