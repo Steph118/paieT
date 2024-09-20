@@ -21,7 +21,7 @@ public class User extends BaseEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     @Column(name = "password", nullable = false)
@@ -40,8 +40,15 @@ public class User extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles;
-    
+
     public User() {
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.actif = true;
+        this.changePassword = true;
     }
 
     public Integer getId() {

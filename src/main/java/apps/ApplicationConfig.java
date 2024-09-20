@@ -5,7 +5,7 @@
 package apps;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Named;
+import jakarta.faces.annotation.FacesConfig;
 import jakarta.security.enterprise.authentication.mechanism.http.CustomFormAuthenticationMechanismDefinition;
 import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue;
 import jakarta.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
@@ -23,24 +23,25 @@ import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
         )
 )
 @DatabaseIdentityStoreDefinition(
-        dataSourceLookup = "java:app/jdbc/paie",
+        dataSourceLookup = "${'java:app/jdbc/paie'}",
         callerQuery = "select password from users where username = ?",
-        groupsQuery = "select libelle from roles where id IN (select role_id from users_roles where user_id = (select id from users where username = ? ))",
+        groupsQuery = "select label from roles where id IN (select role_id from users_roles where user_id = (select id from users where username = ? ))",
         hashAlgorithm = Pbkdf2PasswordHash.class,
         priority = 100,
         hashAlgorithmParameters = {
             "Pbkdf2PasswordHash.Iterations=3072",
-            "${applicationConfig.hash}"
+            "Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512",
+            "Pbkdf2PasswordHash.SaltSizeBytes=64"
         }
 )
 @ApplicationScoped
-@Named
+@FacesConfig
 public class ApplicationConfig {
 
-    public String[] getHash() {
-        return new String[]{
-            "Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512",
-            "Pbkdf2PasswordHash.SaltSizeBytes=64"};
-    }
+//    public String[] getHash() {
+//        return new String[]{
+//            "Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512",
+//            "Pbkdf2PasswordHash.SaltSizeBytes=64"};
+//    }
 
 }

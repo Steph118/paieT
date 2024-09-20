@@ -2,24 +2,24 @@ package bean;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import jakarta.security.enterprise.credential.Credential;
-import jakarta.security.enterprise.credential.Password;
+import jakarta.security.enterprise.AuthenticationStatus;
+import jakarta.security.enterprise.SecurityContext;
+import jakarta.security.enterprise.authentication.mechanism.http.AuthenticationParameters;
 import jakarta.security.enterprise.credential.UsernamePasswordCredential;
-import jakarta.security.enterprise.identitystore.CredentialValidationResult;
-import jakarta.security.enterprise.identitystore.IdentityStoreHandler;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotNull;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Named
 @RequestScoped
 public class AuthenticationBean {
-
-    @Inject
-    private IdentityStoreHandler identityStoreHandler;
 
     @NotNull
     private String username;
@@ -27,25 +27,43 @@ public class AuthenticationBean {
     @NotNull
     private String password;
 
-    public void login() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        Credential credential = new UsernamePasswordCredential(username, new Password(password));
-        CredentialValidationResult cres = identityStoreHandler.validate(credential);
+    @Inject
+    private FacesContext facesContext;
 
-        if (cres.getStatus().equals(CredentialValidationResult.Status.VALID)) {
-            context.responseComplete();
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Authentication Successful", null));
-        } else if (cres.getStatus().equals(CredentialValidationResult.Status.INVALID)) {
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Authentication Failure", null));
+    @Inject
+    private ExternalContext externalContext;
+
+    @Inject
+    private SecurityContext securityContext;
+
+    public void login() {
+        switch (continueAuthentication()) {
+            case SEND_CONTINUE ->
+                facesContext.responseComplete();
+            case SEND_FAILURE ->
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", null));
+            case SUCCESS -> {
+                try {
+                    facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Login succeed", null));
+                    externalContext.redirect(externalContext.getRequestContextPath() + "/index.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(AuthenticationBean.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            case NOT_DONE -> {
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "NOT DONE", null));
+            }
         }
     }
 
-    private static HttpServletResponse getResponse(FacesContext context) {
-        return (HttpServletResponse) context.getExternalContext().getResponse();
-    }
-
-    private static HttpServletRequest getRequest(FacesContext context) {
-        return (HttpServletRequest) context.getExternalContext().getRequest();
+    private AuthenticationStatus continueAuthentication() {
+        return securityContext.authenticate(
+                (HttpServletRequest) externalContext.getRequest(),
+                (HttpServletResponse) externalContext.getResponse(),
+                AuthenticationParameters.withParams()
+                        .newAuthentication(true)
+                        .credential(new UsernamePasswordCredential(username, password)));
     }
 
     public String getUsername() {
@@ -63,5 +81,5 @@ public class AuthenticationBean {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }

@@ -79,7 +79,10 @@
             <url-pattern>/index.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>user</role-name>
+            <role-name>root</role-name>
         </auth-constraint>
     </security-constraint>
+    <security-role>
+        <role-name>root</role-name>
+    </security-role>
 </web-app>

@@ -12,4 +12,6 @@ import jakarta.ejb.Local;
  */
 @Local
 public interface UserServiceLocal extends GenericServiceLocal<User, Integer> {
+
+    String hashPassword(String password);
 }
