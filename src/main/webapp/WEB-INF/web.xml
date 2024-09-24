@@ -24,9 +24,7 @@
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>10</session-timeout>
     </session-config>
     <mime-mapping>
         <extension>ttf</extension>
@@ -72,17 +70,35 @@
         <extension>svg#fontawesomeregular</extension>
         <mime-type>image/svg+xml</mime-type>
     </mime-mapping>
+    
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>User pages</web-resource-name>
+            <web-resource-name>Admin pages</web-resource-name>
+            <url-pattern>/paie/pages/admin/references/*</url-pattern>
+            <url-pattern>/paie/pages/admin/roles/*</url-pattern>
+            <url-pattern>/paie/pages/admin/users/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Root</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Agent pages</web-resource-name>
             <url-pattern>/paie/*</url-pattern>
             <url-pattern>/index.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>root</role-name>
+            <role-name>Agent</role-name>
+            <role-name>Root</role-name>
         </auth-constraint>
     </security-constraint>
+    
     <security-role>
-        <role-name>root</role-name>
+        <role-name>Root</role-name>
+    </security-role>
+    <security-role>
+        <role-name>Agent</role-name>
     </security-role>
 </web-app>

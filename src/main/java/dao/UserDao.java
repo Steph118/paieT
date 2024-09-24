@@ -6,6 +6,10 @@ package dao;
 
 import entities.User;
 import jakarta.ejb.Stateless;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author steph18
@@ -15,6 +19,25 @@ public class UserDao extends RepositoryDao<User, Integer> {
 
     public UserDao() {
         super(User.class);
+    }
+
+    public Set<String> findRolesForUser(User user) {
+        String jpql = "SELECT r.label FROM Role r JOIN r.users u WHERE u.id = :id ";
+        Query query = this.em.createQuery(jpql, String.class);
+        query.setParameter("id", user.getId());
+        //return query.getResultList().isEmpty() ? new HashSet<>() : new HashSet<String>(query.getResultList());
+        return new HashSet<>(query.getResultList());
+    }
+
+    public User findByUsername(String username) {
+        String jpql = "SELECT u FROM User u WHERE u.username = :username ";
+        try {
+            Query query = this.em.createQuery(jpql, User.class);
+            query.setParameter("username", username);
+            return (User) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
 }

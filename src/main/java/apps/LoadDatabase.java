@@ -42,7 +42,6 @@ public class LoadDatabase {
 
     @PostConstruct
     public void init() {
-        System.err.println("444444444444444444444");
         Map<String, String> parameters = new HashMap<>();
         parameters.put("Pbkdf2PasswordHash.Iterations", "3072");
         parameters.put("Pbkdf2PasswordHash.Algorithm", "PBKDF2WithHmacSHA512");

@@ -6,8 +6,7 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author Mediasoft
@@ -39,10 +38,14 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Role> roles;
+    private List<Role> roles =  new ArrayList<>();
+
+    @Transient
+    private Set<String> rolesStr = new HashSet<>();
 
     public User() {
     }
+
 
     public User(String username, String password) {
         this.username = username;
@@ -119,6 +122,22 @@ public class User extends BaseEntity {
         }
         final User other = (User) obj;
         return Objects.equals(this.id, other.id);
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Set<String> getRolesStr() {
+        return rolesStr;
+    }
+
+    public void setRolesStr(Set<String> rolesStr) {
+        this.rolesStr = rolesStr;
     }
 
     @Override

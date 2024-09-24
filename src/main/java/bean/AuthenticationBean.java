@@ -14,18 +14,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotNull;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Named
 @RequestScoped
-public class AuthenticationBean {
+public class AuthenticationBean implements Serializable {
 
     @NotNull
     private String username;
 
     @NotNull
     private String password;
+
+    private boolean rememberMe;
 
     @Inject
     private FacesContext facesContext;
@@ -45,15 +48,17 @@ public class AuthenticationBean {
             case SUCCESS -> {
                 try {
                     facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Login succeed", null));
+                    if (rememberMe) {
+                        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+                        request.setAttribute("jakarta.security.enterprise.authentication.mechanism.http.rememberMe", true);
+                    }
                     externalContext.redirect(externalContext.getRequestContextPath() + "/index.xhtml");
                 } catch (IOException ex) {
                     Logger.getLogger(AuthenticationBean.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
-            case NOT_DONE -> {
+            case NOT_DONE ->
                 facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "NOT DONE", null));
-            }
         }
     }
 
@@ -80,6 +85,14 @@ public class AuthenticationBean {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isRememberMe() {
+        return rememberMe;
+    }
+
+    public void setRememberMe(boolean rememberMe) {
+        this.rememberMe = rememberMe;
     }
 
 }

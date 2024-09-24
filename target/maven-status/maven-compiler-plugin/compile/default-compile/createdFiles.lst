@@ -7,9 +7,11 @@ service/interfaces/SexeServiceLocal.class
 dao/ContributorDao.class
 dao/MonthDao.class
 entities/TypeLocality.class
+services/MailService$1.class
 dao/PaymentDao.class
 bean/LocalityBean.class
 services/RoleService.class
+services/UserServiceIdentityStore.class
 service/interfaces/SumPaidServiceLocal.class
 service/interfaces/LocalityServiceLocal.class
 services/TypeLocalityService.class
@@ -19,17 +21,20 @@ services/PermissionService.class
 menu/MenuItem.class
 services/MonthService.class
 entities/SumPaid.class
+bean/SessionBean.class
 bean/CountryBean.class
 service/interfaces/RoleServiceLocal.class
 dao/LoanDao.class
 entities/SumPromised.class
 entities/Entite.class
 entities/BaseAuditEntity.class
+services/MailService$2.class
 dao/PermisionDao.class
 service/interfaces/EgliseServiceLocal.class
 dao/SumPaidDao.class
 entities/Member.class
 entities/SumContributor.class
+services/MailService.class
 entities/Book.class
 services/ContributorService.class
 menu/AppMenu.class
@@ -37,6 +42,7 @@ bean/YearBean.class
 service/interfaces/TypeLocalityServiceLocal.class
 entities/Loan.class
 resources/JakartaEE10Resource.class
+bean/RoleBean.class
 service/interfaces/LoanServiceLocal.class
 entities/Sexe.class
 service/interfaces/DepartmentServiceLocal.class
@@ -46,6 +52,7 @@ services/UserService.class
 entities/Department.class
 dao/RepositoryDao.class
 dao/YearDao.class
+apps/ApplicationConfig$1RememberMeClass.class
 dao/EntiteDao.class
 bean/GenericBean.class
 repository/SumPromisedRepository.class
@@ -57,6 +64,7 @@ services/YearService.class
 domains/audit/LoggedUser.class
 bean/LoanBean.class
 services/EgliseService.class
+bean/AuthenticationBean$1.class
 entities/Payment.class
 repository/MemberRepository.class
 bean/MemberBean.class
@@ -69,13 +77,16 @@ dao/CountryDao.class
 services/GenericServiceLocalImpl.class
 dao/UserDao.class
 entities/Contributor.class
+bean/UserBean.class
 dao/LocalityDao.class
 service/interfaces/SumPromisedServiceLocal.class
+apps/ApplicationConfig.class
 services/MemberService.class
 entities/Address.class
 utils/AppUtilsBeans.class
 entities/Year.class
 service/interfaces/ContributorServiceLocal.class
+apps/LoadDatabase.class
 bean/PersonBean.class
 service/interfaces/PermissionServiceLocal.class
 services/LoanService.class
@@ -89,6 +100,7 @@ services/DepartmentService.class
 dao/SumContributorDao.class
 dao/TypeLocalityDao.class
 service/interfaces/CountryServiceLocal.class
+apps/AuthentificationIdentityStore.class
 service/interfaces/YearServiceLocal.class
 service/interfaces/MonthServiceLocal.class
 converters/PersonConverter.class
@@ -103,6 +115,7 @@ dao/SexeDao.class
 utils/AppUtils.class
 services/SumPromisedService.class
 entities/User.class
+apps/TestAuthenticationMechanism.class
 entities/Permission.class
 exception/BusinessException.class
 service/interfaces/GenericServiceRemote.class
@@ -110,3 +123,4 @@ view/App.class
 service/interfaces/UserServiceLocal.class
 services/GenericServiceRemoteImpl.class
 entities/Locality.class
+bean/AuthenticationBean.class
