@@ -1,50 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html
-        xmlns:ui="jakarta.faces.facelets"
->
-    <ui:composition
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="jakarta.faces.core"
+        xmlns:ui="jakarta.faces.facelets"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {localityBean.entityId}"/>
-                            <f:viewAction action="# {localityBean.initEntity()}"/>
-                        </f:metadata>-->
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{sumPaidBean.entityId}"/>
+            <f:viewAction action="#{sumPaidBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-<!--        <ui:param name="crudBean" value="# {localityBean}"/>-->
+    <ui:param name="crudBean" value="#{sumPaidBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+    <ui:param name="fieldsTitle" value=""/>
 
-        <ui:define name="list-title">
-        </ui:define>
-        <ui:define name="breadCrumb">
-        </ui:define>
-        <ui:define name="fields-content">
-            <div class="form-grid grid">
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
+    <ui:define name="list-title">
+    </ui:define>
+    <ui:define name="breadCrumb">
+    </ui:define>
+    <ui:define name="fields-content">
+        <div class="form-grid grid">
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
             </div>
-        </ui:define>
 
-    </ui:composition>
-</html>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>
 

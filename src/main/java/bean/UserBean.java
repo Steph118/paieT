@@ -1,12 +1,15 @@
 package bean;
 
+import entities.Role;
 import entities.User;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.UserServiceLocal;
-import services.UserService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Named
 @ViewScoped
@@ -14,6 +17,9 @@ public class UserBean extends GenericBean<User,Integer> {
 
     @EJB
     private UserServiceLocal userService;
+
+    private String confirmPassword;
+    private List<Role> roles = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<User, Integer> getService() {
@@ -43,5 +49,21 @@ public class UserBean extends GenericBean<User,Integer> {
     @Override
     public boolean canUpdate() {
         return true;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

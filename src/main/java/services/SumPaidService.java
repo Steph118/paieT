@@ -4,28 +4,24 @@
  */
 package services;
 
-import dao.CountryDao;
 import dao.RepositoryDao;
-import entities.Country;
+import dao.SumPaidDao;
+import entities.SumPaid;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import service.interfaces.CountryServiceLocal;
-import service.interfaces.GenericServiceLocal;
-
-import java.util.List;
-import java.util.Optional;
+import service.interfaces.SumPaidServiceLocal;
 
 /**
  * @author steph18
  */
 @Stateless
-public class CountryService extends GenericServiceLocalImpl<Country, Integer> implements CountryServiceLocal {
+public class SumPaidService extends GenericServiceLocalImpl<SumPaid, Integer> implements SumPaidServiceLocal {
 
     @EJB
-    private CountryDao dao;
+    private SumPaidDao dao;
 
     @Override
-    protected RepositoryDao<Country, Integer> getDAO() {
+    protected RepositoryDao<SumPaid, Integer> getDAO() {
         return dao;
     }
 }

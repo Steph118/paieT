@@ -51,9 +51,7 @@ public class ApplicationConfig {
             InterceptionFactory<HttpAuthenticationMechanismWrapper> interceptionFactory,
             BeanManager beanManager) {
 
-        @RememberMe(
-                cookieMaxAgeSeconds = 10
-        )
+        @RememberMe
         class RememberMeClass {
         }
 

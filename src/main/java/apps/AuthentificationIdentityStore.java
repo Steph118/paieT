@@ -1,5 +1,7 @@
 package apps;
 
+import classutils.UserPrincipal;
+import entities.Role;
 import entities.User;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -11,6 +13,8 @@ import jakarta.security.enterprise.identitystore.IdentityStore;
 import service.interfaces.UserServiceLocal;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 @AutoApplySession
@@ -25,10 +29,10 @@ public class AuthentificationIdentityStore implements IdentityStore {
         Optional<User> optionalUser = userService.findByUsernameAndPassword(login.getCaller(), login.getPasswordAsString());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            user.setRolesStr(userService.findRolesForUser(user));
+            Set<String> roles = userService.findRolesForUser(user);
             return new CredentialValidationResult(
                     user.getUserName(),
-                    user.getRolesStr()
+                    roles
             );
         }
 

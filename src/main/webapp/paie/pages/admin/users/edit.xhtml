@@ -1,50 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html
-        xmlns:ui="jakarta.faces.facelets"
->
-    <ui:composition
+<ui:composition
+        xmlns:f="jakarta.faces.core"
         xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {localityBean.entityId}"/>
-                            <f:viewAction action="# {localityBean.initEntity()}"/>
-                        </f:metadata>-->
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{userBean.entityId}"/>
+            <f:viewAction action="#{userBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-<!--        <ui:param name="crudBean" value="# {localityBean}"/>-->
+    <ui:param name="crudBean" value="#{userBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+    <ui:param name="fieldsTitle" value=" #{msg['user.title']}"/>
 
-        <ui:define name="list-title">
-        </ui:define>
-        <ui:define name="breadCrumb">
-        </ui:define>
-        <ui:define name="fields-content">
-            <div class="form-grid grid ui-fluid">
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
+    <ui:define name="list-title">
+        #{msg['user.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+         #{msg['user.title']}
+    </ui:define>
+    <ui:define name="fields-content">
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['users.edit.username']}" for="username"/>
+                <p:inputText id="username" class="w-full" placeholder="#{msg['users.edit.username.placeholder']}"
+                             value="#{userBean.entity.userName}"
+                             required="true" requiredMessage="#{msg['users.edit.username.required']}"/>
             </div>
-        </ui:define>
 
-    </ui:composition>
-</html>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['users.edit.password']}" for="password"/>
+                <p:password id="password" class="w-full" placeholder="#{msg['users.edit.password.placeholder']}"
+                            value="#{userBean.entity.password}"
+                            required="true" requiredMessage="#{msg['users.edit.password.required']}"/>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['users.edit.confirm.password']}" for="confirmPassword"/>
+                <p:password id="confirmPassword" class="w-full" placeholder="#{msg['users.edit.confirm.password']}"
+                            value="#{userBean.confirmPassword}"
+                            required="true" requiredMessage="#{msg['users.edit.confirm.password.required']}">
+
+                </p:password>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-12 lg:col-12">
+                <p:outputLabel value="#{msg['roles.title']}" for="roles"/>
+                <p:selectManyCheckbox id="roles" class="w-full"
+                                      converter="omnifaces.SelectItemsConverter"
+                                      required="true" requiredMessage="#{msg['roles.required']}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
+                    <f:selectItems value="#{personBean.eglises}" itemLabel="#{r.label}" itemValue="#{r}"
+                                   var="r" />
+                </p:selectManyCheckbox>
+            </div>
+
+    </ui:define>
+
+</ui:composition>
+
 

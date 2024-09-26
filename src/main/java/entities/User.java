@@ -40,9 +40,6 @@ public class User extends BaseEntity {
     )
     private List<Role> roles =  new ArrayList<>();
 
-    @Transient
-    private Set<String> rolesStr = new HashSet<>();
-
     public User() {
     }
 
@@ -130,14 +127,6 @@ public class User extends BaseEntity {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Set<String> getRolesStr() {
-        return rolesStr;
-    }
-
-    public void setRolesStr(Set<String> rolesStr) {
-        this.rolesStr = rolesStr;
     }
 
     @Override

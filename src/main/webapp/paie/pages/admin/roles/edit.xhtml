@@ -1,50 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html
-        xmlns:ui="jakarta.faces.facelets"
->
-    <ui:composition
+<ui:composition
+        xmlns:f="jakarta.faces.core"
+        xmlns:p="http://primefaces.org/ui"
         xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="jakarta.faces.facelets"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {localityBean.entityId}"/>
-                            <f:viewAction action="# {localityBean.initEntity()}"/>
-                        </f:metadata>-->
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{roleBean.entityId}"/>
+            <f:viewAction action="#{roleBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-<!--        <ui:param name="crudBean" value="# {localityBean}"/>-->
+    <ui:param name="crudBean" value="#{roleBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+    <ui:param name="fieldsTitle" value="#{msg['roles.title']}"/>
 
-        <ui:define name="list-title">
-        </ui:define>
-        <ui:define name="breadCrumb">
-        </ui:define>
-        <ui:define name="fields-content">
-            <div class="form-grid grid ui-fluid">
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-                <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                </div>
-
-            </div>
-        </ui:define>
-
-    </ui:composition>
-</html>
+    <ui:define name="list-title">
+        #{msg['roles.edit.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['roles.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
+        <div class="field col-12">
+            <p:outputLabel value="#{msg['label']}" for="label"/>
+            <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
+                         value="#{roleBean.entity.label}"
+                         required="true" requiredMessage="#{msg['label.required']}"/>
+        </div>
+        <div class="field col-12">
+            <p:outputLabel value="#{msg['permissions']}" for="permissions"/>
+            <p:selectManyCheckbox id="permissions" class="w-full"
+                                  value="#{roleBean.entity.permissions}"
+                                  converter="omnifaces.SelectItemsConverter"
+                                  required="true" requiredMessage="#{msg['permissions.required']}">
+                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
+                <f:selectItems  />
+            </p:selectManyCheckbox>
+        </div>
+    </ui:define>
+</ui:composition>
 
