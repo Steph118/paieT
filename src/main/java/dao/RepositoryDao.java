@@ -77,8 +77,7 @@ public class RepositoryDao<E extends Serializable, ID> {
     }
 
     public List<E> getAll() {
-        return this.em.createQuery("SELECT e FROM " + this.entityClass.getSimpleName() + " e")
-                .getResultList();
+        return this.em.createQuery("SELECT e FROM " + this.entityClass.getSimpleName() + " e").getResultList();
     }
 
     public Long count() {

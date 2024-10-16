@@ -33,7 +33,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     @Override
     public boolean canAdd() {
-        return false;
+        return true;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     @Override
     public boolean canUpdate() {
-        return false;
+        return true;
     }
 
 }

@@ -31,7 +31,7 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
 
     @Override
     public boolean canAdd() {
-        return false;
+        return true;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
 
     @Override
     public boolean canUpdate() {
-        return false;
+        return true;
     }
 
     @Override

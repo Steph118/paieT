@@ -19,6 +19,9 @@ entities/Eglise.class
 services/SexeService.class
 services/PermissionService.class
 menu/MenuItem.class
+services/SumPaidService.class
+services/PaymentService.class
+classutils/UserPrincipal.class
 services/MonthService.class
 entities/SumPaid.class
 bean/SessionBean.class
@@ -48,6 +51,7 @@ entities/Sexe.class
 service/interfaces/DepartmentServiceLocal.class
 dao/DepartmentDao.class
 bean/DepartmentBean.class
+bean/SumPaidBean.class
 services/UserService.class
 entities/Department.class
 dao/RepositoryDao.class
@@ -113,6 +117,8 @@ service/interfaces/PersonServiceLocal.class
 entities/BaseEntity.class
 dao/SexeDao.class
 utils/AppUtils.class
+bean/PaymentBean.class
+bean/LogoutBean.class
 services/SumPromisedService.class
 entities/User.class
 apps/TestAuthenticationMechanism.class
