@@ -1,8 +1,9 @@
 <ui:composition
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:f="jakarta.faces.core"
-        xmlns:ui="jakarta.faces.facelets"
-        template="/paie/templates/layout-edit.xhtml">
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="jakarta.faces.core"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/paie/templates/layout-edit.xhtml"
+    xmlns:p="primefaces">
 
     <ui:define name="metadata">
         <f:metadata>
@@ -22,15 +23,59 @@
     <ui:define name="fields-content">
         <div class="form-grid grid">
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
+                <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 >
+                    <f:selectItem noSelectionOption="true" />
+                    <f:selectItems />
+                </p:selectOneMenu>
             </div>
 
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="dpt" value="#{msg['departement.title']}"/>
+                <p:selectOneMenu id="dpt" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 requiredMessage="#{msg['persons.edit.departement.required']}"
+                                 >
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems />
+                </p:selectOneMenu>
             </div>
 
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="membre" value="#{msg['member']}"/>
+                <p:selectOneMenu id="membre" class="w-full" filterMatchMode="startsWith"
+                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                                 converter="omnifaces.SelectItemsConverter" required="true"
+                                 requiredMessage="#{msg['member.required']}">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems />
+                </p:selectOneMenu>
             </div>
 
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="loan" value="#{msg['loan.title']}"/>
+                <p:selectOneMenu id="loan" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                 filter="true" filterPlaceholder="#{msg['search']}" required="true"
+                                 requiredMessage="#{msg['persons.edit.member.loan']}"
+                                 converter="omnifaces.SelectItemsConverter">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems />
+                </p:selectOneMenu>
+            </div>
+
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel for="year" value="#{msg['year.title']}"/>
+                <p:selectOneMenu id="year" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
+                                 filter="true" filterPlaceholder="#{msg['search']}" required="true"
+                                 requiredMessage="#{msg['persons.edit.member.loan']}"
+                                 converter="omnifaces.SelectItemsConverter">
+                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                    <f:selectItems />
+                </p:selectOneMenu>
             </div>
 
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
