@@ -20,29 +20,30 @@ public class TypeLocalityDao extends RepositoryDao<TypeLocality, Integer> {
     }
 
     public List<TypeLocality> getAll(Integer id) {
-        String jpql = "SELECT e FROM " + TypeLocality.class.getSimpleName() + " e where e.id != :id";
-        return this.em.createQuery(jpql)
-                .setParameter("id", id).getResultList();
+        String jpql = "SELECT e FROM " + this.getEntityClassName() + " e where e.id != :id";
+        return this.em.createQuery(jpql, this.getEntityClass())
+                .setParameter("id", id)
+                .getResultList();
     }
 
     public List<TypeLocality> getBrothers(Integer id, Integer idParent) {
-        String jpql = "SELECT e FROM " + TypeLocality.class.getSimpleName() + " e where e.id != :id and e.typeLocalityParent.id = :idParent";
-        return this.em.createQuery(jpql)
+        String jpql = "SELECT e FROM " + this.getEntityClassName() + " e where e.id != :id and e.typeLocalityParent.id = :idParent";
+        return this.em.createQuery(jpql, this.getEntityClass())
                 .setParameter("id", id)
                 .setParameter("idParent", idParent)
                 .getResultList();
     }
 
     public List<TypeLocality> getRoots() {
-        String jpql = "SELECT e FROM " + TypeLocality.class.getSimpleName() + " e where e.root = :root";
-        return this.em.createQuery(jpql)
+        String jpql = "SELECT e FROM " + this.getEntityClassName() + " e where e.root = :root";
+        return this.em.createQuery(jpql, this.getEntityClass())
                 .setParameter("root", true)
                 .getResultList();
     }
 
     public List<TypeLocality> getOthersRoots(Integer id) {
-        String jpql = "SELECT e FROM " + TypeLocality.class.getSimpleName() + " e where e.root = :root and e.id != :id";
-        return this.em.createQuery(jpql)
+        String jpql = "SELECT e FROM " + this.getEntityClassName() + " e where e.root = :root and e.id != :id";
+        return this.em.createQuery(jpql, this.getEntityClass())
                 .setParameter("root", true)
                 .setParameter("id", id)
                 .getResultList();
@@ -55,5 +56,4 @@ public class TypeLocalityDao extends RepositoryDao<TypeLocality, Integer> {
                 .setParameter("id", id)
                 .getSingleResult();
     }*/
-
 }

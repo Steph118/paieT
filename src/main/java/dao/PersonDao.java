@@ -8,7 +8,7 @@ import entities.Department;
 import entities.Person;
 import entities.Sexe;
 import jakarta.ejb.Stateless;
-import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,14 +23,18 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
     }
 
     public List<Person> getPersonsNotMember(Integer egliseId, Department department, Sexe sexe) {
-        String jpql = "SELECT p FROM Person p WHERE p.eglise.id = :egliseId AND p.id NOT IN (SELECT m.person.id FROM Member m)";
+        String jpql = """
+                      SELECT p FROM Person p 
+                      WHERE p.eglise.id = :egliseId 
+                      AND p.id NOT IN (SELECT m.person.id FROM Member m)
+                      """;
         if (Objects.nonNull(department)) {
             jpql += " AND p.department.id = :departmentId ";
         }
         if (Objects.nonNull(sexe)) {
             jpql += " AND p.sexe.id = :sexeId ";
         }
-        Query q = this.em.createQuery(jpql);
+        TypedQuery<Person> q = this.em.createQuery(jpql, this.getEntityClass());
         q.setParameter("egliseId", egliseId);
         if (Objects.nonNull(department)) {
             q.setParameter("departmentId", department.getId());
@@ -40,8 +44,8 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
         }
         return q.getResultList();
     }
-    
-     public List<Person> getPersons(Integer egliseId, Department department, Sexe sexe) {
+
+    public List<Person> getPersons(Integer egliseId, Department department, Sexe sexe) {
         String jpql = "SELECT p FROM Person p WHERE p.eglise.id = :egliseId ";
         if (Objects.nonNull(department)) {
             jpql += " AND p.department.id = :departmentId ";
@@ -49,7 +53,7 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
         if (Objects.nonNull(sexe)) {
             jpql += " AND p.sexe.id = :sexeId ";
         }
-        Query q = this.em.createQuery(jpql);
+        TypedQuery<Person> q = this.em.createQuery(jpql, this.getEntityClass());
         q.setParameter("egliseId", egliseId);
         if (Objects.nonNull(department)) {
             q.setParameter("departmentId", department.getId());

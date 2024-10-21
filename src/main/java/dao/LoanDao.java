@@ -23,7 +23,7 @@ public class LoanDao extends RepositoryDao<Loan, Integer> {
         String jpql = """ 
                       SELECT e FROM Loan e WHERE e.eglise = :eglise
                       """;
-        return this.em.createQuery(jpql)
+        return this.em.createQuery(jpql, this.getEntityClass())
                 .setParameter("eglise", eglise)
                 .getResultList();
 

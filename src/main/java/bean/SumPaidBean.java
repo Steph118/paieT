@@ -55,6 +55,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     private Member member;
     private Loan loan;
     private SumPromised sumPromised;
+    private SumPaid sumPaid;
     private Month month;
 
     private List<Eglise> eglises = new ArrayList<>();
@@ -90,6 +91,8 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     }
 
     public void loadSumPromised() {
+        this.sumPromised = null;
+        this.sumPaid = null;
         if (Objects.nonNull(this.member) && Objects.nonNull(this.loan)
                 && Objects.nonNull(this.year)) {
             this.sumPromised = this.sumPromisedService.findBy(member, loan, year);
@@ -99,7 +102,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     public void loadSumPaid() {
         if (Objects.nonNull(this.member) && Objects.nonNull(this.sumPromised)
                 && Objects.nonNull(this.month)) {
-            this.entity = this.sumPaidService.findBy(member, sumPromised, month);
+            this.sumPaid = this.sumPaidService.findBy(member, sumPromised, month);
         }
 
         if (Objects.nonNull(this.entity)) {
@@ -195,6 +198,14 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     public void setSumPromised(SumPromised sumPromised) {
         this.sumPromised = sumPromised;
+    }
+
+    public SumPaid getSumPaid() {
+        return sumPaid;
+    }
+
+    public void setSumPaid(SumPaid sumPaid) {
+        this.sumPaid = sumPaid;
     }
 
 }
