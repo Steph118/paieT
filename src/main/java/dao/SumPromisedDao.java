@@ -9,6 +9,7 @@ import entities.Member;
 import entities.SumPromised;
 import entities.Year;
 import jakarta.ejb.Stateless;
+import jakarta.persistence.NoResultException;
 
 /**
  * @author steph18
@@ -21,7 +22,17 @@ public class SumPromisedDao extends RepositoryDao<SumPromised, Integer> {
     }
 
     public SumPromised findBy(Member m, Loan l, Year y) {
-        return null;
+        String jpql = "SELECT e FROM " + this.getEntityClassName()
+                + " e WHERE e.member.id = :memberId AND e.year.id = :yearId AND e.loan.id = :loanId";
+        try {
+            return this.em.createQuery(jpql, this.getEntityClass())
+                    .setParameter("memberId", m.getId())
+                    .setParameter("yearId", y.getId())
+                    .setParameter("loanId", l.getId())
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
 }

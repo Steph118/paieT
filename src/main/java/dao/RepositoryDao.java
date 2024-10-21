@@ -84,4 +84,13 @@ public class RepositoryDao<E extends Serializable, ID> {
         return this.em.createQuery("SELECT COUNT(e) FROM " + this.entityClass.getSimpleName() + " e", Long.class)
                 .getSingleResult();
     }
+
+    public Class<E> getEntityClass() {
+        return this.entityClass;
+    }
+
+    public String getEntityClassName() {
+        return this.entityClass.getName();
+    }
+
 }

@@ -3,16 +3,15 @@
     xmlns:f="jakarta.faces.core"
     xmlns:ui="jakarta.faces.facelets"
     template="/paie/templates/layout-edit.xhtml"
-    xmlns:p="primefaces"
-    >    
+    xmlns:p="primefaces">    
     <ui:define name="metadata">
         <f:metadata>
-            <f:viewParam name="entityId" value="#{paymentBean.entityId}"/>
-            <f:viewAction action="#{paymentBean.initEntity()}"/>
+            <f:viewParam name="entityId" value="#{sumPaidBean.entityId}"/>
+            <f:viewAction action="#{sumPaidBean.initEntity()}"/>
         </f:metadata>
     </ui:define>
 
-    <ui:param name="crudBean" value="#{paymentBean}"/>
+    <ui:param name="crudBean" value="#{sumPaidBean}"/>
 
     <ui:param name="fieldsTitle" value="#{msg['payment.list.title']}"/>
 
@@ -31,7 +30,7 @@
                              requiredMessage="#{msg['persons.edit.eglise.required']}"
                              value="#{sumPaidBean.eglise}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                <f:selectItems value="#{paymentBean.eglises}" itemValue="#{e}" var="e" itemLabel="#{e.label}"/>
+                <f:selectItems value="#{sumPaidBean.eglises}" itemValue="#{e}" var="e" itemLabel="#{e.label}"/>
                 <p:ajax listener="#{sumPaidBean.loadLoansAndMembers()}" update="loan membre" process="@this"/>
             </p:selectOneMenu>
         </div>
@@ -43,7 +42,7 @@
                              requiredMessage="#{msg['persons.edit.departement.required']}" value="#{sumPaidBean.dptment}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                 <f:selectItems value="#{sumPaidBean.departments}" itemLabel="#{d.label}" var="d" itemValue="#{d}"/>
-                <p:ajax update="membre" listener="#{paymentBean.loadMembers()}" process="@this"/>
+                <p:ajax update="membre" listener="#{sumPaidBean.loadMembers()}" process="@this"/>
             </p:selectOneMenu>
         </div>
 
@@ -55,6 +54,7 @@
                              requiredMessage="#{msg['member.required']}" value="#{sumPaidBean.member}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                 <f:selectItems value="#{sumPaidBean.membres}" itemLabel="#{m.fullPersonFromMember()}" var="m" itemValue="#{em}"/>
+                <p:ajax update="sumPromised payment-bloc" listener="#{sumPaidBean.loadSumPromised()}" process="@this"/>
             </p:selectOneMenu>
         </div>
 
@@ -66,6 +66,7 @@
                              converter="omnifaces.SelectItemsConverter" value="#{sumPaidBean.loan}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                 <f:selectItems value="#{sumPaidBean.loans}" itemLabel="#{l.label}" var="l" itemValue="#{l}"/>
+                <p:ajax update="sumPromised payment-bloc" listener="#{sumPaidBean.loadSumPromised()}" process="@this"/>
             </p:selectOneMenu>
         </div>
 
@@ -77,23 +78,24 @@
                              converter="omnifaces.SelectItemsConverter" value="#{sumPaidBean.year}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                 <f:selectItems value="#{sumPaidBean.years}" itemLabel="#{y.value}" var="y" itemValue="#{y}"/>
+                <p:ajax update="sumPromised payment-bloc" listener="#{sumPaidBean.loadSumPromised()}" process="@this"/>
             </p:selectOneMenu>
         </div>
 
         <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
             <p:outputLabel for="sumPromised" value="#{msg['promised.list.single.title']}"/>
             <p:inputText id="sumPromised" class="w-full bg-blue-50 bold text-1xl" requiredMessage="#{msg['promised.list.single.title']}"
-                         disabled="true" value="#{sumPaidBean.sumPromised}"/>
+                         disabled="true" value="#{sumPaidBean.sumPromised.montant}"/>
         </div>
 
 
-        <p:fieldset class="w-full mt-3" legend="Somme a payer" rendered="true">
+        <p:fieldset class="w-full mt-3" legend="Somme a payer" rendered="true" id="payment-bloc">
             <div class="form-grid grid ui-fluid">
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                     <p:outputLabel for="month" value="#{msg['month.title']}"/>
                     <p:selectOneMenu id="month" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
                                      filter="true" filterPlaceholder="#{msg['search']}" required="true"
-                                     requiredMessage="#{msg['month.required']}"
+                                     requiredMessage="#{msg['month.required']}" disabled="#{sumPaidBean.sumPromised == null}"
                                      converter="omnifaces.SelectItemsConverter">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                         <f:selectItems />
@@ -102,7 +104,7 @@
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
                     <p:outputLabel for="month" value="#{msg['payment.edit.amount']}"/>
                     <p:inputNumber id="montantVersement" class="w-full" required="true" requiredMessage="#{msg['payment.edit.amount.required']}" 
-                                   value="" disabled="true"/>
+                                   value="" disabled="#{sumPaidBean.sumPromised == null}"/>
                 </div>
             </div>
         </p:fieldset>

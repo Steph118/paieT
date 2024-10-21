@@ -6,10 +6,10 @@ package dao;
 
 import entities.Department;
 import entities.Eglise;
-import entities.Locality;
 import entities.Member;
 import entities.Person;
 import jakarta.ejb.Stateless;
+import jakarta.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -23,21 +23,26 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
     }
 
     public Long countMemberByCurch(Eglise eglise) {
-        return this.em.createQuery("SELECT COUNT(m) FROM Member m WHERE m.eglise = :eglise", Long.class)
-                .setParameter("eglise", eglise)
-                .getSingleResult();
+        try {
+            return this.em.createQuery("SELECT COUNT(m) FROM Member m WHERE m.eglise = :eglise", Long.class)
+                    .setParameter("eglise", eglise)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
 
     }
 
     public Integer genererNumeroMembre(Eglise eglise) {
         Integer nextNumero = this.em.createQuery(
-                "SELECT ( MAX(m.memberNumber) + 1 ) FROM Member m WHERE m.eglise = :eglise", Integer.class)
+                """ 
+                SELECT ( MAX(m.memberNumber) +1) 
+                FROM Member m 
+                WHERE m.eglise = :eglise """,
+                Integer.class)
                 .setParameter("eglise", eglise)
                 .getSingleResult();
-        if (nextNumero == null) {
-            nextNumero = 1;
-        }
-        return nextNumero;
+        return nextNumero == null ? 1 : nextNumero;
     }
 
     public int updateEglise(Person p, Integer num) {
@@ -55,9 +60,11 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
 
     public List<Member> getByEgliseAndDptmnt(Eglise eglise, Department dptmnt) {
         String jpql = """ 
-                      SELECT e FROM Member e WHERE e.eglise = :eglise AND e.person.department = :dptmnt
+                      SELECT e FROM Member e 
+                      WHERE e.eglise = :eglise 
+                      AND e.person.department = :dptmnt
                       """;
-        return this.em.createQuery(jpql)
+        return this.em.createQuery(jpql, this.getEntityClass())
                 .setParameter("eglise", eglise)
                 .setParameter("dptmnt", dptmnt)
                 .getResultList();

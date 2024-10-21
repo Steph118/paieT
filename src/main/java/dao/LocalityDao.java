@@ -22,8 +22,8 @@ public class LocalityDao extends RepositoryDao<Locality, Integer> {
     }
 
     public List<Locality> getAll(Country country, TypeLocality localityType) {
-        String jpql = "SELECT e FROM " + Locality.class.getSimpleName() + " e WHERE e.country.id = :countryId AND e.localityType.id = :localityTypeId";
-        return this.em.createQuery(jpql)
+        String jpql = "SELECT e FROM " + this.getEntityClassName() + " e WHERE e.country.id = :countryId AND e.localityType.id = :localityTypeId";
+        return this.em.createQuery(jpql, this.getEntityClass())
                 .setParameter("countryId", country.getId())
                 .setParameter("localityTypeId", localityType.getId())
                 .getResultList();
