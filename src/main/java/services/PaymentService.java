@@ -4,10 +4,8 @@
  */
 package services;
 
-import dao.CountryDao;
 import dao.PaymentDao;
 import dao.RepositoryDao;
-import entities.Country;
 import entities.Payment;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;

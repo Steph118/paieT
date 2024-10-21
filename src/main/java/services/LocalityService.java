@@ -32,9 +32,9 @@ public class LocalityService extends GenericServiceLocalImpl<Locality, Integer> 
     }
 
     @Override
-    public List<Locality> getAll(Country country, TypeLocality localityTypeId) {
-        return (Objects.nonNull(country) && Objects.nonNull(localityTypeId))
-                ? this.dao.getAll(country.getId(), localityTypeId.getId())
+    public List<Locality> getAll(Country country, TypeLocality localityType) {
+        return (Objects.nonNull(country) && Objects.nonNull(localityType))
+                ? this.dao.getAll(country, localityType)
                 : new ArrayList<>();
     }
 

@@ -4,7 +4,10 @@
  */
 package service.interfaces;
 
+import entities.Loan;
+import entities.Member;
 import entities.SumPromised;
+import entities.Year;
 import jakarta.ejb.Local;
 
 /**
@@ -12,4 +15,6 @@ import jakarta.ejb.Local;
  */
 @Local
 public interface SumPromisedServiceLocal extends GenericServiceLocal<SumPromised, Integer> {
+
+    SumPromised findBy(Member member, Loan loan, Year year);
 }
