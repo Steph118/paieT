@@ -4,6 +4,12 @@
  */
 package enumeration;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author samiesoft
  */
@@ -22,6 +28,7 @@ public enum Month {
     NOV("Novembre"),
     DEC("Décembre");
 
+    private static final Logger log = LoggerFactory.getLogger(Month.class);
     private final String label;
 
     private Month(String libelle) {
@@ -32,6 +39,9 @@ public enum Month {
         return label;
     }
 
+    public static List<Month> getListMonth(){
+            return List.of(Month.values());
+    }
     @Override
     public String toString() {
         return "Month{" + " name=" + name() + ", label=" + label + '}';

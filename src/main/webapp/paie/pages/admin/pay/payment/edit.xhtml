@@ -31,7 +31,7 @@
                              value="#{sumPaidBean.eglise}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                 <f:selectItems value="#{sumPaidBean.eglises}" itemValue="#{e}" var="e" itemLabel="#{e.label}"/>
-                <p:ajax listener="#{sumPaidBean.loadLoansAndMembers()}" update="loan membre" process="@this"/>
+                <p:ajax listener="#{sumPaidBean.loadLoansAndMembers()}" update="loan membre sumPromised payment-bloc" process="@this"/>
             </p:selectOneMenu>
         </div>
         <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
@@ -42,7 +42,7 @@
                              requiredMessage="#{msg['persons.edit.departement.required']}" value="#{sumPaidBean.dptment}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                 <f:selectItems value="#{sumPaidBean.departments}" itemLabel="#{d.label}" var="d" itemValue="#{d}"/>
-                <p:ajax update="membre" listener="#{sumPaidBean.loadMembers()}" process="@this"/>
+                <p:ajax update="membre sumPromised payment-bloc" listener="#{sumPaidBean.loadMembers()}" process="@this"/>
             </p:selectOneMenu>
         </div>
 
@@ -85,7 +85,7 @@
         <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
             <p:outputLabel for="sumPromised" value="#{msg['promised.list.single.title']}"/>
             <p:inputText id="sumPromised" class="w-full bg-blue-50 bold text-1xl" requiredMessage="#{msg['promised.list.single.title']}"
-                         disabled="true" value="#{sumPaidBean.sumPromised.montant}"/>
+                         disabled="true" value="#{sumPaidBean.sumPromised.montant}"  required="true"/>
         </div>
 
 
@@ -96,13 +96,14 @@
                     <p:selectOneMenu id="month" class="w-full" filterMatchMode="startsWith" filterNormalize="true"
                                      filter="true" filterPlaceholder="#{msg['search']}" required="true"
                                      requiredMessage="#{msg['month.required']}" disabled="#{sumPaidBean.sumPromised == null}"
-                                     converter="omnifaces.SelectItemsConverter">
+                                     converter="omnifaces.SelectItemsConverter" value="#{sumPaidBean.month}">
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems />
+                        <f:selectItems value="#{sumPaidBean.months}" itemLabel="#{m.libelle}" var="m" itemValue="#{m}"/>
+                        <p:ajax listener="#{sumPaidBean.loadSumPaid()}" process="@this"/>
                     </p:selectOneMenu>
                 </div>
                 <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                    <p:outputLabel for="month" value="#{msg['payment.edit.amount']}"/>
+                    <p:outputLabel for="montantVersement" value="#{msg['payment.edit.amount']}"/>
                     <p:inputNumber id="montantVersement" class="w-full" required="true" requiredMessage="#{msg['payment.edit.amount.required']}" 
                                    value="" disabled="#{sumPaidBean.sumPromised == null}"/>
                 </div>

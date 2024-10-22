@@ -63,6 +63,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     private List<Member> membres = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
     private List<Loan> loans = new ArrayList<>();
+    private List<Month> months = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<SumPaid, Integer> getService() {
@@ -78,12 +79,16 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     }
 
     public void loadMembers() {
+        this.member = null;
         if (Objects.nonNull(this.eglise) && Objects.nonNull(this.dptment)) {
             this.membres = this.memberService.getByEgliseAndDptmnt(this.eglise, this.dptment);
         }
+        this.loadSumPromised();
     }
 
     public void loadLoansAndMembers() {
+        this.member = null;
+        this.loan = null;
         if (Objects.nonNull(this.eglise)) {
             this.loans = this.loanService.getLoansByEglise(this.eglise);
         }
@@ -97,6 +102,10 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
                 && Objects.nonNull(this.year)) {
             this.sumPromised = this.sumPromisedService.findBy(member, loan, year);
         }
+
+        if (this.sumPromised != null) {
+            this.months = Month.getListMonth();
+        }
     }
 
     public void loadSumPaid() {
@@ -105,12 +114,20 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
             this.sumPaid = this.sumPaidService.findBy(member, sumPromised, month);
         }
 
-        if (Objects.nonNull(this.entity)) {
+        if (Objects.nonNull(this.sumPaid)) {
 
         } else {
 
         }
     }
+
+//    private void loadMont(SumPaid sumPaid) {
+//        if (Objects.nonNull(sumPaid)) {
+//
+//        } else {
+//            this.months = Month.getListMonth();
+//        }
+//    }
 
     @Override
     public boolean canAdd() {
@@ -206,6 +223,18 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     public void setSumPaid(SumPaid sumPaid) {
         this.sumPaid = sumPaid;
+    }
+
+    public List<Month> getMonths() {
+        return months;
+    }
+
+    public Month getMonth() {
+        return month;
+    }
+
+    public void setMonth(Month month) {
+        this.month = month;
     }
 
 }
