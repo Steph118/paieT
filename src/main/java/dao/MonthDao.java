@@ -4,9 +4,12 @@
  */
 package dao;
 
+import entities.Eglise;
 import entities.Member;
 import enumeration.Month;
 import jakarta.ejb.Stateless;
+
+import java.util.List;
 
 /**
  * @author steph18
@@ -16,6 +19,11 @@ public class MonthDao extends RepositoryDao<Month, Integer> {
 
     public MonthDao() {
         super(Month.class);
+    }
+
+    public List<Month> findMontNotPaid(Eglise eglise) {
+
+        return null;
     }
 
 }
