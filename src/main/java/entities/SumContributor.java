@@ -29,12 +29,12 @@ public class SumContributor extends BaseEntity {
     @Column(name = "paymentDate", nullable = false)
     private LocalDate paymentDate;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_contributor")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_contributor", nullable = false)
     private Contributor contributor;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_loan")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_loan", nullable = false)
     private Loan loan;
 
     public SumContributor() {

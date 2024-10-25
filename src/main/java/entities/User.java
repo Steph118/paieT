@@ -27,10 +27,10 @@ public class User extends BaseEntity {
     private String password;
 
     @Column(name = "actif")
-    private boolean actif;
+    private Boolean actif;
 
     @Column(name = "change_password")
-    private boolean changePassword;
+    private Boolean changePassword;
 
     @ManyToMany
     @JoinTable(
@@ -38,11 +38,10 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Role> roles =  new ArrayList<>();
+    private List<Role> roles = new ArrayList<>();
 
     public User() {
     }
-
 
     public User(String username, String password) {
         this.username = username;

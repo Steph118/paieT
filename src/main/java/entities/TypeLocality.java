@@ -22,7 +22,7 @@ public class TypeLocality extends BaseEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "label")
+    @Column(name = "label", nullable = false)
     private String label;
 
     @Column(name = "root", nullable = false)

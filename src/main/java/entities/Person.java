@@ -50,12 +50,12 @@ public class Person extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "locality_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "locality_id", nullable = false)
     private Locality locality;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "sexe_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sexe_id", nullable = false)
     private Sexe sexe;
 
     @Embedded
@@ -67,12 +67,12 @@ public class Person extends BaseEntity {
     })
     private Address address;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "eglise_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "eglise_id", nullable = false)
     private Eglise eglise;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "person", cascade = {CascadeType.PERSIST})

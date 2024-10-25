@@ -7,6 +7,7 @@ package services;
 import dao.RepositoryDao;
 import dao.SumPaidDao;
 import entities.Member;
+import entities.MonthEntity;
 import entities.SumPaid;
 import entities.SumPromised;
 import enumeration.Month;
@@ -28,8 +29,7 @@ public class SumPaidService extends GenericServiceLocalImpl<SumPaid, Integer> im
         return dao;
     }
 
-    @Override
-    public SumPaid findBy(Member member, SumPromised sumPromised, Month month) {
-        return null;
+    public SumPaid findSumPaidBy(MonthEntity month, SumPromised sumPromised, Member member) {
+        return this.dao.findSumPaidBy(month, sumPromised, member);
     }
 }

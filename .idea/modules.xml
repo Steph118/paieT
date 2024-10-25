@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/map-jpa.iml" filepath="$PROJECT_DIR$/map-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paie-t.iml" filepath="$PROJECT_DIR$/paie-t.iml" />
     </modules>
   </component>
 </project>
