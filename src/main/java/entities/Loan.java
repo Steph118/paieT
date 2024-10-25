@@ -29,7 +29,7 @@ public class Loan extends BaseEntity {
     private BigDecimal montant;
 
     @Column(name = "rembourse")
-    private boolean rembourse;
+    private Boolean rembourse;
 
     @Column(name = "start_date", nullable = false, columnDefinition = "DATE")
     private LocalDate startDate;
@@ -37,8 +37,8 @@ public class Loan extends BaseEntity {
     @Column(name = "end_date", nullable = false, columnDefinition = "DATE")
     private LocalDate endDate;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "eglise_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "eglise_id", nullable = false)
     private Eglise eglise;
 
     public Loan() {

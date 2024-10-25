@@ -4,13 +4,16 @@
  */
 package service.interfaces;
 
-import enumeration.Month;
+import entities.MonthEntity;
+import entities.SumPromised;
 import jakarta.ejb.Local;
+import java.util.List;
 
 /**
  * @author steph18
  */
 @Local
-public interface MonthServiceLocal extends GenericServiceLocal<Month, Integer> {
+public interface MonthServiceLocal extends GenericServiceLocal<MonthEntity, Integer> {
 
+    List<MonthEntity> findMontNotPaid(SumPromised s);
 }

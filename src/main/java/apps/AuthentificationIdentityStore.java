@@ -1,10 +1,11 @@
 package apps;
 
-import classutils.UserPrincipal;
-import entities.Role;
 import entities.User;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Inject;
 import jakarta.security.enterprise.authentication.mechanism.http.AutoApplySession;
 import jakarta.security.enterprise.credential.Credential;
 import jakarta.security.enterprise.credential.UsernamePasswordCredential;
@@ -14,7 +15,6 @@ import service.interfaces.UserServiceLocal;
 
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @ApplicationScoped
 @AutoApplySession

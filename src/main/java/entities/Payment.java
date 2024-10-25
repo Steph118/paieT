@@ -5,9 +5,9 @@
 package entities;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
 import java.util.Objects;
 
 /**
@@ -28,12 +28,8 @@ public class Payment extends BaseEntity {
     @Column(name = "paymentDate", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime paymentDate;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_member")
-    private Member member;
-
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_sumpaid")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_sumpaid", nullable = false)
     private SumPaid sumPaid;
 
     public Integer getId() {
@@ -58,14 +54,6 @@ public class Payment extends BaseEntity {
 
     public void setDateVersement(LocalDateTime dateVersement) {
         this.paymentDate = dateVersement;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
     }
 
     public SumPaid getSumPaye() {
@@ -100,7 +88,12 @@ public class Payment extends BaseEntity {
 
     @Override
     public String toString() {
-        return "payment{" + "id=" + id + ", amount=" + amount + ", paymentDate=" + paymentDate + ", member=" + member + ", sumPaid=" + sumPaid + '}';
+        return "payment{" + "id=" + id + ", amount=" + amount + ", paymentDate=" + paymentDate + ", sumPaid=" + sumPaid + '}';
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.paymentDate = LocalDateTime.now();
     }
 
 }

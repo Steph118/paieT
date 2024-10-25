@@ -4,26 +4,35 @@
  */
 package dao;
 
-import entities.Eglise;
-import entities.Member;
-import enumeration.Month;
+import entities.MonthEntity;
+import entities.SumPromised;
 import jakarta.ejb.Stateless;
-
 import java.util.List;
 
 /**
  * @author steph18
  */
 @Stateless
-public class MonthDao extends RepositoryDao<Month, Integer> {
+public class MonthDao extends RepositoryDao<MonthEntity, Integer> {
 
     public MonthDao() {
-        super(Month.class);
+        super(MonthEntity.class);
     }
 
-    public List<Month> findMontNotPaid(Eglise eglise) {
-
-        return null;
+    public List<MonthEntity> findMontNotPaid(SumPromised s) {
+        String jpql = """
+                      SELECT m FROM MonthEntity m
+                      WHERE m NOT IN (
+                      SELECT DISTINCT sp.month 
+                      FROM SumPaid sp 
+                      JOIN sp.payments p 
+                      WHERE sp.sumPromised = :sumPromised
+                      GROUP BY sp.month 
+                      HAVING SUM(p.amount) >= :amount )
+                      """;
+        return this.em.createQuery(jpql, MonthEntity.class)
+                .setParameter("amount", s.getMontant())
+                .setParameter("sumPromised", s)
+                .getResultList();
     }
-
 }

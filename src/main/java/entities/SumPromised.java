@@ -27,16 +27,16 @@ public class SumPromised extends BaseEntity {
     @Column(name = "montant", nullable = false)
     private BigDecimal montant;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "year_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "year_id", nullable = false)
     private Year year;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "loan_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "loan_id", nullable = false)
     private Loan loan;
 
     public SumPromised() {

@@ -4,8 +4,12 @@
  */
 package dao;
 
+import entities.Member;
+import entities.MonthEntity;
 import entities.SumPaid;
+import entities.SumPromised;
 import jakarta.ejb.Stateless;
+import jakarta.persistence.NoResultException;
 
 /**
  * @author steph18
@@ -17,4 +21,27 @@ public class SumPaidDao extends RepositoryDao<SumPaid, Integer> {
         super(SumPaid.class);
     }
 
+    public SumPaid findSumPaidBy(MonthEntity month, SumPromised sumPromised, Member member) {
+        String jpql = """
+                                SELECT sp
+                                FROM SumPaid sp
+                                WHERE sp.month = :month
+                                AND sp.sumPromised = :sumPromised
+                                AND sp.member = :member
+                """;
+        try {
+            return this.em.createQuery(jpql, SumPaid.class)
+                    .setParameter("month", month)
+                    .setParameter("sumPromised", sumPromised)
+                    .setParameter("member", member)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
+
+    public Boolean verifyPayment(SumPromised s) {
+        return true;
+    }
 }

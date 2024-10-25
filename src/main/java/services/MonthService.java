@@ -6,23 +6,30 @@ package services;
 
 import dao.MonthDao;
 import dao.RepositoryDao;
-import enumeration.Month;
+import entities.MonthEntity;
+import entities.SumPromised;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import java.util.List;
 import service.interfaces.MonthServiceLocal;
 
 /**
  * @author steph18
  */
 @Stateless
-public class MonthService extends GenericServiceLocalImpl<Month, Integer> implements MonthServiceLocal {
+public class MonthService extends GenericServiceLocalImpl<MonthEntity, Integer> implements MonthServiceLocal {
 
     @EJB
     private MonthDao dao;
 
     @Override
-    protected RepositoryDao<Month, Integer> getDAO() {
+    protected RepositoryDao<MonthEntity, Integer> getDAO() {
         return dao;
+    }
+
+    @Override
+    public List<MonthEntity> findMontNotPaid(SumPromised s) {
+        return dao.findMontNotPaid(s);
     }
 
 }

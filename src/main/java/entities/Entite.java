@@ -58,8 +58,8 @@ public class Entite extends BaseEntity {
     })
     private Address address;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "locality_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "locality_id", nullable = false)
     private Locality locality;
 
     public Entite() {

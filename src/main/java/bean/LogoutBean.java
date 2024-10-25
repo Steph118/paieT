@@ -8,7 +8,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 @Named
 @RequestScoped

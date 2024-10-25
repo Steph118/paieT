@@ -29,12 +29,12 @@ public class Locality extends BaseEntity {
     @JoinColumn(name = "parent_locality")
     private Locality localityParent;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_locality")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_locality", nullable = false)
     private TypeLocality localityType;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "country")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country", nullable = false)
     private Country country;
 
     @OneToMany(mappedBy = "localityParent")

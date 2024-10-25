@@ -15,8 +15,8 @@ import java.util.Objects;
 @Table(name = "sexes")
 public class Sexe extends BaseEntity {
 
-    private static final String MAS = "M";
-    private static final String FEM = "F";
+    public static final String M = "M";
+    public static final String F = "F";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,8 +58,12 @@ public class Sexe extends BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Sexe sexe)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Sexe sexe)) {
+            return false;
+        }
         return Objects.equals(id, sexe.id);
     }
 
@@ -70,10 +74,10 @@ public class Sexe extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Sexe{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", label='" + label + '\'' +
-                '}';
+        return "Sexe{"
+                + "id=" + id
+                + ", code='" + code + '\''
+                + ", label='" + label + '\''
+                + '}';
     }
 }

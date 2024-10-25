@@ -7,10 +7,9 @@ package entities;
 /**
  * @author steph18
  */
-
-import enumeration.Month;
 import jakarta.persistence.*;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.Objects;
 
@@ -20,24 +19,46 @@ public class SumPaid extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "amount", nullable = false)
-    private BigDecimal amount;
+    @Column(name = "paid", nullable = false)
+    private Boolean paid = Boolean.FALSE;
 
-    @Column(name = "paid")
-    private boolean paid;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "month_id", nullable = false)
+    private MonthEntity month;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, name = "month")
-    private Month month;
-
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "sumpromised_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sumpromised_id", nullable = false)
     private SumPromised sumPromised;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
+
+    @OneToMany(mappedBy = "sumPaid", fetch = FetchType.LAZY)
+    private List<Payment> payments = new ArrayList<>();
+
     public SumPaid() {
+    }
+
+    public SumPaid(MonthEntity month, SumPromised sumPromised, Member member) {
+        this.month = month;
+        this.sumPromised = sumPromised;
+        this.member = member;
+    }
+    
+    
+
+    public void addPayment(Payment p) {
+        p.setSumPaye(this);
+        this.payments.add(p);
+    }
+
+    public void removePayment(Payment p) {
+        this.payments.remove(p);
+        p.setSumPaye(null);
     }
 
     public Integer getId() {
@@ -48,14 +69,6 @@ public class SumPaid extends BaseEntity {
         this.id = id;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
     public boolean isPaye() {
         return paid;
     }
@@ -64,11 +77,11 @@ public class SumPaid extends BaseEntity {
         this.paid = paye;
     }
 
-    public Month getMonth() {
+    public MonthEntity getMonth() {
         return month;
     }
 
-    public void setMonth(Month month) {
+    public void setMonth(MonthEntity month) {
         this.month = month;
     }
 
@@ -78,6 +91,38 @@ public class SumPaid extends BaseEntity {
 
     public void setPromesse(SumPromised promesse) {
         this.sumPromised = promesse;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
+    }
+
+    public SumPromised getSumPromised() {
+        return sumPromised;
+    }
+
+    public void setSumPromised(SumPromised sumPromised) {
+        this.sumPromised = sumPromised;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
     }
 
     @Override
@@ -104,7 +149,7 @@ public class SumPaid extends BaseEntity {
 
     @Override
     public String toString() {
-        return "SumPaye{" + "id=" + id + ", amount=" + amount + ", paye=" + paid + ", month=" + month + ", promesse=" + sumPromised + '}';
+        return "SumPaid{" + "id=" + id + ", paid=" + paid + ", month=" + month + ", sumPromised=" + sumPromised + ", member=" + member + '}';
     }
 
 }

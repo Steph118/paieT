@@ -4,28 +4,16 @@
  */
 package bean;
 
-import entities.Department;
-import entities.Eglise;
-import entities.Loan;
-import entities.Member;
-import entities.SumPaid;
-import entities.SumPromised;
-import entities.Year;
-import enumeration.Month;
+import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import org.omnifaces.util.Messages;
+import service.interfaces.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import service.interfaces.DepartmentServiceLocal;
-import service.interfaces.EgliseServiceLocal;
-import service.interfaces.GenericServiceLocal;
-import service.interfaces.LoanServiceLocal;
-import service.interfaces.MemberServiceLocal;
-import service.interfaces.SumPaidServiceLocal;
-import service.interfaces.SumPromisedServiceLocal;
-import service.interfaces.YearServiceLocal;
 
 /**
  * @author steph18
@@ -48,6 +36,8 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     private LoanServiceLocal loanService;
     @EJB
     private MemberServiceLocal memberService;
+    @EJB
+    private MonthServiceLocal monthService;
 
     private Eglise eglise;
     private Department dptment;
@@ -55,15 +45,15 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     private Member member;
     private Loan loan;
     private SumPromised sumPromised;
-    private SumPaid sumPaid;
-    private Month month;
+    private MonthEntity month;
+    private Payment payment;
 
     private List<Eglise> eglises = new ArrayList<>();
     private List<Year> years = new ArrayList<>();
     private List<Member> membres = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
     private List<Loan> loans = new ArrayList<>();
-    private List<Month> months = new ArrayList<>();
+    private List<MonthEntity> months = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<SumPaid, Integer> getService() {
@@ -73,6 +63,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     @Override
     public void initAdd() {
         this.entity = new SumPaid();
+        this.payment = new Payment();
         this.eglises = this.egliseService.getAll();
         this.departments = this.departmentService.getAll();
         this.years = this.yearService.getAll();
@@ -97,37 +88,40 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     public void loadSumPromised() {
         this.sumPromised = null;
-        this.sumPaid = null;
+        this.entity = null;
         if (Objects.nonNull(this.member) && Objects.nonNull(this.loan)
                 && Objects.nonNull(this.year)) {
             this.sumPromised = this.sumPromisedService.findBy(member, loan, year);
         }
 
         if (this.sumPromised != null) {
-            this.months = Month.getListMonth();
+            this.months = monthService.findMontNotPaid(sumPromised);
         }
     }
 
     public void loadSumPaid() {
         if (Objects.nonNull(this.member) && Objects.nonNull(this.sumPromised)
                 && Objects.nonNull(this.month)) {
-            this.sumPaid = this.sumPaidService.findBy(member, sumPromised, month);
+            this.entity = this.sumPaidService.findSumPaidBy(month, sumPromised, member);
         }
-
-        if (Objects.nonNull(this.sumPaid)) {
-
-        } else {
-
+        if (Objects.isNull(this.entity)) {
+            this.entity = new SumPaid(month, sumPromised, member);
         }
     }
 
-//    private void loadMont(SumPaid sumPaid) {
-//        if (Objects.nonNull(sumPaid)) {
-//
-//        } else {
-//            this.months = Month.getListMonth();
-//        }
-//    }
+    public void addToList() {
+        this.entity.addPayment(payment);
+        payment = new Payment();
+    }
+
+    public void removeFromList(Payment payment) {
+        this.entity.removePayment(payment);
+    }
+
+    public void editFromList(Payment payment) {
+        this.payment = payment;
+        this.entity.removePayment(payment);
+    }
 
     @Override
     public boolean canAdd() {
@@ -217,24 +211,23 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
         this.sumPromised = sumPromised;
     }
 
-    public SumPaid getSumPaid() {
-        return sumPaid;
-    }
-
-    public void setSumPaid(SumPaid sumPaid) {
-        this.sumPaid = sumPaid;
-    }
-
-    public List<Month> getMonths() {
+    public List<MonthEntity> getMonths() {
         return months;
     }
 
-    public Month getMonth() {
+    public MonthEntity getMonth() {
         return month;
     }
 
-    public void setMonth(Month month) {
+    public void setMonth(MonthEntity month) {
         this.month = month;
     }
 
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 }

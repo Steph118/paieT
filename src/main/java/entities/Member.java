@@ -25,12 +25,12 @@ public class Member extends BaseEntity {
     @Column(name = "member_number", nullable = false)
     private Integer memberNumber;
 
-    @OneToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "eglise_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "eglise_id", nullable = false)
     private Eglise eglise;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "member", cascade = {CascadeType.PERSIST})
@@ -51,6 +51,7 @@ public class Member extends BaseEntity {
 
     public void removeSumPromised(SumPromised s) {
         this.sumPromiseds.remove(s);
+        s.setMember(null);
     }
 
     public String formatNumberNum() {
