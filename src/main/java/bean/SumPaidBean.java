@@ -7,13 +7,16 @@ package bean;
 import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import org.omnifaces.util.Messages;
+import java.math.BigDecimal;
 import service.interfaces.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.omnifaces.util.Messages;
+import utils.AppUtilsBeans;
 
 /**
  * @author steph18
@@ -39,6 +42,9 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     @EJB
     private MonthServiceLocal monthService;
 
+    @Inject
+    private AppUtilsBeans appUtilsBeans;
+
     private Eglise eglise;
     private Department dptment;
     private Year year;
@@ -47,6 +53,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     private SumPromised sumPromised;
     private MonthEntity month;
     private Payment payment;
+    private BigDecimal diff;
 
     private List<Eglise> eglises = new ArrayList<>();
     private List<Year> years = new ArrayList<>();
@@ -57,7 +64,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     @Override
     public GenericServiceLocal<SumPaid, Integer> getService() {
-        return sumPaidService;
+        return this.sumPaidService;
     }
 
     @Override
@@ -88,41 +95,67 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     public void loadSumPromised() {
         this.sumPromised = null;
-        this.entity = null;
+        this.entity = new SumPaid();
         if (Objects.nonNull(this.member) && Objects.nonNull(this.loan)
                 && Objects.nonNull(this.year)) {
-            this.sumPromised = this.sumPromisedService.findBy(member, loan, year);
+            this.sumPromised = this.sumPromisedService.findBy(this.member, this.loan, this.year);
         }
 
         if (this.sumPromised != null) {
-            this.months = monthService.findMontNotPaid(sumPromised);
+            this.months = this.monthService.findMontNotPaid(this.sumPromised);
         }
     }
 
     public void loadSumPaid() {
+        this.entity = new SumPaid();
         if (Objects.nonNull(this.member) && Objects.nonNull(this.sumPromised)
                 && Objects.nonNull(this.month)) {
-            this.entity = this.sumPaidService.findSumPaidBy(month, sumPromised, member);
+            this.entity = this.sumPaidService.findSumPaidBy(this.month, this.sumPromised, this.member);
+            System.err.println("entity : " + this.entity);
         }
         if (Objects.isNull(this.entity)) {
-            this.entity = new SumPaid(month, sumPromised, member);
+            this.entity = new SumPaid(this.month, this.sumPromised, this.member);
+            this.diff = this.sumPromised.getMontant();
+            System.err.println("entity : " + this.entity);
+        } else {
+            this.checkSum();
         }
     }
 
+    private void checkSum() {
+        BigDecimal sum = this.sumPaidService.totalSumPaid(this.getEntity());
+        System.err.println("sum : " + sum);
+        if (Objects.nonNull(sum)) {
+            diff = this.sumPromised.getMontant().subtract(sum);
+            if (diff.doubleValue() > 0) {
+                Messages.addFlashGlobalInfo("Il vous reste " + this.appUtilsBeans.numberFormat(diff) + " de paiement");
+            } else {
+                Messages.addFlashGlobalInfo("Vous ne pouvez plus faire de paiement pour ce mois");
+            }
+
+        }
+    }
+
+    @Override
+    public void beforeSave() {
+        boolean b = this.entity.totalSumPaid()
+                .subtract(diff).doubleValue() == 0;
+
+    }
+
     public void addToList() {
-        this.entity.addPayment(payment);
-        payment = new Payment();
+        this.entity.addPayment(this.payment);
+        this.payment = new Payment();
     }
 
     public void removeFromList(Payment payment) {
         this.entity.removePayment(payment);
     }
 
-    public void editFromList(Payment payment) {
-        this.payment = payment;
-        this.entity.removePayment(payment);
-    }
-
+//    public void editFromList(Payment payment) {
+//        this.payment = payment;
+//        this.entity.removePayment(payment);
+//    }
     @Override
     public boolean canAdd() {
         return true;
@@ -130,7 +163,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     @Override
     public boolean canDelete() {
-        return false;
+        return true;
     }
 
     @Override

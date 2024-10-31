@@ -8,10 +8,13 @@ package entities;
  * @author steph18
  */
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import java.util.Objects;
+import org.omnifaces.util.Utils;
 
 @Entity
 @Table(name = "sumpaid")
@@ -37,7 +40,8 @@ public class SumPaid extends BaseEntity {
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
-    @OneToMany(mappedBy = "sumPaid", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "sumPaid", fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Payment> payments = new ArrayList<>();
 
     public SumPaid() {
@@ -48,17 +52,23 @@ public class SumPaid extends BaseEntity {
         this.sumPromised = sumPromised;
         this.member = member;
     }
-    
-    
 
     public void addPayment(Payment p) {
-        p.setSumPaye(this);
+        p.setSumPaid(this);
         this.payments.add(p);
     }
 
     public void removePayment(Payment p) {
         this.payments.remove(p);
-        p.setSumPaye(null);
+        p.setSumPaid(null);
+    }
+
+    public BigDecimal totalSumPaid() {
+        BigDecimal total = BigDecimal.ZERO;
+        for (Payment p : payments) {
+            total.add(p.getAmount());
+        }
+        return total;
     }
 
     public Integer getId() {
@@ -144,7 +154,16 @@ public class SumPaid extends BaseEntity {
             return false;
         }
         final SumPaid other = (SumPaid) obj;
-        return Objects.equals(this.id, other.id);
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.month, other.month)) {
+            return false;
+        }
+        if (!Objects.equals(this.sumPromised, other.sumPromised)) {
+            return false;
+        }
+        return Objects.equals(this.member, other.member);
     }
 
     @Override

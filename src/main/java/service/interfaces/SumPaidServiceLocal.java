@@ -9,6 +9,7 @@ import entities.MonthEntity;
 import entities.SumPaid;
 import entities.SumPromised;
 import jakarta.ejb.Local;
+import java.math.BigDecimal;
 
 /**
  * @author steph18
@@ -17,4 +18,6 @@ import jakarta.ejb.Local;
 public interface SumPaidServiceLocal extends GenericServiceLocal<SumPaid, Integer> {
 
     SumPaid findSumPaidBy(MonthEntity month, SumPromised sumPromised, Member member);
+
+    BigDecimal totalSumPaid(SumPaid sp);
 }

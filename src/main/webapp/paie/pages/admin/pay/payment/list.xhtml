@@ -1,7 +1,8 @@
 <ui:composition template="/paie/templates/layout-list.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="jakarta.faces.facelets"
->
+
+                xmlns:p="primefaces">
 
     <ui:param name="crudBean" value="#{sumPaidBean}"/>
 
@@ -12,5 +13,14 @@
     <ui:define name="table-title">
     </ui:define>
     <ui:define name="add-column">
+        <p:column headerText="#{msg['label']}">
+            <p:outputLabel value="#{e.member.fullPersonFromMember()}"/>
+        </p:column>
+        <p:column headerText="#{msg['is-root']}">
+            <p:outputLabel value="#{e.sumPromised.montant}"/>
+        </p:column>
+        <p:column headerText="#{msg['localities.type-locality.edit.parent']}">
+            <p:outputLabel value="#{e.sumPromised.year.value}"/>
+        </p:column>
     </ui:define>
 </ui:composition>

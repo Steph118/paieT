@@ -10,6 +10,7 @@ import entities.SumPaid;
 import entities.SumPromised;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.NoResultException;
+import java.math.BigDecimal;
 
 /**
  * @author steph18
@@ -34,6 +35,22 @@ public class SumPaidDao extends RepositoryDao<SumPaid, Integer> {
                     .setParameter("month", month)
                     .setParameter("sumPromised", sumPromised)
                     .setParameter("member", member)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
+
+    public BigDecimal totalSumPaid(SumPaid sp) {
+        String jpql = """
+                                SELECT SUM (p.amount)
+                                FROM Payment p
+                                WHERE p.sumPaid = :sumPaid
+                """;
+        try {
+            return this.em.createQuery(jpql, BigDecimal.class)
+                    .setParameter("sumPaid", sp)
                     .getSingleResult();
         } catch (NoResultException e) {
             return null;
