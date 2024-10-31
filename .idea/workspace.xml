@@ -9,15 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Login and authentification">
+    <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Payment page edition.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/EgliseBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/PaymentBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/PaymentBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/SumPaidBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/SumPaidBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumPaid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumPaid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -625,6 +625,10 @@
       <workItem from="1728910283904" duration="16000" />
       <workItem from="1729031541755" duration="3468000" />
       <workItem from="1729106229701" duration="111000" />
+      <workItem from="1729505186425" duration="2898000" />
+      <workItem from="1729639162638" duration="1997000" />
+      <workItem from="1729780254729" duration="7258000" />
+      <workItem from="1730134702712" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -802,7 +806,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727198843183</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Payment page edition.">
+      <option name="closed" value="true" />
+      <created>1729157746996</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1729157746996</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,7 +866,8 @@
     <MESSAGE value="coorection bugs" />
     <MESSAGE value="Add UserBean and RoleBean and pages" />
     <MESSAGE value="Login and authentification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login and authentification" />
+    <MESSAGE value="Payment page edition." />
+    <option name="LAST_COMMIT_MESSAGE" value="Payment page edition." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

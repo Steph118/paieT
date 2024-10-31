@@ -111,12 +111,10 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
         if (Objects.nonNull(this.member) && Objects.nonNull(this.sumPromised)
                 && Objects.nonNull(this.month)) {
             this.entity = this.sumPaidService.findSumPaidBy(this.month, this.sumPromised, this.member);
-            System.err.println("entity : " + this.entity);
         }
         if (Objects.isNull(this.entity)) {
             this.entity = new SumPaid(this.month, this.sumPromised, this.member);
-            this.diff = this.sumPromised.getMontant();
-            System.err.println("entity : " + this.entity);
+            this.diff = null;
         } else {
             this.checkSum();
         }
@@ -124,13 +122,12 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     private void checkSum() {
         BigDecimal sum = this.sumPaidService.totalSumPaid(this.getEntity());
-        System.err.println("sum : " + sum);
         if (Objects.nonNull(sum)) {
             diff = this.sumPromised.getMontant().subtract(sum);
             if (diff.doubleValue() > 0) {
                 Messages.addFlashGlobalInfo("Il vous reste " + this.appUtilsBeans.numberFormat(diff) + " de paiement");
             } else {
-                Messages.addFlashGlobalInfo("Vous ne pouvez plus faire de paiement pour ce mois");
+                Messages.addFlashGlobalInfo("Impossible de faire un paiement pour ce mois");
             }
 
         }
