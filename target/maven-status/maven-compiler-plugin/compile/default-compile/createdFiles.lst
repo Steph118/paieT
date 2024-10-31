@@ -41,6 +41,7 @@ services/MailService.class
 entities/Book.class
 services/ContributorService.class
 menu/AppMenu.class
+dto/EgliseDto.class
 bean/YearBean.class
 service/interfaces/TypeLocalityServiceLocal.class
 entities/Loan.class
@@ -97,6 +98,7 @@ services/LoanService.class
 dao/EgliseDao.class
 services/EntiteService.class
 service/interfaces/GenericServiceLocal.class
+entities/MonthEntity.class
 bean/SexeBean.class
 entities/Country.class
 service/interfaces/EntiteServiceLocal.class
