@@ -40,28 +40,28 @@ public class Payment extends BaseEntity {
         this.id = id;
     }
 
-    public BigDecimal getMontant() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setMontant(BigDecimal montant) {
-        this.amount = montant;
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 
-    public LocalDateTime getDateVersement() {
+    public LocalDateTime getPaymentDate() {
         return paymentDate;
     }
 
-    public void setDateVersement(LocalDateTime dateVersement) {
-        this.paymentDate = dateVersement;
+    public void setPaymentDate(LocalDateTime paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
-    public SumPaid getSumPaye() {
+    public SumPaid getSumPaid() {
         return sumPaid;
     }
 
-    public void setSumPaye(SumPaid sumPaye) {
-        this.sumPaid = sumPaye;
+    public void setSumPaid(SumPaid sumPaid) {
+        this.sumPaid = sumPaid;
     }
 
     @Override
@@ -83,7 +83,11 @@ public class Payment extends BaseEntity {
             return false;
         }
         final Payment other = (Payment) obj;
-        return Objects.equals(this.id, other.id);
+        if (this.id != null && other.id != null) {
+            return Objects.equals(this.id, other.id);
+        }
+        return false;
+
     }
 
     @Override

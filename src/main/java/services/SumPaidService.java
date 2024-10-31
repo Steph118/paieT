@@ -13,6 +13,7 @@ import entities.SumPromised;
 import enumeration.Month;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import java.math.BigDecimal;
 import service.interfaces.SumPaidServiceLocal;
 
 /**
@@ -29,7 +30,14 @@ public class SumPaidService extends GenericServiceLocalImpl<SumPaid, Integer> im
         return dao;
     }
 
+    @Override
     public SumPaid findSumPaidBy(MonthEntity month, SumPromised sumPromised, Member member) {
         return this.dao.findSumPaidBy(month, sumPromised, member);
+    }
+
+    @Override
+    public BigDecimal totalSumPaid(SumPaid sp) {
+        return this.dao.totalSumPaid(sp);
+
     }
 }
