@@ -2,9 +2,10 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="jakarta.faces.facelets"
 
-                xmlns:p="primefaces">
+                xmlns:p="primefaces"
+                xmlns:f="jakarta.faces.core">
 
-    <ui:param name="crudBean" value="#{sumPaidBean}"/>
+    <ui:param name="crudBean" value="#{paymentBean}"/>
 
     <ui:define name="list-title">
     </ui:define>
@@ -13,14 +14,29 @@
     <ui:define name="table-title">
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="#{msg['label']}">
-            <p:outputLabel value="#{e.member.fullPersonFromMember()}"/>
+        <p:headerRow field="sumPaid.member.fullPersonFromMember()"
+                     expandable="true"
+                     expanded="true">
+            <p:column colspan="4">
+                <div class="inline-flex align-items-center" style="vertical-align: middle">
+                    <p:outputLabel styleClass="ml-2" value="#{e.sumPaid.member.fullPersonFromMember()}"/>
+                </div>
+            </p:column>
+        </p:headerRow>
+
+        <p:column headerText="#{msg['member']}">
+            <p:outputLabel value="#{e.sumPaid.member.fullPersonFromMember()}"/>
         </p:column>
-        <p:column headerText="#{msg['is-root']}">
-            <p:outputLabel value="#{e.sumPromised.montant}"/>
+        <p:column headerText="#{msg['montant']}">
+            <p:outputLabel value="#{e.amount}"/>
         </p:column>
-        <p:column headerText="#{msg['localities.type-locality.edit.parent']}">
-            <p:outputLabel value="#{e.sumPromised.year.value}"/>
+        <p:column headerText="#{msg['month.title']}">
+            <p:outputLabel value="#{e.sumPaid.month.libelle}"/>
+        </p:column>
+        <p:column headerText="#{msg['date.payment']}">
+            <p:outputLabel value="#{e.paymentDate}">
+                <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
+            </p:outputLabel>
         </p:column>
     </ui:define>
 </ui:composition>

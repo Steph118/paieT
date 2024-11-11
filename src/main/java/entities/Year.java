@@ -14,7 +14,7 @@ import java.util.Objects;
  * @author steph18
  */
 @Entity
-@Table(name = "year")
+@Table(name = "years")
 public class Year extends BaseEntity {
 
     @Id

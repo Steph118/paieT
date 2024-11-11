@@ -44,8 +44,8 @@ public abstract class GenericServiceLocalImpl<E extends Serializable, ID>
     }
 
     @Override
-    public void delete(ID id) {
-        this.getDAO().delete(id);
+    public int delete(ID id) {
+        return this.getDAO().delete(id);
     }
 
     @Override
@@ -74,8 +74,8 @@ public abstract class GenericServiceLocalImpl<E extends Serializable, ID>
     }
 
     @Override
-    public void deleteAll() {
-        this.getDAO().deleteAll();
+    public int deleteAll() {
+       return this.getDAO().deleteAll();
     }
 
     @Override

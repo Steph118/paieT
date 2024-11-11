@@ -25,9 +25,9 @@ public interface GenericServiceLocal<E extends Serializable, ID> {
 
     void delete(E e);
 
-    void delete(ID id);
+    int delete(ID id);
 
-    void deleteAll();
+    int deleteAll();
 
     E findById(ID id);
 

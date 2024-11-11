@@ -10,14 +10,12 @@ package entities;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import java.util.Objects;
-import org.omnifaces.util.Utils;
 
 @Entity
-@Table(name = "sumpaid")
+@Table(name = "sumpaids")
 public class SumPaid extends BaseEntity {
 
     @Id
@@ -65,8 +63,8 @@ public class SumPaid extends BaseEntity {
 
     public BigDecimal totalSumPaid() {
         BigDecimal total = BigDecimal.ZERO;
-        for (Payment p : payments) {
-            total.add(p.getAmount());
+        for (Payment p : this.getPayments()) {
+            total = total.add(p.getAmount());
         }
         return total;
     }

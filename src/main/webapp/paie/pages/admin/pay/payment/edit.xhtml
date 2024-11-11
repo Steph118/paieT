@@ -86,7 +86,7 @@
         <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
             <p:outputLabel for="sumPromised" value="#{msg['promised.list.single.title']}"/>
             <p:inputText id="sumPromised" class="w-full bg-blue-50 bold text-1xl" requiredMessage="#{msg['promised.list.single.title']}"
-                         disabled="true" value="#{sumPaidBean.sumPromised.montant}"  required="true"/>
+                         disabled="true" value="#{sumPaidBean.formatSumPromised()}"  required="true" />
         </div>
 
 
@@ -111,8 +111,9 @@
                                    disabled="#{sumPaidBean.sumPromised == null}"/>
                 </div>
                 <div class="sm:col-12 col-12 md:col-1 lg:col-1 align-content-center align-items-center">
-                    <p:commandButton  class="mt-2 w-full" icon="fa fa-add" update="table-pay month montantVersement"
-                                      action="#{sumPaidBean.addToList()}" process="@this montantVersement month"/>
+                    <p:commandButton id="addAmount"  class="mt-2 w-full" icon="fa fa-add" update="table-pay month montantVersement"
+                                     disabled="#{sumPaidBean.sumPromised == null}"
+                                     action="#{sumPaidBean.addToList()}" process="@this montantVersement month"/>
                 </div>
             </div>
 
@@ -126,8 +127,16 @@
                             <p:outputLabel value="#{pay.amount}"/>
                         </p:column>
                         <p:column headerText="actions">
-                            <p:commandButton id="deleteButton" class="ui-button-danger"
-                                             icon="pi pi-trash"  action="#{sumPaidBean.removeFromList(pay)}"/>
+                            <p:commandButton id="deleteButton" class="ui-button-danger" process="deleteButton" rendered="#{pay.id == null}"
+                                             update="table-pay" icon="pi pi-trash"  action="#{sumPaidBean.removeFromList(pay)}"/>
+
+                            <p:commandButton id="deleteButton2" class="ui-button-danger" process="deleteButton2" rendered="#{pay.id != null}"
+                                             update="table-pay" icon="pi pi-trash"  action="#{sumPaidBean.removeFromList(pay)}">
+                                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                                           message="#{msg['confirmer.placeholder']}"/>
+                                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                                           message="#{msg['confirmer.placeholder']}"/>
+                            </p:commandButton>
                         </p:column>
 
                     </p:dataTable>
