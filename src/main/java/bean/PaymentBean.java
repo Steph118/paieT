@@ -61,22 +61,6 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
         this.years = this.yearService.getAll();
     }
 
-    public void loadMembers() {
-        if (Objects.nonNull(this.eglise) && Objects.nonNull(this.dptment)) {
-            this.membres = this.memberService.getByEgliseAndDptmnt(this.eglise, this.dptment);
-            System.err.println("in loadMembers");
-            System.err.println("Members values" + loans);
-        }
-    }
-
-    public void loadLoansAndMembers() {
-        if (Objects.nonNull(this.eglise)) {
-            this.loans = this.loanService.getLoansByEglise(this.eglise);
-            System.err.println("in loadLoansAndMembers");
-            System.err.println("in loadLoansAndMembers values" + loans);
-        }
-        this.loadMembers();
-    }
 
     @Override
     public boolean canAdd() {

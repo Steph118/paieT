@@ -5,6 +5,7 @@
 package bean;
 
 import entities.*;
+import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -15,6 +16,7 @@ import service.interfaces.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
 import org.omnifaces.util.Messages;
 import utils.AppUtilsBeans;
 
@@ -27,20 +29,30 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     @EJB
     private SumPaidServiceLocal sumPaidService;
+
     @EJB
     private SumPromisedServiceLocal sumPromisedService;
+
     @EJB
     private EgliseServiceLocal egliseService;
+
     @EJB
     private DepartmentServiceLocal departmentService;
+
     @EJB
     private YearServiceLocal yearService;
+
     @EJB
     private LoanServiceLocal loanService;
+
     @EJB
     private MemberServiceLocal memberService;
+
     @EJB
     private MonthServiceLocal monthService;
+
+    @EJB
+    private PaymentServiceLocal paymentService;
 
     @Inject
     private AppUtilsBeans appUtilsBeans;
@@ -54,6 +66,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     private MonthEntity month;
     private Payment payment;
     private BigDecimal diff;
+    private Boolean toAdd = Boolean.TRUE;
 
     private List<Eglise> eglises = new ArrayList<>();
     private List<Year> years = new ArrayList<>();
@@ -115,17 +128,17 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
         if (Objects.isNull(this.entity)) {
             this.entity = new SumPaid(this.month, this.sumPromised, this.member);
             this.diff = null;
-        } else {
-            this.checkSum();
+            return;
         }
+        this.checkSum();
     }
 
     private void checkSum() {
         BigDecimal sum = this.sumPaidService.totalSumPaid(this.getEntity());
         if (Objects.nonNull(sum)) {
-            diff = this.sumPromised.getMontant().subtract(sum);
+            this.diff = this.sumPromised.getMontant().subtract(sum);
             if (diff.doubleValue() > 0) {
-                Messages.addFlashGlobalInfo("Il vous reste " + this.appUtilsBeans.numberFormat(diff) + " de paiement");
+                Messages.addFlashGlobalWarn("Il vous reste " + this.appUtilsBeans.numberFormat(diff) + " de paiement");
             } else {
                 Messages.addFlashGlobalInfo("Impossible de faire un paiement pour ce mois");
             }
@@ -133,11 +146,48 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
         }
     }
 
+    public String formatSumPromised() {
+        if (Objects.nonNull(this.sumPromised)) {
+            return appUtilsBeans.numberFormat(this.sumPromised.getMontant());
+        }
+        return null;
+    }
+
     @Override
     public void beforeSave() {
-        boolean b = this.entity.totalSumPaid()
-                .subtract(diff).doubleValue() == 0;
+        this.toAdd = this.entity.totalSumPaid()
+                .subtract(this.sumPromised.getMontant())
+                .doubleValue() <= 0;
+    }
 
+    @Override
+    public String save() {
+        try {
+            logger.log(Level.INFO, "GenericBean Save...");
+            if (!getToAdd()) {
+                Messages.addFlashGlobalError("Erreur lors de l'ajout !");
+                return null;
+            }
+            if (getToAdd()) {
+                if (Objects.isNull(diff)) {
+                    this.getService().save(this.entity);
+                } else {
+                    this.getService().update(this.entity);
+                }
+            }
+
+            Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
+            this.logger.log(Level.INFO, "Enregistrement de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
+            return cancel();
+        } catch (BusinessException ex) {
+            Messages.addGlobalError(ex.getMessage());
+            this.logger.log(Level.SEVERE, ex.getMessage(), ex);
+            return null;
+        } catch (Exception ex) {
+            Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
+            this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet: " + this.entity);
+            return null;
+        }
     }
 
     public void addToList() {
@@ -146,6 +196,9 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     }
 
     public void removeFromList(Payment payment) {
+        if (Objects.nonNull(payment.getId())) {
+            this.paymentService.delete(payment.getId());
+        }
         this.entity.removePayment(payment);
     }
 
@@ -259,5 +312,13 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public Boolean getToAdd() {
+        return toAdd;
+    }
+
+    public void setToAdd(Boolean toAdd) {
+        this.toAdd = toAdd;
     }
 }

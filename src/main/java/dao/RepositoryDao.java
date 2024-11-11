@@ -6,7 +6,6 @@ package dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,21 +39,24 @@ public class RepositoryDao<E extends Serializable, ID> {
     }
 
     public boolean isUpdate(E e) {
-        return this.em.merge(e) != null;
+        return this.update(e) != null;
     }
 
-    public void delete(ID id) {
-        this.em.remove(this.findById(id));
+    public int delete(ID id) {
+        String jpql = "DELETE FROM " + this.entityClass.getSimpleName() + " e WHERE e.id = :id ";
+        return this.em.createQuery(jpql, this.entityClass)
+                .setParameter("id", id)
+                .executeUpdate();
     }
 
     public void delete(E e) {
         this.em.remove(this.em.merge(e));
     }
 
-    public void deleteAll() {
+    public int deleteAll() {
         String jpql = "DELETE FROM " + this.entityClass.getSimpleName();
-        Query query = this.em.createQuery(jpql);
-        query.executeUpdate();
+        return this.em.createQuery(jpql, this.entityClass)
+                .executeUpdate();
     }
 
     public E findById(ID id) {
