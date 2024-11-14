@@ -100,4 +100,9 @@ public class Payment extends BaseEntity {
         this.paymentDate = LocalDateTime.now();
     }
 
+    @PreUpdate
+    public void preUpdate() {
+        this.paymentDate = LocalDateTime.now();
+    }
+
 }

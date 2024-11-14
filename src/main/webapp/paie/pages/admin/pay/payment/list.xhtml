@@ -14,29 +14,58 @@
     <ui:define name="table-title">
     </ui:define>
     <ui:define name="add-column">
-        <p:headerRow field="sumPaid.member.fullPersonFromMember()"
+        <p:headerRow field="sumPaid.member.eglise.label"
                      expandable="true"
                      expanded="true">
             <p:column colspan="4">
                 <div class="inline-flex align-items-center" style="vertical-align: middle">
-                    <p:outputLabel styleClass="ml-2" value="#{e.sumPaid.member.fullPersonFromMember()}"/>
+                    <p:outputLabel styleClass="ml-2" value="#{e.sumPaid.member.eglise.label}"/>
                 </div>
             </p:column>
         </p:headerRow>
 
+
+
+        <p:column headerText="#{msg['entites.eglise.title']}">
+            <p:outputLabel value="#{e.sumPaid.member.eglise.label}"/>
+        </p:column>
         <p:column headerText="#{msg['member']}">
             <p:outputLabel value="#{e.sumPaid.member.fullPersonFromMember()}"/>
         </p:column>
+        <p:column headerText="#{msg['loan.title']}">
+            <p:outputLabel value="#{e.sumPaid.sumPromised.loan.label}"/>
+        </p:column>
+        <p:column headerText="#{msg['promised.list.single.title']}">
+            <p:outputLabel value="#{appUtilsBeans.numberFormat(e.sumPaid.sumPromised.montant)}"/>
+        </p:column>
         <p:column headerText="#{msg['montant']}">
-            <p:outputLabel value="#{e.amount}"/>
+            <p:outputLabel value="#{appUtilsBeans.numberFormat(e.amount)}"/>
         </p:column>
         <p:column headerText="#{msg['month.title']}">
             <p:outputLabel value="#{e.sumPaid.month.libelle}"/>
         </p:column>
-        <p:column headerText="#{msg['date.payment']}">
+        <p:column headerText="#{msg['payment.date']}">
             <p:outputLabel value="#{e.paymentDate}">
                 <f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
             </p:outputLabel>
         </p:column>
     </ui:define>
+
+    <ui:define name="insert-editButton">
+        <p:tooltip value="#{msg['edit']}" for="editButton" position="top"/>
+        <p:button id="editButton" class="ui-button-primary m-1"
+                  icon="fa fa-edit" includeViewParams="true"
+                  outcome="update-pay.xhtml" rendered="#{paymentBean.canUpdate()}">
+            <f:param name="entityId" value="#{e.id}"/>
+        </p:button>
+    </ui:define>
+
+    <!--    <ui:define name="insert-editButton">
+            <p:tooltip value="# {msg['edit']}" for="editButton" position="top"/>
+            <p:button id="editButton" class="ui-button-primary m-1"
+                      icon="fa fa-edit" includeViewParams="true"
+                      outcome="update-pay.xhtml" rendered="# {paymentBean.canUpdate()}">
+                <f:param name="entityId" value="# {e.id}"/>
+            </p:button>
+        </ui:define>-->
 </ui:composition>

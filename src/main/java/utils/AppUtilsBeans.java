@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 @Named
 @ViewScoped
 public class AppUtilsBeans implements Serializable {
+    
     public String numberFormat(BigDecimal montant) {
         return AppUtils.formatNumber(montant);
     }
