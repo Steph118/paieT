@@ -1,0 +1,94 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="jakarta.faces.core"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/paie/templates/layout-edit.xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:p="http://primefaces.org/ui">  
+
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{paymentBean.entityId}"/>
+            <f:viewAction action="#{paymentBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
+
+    <ui:param name="crudBean" value="#{paymentBean}"/>
+
+    <ui:param name="fieldsTitle" value="#{msg['payment.list.title']}"/>
+
+    <ui:define name="list-title">
+        #{msg['payment.list.title']}
+    </ui:define>
+
+    <ui:define name="breadCrumb" >
+        #{msg['payment.list.breadCrumb']}
+    </ui:define>
+
+    <ui:define name="fields-content">
+
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel for="montantVersement" value="#{msg['payment.edit.amount']}"/>
+            <p:inputNumber id="montantVersement" class="w-full" required="true"
+                           value="#{paymentBean.entity.amount}"
+                           requiredMessage="#{msg['payment.edit.amount.required']}"
+                           />
+            <span>Le montant a modifier</span>
+        </div>
+
+        <div class="field sm:col-6 col-6 md:col-2 lg:col-2 align-content-center">
+            <div>
+                <p:outputLabel value="Le mois de paiement"/>
+            </div>
+            <p:outputLabel class="p-2 font-bold text-xl" 
+                           value="#{paymentBean.entity.sumPaid.month.libelle}"/>
+
+        </div>
+
+        <div class="field sm:col-6 col-6 md:col-2 lg:col-2 align-content-center">
+            <div>
+                <p:outputLabel value="#{msg['promised.list.single.title']}"/>
+            </div>
+            <p:outputLabel  class="p-2 font-bold text-xl" 
+                            value="#{appUtilsBeans.numberFormat(paymentBean.entity.sumPaid.sumPromised.montant)}"/>
+
+        </div>
+
+        <div class="lg:col-8 md:col-12 col-12 sm:col-12">
+            <p:panel header="Paiements courants" >
+                <p:dataTable value="#{paymentBean.sumPaid.payments}" var="t">
+                    <p:column headerText="month" class="#{ t.id ==  paymentBean.entity.id ? 'font-bold text-900 text-xl' : ''}">
+                        <p:outputLabel value="#{t.sumPaid.month.libelle}"/>
+                    </p:column>
+                    <p:column headerText="montant" class="#{ t.id ==  paymentBean.entity.id ? 'font-bold text-900 text-xl' : ''}">
+                        <p:outputLabel value="#{appUtilsBeans.numberFormat(t.amount)}"/>
+                    </p:column>
+                    <p:column headerText="Date" class="#{ t.id ==  paymentBean.entity.id ? 'font-bold text-900 text-xl' : ''}">
+                        <p:outputLabel value="#{t.paymentDate}">
+                            <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss" type="localDate"/>
+                        </p:outputLabel>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </div>
+
+
+
+
+    </ui:define>
+
+    <!--    <ui:define name="saveBtn">
+            <p:commandButton value="# {msg['save.button']}" icon="fa fa-save"
+                             class="ui-button-primary"
+                             actionListener="# {crudBean.beforeSave()}"
+                             action="# {sumPaidBean.save()}" process="@this"
+                             rendered="# {!sumPaidBean.isUpdating()}">
+                <p:confirm header="# {msg['confirmer.label']}" icon="ui-icon-alert"
+                           message="# {msg['confirmer.placeholder']}"/>
+                <p:confirm header="# {msg['confirmer.label']}" icon="ui-icon-alert"
+                           message="# {msg['confirmer.placeholder']}"/>
+            </p:commandButton>
+    
+        </ui:define>-->
+</ui:composition>
+
