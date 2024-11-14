@@ -11,17 +11,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5edbe994-8bf0-4156-b517-5694f964b19b" name="Changes" comment="Payment page edition.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paie-t.iml" beforeDir="false" afterPath="$PROJECT_DIR$/paie-t.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nb-configuration.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/PaymentBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/PaymentBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bean/SumPaidBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/SumPaidBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RepositoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumPaid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumPaid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/SumPromised.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/SumPromised.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Year.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Year.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/interfaces/GenericServiceLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/interfaces/GenericServiceLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GenericServiceLocalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GenericServiceLocalImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/AppUtilsBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/AppUtilsBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/paie/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/paie/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/paie/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/paie/messages_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/details.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/payment/list.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/details.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/pages/admin/pay/sum-pay/edit.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/paie/templates/layout-list.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -637,7 +639,9 @@
       <workItem from="1730586319683" duration="601000" />
       <workItem from="1730742890470" duration="24000" />
       <workItem from="1730987922454" duration="1305000" />
-      <workItem from="1731316577303" duration="970000" />
+      <workItem from="1731316577303" duration="1655000" />
+      <workItem from="1731321156097" duration="2771000" />
+      <workItem from="1731581295836" duration="373000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout des classes et configurations">
       <option name="closed" value="true" />
@@ -831,7 +835,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730397799507</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Payment page edition.">
+      <option name="closed" value="true" />
+      <created>1731317638154</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1731317638155</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
