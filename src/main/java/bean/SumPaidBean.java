@@ -208,7 +208,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
 //    }
     @Override
     public boolean canAdd() {
-        return true;
+        return false;
     }
 
     @Override
