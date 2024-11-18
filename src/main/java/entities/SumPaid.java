@@ -93,14 +93,14 @@ public class SumPaid extends BaseEntity {
         this.month = month;
     }
 
-    public SumPromised getPromesse() {
-        return sumPromised;
+    public Boolean getPaid() {
+        return paid;
     }
 
-    public void setPromesse(SumPromised promesse) {
-        this.sumPromised = promesse;
+    public void setPaid(Boolean paid) {
+        this.paid = paid;
     }
-
+    
     public boolean isPaid() {
         return paid;
     }
