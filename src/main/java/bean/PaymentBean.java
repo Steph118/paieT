@@ -13,13 +13,15 @@ import entities.SumPaid;
 import entities.Year;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.PaymentServiceLocal;
-import service.interfaces.SumPaidServiceLocal;
+import utils.AppUtilsBeans;
 
 /**
  * @author steph18
@@ -31,20 +33,19 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
     @EJB
     private PaymentServiceLocal paymentService;
 
-    @EJB
-    private SumPaidServiceLocal sumPaidService;
+    @Inject
+    private AppUtilsBeans appUtilsBeans;
 
     private Eglise eglise;
     private Department dptment;
+    private SumPaid SumPaid;
+    private boolean notAdd;
 
     private List<Eglise> eglises = new ArrayList<>();
     private List<Year> years = new ArrayList<>();
     private List<Member> membres = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
     private List<Loan> loans = new ArrayList<>();
-
-    private SumPaid SumPaid;
-    private boolean add;
 
     @Override
     public void initAdd() {
@@ -58,29 +59,36 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
 
     @Override
     public void loadEntity() {
-        super.loadEntity();
+        this.entity = this.getService().findById(this.entityId);
         this.SumPaid = new SumPaid();
         if (this.entity != null) {
-            this.SumPaid = this.sumPaidService.findSumPaidBy(this.entity.getSumPaid().getMonth(),
-                    this.entity.getSumPaid().getPromesse(), this.entity.getSumPaid().getMember());
-
-            this.SumPaid.removePayment(this.entity);
+            this.SumPaid = this.entity.getSumPaid();
+            //this.SumPaid.removePayment(this.entity);
         }
     }
 
     @Override
     public void beforeUpdate() {
+        this.SumPaid.removePayment(this.entity);
         BigDecimal result = this.SumPaid.totalSumPaid().add(this.entity.getAmount())
-                .subtract(this.entity.getSumPaid().getSumPromised().getMontant());
-        this.add = result.doubleValue() > 0;
+                .subtract(this.SumPaid.getSumPromised().getMontant());
+        this.notAdd = result.doubleValue() > 0;
     }
 
     @Override
     public String update() {
-        if (!isAdd()) {
+        if (isNotAdd()) {
+            Messages.addFlashGlobalError("La somme de vos paiements dépasse le montant promis");
             return null;
         }
+        this.entity.setSumPaid(SumPaid);
         return super.update();
+    }
+
+    public String rest() {
+        BigDecimal rest = this.SumPaid.getSumPromised().getMontant()
+                .subtract(this.SumPaid.totalSumPaid().subtract(this.entity.getAmount()));
+        return appUtilsBeans.numberFormat(rest);
     }
 
     @Override
@@ -163,8 +171,8 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
         return SumPaid;
     }
 
-    public boolean isAdd() {
-        return add;
+    public boolean isNotAdd() {
+        return notAdd;
     }
 
 }

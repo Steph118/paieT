@@ -100,6 +100,11 @@ public class Loan extends BaseEntity {
         this.eglise = eglise;
     }
 
+    @PrePersist
+    private void loanRembourse() {
+        this.setRembourse(false);
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
