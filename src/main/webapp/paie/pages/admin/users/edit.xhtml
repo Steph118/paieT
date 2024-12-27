@@ -1,9 +1,9 @@
 <ui:composition
-        xmlns:f="jakarta.faces.core"
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:ui="jakarta.faces.facelets"
-        xmlns:p="http://primefaces.org/ui"
-        template="/paie/templates/layout-edit.xhtml">
+    xmlns:f="jakarta.faces.core"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="http://primefaces.org/ui"
+    template="/paie/templates/layout-edit.xhtml">
 
     <ui:define name="metadata">
         <f:metadata>
@@ -20,42 +20,48 @@
         #{msg['user.title']}
     </ui:define>
     <ui:define name="breadCrumb">
-         #{msg['user.title']}
+        #{msg['user.title']}
     </ui:define>
     <ui:define name="fields-content">
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel value="#{msg['users.edit.username']}" for="username"/>
-                <p:inputText id="username" class="w-full" placeholder="#{msg['users.edit.username.placeholder']}"
-                             value="#{userBean.entity.userName}"
-                             required="true" requiredMessage="#{msg['users.edit.username.required']}"/>
-            </div>
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel value="#{msg['users.edit.username']}" for="username"/>
+            <p:inputText id="username" class="w-full" placeholder="#{msg['users.edit.username.placeholder']}"
+                         value="#{userBean.entity.userName}"
+                         required="true" requiredMessage="#{msg['users.edit.username.required']}"/>
+        </div>
 
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel value="#{msg['users.edit.password']}" for="password"/>
-                <p:password id="password" class="w-full" placeholder="#{msg['users.edit.password.placeholder']}"
-                            value="#{userBean.entity.password}"
-                            required="true" requiredMessage="#{msg['users.edit.password.required']}"/>
-            </div>
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel value="#{msg['users.edit.password']}" for="password"/>
+            <p:password id="password" class="w-full" placeholder="#{msg['users.edit.password.placeholder']}"
+                        value="#{userBean.entity.password}"
+                        required="true" requiredMessage="#{msg['users.edit.password.required']}"/>
+        </div>
 
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel value="#{msg['users.edit.confirm.password']}" for="confirmPassword"/>
-                <p:password id="confirmPassword" class="w-full" placeholder="#{msg['users.edit.confirm.password']}"
-                            value="#{userBean.confirmPassword}"
-                            required="true" requiredMessage="#{msg['users.edit.confirm.password.required']}">
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel value="#{msg['users.edit.confirm.password']}" for="confirmPassword"/>
+            <p:password id="confirmPassword" class="w-full" placeholder="#{msg['users.edit.confirm.password']}"
+                        value="#{userBean.confirmPassword}"
+                        required="true" requiredMessage="#{msg['users.edit.confirm.password.required']}">
 
-                </p:password>
+            </p:password>
+        </div>
+        <div class="field col-12">
+            <div class="pb-2">
+                <p:outputLabel value="#{msg['user.actif']}" for="actif"/>
             </div>
+            <p:toggleSwitch id="actif" 
+                            onIcon="pi pi-check" offIcon="pi pi-power"  value="#{userBean.userActif}"/>
+        </div>
 
-            <div class="field sm:col-12 col-12 md:col-12 lg:col-12">
-                <p:outputLabel value="#{msg['roles.title']}" for="roles"/>
-                <p:selectManyCheckbox id="roles" class="w-full"
-                                      converter="omnifaces.SelectItemsConverter"
-                                      required="true" requiredMessage="#{msg['roles.required']}">
-                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
-                    <f:selectItems value="#{personBean.eglises}" itemLabel="#{r.label}" itemValue="#{r}"
-                                   var="r" />
-                </p:selectManyCheckbox>
-            </div>
+        <div class="field sm:col-12 col-12 md:col-12 lg:col-12">
+            <p:outputLabel value="#{msg['roles.title']}" for="roles"/>
+            <p:selectManyCheckbox id="roles" class="w-full" value="#{userBean.entity.roles}"
+                                  converter="omnifaces.SelectItemsConverter"
+                                  required="true" requiredMessage="#{msg['roles.required']}">
+                <f:selectItems value="#{userBean.roles}" itemLabel="#{r.label}" itemValue="#{r}"
+                               var="r" />
+            </p:selectManyCheckbox>
+        </div>
 
     </ui:define>
 

@@ -12,18 +12,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
         <ui:param name="crudBean" value="#{userBean}"/>
 
         <ui:define name="list-title">
+            #{msg['users.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+            #{msg['user.breadCrumb']}
         </ui:define>
         <ui:define name="table-title">
+            #{msg['users.title']}
         </ui:define>
         <ui:define name="add-column">
-            <p:column headerText="#{msg['user.title']}" sortBy="#{e.username}" 
-                      filterBy="#{e.username}" filterMatchMode="contains" filterPlaceholder="Filter by username">
+            <p:column headerText="#{msg['users.edit.username']}" sortBy="#{e.username}" 
+                      filterBy="#{e.username}" filterMatchMode="contains" filterPlaceholder="#{msg['filter-by-username']}">
                 <p:outputLabel value="#{e.username}"/>
             </p:column>
-            <p:column headerText="#{msg['user.title']}" sortBy="#{e.actif}" 
-                      filterBy="#{e.actif}" filterMatchMode="contains" filterPlaceholder="Filter by actif">
+            <p:column headerText="#{msg['user.actif']}" sortBy="#{e.actif}" >
                 <p:outputLabel value="#{e.actif ? 'Oui' : 'Non'}"/>
             </p:column>
         </ui:define>

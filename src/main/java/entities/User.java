@@ -74,19 +74,19 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public boolean isActif() {
+    public Boolean getActif() {
         return actif;
     }
 
-    public void setActif(boolean actif) {
+    public void setActif(Boolean actif) {
         this.actif = actif;
     }
 
-    public boolean isChangePassword() {
+    public Boolean getChangePassword() {
         return changePassword;
     }
 
-    public void setChangePassword(boolean changePassword) {
+    public void setChangePassword(Boolean changePassword) {
         this.changePassword = changePassword;
     }
 
@@ -126,6 +126,14 @@ public class User extends BaseEntity {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @PrePersist
+    public void prePersit() {
+        if (Objects.isNull(this.getActif())) {
+            this.setActif(false);
+        }
+        this.setChangePassword(true);
     }
 
     @Override

@@ -85,7 +85,7 @@
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel value="#{msg['entites.eglises.edit.contact1']}" for="contact1"/>
                 <div class="ui-inputgroup">
-                    <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-8 sm:w-5 w-5" filter="true"
+                    <p:selectOneMenu class="ui-inputgroup-addon lg:w-5 md:w-8 sm:w-8 w-8" filter="true"
                                      filterMatchMode="contains" value="#{egliseBean.entity.phoneCode1}"
                                      style="height: 32px; padding-top: 1px;"
                                      id="phoneCode1" converter="omnifaces.SelectItemsConverter" required="true"
@@ -103,7 +103,7 @@
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel value="#{msg['entites.eglises.edit.contact2']}" for="contact2"/>
                 <div class="ui-inputgroup">
-                    <p:selectOneMenu class="ui-inputgroup-addon lg:w-3 md:w-7 sm:w-6 w-6" filter="true"
+                    <p:selectOneMenu class="ui-inputgroup-addon lg:w-5 md:w-8 sm:w-8 w-8" filter="true"
                                      filterMatchMode="contains"
                                      style="height: 32px; padding-top: 1px;" value="#{egliseBean.entity.phoneCode2}"
                                      requiredMessage="#{msg['entites.eglises.edit.phoneCode2.required']}"
@@ -128,6 +128,13 @@
                              />
             </div>
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['logo']}" for="logo"/>
+                <p:fileUpload id="logo" class="w-full" uploadIcon="pi pi-download" 
+                              cancelLabel="Annuler" uploadLabel="Charger" 
+                              displayFilename="true" dragDropSupport="true" virusScan="true"
+                              />
+            </div>
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel value="#{msg['entites.eglises.edit.city']}" for="city"/>
                 <p:inputText id="city" class="w-full" placeholder="#{msg['entites.eglises.edit.city.placeholder']}"
                              value="#{egliseBean.address.city}"
@@ -139,11 +146,7 @@
                              value="#{egliseBean.address.zip}"
                              />
             </div>
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <!--                    <p:outputLabel value="# {msg['logo']}" for="logo"/>
-                                    <p:fileUpload id="logo" class="w-full" uploadIcon="pi pi-home"
-                                                  />-->
-            </div>
+
         </ui:define>
     </ui:composition>
 </html>
