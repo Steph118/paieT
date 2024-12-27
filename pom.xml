@@ -69,7 +69,21 @@
             <artifactId>jakarta.data-api</artifactId>
             <version>1.0.0</version>
         </dependency>
-
+<!--        <dependency>
+            <groupId>net.sourceforge.dynamicreports</groupId>
+            <artifactId>dynamicreports-core</artifactId>
+            <version>6.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.dynamicreports</groupId>
+            <artifactId>dynamicreports-adhoc</artifactId>
+            <version>6.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.dynamicreports</groupId>
+            <artifactId>dynamicreports-googlecharts</artifactId>
+            <version>6.12.0</version>
+        </dependency>-->
     </dependencies>
 
     <build>

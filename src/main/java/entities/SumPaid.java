@@ -81,7 +81,7 @@ public class SumPaid extends BaseEntity {
         return paid;
     }
 
-    public void setPaye(boolean paye) {
+    public void setPaye(Boolean paye) {
         this.paid = paye;
     }
 
@@ -103,10 +103,6 @@ public class SumPaid extends BaseEntity {
     
     public boolean isPaid() {
         return paid;
-    }
-
-    public void setPaid(boolean paid) {
-        this.paid = paid;
     }
 
     public SumPromised getSumPromised() {

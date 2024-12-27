@@ -13,14 +13,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
         <ui:param name="crudBean" value="#{roleBean}"/>
 
         <ui:define name="list-title">
+            #{msg['roles.title']}
         </ui:define>
         <ui:define name="breadCrumb">
+             #{msg['roles.breadCrumb']}
         </ui:define>
         <ui:define name="table-title">
+             #{msg['roles.title']}
         </ui:define>
         <ui:define name="add-column">
-            <p:column headerText="#{msg['roles.title']}" sortBy="#{e.label}" 
-                      filterBy="#{e.label}" filterMatchMode="contains" filterPlaceholder="Filter By Name">
+            <p:column headerText="#{msg['filter-by-label']}" sortBy="#{e.label}" 
+                      filterBy="#{e.label}" filterMatchMode="contains" filterPlaceholder="#{msg['filter-by-label']}">
                 <p:outputLabel value="#{e.label}"/>
             </p:column>
         </ui:define>
