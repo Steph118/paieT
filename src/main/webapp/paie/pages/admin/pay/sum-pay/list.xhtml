@@ -1,6 +1,7 @@
 <ui:composition template="/paie/templates/layout-list.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="jakarta.faces.facelets">
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
 
     <ui:param name="crudBean" value="#{sumPaidBean}"/>
 
@@ -11,5 +12,8 @@
     <ui:define name="table-title">
     </ui:define>
     <ui:define name="add-column">
+        <p:column headerText="#{msg['entites.eglise.title']}">
+            <p:outputLabel value="#{e.member.eglise.label}"/>
+        </p:column>
     </ui:define>
 </ui:composition>
