@@ -1,8 +1,0 @@
-src/main/filters/*
-target/*
-.gitignore
-faces-config.NavData
-map-jpa.iml
-nb-configuration.xml
-.idea/*
-
