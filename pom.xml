@@ -15,7 +15,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>11.0.0-RC1</jakartaee>
     </properties>
-
+    
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
