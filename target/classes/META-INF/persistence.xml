@@ -13,12 +13,12 @@
             <property name="eclipselink.logging.parameters" value="true"/>
             <property name="eclipselink.logging.logger" value="DefaultLogger"/>
             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
-            <property name="jakarta.persistence.schema-generation.create-source"
+<!--            <property name="jakarta.persistence.schema-generation.create-source"
                       value="script"/>
-            <property name="jakarta.persistence.sql-load-script-source"
-                      value="META-INF/sql/insert-months.sql" />
+-->            <property name="jakarta.persistence.sql-load-script-source"
+                      value="META-INF/sql/insert-months.sql" /><!--
             <property name="jakarta.persistence.schema-generation.create-script-source"
-                      value="META-INF/sql/insert-months.sql" />
+                      value="META-INF/sql/insert-months.sql" />-->
         </properties>
     </persistence-unit>
 </persistence>

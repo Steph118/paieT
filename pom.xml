@@ -69,7 +69,7 @@
             <artifactId>jakarta.data-api</artifactId>
             <version>1.0.0</version>
         </dependency>
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>net.sourceforge.dynamicreports</groupId>
             <artifactId>dynamicreports-core</artifactId>
             <version>6.12.0</version>
@@ -84,6 +84,13 @@
             <artifactId>dynamicreports-googlecharts</artifactId>
             <version>6.12.0</version>
         </dependency>-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>11.3.1</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -170,7 +177,7 @@
                     </nonFilteredFileExtensions>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--            <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>10.0.0</version>
@@ -185,7 +192,7 @@
                         <version>2.2.224</version>
                     </dependency>
                 </dependencies>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>com.amashchenko.maven.plugin</groupId>
                 <artifactId>gitflow-maven-plugin</artifactId>
@@ -208,6 +215,23 @@
                         <!-- since 1.2.1, see Customizing commit messages -->
                     </commitMessages>
                 </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>11.3.1</version>
+                <configuration>
+                    <url>jdbc:h2:file:./target/paieT</url>
+                    <user>sa</user>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>2.2.224</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
