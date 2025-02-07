@@ -1,4 +1,4 @@
-/src/main/filters/*
+src/main/filters/*
 target/*
 .gitignore
 faces-config.NavData
