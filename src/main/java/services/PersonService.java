@@ -8,7 +8,6 @@ import dao.PersonDao;
 import dao.RepositoryDao;
 import entities.Department;
 import entities.Eglise;
-import entities.Member;
 import entities.Person;
 import entities.Sexe;
 import jakarta.ejb.EJB;
