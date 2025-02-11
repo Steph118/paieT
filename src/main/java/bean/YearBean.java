@@ -6,8 +6,11 @@ package bean;
 
 import entities.Year;
 import jakarta.ejb.EJB;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import java.util.ResourceBundle;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.YearServiceLocal;
 
@@ -20,6 +23,9 @@ public class YearBean extends GenericBean<Year, Integer> {
 
     @EJB
     private YearServiceLocal yearService;
+
+    @Inject
+    private FacesContext facesContext;
 
     @Override
     public GenericServiceLocal<Year, Integer> getService() {
@@ -49,6 +55,12 @@ public class YearBean extends GenericBean<Year, Integer> {
     @Override
     public boolean canUpdate() {
         return true;
+    }
+
+    public String message(String key) {
+        return ResourceBundle.getBundle(facesContext.getApplication().getMessageBundle(),
+                facesContext.getViewRoot().getLocale()).getString(key);
+
     }
 
 }
