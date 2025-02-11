@@ -32,7 +32,6 @@ public class AuthentificationIdentityStore implements IdentityStore {
                     roles
             );
         }
-
         return CredentialValidationResult.INVALID_RESULT;
     }
 
