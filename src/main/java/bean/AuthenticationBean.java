@@ -12,20 +12,22 @@ import jakarta.security.enterprise.authentication.mechanism.http.AuthenticationP
 import jakarta.security.enterprise.credential.UsernamePasswordCredential;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import utils.AppUtilsBeans;
 
 @Named
 @RequestScoped
 public class AuthenticationBean implements Serializable {
 
-    @NotNull
+    @NotEmpty
     private String username;
 
-    @NotNull
+    @NotEmpty
     private String password;
 
     private boolean rememberMe;
@@ -39,7 +41,13 @@ public class AuthenticationBean implements Serializable {
     @Inject
     private SecurityContext securityContext;
 
+    @Inject
+    private AppUtilsBeans appUtilsBeans;
+
     public void login() {
+
+        //appUtilsBeans.messageInterz();
+
         switch (continueAuthentication()) {
             case SEND_CONTINUE ->
                 facesContext.responseComplete();
