@@ -1,0 +1,6 @@
+target/
+nb-configuration.xml
+qodana.yaml
+paie-t.iml
+.idea/
+src/main/filters
