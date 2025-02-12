@@ -9,13 +9,9 @@ import jakarta.annotation.PreDestroy;
 import jakarta.annotation.Resource;
 import jakarta.annotation.sql.DataSourceDefinition;
 import jakarta.ejb.Startup;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.HashMap;
-import java.util.Map;
 import javax.sql.DataSource;
 
 /**
@@ -27,8 +23,8 @@ import javax.sql.DataSource;
         className = "org.postgresql.jdbc2.optional.SimpleDataSource",
         serverName = "localhost",
         databaseName = "paie",
-        user = "steph18",
-        password = "Etuh9dvwpfsp"
+        user = "mediasoft",
+        password = "mediasoft"
 )
 @Singleton
 @Startup
@@ -37,33 +33,20 @@ public class LoadDatabase {
     @Resource(lookup = "java:global/paie/paieDatasource")
     private DataSource dataSource;
 
-    @Inject
-    private Pbkdf2PasswordHash passwordHash;
-
     @PostConstruct
     public void init() {
-        Map<String, String> parameters = new HashMap<>();
-        parameters.put("Pbkdf2PasswordHash.Iterations", "3072");
-        parameters.put("Pbkdf2PasswordHash.Algorithm", "PBKDF2WithHmacSHA512");
-        parameters.put("Pbkdf2PasswordHash.SaltSizeBytes", "64");
-        passwordHash.initialize(parameters);
-        executeUpdate(dataSource, """
-                          
-                          """);
-        executeUpdate(dataSource, """
-                                  lllll
-                          """);
-        executeUpdate(dataSource, """
-                                  kkkkk
-                          """);
+        System.err.println("LoadDatabase");
+        this.executeUpdate("""
+                           """);
     }
 
-    private void executeUpdate(DataSource dataSource, String query) {
-        try (Connection connection = dataSource.getConnection()) {
+    private void executeUpdate(String query) {
+        try (Connection connection = this.dataSource.getConnection()) {
             try (PreparedStatement statement = connection.prepareStatement(query)) {
                 statement.executeUpdate();
             }
         } catch (Exception e) {
+            e.getMessage();
         }
 
     }
@@ -71,8 +54,6 @@ public class LoadDatabase {
     @PreDestroy
     public void destroy() {
         try {
-            executeUpdate(dataSource, "DROP TABLE IF EXISTS users");
-            executeUpdate(dataSource, "DROP TABLE IF EXISTS roles");
         } catch (Exception e) {
 
         }

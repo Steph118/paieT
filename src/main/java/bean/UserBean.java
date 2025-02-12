@@ -1,27 +1,26 @@
 package bean;
 
-import entities.Eglise;
 import entities.Role;
 import entities.User;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.UserServiceLocal;
 
 import java.util.ArrayList;
 import java.util.List;
-import service.interfaces.EgliseServiceLocal;
 import service.interfaces.RoleServiceLocal;
 
 @Named
 @ViewScoped
 public class UserBean extends GenericBean<User, Integer> {
 
-    @EJB
+    @Inject
     private UserServiceLocal userService;
 
-    @EJB
+    @Inject
     private RoleServiceLocal roleService;
 
     private String confirmPassword;

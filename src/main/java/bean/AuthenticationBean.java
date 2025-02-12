@@ -13,7 +13,6 @@ import jakarta.security.enterprise.credential.UsernamePasswordCredential;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
@@ -45,9 +44,6 @@ public class AuthenticationBean implements Serializable {
     private AppUtilsBeans appUtilsBeans;
 
     public void login() {
-
-        //appUtilsBeans.messageInterz();
-
         switch (continueAuthentication()) {
             case SEND_CONTINUE ->
                 facesContext.responseComplete();
@@ -102,5 +98,4 @@ public class AuthenticationBean implements Serializable {
     public void setRememberMe(boolean rememberMe) {
         this.rememberMe = rememberMe;
     }
-
 }

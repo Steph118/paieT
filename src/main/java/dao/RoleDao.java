@@ -5,12 +5,12 @@
 package dao;
 
 import entities.Role;
-import jakarta.ejb.Stateless;
+import jakarta.transaction.Transactional;
 
 /**
  * @author steph18
  */
-@Stateless
+@Transactional
 public class RoleDao extends RepositoryDao<Role, Integer> {
 
     public RoleDao() {

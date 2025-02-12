@@ -6,9 +6,7 @@ package services;
 
 import dao.PermisionDao;
 import dao.RepositoryDao;
-import dao.RoleDao;
 import entities.Permission;
-import entities.Role;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import service.interfaces.PermissionServiceLocal;

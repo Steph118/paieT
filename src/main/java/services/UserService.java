@@ -7,8 +7,7 @@ package services;
 import dao.RepositoryDao;
 import dao.UserDao;
 import entities.User;
-import jakarta.ejb.EJB;
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
 import java.util.HashMap;
@@ -21,10 +20,10 @@ import service.interfaces.UserServiceLocal;
 /**
  * @author steph18
  */
-@Stateless
+@RequestScoped
 public class UserService extends GenericServiceLocalImpl<User, Integer> implements UserServiceLocal {
 
-    @EJB
+    @Inject
     private UserDao dao;
 
     @Inject

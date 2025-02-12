@@ -5,16 +5,16 @@
 package dao;
 
 import entities.User;
-import jakarta.ejb.Stateless;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
+import jakarta.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * @author steph18
  */
-@Stateless
+@Transactional
 public class UserDao extends RepositoryDao<User, Integer> {
 
     public UserDao() {

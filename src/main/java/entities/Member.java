@@ -43,6 +43,14 @@ public class Member extends BaseEntity {
         this.person = p;
         this.eglise = p.getEglise();
     }
+    
+    public void setMemberForPerson(Person p, SumPromised s, Integer numMember) {
+        this.setEglise(p.getEglise());
+        this.setMemberNumber(numMember);
+        this.setPerson(p);
+        this.addSumPromised(s);
+
+    }
 
     public void addSumPromised(SumPromised s) {
         s.setMember(this);

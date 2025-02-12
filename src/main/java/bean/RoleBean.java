@@ -1,8 +1,8 @@
 package bean;
 
 import entities.Role;
-import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.RoleServiceLocal;
@@ -11,7 +11,7 @@ import service.interfaces.RoleServiceLocal;
 @ViewScoped
 public class RoleBean extends GenericBean<Role,Integer>{
 
-    @EJB
+    @Inject
     private RoleServiceLocal roleService;
 
     @Override

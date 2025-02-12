@@ -6,19 +6,18 @@ package services;
 
 import dao.RepositoryDao;
 import dao.RoleDao;
-import dao.UserDao;
 import entities.Role;
-import jakarta.ejb.EJB;
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import service.interfaces.RoleServiceLocal;
 
 /**
  * @author steph18
  */
-@Stateless
+@RequestScoped
 public class RoleService extends GenericServiceLocalImpl<Role, Integer> implements RoleServiceLocal {
 
-    @EJB
+    @Inject
     private RoleDao dao;
 
     @Override

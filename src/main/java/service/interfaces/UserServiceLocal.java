@@ -5,7 +5,6 @@
 package service.interfaces;
 
 import entities.User;
-import jakarta.ejb.Local;
 
 import java.util.Optional;
 import java.util.Set;
@@ -13,7 +12,6 @@ import java.util.Set;
 /**
  * @author steph18
  */
-@Local
 public interface UserServiceLocal extends GenericServiceLocal<User, Integer> {
 
     String hashPassword(String password);

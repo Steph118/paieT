@@ -21,6 +21,7 @@ import entities.Year;
 import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +69,7 @@ public class PersonBean extends GenericBean<Person, Integer> {
     private YearServiceLocal yearService;
     @EJB
     private MemberServiceLocal memberService;
-    @EJB
+    @Inject
     private RoleServiceLocal roleService;
 
     private int previousEgliseId;
@@ -125,15 +126,13 @@ public class PersonBean extends GenericBean<Person, Integer> {
 
     @Override
     public void beforeSave() {
-        this.entity.setAddress(getAddress());
+        this.entity.setAddress(this.getAddress());
         if (StringUtils.isEmpty(this.entity.getMail())) {
             this.entity.setMail(null);
         }
         if (addMember) {
-            this.member.setEglise(this.entity.getEglise());
-            this.member.setMemberNumber(memberService.genererNumeroMembre(this.entity.getEglise()));
-            this.member.setPerson(this.entity);
-            this.member.addSumPromised(sumPromised);
+            this.member.setMemberForPerson(this.entity, this.sumPromised,
+                    memberService.genererNumeroMembre(this.entity.getEglise()));
             this.entity.setMember(member);
         }
 

@@ -38,6 +38,12 @@ public class Role extends BaseEntity {
     public Role() {
     }
 
+    public Role(String label) {
+        this.label = label;
+    }
+    
+    
+
     public Integer getId() {
         return id;
     }

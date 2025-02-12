@@ -1,8 +1,8 @@
 package apps;
 
 import entities.User;
-import jakarta.ejb.EJB;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.security.enterprise.authentication.mechanism.http.AutoApplySession;
 import jakarta.security.enterprise.credential.Credential;
 import jakarta.security.enterprise.credential.UsernamePasswordCredential;
@@ -17,7 +17,7 @@ import java.util.Set;
 @AutoApplySession
 public class AuthentificationIdentityStore implements IdentityStore {
 
-    @EJB
+    @Inject
     private UserServiceLocal userService;
 
     @Override
