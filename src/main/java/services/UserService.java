@@ -78,4 +78,9 @@ public class UserService extends GenericServiceLocalImpl<User, Integer> implemen
         return this.dao.findByUsername(username);
     }
 
+    @Override
+    public boolean hasPermission(String username, String resource, String action) {
+        return this.dao.hasPermission(username, resource, action);
+    }
+
 }

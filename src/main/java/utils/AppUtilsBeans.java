@@ -4,6 +4,7 @@
  */
 package utils;
 
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
  * @author steph18
  */
 @Named
-@ViewScoped
+@SessionScoped
 public class AppUtilsBeans implements Serializable {
 
     @Inject

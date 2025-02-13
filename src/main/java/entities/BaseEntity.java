@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @author persistence
  */
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
 
     protected static final long serialVersionUID = 1L;
 

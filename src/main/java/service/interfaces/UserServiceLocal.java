@@ -21,4 +21,6 @@ public interface UserServiceLocal extends GenericServiceLocal<User, Integer> {
     Set<String> findRolesForUser(User user);
 
     User findByUsername(String username);
+
+    boolean hasPermission(String username, String resource, String action);
 }

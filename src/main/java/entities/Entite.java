@@ -17,7 +17,7 @@ import java.util.Objects;
 @Table(name = "entites", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"phone_code1", "phone1", "phone_code2", "phone2"})})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "entite_type")
+@DiscriminatorColumn(name = "entite_type", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue(value = "E")
 public class Entite extends BaseEntity {
 

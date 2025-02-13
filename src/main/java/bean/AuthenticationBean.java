@@ -1,6 +1,5 @@
 package bean;
 
-import entities.User;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.ExternalContext;
@@ -19,7 +18,6 @@ import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import service.interfaces.UserServiceLocal;
-import utils.AppUtilsBeans;
 
 @Named
 @RequestScoped
