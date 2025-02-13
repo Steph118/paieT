@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Objects;
@@ -24,8 +25,9 @@ public class Permission extends BaseEntity {
     @Column(name = "label")
     private String label;
 
-    @ManyToMany(mappedBy = "permissions", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    private List<Role> roles;
+    @ManyToMany(mappedBy = "permissions", cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            fetch = FetchType.LAZY)
+    private List<Role> roles = new ArrayList<>();
 
     public Permission() {
     }

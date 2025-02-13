@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Objects;
@@ -25,15 +26,14 @@ public class Role extends BaseEntity {
     private String label;
 
     @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(
-            name = "roles_permissions",
+    @JoinTable(name = "roles_permissions",
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
-    private List<Permission> permissions;
+    private List<Permission> permissions = new ArrayList<>();
 
     public Role() {
     }
@@ -41,8 +41,6 @@ public class Role extends BaseEntity {
     public Role(String label) {
         this.label = label;
     }
-    
-    
 
     public Integer getId() {
         return id;

@@ -2,7 +2,6 @@ package bean;
 
 import entities.Role;
 import entities.User;
-import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -24,12 +23,16 @@ public class UserBean extends GenericBean<User, Integer> {
     private RoleServiceLocal roleService;
 
     private String confirmPassword;
-    private boolean userActif;
     private List<Role> roles = new ArrayList<>();
 
     @Override
     public GenericServiceLocal<User, Integer> getService() {
         return userService;
+    }
+
+    @Override
+    public void beforeSave() {
+        this.entity.setRoles(this.getRoles());
     }
 
     @Override
@@ -79,11 +82,4 @@ public class UserBean extends GenericBean<User, Integer> {
         this.roles = roles;
     }
 
-    public boolean isUserActif() {
-        return userActif;
-    }
-
-    public void setUserActif(boolean userActif) {
-        this.userActif = userActif;
-    }
 }

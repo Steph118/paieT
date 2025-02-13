@@ -1,5 +1,6 @@
 package bean;
 
+import entities.User;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.ExternalContext;
@@ -17,11 +18,15 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import service.interfaces.UserServiceLocal;
 import utils.AppUtilsBeans;
 
 @Named
 @RequestScoped
 public class AuthenticationBean implements Serializable {
+
+    @Inject
+    private UserServiceLocal userService;
 
     @NotEmpty
     private String username;
@@ -40,9 +45,6 @@ public class AuthenticationBean implements Serializable {
     @Inject
     private SecurityContext securityContext;
 
-    @Inject
-    private AppUtilsBeans appUtilsBeans;
-
     public void login() {
         switch (continueAuthentication()) {
             case SEND_CONTINUE ->
@@ -51,12 +53,20 @@ public class AuthenticationBean implements Serializable {
                 facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", null));
             case SUCCESS -> {
                 try {
-                    facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Login succeed", null));
-                    if (rememberMe) {
-                        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+//                    User u = this.userService.findByUsername(this.getUsername());
+//                    if (u == null || u.getChangePassword() == null) {
+//                        this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur survenu lors de la connexion", null));
+//                        return;
+//                    }
+//                    if (u.getChangePassword()) {
+//                        this.externalContext.redirect(externalContext.getRequestContextPath() + "/forget-password.xhtml");
+//                    }
+                    if (this.rememberMe) {
+                        HttpServletRequest request = (HttpServletRequest) this.externalContext.getRequest();
                         request.setAttribute("jakarta.security.enterprise.authentication.mechanism.http.rememberMe", true);
                     }
-                    externalContext.redirect(externalContext.getRequestContextPath() + "/index.xhtml");
+                    this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Login succeed", null));
+                    this.externalContext.redirect(this.externalContext.getRequestContextPath() + "/index.xhtml");
                 } catch (IOException ex) {
                     Logger.getLogger(AuthenticationBean.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -67,12 +77,12 @@ public class AuthenticationBean implements Serializable {
     }
 
     private AuthenticationStatus continueAuthentication() {
-        return securityContext.authenticate(
-                (HttpServletRequest) externalContext.getRequest(),
-                (HttpServletResponse) externalContext.getResponse(),
+        return this.securityContext.authenticate(
+                (HttpServletRequest) this.externalContext.getRequest(),
+                (HttpServletResponse) this.externalContext.getResponse(),
                 AuthenticationParameters.withParams()
                         .newAuthentication(true)
-                        .credential(new UsernamePasswordCredential(username, password)));
+                        .credential(new UsernamePasswordCredential(this.getUsername(), this.getPassword())));
     }
 
     public String getUsername() {
