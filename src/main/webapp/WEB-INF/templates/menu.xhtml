@@ -19,8 +19,8 @@
                                 rendered="#{menuItem.url.startsWith('/') and empty menuItem.menuItems}"
                                 onclick="App.onSearchClick(event, 'sl_#{menuItem.parent.label.toLowerCase()}')">
                             #{menuItem.label}<p:tag value="#{menuItem.badge}" styleClass="ml-2"
-                                                    rendered="#{not empty menuItem.badge}"
-                                                    severity="#{menuItem.badgeSeverity}"/>
+                                   rendered="#{not empty menuItem.badge}"
+                                   severity="#{menuItem.badgeSeverity}"/>
                         </h:link>
                     </p:column>
                 </p:autoComplete>
@@ -32,42 +32,44 @@
                 <div class="menu-category">#{menuCategory.label}</div>
                 <h:panelGroup layout="block" class="menu-items" rendered="#{not menuCategory.custom}">
                     <ui:repeat value="#{menuCategory.menuItems}" var="menuItem">
-                        <h:outputLink
-                                rendered="#{empty menuItem.url and not empty menuItem.badge and empty menuItem.menuItems}"
-                                styleClass="hidden">
-                            <i class="#{menuItem.imageSrc} mr-2"/>
-                            <h:outputText value="#{menuItem.label}"/>
-                            <p:tag value="#{menuItem.badge}" severity="warning" styleClass="ml-2"
-                                   rendered="#{not empty menuItem.badge}"/>
-                        </h:outputLink>
-                        <h:outputLink value="#{menuItem.url}"
-                                      rendered="#{not empty menuItem.url and empty menuItem.badge and not menuItem.url.startsWith('/') and empty menuItem.menuItems}">
-                            <i class="#{menuItem.imageSrc} mr-2"/>
-                            <h:outputText value="#{menuItem.label}"/>
-                        </h:outputLink>
-                        <h:link outcome="#{menuItem.url}"
-                                rendered="#{menuItem.url.startsWith('/') and empty menuItem.menuItems}">
-                            <i class="#{menuItem.imageSrc} mr-2"/>
-                            <h:outputText value="#{menuItem.label}"/>
-                            <p:tag value="#{menuItem.badge}" styleClass="ml-2" rendered="#{not empty menuItem.badge}"
-                                   severity="#{menuItem.badgeSeverity}"/>
-                        </h:link>
+                        <!--                        <h:outputLink
+                                                        rendered="# {empty menuItem.url and not empty menuItem.badge and empty menuItem.menuItems}"
+                                                        styleClass="hidden">
+                                                    <i class="# {menuItem.imageSrc} mr-2"/>
+                                                    <h:outputText value="# {menuItem.label}"/>
+                                                    <p:tag value="# {menuItem.badge}" severity="warning" styleClass="ml-2"
+                                                           rendered="# {not empty menuItem.badge}"/>
+                                                </h:outputLink>-->
+                        <!--                        <h:outputLink value="# {menuItem.url}"
+                                                              rendered="# {not empty menuItem.url and empty menuItem.badge and not menuItem.url.startsWith('/') and empty menuItem.menuItems}">
+                                                    <i class="# {menuItem.imageSrc} mr-2"/>
+                                                    <h:outputText value="# {menuItem.label}"/>
+                                                </h:outputLink>-->
+
+<!--                        <p:outputLabel value="# {sessionBean.user.userName}"/>-->
+                            <h:link outcome="#{menuItem.url}"
+                                    rendered="#{menuItem.url.startsWith('/') and empty menuItem.menuItems}">
+                                <i class="#{menuItem.imageSrc} mr-2"/>
+                                <h:outputText value="#{menuItem.label}"/>
+                                <p:tag value="#{menuItem.badge}" styleClass="ml-2" rendered="#{not empty menuItem.badge}"
+                                       severity="#{menuItem.badgeSeverity}"/>
+                            </h:link>
 
                         <p:outputPanel rendered="#{not empty menuItem.menuItems}">
                             <a id="sl_#{menuItem.label.toLowerCase()}" tabindex="0" class="submenu-link">
                                 #{menuItem.label}<p:tag value="#{menuItem.badge}" styleClass="ml-2"
-                                                        rendered="#{not empty menuItem.badge}"
-                                                        severity="#{menuItem.badgeSeverity}"/>
+                                       rendered="#{not empty menuItem.badge}"
+                                       severity="#{menuItem.badgeSeverity}"/>
                             </a>
                             <div class="submenu">
                                 <ul>
                                     <ui:repeat value="#{menuItem.menuItems}" var="nestedMenuItem">
                                         <li><h:link outcome="#{nestedMenuItem.url}">
-                                            #{nestedMenuItem.label}
-                                            <p:tag value="#{nestedMenuItem.badge}" styleClass="ml-2"
-                                                   rendered="#{not empty nestedMenuItem.badge}"
-                                                   severity="#{nestedMenuItem.badgeSeverity}"/>
-                                        </h:link></li>
+                                                #{nestedMenuItem.label}
+                                                <p:tag value="#{nestedMenuItem.badge}" styleClass="ml-2"
+                                                       rendered="#{not empty nestedMenuItem.badge}"
+                                                       severity="#{nestedMenuItem.badgeSeverity}"/>
+                                            </h:link></li>
                                     </ui:repeat>
                                 </ul>
                             </div>

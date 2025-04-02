@@ -70,7 +70,7 @@
         <extension>svg#fontawesomeregular</extension>
         <mime-type>image/svg+xml</mime-type>
     </mime-mapping>
-    
+ 
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Admin pages</web-resource-name>

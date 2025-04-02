@@ -19,9 +19,9 @@ public class SessionBean implements Serializable {
     private HttpServletRequest request;
 
     @Inject
-    private SecurityContext securityContext;
+    private SecurityContext security;
 
-    private final User user = this.securityContext.getPrincipalsByType(UserPrincipal.class)
+    private final User user = this.security.getPrincipalsByType(UserPrincipal.class)
             .stream()
             .map(e -> e.getUser())
             .findAny()
@@ -33,6 +33,18 @@ public class SessionBean implements Serializable {
 
     public User getUser() {
         return user;
+    }
+
+    public boolean hasAccessToWebRessource(String resource, String method) {
+        return this.security.hasAccessToWebResource(resource, method);
+    }
+
+    public boolean isCallerInRole(String role) {
+        return this.security.isCallerInRole(role);
+    }
+
+    public boolean isUserInRole(String role) {
+        return this.request.isUserInRole(role);
     }
 
 }

@@ -5,12 +5,12 @@
 package dao;
 
 import entities.Year;
-import jakarta.transaction.Transactional;
+import jakarta.ejb.Stateless;
 
 /**
  * @author steph18
  */
-@Transactional
+@Stateless
 public class YearDao extends RepositoryDao<Year, Integer> {
 
     public YearDao() {
