@@ -1,7 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="jakarta.faces.html"
                 xmlns:ui="jakarta.faces.facelets"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="primefaces">
 
     <div class="layout-topbar">
         <a class="menu-button" tabindex="0">
@@ -28,7 +28,8 @@
 
                 <li class="topbar-submenu pi" >
                     <a tabindex="0">
-                        <p:commandButton icon="images/account_user.png" styleClass="ui-button-success" ajax="false" 
+                        <p:commandButton icon="pi pi-bars" styleClass="ui-button-secondary" ajax="true" 
+                                         ignoreAutoUpdate="true"
                                          >
                             <!--                            <p:graphicImage name="images/account_user.png" alt="logo" width="40" height="40"
                                                                         library="showcase"
@@ -36,17 +37,17 @@
                         </p:commandButton>
                     </a>
                     <ul class="connected-overlay-in">
-                        <li class="topbar-submenu-header bold">Comptes</li>
+                        <li class="topbar-submenu-header bold">Menu</li>
                         <p:menu styleClass="border-0">
-                            <p:menuitem styleClass="w-full" value="Compte" icon="fa-solid fa-user"/>
-                            <p:menuitem value="Paramètres" icon="fa-solid fa-gear"/>
+                            <p:menuitem styleClass="w-full" value="Profile" icon="fa-solid fa-user"/>
+                            <p:menuitem value="Déconnexion" icon="pi pi-sign-out" action="#{logoutBean.submit()}"/>
                         </p:menu>
                     </ul>
                 </li>
 
-                <li class="topbar-submenu pi" >
-                    <p:commandButton styleClass="ui-button-infos" icon="pi pi-home" action="#{logoutBean.submit()}"/>
-                </li>
+<!--                <li class="topbar-submenu pi" >
+                    <p:commandButton styleClass="ui-button-infos" icon="pi pi-setting" action="# {logoutBean.submit()}"/>
+                </li>-->
 
 
             </ul>

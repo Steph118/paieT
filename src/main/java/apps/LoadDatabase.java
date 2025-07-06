@@ -4,52 +4,58 @@
  */
 package apps;
 
+import entities.User;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import jakarta.annotation.Resource;
-import jakarta.annotation.sql.DataSourceDefinition;
 import jakarta.ejb.Startup;
-import jakarta.inject.Singleton;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import javax.sql.DataSource;
+import service.interfaces.UserServiceLocal;
 
 /**
  *
  * @author steph18
  */
-@DataSourceDefinition(
-        name = "java:global/paie/paieDatasource",
-        className = "org.postgresql.jdbc2.optional.SimpleDataSource",
-        serverName = "localhost",
-        databaseName = "paie",
-        user = "mediasoft",
-        password = "mediasoft"
-)
-@Singleton
-@Startup
+//@DataSourceDefinition(
+//        name = "java:global/paie/paieDatasource",
+//        className = "org.postgresql.jdbc2.optional.SimpleDataSource",
+//        serverName = "localhost",
+//        databaseName = "paie",
+//        user = "mediasoft",
+//        password = "mediasoft"
+//)
+//@Singleton
+@ApplicationScoped
 public class LoadDatabase {
 
-    @Resource(lookup = "java:global/paie/paieDatasource")
-    private DataSource dataSource;
+//    @Resource(lookup = "java:global/paie/paieDatasource")
+//    private DataSource dataSource;
+    
+    @Inject
+    private UserServiceLocal userService;
 
     @PostConstruct
     public void init() {
         System.err.println("LoadDatabase");
-        this.executeUpdate("""
-                           """);
+        User u = userService.findByUsername("admin");
+        u.setPassword("toto");
+        userService.update(u);
+//        this.executeUpdate("""
+//                           """);
     }
-
-    private void executeUpdate(String query) {
-        try (Connection connection = this.dataSource.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement(query)) {
-                statement.executeUpdate();
-            }
-        } catch (Exception e) {
-            e.getMessage();
-        }
-
-    }
+//
+//    private void executeUpdate(String query) {
+//        try (Connection connection = this.dataSource.getConnection()) {
+//            try (PreparedStatement statement = connection.prepareStatement(query)) {
+//                statement.executeUpdate();
+//            }
+//        } catch (Exception e) {
+//            e.getMessage();
+//        }
+//
+//    }
 
     @PreDestroy
     public void destroy() {

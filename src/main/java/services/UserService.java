@@ -10,6 +10,7 @@ import entities.User;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
+import jakarta.transaction.Transactional;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -21,6 +22,7 @@ import service.interfaces.UserServiceLocal;
  * @author steph18
  */
 @RequestScoped
+@Transactional
 public class UserService extends GenericServiceLocalImpl<User, Integer> implements UserServiceLocal {
 
     @Inject
@@ -42,8 +44,14 @@ public class UserService extends GenericServiceLocalImpl<User, Integer> implemen
 
     @Override
     public User update(User e) {
-        e.setPassword(this.hashPassword(e.getPassword()));
+        //e.setPassword(this.hashPassword(e.getPassword()));
         return super.update(e);
+    }
+
+    @Override
+    public User updateWithPassword(User user) {
+        user.setPassword(this.hashPassword(user.getPassword()));
+        return super.update(user);
     }
 
     @Override

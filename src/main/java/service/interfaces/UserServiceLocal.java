@@ -16,6 +16,8 @@ public interface UserServiceLocal extends GenericServiceLocal<User, Integer> {
 
     String hashPassword(String password);
 
+    User updateWithPassword(User user);
+
     Optional<User> findByUsernameAndPassword(String username, String password);
 
     Set<String> findRolesForUser(User user);

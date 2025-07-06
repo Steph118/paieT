@@ -70,6 +70,24 @@
         <extension>svg#fontawesomeregular</extension>
         <mime-type>image/svg+xml</mime-type>
     </mime-mapping>
+    
+    <error-page>
+        <error-code>403</error-code>
+        <location>/paie/pages/error/403-error.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/paie/pages/error/404-error.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/paie/pages/error/401-error.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/paie/pages/error/500-error.xhtml</location>
+    </error-page>
+    
  
     <security-constraint>
         <web-resource-collection>

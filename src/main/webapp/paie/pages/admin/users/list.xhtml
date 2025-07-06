@@ -6,7 +6,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
-      xmlns:p="primefaces">
+      xmlns:p="primefaces"
+      xmlns:f="jakarta.faces.core">
     <ui:composition template="/paie/templates/layout-list.xhtml">
 
         <ui:param name="crudBean" value="#{userBean}"/>
@@ -28,6 +29,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
             <p:column headerText="#{msg['user.actif']}" sortBy="#{e.actif}" >
                 <p:outputLabel value="#{e.actif ? 'Oui' : 'Non'}"/>
             </p:column>
+        </ui:define>
+        <ui:define name="add-operations-btn">
+            <p:tooltip value="#{msg['change-password.label']}" for="changePassword" position="top"/>
+            <p:button id="changePassword" class="ui-button-warning m-1"
+                                        icon="pi pi-key"
+                                        outcome="user-change-password.xhtml" includeViewParams="true">
+                <f:param name="entityId" value="#{e.id}"/>
+            </p:button>
         </ui:define>
     </ui:composition>
 </html>

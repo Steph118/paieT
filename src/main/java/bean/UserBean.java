@@ -2,6 +2,7 @@ package bean;
 
 import entities.Role;
 import entities.User;
+import exception.BusinessException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -10,6 +11,8 @@ import service.interfaces.UserServiceLocal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import org.omnifaces.util.Messages;
 import service.interfaces.RoleServiceLocal;
 
 @Named
@@ -33,6 +36,22 @@ public class UserBean extends GenericBean<User, Integer> {
     @Override
     public void beforeSave() {
         this.entity.setRoles(this.getRoles());
+    }
+
+    public String changePassword() {
+        try {
+            this.logger.log(Level.INFO, "changePassword...");
+            this.userService.updateWithPassword(this.getEntity());
+            this.logger.log(Level.INFO, "Changement de mot de passe effectué: {0}", this.entity);
+            Messages.addFlashGlobalInfo("Changement de mot de passe effectuée avec succès.");
+        } catch (BusinessException ex) {
+            Messages.addFlashGlobalError(ex.getMessage());
+            this.logger.log(Level.SEVERE, ex.getMessage(), ex);
+        } catch (Exception ex) {
+            Messages.addFlashGlobalError("Une erreur est survenue lors de la modification.");
+            this.logger.log(Level.SEVERE, ex, () -> "Erreur à la modification de l'objet: " + ex);
+        }
+        return cancel();
     }
 
     @Override

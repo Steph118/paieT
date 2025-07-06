@@ -9,12 +9,14 @@ import dao.RoleDao;
 import entities.Role;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import service.interfaces.RoleServiceLocal;
 
 /**
  * @author steph18
  */
 @RequestScoped
+@Transactional
 public class RoleService extends GenericServiceLocalImpl<Role, Integer> implements RoleServiceLocal {
 
     @Inject

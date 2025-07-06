@@ -4,13 +4,10 @@
  */
 package service.interfaces;
 
-import entities.Loan;
 import entities.Role;
-import jakarta.ejb.Local;
 
 /**
  * @author steph18
  */
-@Local
 public interface RoleServiceLocal extends GenericServiceLocal<Role, Integer> {
 }

@@ -1,5 +1,6 @@
 package bean;
 
+import entities.User;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.ExternalContext;
@@ -44,6 +45,10 @@ public class AuthenticationBean implements Serializable {
     private SecurityContext securityContext;
 
     public void login() {
+//        System.err.println("LoadDatabase");
+//        User u = userService.findByUsername("admin");
+//        u.setPassword("toto");
+//        userService.update(u);
         switch (continueAuthentication()) {
             case SEND_CONTINUE ->
                 facesContext.responseComplete();
@@ -52,12 +57,17 @@ public class AuthenticationBean implements Serializable {
             case SUCCESS -> {
                 try {
 //                    User u = this.userService.findByUsername(this.getUsername());
-//                    if (u == null || u.getChangePassword() == null) {
+//                    if (u == null) {
 //                        this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur survenu lors de la connexion", null));
+//                        return;
+//                    }
+//                    if (!u.getActif()) {
+//                        this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Utlisateur desactive", null));
 //                        return;
 //                    }
 //                    if (u.getChangePassword()) {
 //                        this.externalContext.redirect(externalContext.getRequestContextPath() + "/forget-password.xhtml");
+//return;
 //                    }
                     if (this.rememberMe) {
                         HttpServletRequest request = (HttpServletRequest) this.externalContext.getRequest();

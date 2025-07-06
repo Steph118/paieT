@@ -28,29 +28,32 @@
         <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
             <p:outputLabel value="#{msg['users.edit.username']}" for="username"/>
             <p:inputText id="username" class="w-full" placeholder="#{msg['users.edit.username.placeholder']}"
-                         value="#{userBean.entity.userName}"
+                         value="#{userBean.entity.userName}" disabled="#{!userBean.updating}"
                          required="true" requiredMessage="#{msg['users.edit.username.required']}"/>
         </div>
 
-        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-            <p:outputLabel value="#{msg['users.edit.password']}" for="password"/>
-            <p:password id="password" class="w-full" placeholder="#{msg['users.edit.password.placeholder']}"
-                        value="#{userBean.entity.password}"
-                        required="true" requiredMessage="#{msg['users.edit.password.required']}"/>
-        </div>
+        <ui:fragment rendered="#{!userBean.updating}">
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['users.edit.password']}" for="password"/>
+                <p:password id="password" class="w-full" placeholder="#{msg['users.edit.password.placeholder']}"
+                            value="#{userBean.entity.password}" disabled="#{userBean.updating}"
+                            required="true" requiredMessage="#{msg['users.edit.password.required']}"/>
+            </div>
 
-        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-            <p:outputLabel value="#{msg['users.edit.confirm.password']}" for="confirm"/>
-            <p:password id="confirm" class="w-full" placeholder="#{msg['users.edit.confirm.password']}"
-                        value="#{userBean.confirmPassword}"
-                        required="true" requiredMessage="#{msg['users.edit.confirm.password.required']}">
+            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+                <p:outputLabel value="#{msg['users.edit.confirm.password']}" for="confirm"/>
+                <p:password id="confirm" class="w-full" placeholder="#{msg['users.edit.confirm.password']}"
+                            value="#{userBean.confirmPassword}" disabled="#{userBean.updating}"
+                            required="true" requiredMessage="#{msg['users.edit.confirm.password.required']}">
 
-            </p:password>
-        </div>
-        <h:panelGroup>
-            <oou:validateEqual id="equal" components="password confirm" 
-                               message="#{msg['confirm.password.error']}" />
-        </h:panelGroup>
+                </p:password>
+            </div>
+            <h:panelGroup>
+                <oou:validateEqual id="equal" components="password confirm" 
+                                   message="#{msg['confirm.password.error']}" />
+            </h:panelGroup>
+        </ui:fragment>
+
         <div class="field col-12">
             <div class="pb-2">
                 <p:outputLabel value="#{msg['user.actif']}" for="actif"/>
