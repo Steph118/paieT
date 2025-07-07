@@ -15,6 +15,7 @@ import entities.Year;
 import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ public class MemberBean extends GenericBean<Member, Integer> {
     private SexeServiceLocal sexeService;
     @EJB
     private LoanServiceLocal loanService;
-    @EJB
+   @Inject
     private YearServiceLocal yearService;
 
     private Sexe sexe;

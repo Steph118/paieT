@@ -4,10 +4,15 @@
  */
 package service.interfaces;
 
-import entities.Sexe;
+import entities.EmailConfig;
+import enumeration.EmailProvider;
+import java.util.Optional;
 
 /**
  * @author steph18
  */
-public interface SexeServiceLocal extends GenericServiceLocal<Sexe, Integer> {
+public interface EmailConfigServiceLocal extends GenericServiceLocal<EmailConfig, Long> {
+
+    Optional<EmailConfig> findByActiveAndProvider(EmailProvider provider);
+
 }

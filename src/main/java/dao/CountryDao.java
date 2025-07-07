@@ -5,12 +5,12 @@
 package dao;
 
 import entities.Country;
-import jakarta.ejb.Stateless;
+import jakarta.transaction.Transactional;
 
 /**
  * @author steph18
  */
-@Stateless
+@Transactional
 public class CountryDao extends RepositoryDao<Country, Integer> {
 
     public CountryDao() {

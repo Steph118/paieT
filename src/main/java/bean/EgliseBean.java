@@ -7,6 +7,7 @@ package bean;
 import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import org.apache.commons.lang3.StringUtils;
 import service.interfaces.*;
@@ -28,7 +29,7 @@ public class EgliseBean extends GenericBean<Eglise, Integer> {
     private LocalityServiceLocal localityService;
     @EJB
     private TypeLocalityServiceLocal typeLocalityService;
-    @EJB
+    @Inject
     private CountryServiceLocal countryService;
 
     private Country country;

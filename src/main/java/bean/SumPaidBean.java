@@ -39,7 +39,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
     @EJB
     private DepartmentServiceLocal departmentService;
 
-    @EJB
+    @Inject
     private YearServiceLocal yearService;
 
     @EJB

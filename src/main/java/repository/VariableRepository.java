@@ -2,19 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dao;
+package repository;
 
-import entities.Sexe;
-import jakarta.transaction.Transactional;
+import entities.Variable;
+import jakarta.data.repository.CrudRepository;
 
 /**
+ *
  * @author steph18
  */
-@Transactional
-public class SexeDao extends RepositoryDao<Sexe, Integer> {
-
-    public SexeDao() {
-        super(Sexe.class);
-    }
+//@Repository 
+public interface VariableRepository extends CrudRepository<Variable, Long> {
 
 }

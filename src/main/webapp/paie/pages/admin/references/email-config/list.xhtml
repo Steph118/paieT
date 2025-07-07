@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/paie/templates/layout-list.xhtml">
+        <ui:param name="crudBean" value="#{emailConfigBean}"/>
+        <ui:define name="list-title">
+            #{msg['key']}
+        </ui:define>
+        <ui:define name="breadCrumb">
+            #{msg['value']}
+        </ui:define>
+        <ui:define name="table-title">
+            #{msg['references.emailConfig.title']}
+        </ui:define>
+        <ui:define name="add-column">
+            <p:column headerText="#{msg['username']}" filterBy="#{e.username}" filterMatchMode="contains"
+                      field="username" sortBy="#{e.username}" filterPlaceholder="#{msg['filter-by-username']}">
+                <p:outputLabel value="#{e.username}"/>
+            </p:column>
+            <p:column headerText="#{msg['host']}" sortBy="#{e.host}" filterBy="#{e.host}" 
+                      filterMatchMode="contains" field="host" filterPlaceholder="#{msg['filter-by-host']}">
+                <p:outputLabel value="#{e.host}"/>
+            </p:column>
+            <p:column headerText="#{msg['port']}" sortBy="#{e.port}" filterBy="#{e.port}" 
+                      filterMatchMode="contains" field="port" filterPlaceholder="#{msg['filter-by-port']}">
+                <p:outputLabel value="#{e.port}"/>
+            </p:column>
+            <p:column headerText="#{msg['actif']}" sortBy="#{e.active}" filterBy="#{e.active}" 
+                      filterMatchMode="contains" field="active" filterPlaceholder="#{msg['filter-by-actif']}">
+                <p:outputLabel value="#{e.active}"/>
+            </p:column>
+        </ui:define>
+    </ui:composition>
+</html>

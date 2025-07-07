@@ -9,6 +9,7 @@ import entities.Locality;
 import entities.TypeLocality;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import service.interfaces.CountryServiceLocal;
 import service.interfaces.GenericServiceLocal;
@@ -30,7 +31,7 @@ public class LocalityBean extends GenericBean<Locality, Integer> {
     private LocalityServiceLocal localityService;
     @EJB
     private TypeLocalityServiceLocal typeLocalityService;
-    @EJB
+    @Inject
     private CountryServiceLocal countryService;
 
     private TypeLocality typeLocalityParent;

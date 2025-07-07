@@ -5,8 +5,8 @@
 package bean;
 
 import entities.Country;
-import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import service.interfaces.CountryServiceLocal;
 import service.interfaces.GenericServiceLocal;
@@ -18,7 +18,7 @@ import service.interfaces.GenericServiceLocal;
 @ViewScoped
 public class CountryBean extends GenericBean<Country, Integer> {
 
-    @EJB
+    @Inject
     private CountryServiceLocal countryService;
 
     @Override

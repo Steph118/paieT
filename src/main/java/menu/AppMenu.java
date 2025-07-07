@@ -39,6 +39,8 @@ public class AppMenu {
         referenceMenus.add(new MenuItem("Sexe", "/paie/pages/admin/references/sexe/list.xhtml", "fa-solid fa-genderless"));
         referenceMenus.add(new MenuItem("Départements", "/paie/pages/admin/references/department/list.xhtml", "fa-solid fa-users-viewfinder"));
         referenceMenus.add(new MenuItem("Années", "/paie/pages/admin/references/annees/list.xhtml", "fa-regular fa-calendar"));
+        referenceMenus.add(new MenuItem("Variables", "/paie/pages/admin/references/variables/list.xhtml", "pi pi-table"));
+        referenceMenus.add(new MenuItem("Email config", "/paie/pages/admin/references/email-config/list.xhtml", "pi pi-envelope"));
 
         paiMenus.add(new MenuItem("Promesses", "/paie/pages/admin/pay/promised/list.xhtml", "fa-solid fa-handshake-slash"));
         paiMenus.add(new MenuItem("Paiements", "/paie/pages/admin/pay/payment/list.xhtml", "fa-solid fa-money-bill-transfer"));

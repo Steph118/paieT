@@ -4,31 +4,42 @@
  */
 package bean;
 
-import entities.Year;
+import entities.EmailConfig;
+import enumeration.EmailProvider;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
+import service.interfaces.EmailConfigServiceLocal;
 import service.interfaces.GenericServiceLocal;
-import service.interfaces.YearServiceLocal;
 
 /**
  * @author steph18
  */
 @Named
 @ViewScoped
-public class YearBean extends GenericBean<Year, Integer> {
+public class EmailConfigBean extends GenericBean<EmailConfig, Long> {
 
     @Inject
-    private YearServiceLocal yearService;
+    private EmailConfigServiceLocal emailConfigService;
+
+    private List<EmailProvider> providers = new ArrayList<>();
 
     @Override
-    public GenericServiceLocal<Year, Integer> getService() {
-        return yearService;
+    public GenericServiceLocal<EmailConfig, Long> getService() {
+        return emailConfigService;
+    }
+
+    @Override
+    public void initEntity() {
+        super.initEntity();
+        this.providers = EmailProvider.getListProvider();
     }
 
     @Override
     public void initAdd() {
-        this.entity = new Year();
+        this.entity = new EmailConfig();
     }
 
     @Override
@@ -54,6 +65,10 @@ public class YearBean extends GenericBean<Year, Integer> {
     @Override
     public boolean canUpdate() {
         return true;
+    }
+
+    public List<EmailProvider> getProviders() {
+        return providers;
     }
 
 }

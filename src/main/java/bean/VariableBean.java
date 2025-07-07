@@ -4,31 +4,31 @@
  */
 package bean;
 
-import entities.Year;
+import entities.Variable;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import service.interfaces.GenericServiceLocal;
-import service.interfaces.YearServiceLocal;
+import service.interfaces.VariableServiceLocal;
 
 /**
  * @author steph18
  */
 @Named
 @ViewScoped
-public class YearBean extends GenericBean<Year, Integer> {
+public class VariableBean extends GenericBean<Variable, Long> {
 
     @Inject
-    private YearServiceLocal yearService;
+    private VariableServiceLocal variableService;
 
     @Override
-    public GenericServiceLocal<Year, Integer> getService() {
-        return yearService;
+    public GenericServiceLocal<Variable, Long> getService() {
+        return variableService;
     }
 
     @Override
     public void initAdd() {
-        this.entity = new Year();
+        this.entity = new Variable();
     }
 
     @Override
@@ -54,6 +54,21 @@ public class YearBean extends GenericBean<Year, Integer> {
     @Override
     public boolean canUpdate() {
         return true;
+    }
+
+    @Override
+    public void beforeUpdate() {
+        this.trimEntity();
+    }
+
+    @Override
+    public void beforeSave() {
+        this.trimEntity();
+    }
+
+    private void trimEntity() {
+        this.entity.setKey(this.entity.getKey().trim());
+        this.entity.setValue(this.entity.getValue().trim());
     }
 
 }

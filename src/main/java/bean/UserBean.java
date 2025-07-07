@@ -2,6 +2,7 @@ package bean;
 
 import entities.Role;
 import entities.User;
+import enumeration.EmailProvider;
 import exception.BusinessException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import org.omnifaces.util.Messages;
 import service.interfaces.RoleServiceLocal;
+import services.MailSenderService;
 
 @Named
 @ViewScoped
@@ -24,6 +26,9 @@ public class UserBean extends GenericBean<User, Integer> {
 
     @Inject
     private RoleServiceLocal roleService;
+
+    @Inject
+    private MailSenderService mailSenderService;
 
     private String confirmPassword;
     private List<Role> roles = new ArrayList<>();
@@ -52,6 +57,22 @@ public class UserBean extends GenericBean<User, Integer> {
             this.logger.log(Level.SEVERE, ex, () -> "Erreur à la modification de l'objet: " + ex);
         }
         return cancel();
+    }
+
+    public void sendPasswordByMail() {
+        try {
+            this.mailSenderService.sendMail(EmailProvider.GMAIL,
+                    "katsu@mediasofthome.com",
+                    "RESET PASSWORD",
+                    "reset-password.html",
+                    null);
+            Messages.addFlashGlobalInfo("Mise à jour effectuée avec succès. "
+                    + "Un mail est envoyé sur l'adresse : " + "");
+            this.cancel();
+        } catch (Exception e) {
+            Messages.addFlashGlobalError("Erreur survenue!");
+            this.logger.log(Level.SEVERE, "sendPasswordByMail", e);
+        }
     }
 
     @Override

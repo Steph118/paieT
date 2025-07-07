@@ -7,17 +7,19 @@ package services;
 import dao.RepositoryDao;
 import dao.SexeDao;
 import entities.Sexe;
-import jakarta.ejb.EJB;
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import service.interfaces.SexeServiceLocal;
 
 /**
  * @author steph18
  */
-@Stateless
+@Transactional
+@RequestScoped
 public class SexeService extends GenericServiceLocalImpl<Sexe, Integer> implements SexeServiceLocal {
 
-    @EJB
+    @Inject
     private SexeDao dao;
 
     @Override

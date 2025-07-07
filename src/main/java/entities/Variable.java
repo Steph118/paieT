@@ -32,6 +32,11 @@ public class Variable extends BaseEntity {
     public Variable() {
     }
 
+    public Variable(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+    
     public Long getId() {
         return id;
     }

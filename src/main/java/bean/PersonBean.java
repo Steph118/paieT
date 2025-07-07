@@ -55,7 +55,7 @@ public class PersonBean extends GenericBean<Person, Integer> {
     private LocalityServiceLocal localityService;
     @EJB
     private TypeLocalityServiceLocal typeLocalityService;
-    @EJB
+    @Inject
     private CountryServiceLocal countryService;
     @EJB
     private SexeServiceLocal sexeService;
@@ -65,7 +65,7 @@ public class PersonBean extends GenericBean<Person, Integer> {
     private EgliseServiceLocal egliseService;
     @EJB
     private LoanServiceLocal loanService;
-    @EJB
+    @Inject
     private YearServiceLocal yearService;
     @EJB
     private MemberServiceLocal memberService;

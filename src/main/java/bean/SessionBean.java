@@ -1,6 +1,6 @@
 package bean;
 
-import classutils.UserPrincipal;
+import utils.UserPrincipal;
 import entities.User;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;

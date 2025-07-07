@@ -13,6 +13,7 @@ import entities.Year;
 import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
     private EgliseServiceLocal egliseService;
     @EJB
     private MemberServiceLocal memberService;
-    @EJB
+    @Inject
     private YearServiceLocal yearService;
     @EJB
     private LoanServiceLocal loanService;

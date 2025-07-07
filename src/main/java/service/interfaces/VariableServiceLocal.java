@@ -2,19 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dao;
+package service.interfaces;
 
-import entities.Sexe;
-import jakarta.transaction.Transactional;
+import entities.Variable;
+import java.util.Optional;
 
 /**
  * @author steph18
  */
-@Transactional
-public class SexeDao extends RepositoryDao<Sexe, Integer> {
+public interface VariableServiceLocal extends GenericServiceLocal<Variable, Long> {
 
-    public SexeDao() {
-        super(Sexe.class);
-    }
-
+    Optional<Variable> findByKey(String key);
 }

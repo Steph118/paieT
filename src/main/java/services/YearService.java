@@ -7,17 +7,19 @@ package services;
 import dao.RepositoryDao;
 import dao.YearDao;
 import entities.Year;
-import jakarta.ejb.EJB;
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import service.interfaces.YearServiceLocal;
 
 /**
  * @author steph18
  */
-@Stateless
+@Transactional
+@RequestScoped
 public class YearService extends GenericServiceLocalImpl<Year, Integer> implements YearServiceLocal {
 
-    @EJB
+    @Inject
     private YearDao dao;
 
     @Override

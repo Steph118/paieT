@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class RepositoryDao<E extends Serializable, ID> {
 
-    protected final Logger logger;
+    protected final Logger LOGGER;
     private final Class<E> entityClass;
 
     @PersistenceContext
@@ -27,7 +27,7 @@ public class RepositoryDao<E extends Serializable, ID> {
 
     public RepositoryDao(Class<E> entityClass) {
         this.entityClass = entityClass;
-        this.logger = Logger.getLogger(this.entityClass.getName());
+        this.LOGGER = Logger.getLogger(this.entityClass.getName());
     }
 
     public void save(E e) {

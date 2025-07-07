@@ -7,21 +7,19 @@ package services;
 import dao.CountryDao;
 import dao.RepositoryDao;
 import entities.Country;
-import jakarta.ejb.EJB;
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import service.interfaces.CountryServiceLocal;
-import service.interfaces.GenericServiceLocal;
-
-import java.util.List;
-import java.util.Optional;
 
 /**
  * @author steph18
  */
-@Stateless
+@Transactional
+@RequestScoped
 public class CountryService extends GenericServiceLocalImpl<Country, Integer> implements CountryServiceLocal {
 
-    @EJB
+    @Inject
     private CountryDao dao;
 
     @Override
