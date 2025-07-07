@@ -154,8 +154,7 @@ public class MailSenderService {
         properties.put("mail.smtp.starttls.enable", config.isSslEnabled());
         properties.put("mail.smtp.port", config.getPort());
         properties.put("mail.debug", true);
-        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
-
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
         return Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
