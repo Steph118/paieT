@@ -47,11 +47,11 @@ public class MemberBean extends GenericBean<Member, Integer> {
     private EgliseServiceLocal egliseService;
     @EJB
     private DepartmentServiceLocal departmentService;
-    @EJB
+    @Inject
     private SexeServiceLocal sexeService;
     @EJB
     private LoanServiceLocal loanService;
-   @Inject
+    @Inject
     private YearServiceLocal yearService;
 
     private Sexe sexe;

@@ -5,9 +5,6 @@
 package entities;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -20,23 +17,26 @@ public class Permission extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
-    @Column(name = "label")
+    @Column(name = "id", unique = true, nullable = false)
+    private String code;
+
+    @Column(name = "label", nullable = false)
     private String label;
 
-    @ManyToMany(mappedBy = "permissions", cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            fetch = FetchType.LAZY)
-    private List<Role> roles = new ArrayList<>();
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "permission_category_id", nullable = false)
+    private PermissionCategory categoryPermission;
 
     public Permission() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,12 +48,20 @@ public class Permission extends BaseEntity {
         this.label = label;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public PermissionCategory getCategoryPermission() {
+        return categoryPermission;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setCategoryPermission(PermissionCategory categoryPermission) {
+        this.categoryPermission = categoryPermission;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override
@@ -80,7 +88,7 @@ public class Permission extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Permission{" + "id=" + id + ", label=" + label + '}';
+        return "Permission{" + "id=" + id + ", code=" + code + ", label=" + label + ", category=" + categoryPermission + '}';
     }
 
 }

@@ -6,6 +6,7 @@ package entities;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import java.util.List;
 import java.util.Objects;
@@ -33,7 +34,7 @@ public class Role extends BaseEntity {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
-    private List<Permission> permissions = new ArrayList<>();
+    private List<Permission> permissions = new LinkedList<>();
 
     public Role() {
     }

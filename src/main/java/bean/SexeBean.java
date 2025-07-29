@@ -5,8 +5,8 @@
 package bean;
 
 import entities.Sexe;
-import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.SexeServiceLocal;
@@ -18,7 +18,7 @@ import service.interfaces.SexeServiceLocal;
 @ViewScoped
 public class SexeBean extends GenericBean<Sexe, Integer> {
 
-    @EJB
+    @Inject
     private SexeServiceLocal sexeService;
 
     @Override

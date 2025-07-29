@@ -7,11 +7,8 @@ package apps;
 import entities.User;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import jakarta.ejb.Startup;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import service.interfaces.UserServiceLocal;
 
 /**
