@@ -19,7 +19,7 @@ public class Permission extends BaseEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "id", unique = true, nullable = false)
+    @Column(name = "code", unique = true, nullable = false)
     private String code;
 
     @Column(name = "label", nullable = false)

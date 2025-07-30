@@ -39,7 +39,7 @@ public class Menu extends BaseEntity {
     @Column(name = "description", nullable = true, length = 255)
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentMenu")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "menu")
     private List<MenuItem> items = new ArrayList<>();
 
     public Menu() {
@@ -94,6 +94,15 @@ public class Menu extends BaseEntity {
         hash = 53 * hash + Objects.hashCode(this.code);
         return hash;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
 
     @Override
     public boolean equals(Object obj) {

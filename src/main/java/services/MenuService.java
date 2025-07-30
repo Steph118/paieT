@@ -4,33 +4,33 @@
  */
 package services;
 
-import dao.PermisionDao;
+import dao.MenuDao;
 import dao.RepositoryDao;
-import entities.Permission;
+import entities.Menu;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import java.util.Optional;
-import service.interfaces.PermissionServiceLocal;
+import java.util.Map;
+import service.interfaces.MenuServiceLocal;
 
 /**
  * @author steph18
  */
 @Transactional
 @RequestScoped
-public class PermissionService extends GenericServiceLocalImpl<Permission, Long> implements PermissionServiceLocal {
+public class MenuService extends GenericServiceLocalImpl<Menu, Long> implements MenuServiceLocal {
 
     @Inject
-    private PermisionDao dao;
+    private MenuDao dao;
 
     @Override
-    protected RepositoryDao<Permission, Long> getDAO() {
+    protected RepositoryDao<Menu, Long> getDAO() {
         return dao;
     }
 
     @Override
-    public Optional<Permission> getByCode(String code) {
-        return dao.getByCode(code);
+    public Map<String, Menu> getExistingMenus() {
+        return dao.getExistingMenus();
     }
 
 }

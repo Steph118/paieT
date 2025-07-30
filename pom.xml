@@ -44,6 +44,12 @@
             <artifactId>omnifaces</artifactId>
             <version>4.5.1</version>
         </dependency>
+        <!-- Pour parser le fichier YAML -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.3</version>
+        </dependency>
         <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>

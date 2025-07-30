@@ -2,15 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package service.interfaces;
+package dao;
 
-import entities.Permission;
-import java.util.Optional;
+import entities.MenuItem;
+import jakarta.transaction.Transactional;
 
 /**
  * @author steph18
  */
-public interface PermissionServiceLocal extends GenericServiceLocal<Permission, Long> {
+@Transactional
+public class MenuItemDao extends RepositoryDao<MenuItem, Long> {
 
-    Optional<Permission> getByCode(String code);
+    public MenuItemDao() {
+        super(MenuItem.class);
+    }
+
 }

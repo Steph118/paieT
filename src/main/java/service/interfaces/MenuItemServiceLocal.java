@@ -4,13 +4,11 @@
  */
 package service.interfaces;
 
-import entities.Permission;
-import java.util.Optional;
+import entities.MenuItem;
 
 /**
  * @author steph18
  */
-public interface PermissionServiceLocal extends GenericServiceLocal<Permission, Long> {
+public interface MenuItemServiceLocal extends GenericServiceLocal<MenuItem, Long> {
 
-    Optional<Permission> getByCode(String code);
 }

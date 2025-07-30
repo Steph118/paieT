@@ -4,17 +4,35 @@
  */
 package dao;
 
+import entities.EmailConfig;
 import entities.Permission;
-import jakarta.ejb.Stateless;
+import jakarta.persistence.NoResultException;
+import jakarta.transaction.Transactional;
+import java.util.Optional;
+import java.util.logging.Level;
 
 /**
  * @author steph18
  */
-@Stateless
-public class PermisionDao extends RepositoryDao<Permission, Integer> {
+@Transactional
+public class PermisionDao extends RepositoryDao<Permission, Long> {
 
     public PermisionDao() {
         super(Permission.class);
+    }
+
+    public Optional<Permission> getByCode(String code) {
+        try {
+            Permission p
+                    = this.em.createQuery("SELECT p FROM Permission p WHERE p.code = :code",
+                            Permission.class)
+                            .setParameter("code", code)
+                            .getSingleResult();
+            return Optional.ofNullable(p);
+        } catch (NoResultException e) {
+            LOGGER.log(Level.SEVERE, "Empty permission");
+            return Optional.empty();
+        }
     }
 
 }
