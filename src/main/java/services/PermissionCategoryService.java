@@ -30,8 +30,8 @@ public class PermissionCategoryService extends GenericServiceLocalImpl<Permissio
     }
 
     @Override
-    public Map<String, PermissionCategory> getExistingCategories() {
-        return dao.getExistingCategories();
+    public Map<String, PermissionCategory> getExistingCategoriesPermissions() {
+        return dao.getExistingCategoriesPermissions();
     }
 
 }

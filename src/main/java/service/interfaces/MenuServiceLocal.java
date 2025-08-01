@@ -5,13 +5,18 @@
 package service.interfaces;
 
 import entities.Menu;
+
+import java.util.List;
 import java.util.Map;
+import menu.MenuItem;
 
 /**
  * @author steph18
  */
 public interface MenuServiceLocal extends GenericServiceLocal<Menu, Long> {
 
-    public Map<String, Menu> getExistingMenus();
+    Map<String, Menu> getExistingMenus();
+
+    List<Menu> loadMenusWithHierarchy();
 
 }

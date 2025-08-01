@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package apps.test;
+package app.config;
 
 import java.util.List;
 
@@ -10,16 +10,17 @@ import java.util.List;
  *
  * @author steph18
  */
-public class MenuItemConfig {
+public class ConfigMenuItem {
 
     private String code;
     private String label;
     private String path;
     private String icon;
     private String requiredPermission;
-    private List<MenuItemConfig> children;
+    private int order;
+    private List<ConfigMenuItem> items;
 
-    public MenuItemConfig() {
+    public ConfigMenuItem() {
         //
     }
 
@@ -63,19 +64,25 @@ public class MenuItemConfig {
         this.requiredPermission = requiredPermission;
     }
 
-    public List<MenuItemConfig> getChildren() {
-        return children;
+    public List<ConfigMenuItem> getItems() {
+        return items;
     }
 
-    public void setChildren(List<MenuItemConfig> children) {
-        this.children = children;
+    public void setItems(List<ConfigMenuItem> items) {
+        this.items = items;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
     }
 
     @Override
     public String toString() {
-        return "MenuItemConfig{" + "code=" + code + ", label=" + label + ", path=" + path + ", icon=" + icon + ", requiredPermission=" + requiredPermission + ", items=" + children + '}';
+        return "ConfigMenuItem{" + "code=" + code + ", label=" + label + ", path=" + path + ", icon=" + icon + ", requiredPermission=" + requiredPermission + ", order=" + order + ", children=" + items + '}';
     }
-    
-    
-    
+
 }

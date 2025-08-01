@@ -10,7 +10,10 @@ import entities.Menu;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+
+import java.util.List;
 import java.util.Map;
+import menu.MenuItem;
 import service.interfaces.MenuServiceLocal;
 
 /**
@@ -31,6 +34,11 @@ public class MenuService extends GenericServiceLocalImpl<Menu, Long> implements 
     @Override
     public Map<String, Menu> getExistingMenus() {
         return dao.getExistingMenus();
+    }
+
+    @Override
+    public List<Menu> loadMenusWithHierarchy() {
+        return dao.loadMenusWithHierarchy();
     }
 
 }

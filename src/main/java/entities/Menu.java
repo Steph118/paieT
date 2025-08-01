@@ -5,14 +5,8 @@
  */
 package entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -39,7 +33,7 @@ public class Menu extends BaseEntity {
     @Column(name = "description", nullable = true, length = 255)
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "menu")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "menu",cascade = {CascadeType.ALL})
     private List<MenuItem> items = new ArrayList<>();
 
     public Menu() {
@@ -54,6 +48,23 @@ public class Menu extends BaseEntity {
         this.code = code;
         this.label = label;
         this.description = description;
+    }
+
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.code);
+        return hash;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCode() {
@@ -88,20 +99,7 @@ public class Menu extends BaseEntity {
         this.items = items;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.code);
-        return hash;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
     
 
     @Override
@@ -124,6 +122,8 @@ public class Menu extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Menu{" + "code=" + code + ", label=" + label + ", description=" + description + '}';
+        return "Menu{" + "id=" + id + ", code=" + code + ", label=" + label + ", description=" + description + '}';
     }
+
+    
 }

@@ -19,12 +19,12 @@ public class PermissionCategoryDao extends RepositoryDao<PermissionCategory, Lon
         super(PermissionCategory.class);
     }
 
-    public Map<String, PermissionCategory> getExistingCategories() {
-        Map<String, PermissionCategory> existingCategories = em.createQuery(
-                "SELECT c FROM PermissionCategory c LEFT JOIN FETCH c.permissions", PermissionCategory.class)
+    public Map<String, PermissionCategory> getExistingCategoriesPermissions() {
+        return em.createQuery(
+                        "SELECT DISTINCT c FROM PermissionCategory c LEFT JOIN FETCH c.permissions",
+                        PermissionCategory.class)
                 .getResultStream()
                 .collect(Collectors.toMap(PermissionCategory::getCode, c -> c));
-        return existingCategories;
     }
 
 }

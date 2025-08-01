@@ -1,4 +1,4 @@
-package apps;
+package app.config;
 
 import entities.User;
 import jakarta.enterprise.context.ApplicationScoped;

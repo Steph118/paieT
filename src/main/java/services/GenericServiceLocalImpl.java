@@ -20,10 +20,13 @@ import java.util.logging.Logger;
 public abstract class GenericServiceLocalImpl<E extends Serializable, ID>
         implements GenericServiceLocal<E, ID> {
 
-    protected final Logger logger;
+    /**
+     *
+     */
+    protected final Logger LOGGER;
 
     public GenericServiceLocalImpl() {
-        this.logger = Logger.getLogger(this.getClass().getName());
+        this.LOGGER = Logger.getLogger(this.getClass().getName());
     }
 
     protected abstract RepositoryDao<E, ID> getDAO();
@@ -75,7 +78,7 @@ public abstract class GenericServiceLocalImpl<E extends Serializable, ID>
 
     @Override
     public int deleteAll() {
-       return this.getDAO().deleteAll();
+        return this.getDAO().deleteAll();
     }
 
     @Override
@@ -90,8 +93,17 @@ public abstract class GenericServiceLocalImpl<E extends Serializable, ID>
 
     @Override
     public void saveAll(List<E> es) {
-        for (E e : es) {
-            this.save(e);
-        }
+        es.forEach(this::save);
     }
+
+    @Override
+    public void updateAll(List<E> es) {
+        es.forEach(this::update);
+    }
+
+    @Override
+    public void deleteAll(List<E> es) {
+        es.forEach(this::delete);
+    }
+
 }

@@ -2,18 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package apps.test;
+package app.config;
+
+import java.util.List;
 
 /**
  *
  * @author steph18
  */
-public class PermissionConfig {
+public class ConfigMenu {
 
     private String code;
     private String label;
+    private List<ConfigMenuItem> items;
 
-    public PermissionConfig() {
+    public ConfigMenu() {
         //
     }
 
@@ -33,9 +36,17 @@ public class PermissionConfig {
         this.label = label;
     }
 
+    public List<ConfigMenuItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ConfigMenuItem> items) {
+        this.items = items;
+    }
+
     @Override
     public String toString() {
-        return "PermissionConfig{" + "code=" + code + ", label=" + label + '}';
+        return "MenuConfig{" + "code=" + code + ", label=" + label + ", items=" + items + '}';
     }
     
 

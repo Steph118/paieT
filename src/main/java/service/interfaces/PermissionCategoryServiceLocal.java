@@ -12,5 +12,5 @@ import java.util.Map;
  */
 public interface PermissionCategoryServiceLocal extends GenericServiceLocal<PermissionCategory, Long> {
 
-    Map<String, PermissionCategory> getExistingCategories();
+    Map<String, PermissionCategory> getExistingCategoriesPermissions();
 }

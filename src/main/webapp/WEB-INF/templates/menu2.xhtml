@@ -8,16 +8,16 @@
             <h:form id="search">
                 <p:autoComplete id="input" placeholder="Search by name..." minQueryLength="1" effect="fade"
                                 panelStyleClass="layout-sidebar-filter-panel"
-                                completeMethod="#{appMenu.completeMenuItem}" groupBy="#{menuItem.parent.label}"
+                                completeMethod="#{appMenu2.completeMenuItem}" groupBy="#{menuItem.parentItem.label}"
                                 var="menuItem" scrollHeight="300" queryDelay="100">
                     <p:column>
-                        <h:outputLink value="#{menuItem.url}"
-                                      rendered="#{not empty menuItem.url and empty menuItem.badge and not menuItem.url.startsWith('/') and empty menuItem.menuItems}">
+                        <h:outputLink value="#{menuItem.path}"
+                                      rendered="#{not empty menuItem.path and empty menuItem.badge and not menuItem.path.startsWith('/') and empty menuItem.items}">
                             #{menuItem.label}
                         </h:outputLink>
-                        <h:link outcome="#{menuItem.url}"
-                                rendered="#{menuItem.url.startsWith('/') and empty menuItem.menuItems}"
-                                onclick="App.onSearchClick(event, 'sl_#{menuItem.parent.label.toLowerCase()}')">
+                        <h:link outcome="#{menuItem.path}"
+                                rendered="#{menuItem.path.startsWith('/') and empty menuItem.items}"
+                                onclick="App.onSearchClick(event, 'sl_#{menuItem.parentItem.label.toLowerCase()}')">
                             #{menuItem.label}<p:tag value="#{menuItem.badge}" styleClass="ml-2"
                                    rendered="#{not empty menuItem.badge}"
                                    severity="#{menuItem.badgeSeverity}"/>
@@ -26,36 +26,35 @@
                 </p:autoComplete>
             </h:form>
         </div>
-
         <div class="layout-menu">
-            <ui:repeat value="#{appMenu.menuCategories}" var="menuCategory">
-                <div class="menu-category">#{menuCategory.label}</div>
-                <h:panelGroup layout="block" class="menu-items" rendered="#{not menuCategory.custom}">
-                    <ui:repeat value="#{menuCategory.menuItems}" var="menuItem">
+            <ui:repeat value="#{appMenu2.menus}" var="menu">
+                <div class="menu-category">#{menu.label}</div>
+                <h:panelGroup layout="block" class="menu-items" rendered="true">
+                    <ui:repeat value="#{menu.items}" var="menuItem">
                         <h:outputLink
-                            rendered="#{empty menuItem.url and not empty menuItem.badge and empty menuItem.menuItems}"
+                            rendered="#{empty menuItem.path and not empty menuItem.badge and empty menuItem.items}"
                             styleClass="hidden">
-                            <i class="#{menuItem.imageSrc} mr-2"/>
+                            <i class="#{menuItem.icon} mr-2"/>
                             <h:outputText value="# {menuItem.label}"/>
                             <p:tag value="#{menuItem.badge}" severity="warning" styleClass="ml-2"
                                    rendered="#{not empty menuItem.badge}"/>
                         </h:outputLink>
-                        <h:outputLink value="#{menuItem.url}"
-                                      rendered="#{not empty menuItem.url and empty menuItem.badge and not menuItem.url.startsWith('/') and empty menuItem.menuItems}">
-                            <i class="#{menuItem.imageSrc} mr-2"/>
+                        <h:outputLink value="#{menuItem.path}"
+                                      rendered="#{not empty menuItem.path and empty menuItem.badge and not menuItem.path.startsWith('/') and empty menuItem.items}">
+                            <i class="#{menuItem.icon} mr-2"/>
                             <h:outputText value="#{menuItem.label}"/>
                         </h:outputLink>
 
-<!--                        <p:outputLabel value="# {sessionBean.user.userName}"/>-->
-                            <h:link outcome="#{menuItem.url}"
-                                    rendered="#{menuItem.url.startsWith('/') and empty menuItem.menuItems}">
-                                <i class="#{menuItem.imageSrc} mr-2"/>
-                                <h:outputText value="#{menuItem.label}"/>
-                                <p:tag value="#{menuItem.badge}" styleClass="ml-2" rendered="#{not empty menuItem.badge}"
-                                       severity="#{menuItem.badgeSeverity}"/>
-                            </h:link>
+                        <!--                        <p:outputLabel value="# {sessionBean.user.userName}"/>-->
+                        <h:link outcome="#{menuItem.path}"
+                                rendered="#{menuItem.path.startsWith('/') and empty menuItem.items}">
+                            <i class="#{menuItem.icon} mr-2"/>
+                            <h:outputText value="#{menuItem.label}"/>
+                            <p:tag value="#{menuItem.badge}" styleClass="ml-2" rendered="#{not empty menuItem.badge}"
+                                   severity="#{menuItem.badgeSeverity}"/>
+                        </h:link>
 
-                        <p:outputPanel rendered="#{not empty menuItem.menuItems}">
+                        <p:outputPanel rendered="#{not empty menuItem.items}">
                             <a id="sl_#{menuItem.label.toLowerCase()}" tabindex="0" class="submenu-link">
                                 #{menuItem.label}<p:tag value="#{menuItem.badge}" styleClass="ml-2"
                                        rendered="#{not empty menuItem.badge}"
@@ -63,8 +62,8 @@
                             </a>
                             <div class="submenu">
                                 <ul>
-                                    <ui:repeat value="#{menuItem.menuItems}" var="nestedMenuItem">
-                                        <li><h:link outcome="#{nestedMenuItem.url}">
+                                    <ui:repeat value="#{menuItem.items}" var="nestedMenuItem">
+                                        <li><h:link outcome="#{nestedMenuItem.path}">
                                                 #{nestedMenuItem.label}
                                                 <p:tag value="#{nestedMenuItem.badge}" styleClass="ml-2"
                                                        rendered="#{not empty nestedMenuItem.badge}"
@@ -75,18 +74,18 @@
                             </div>
                         </p:outputPanel>
                     </ui:repeat>
+
                 </h:panelGroup>
-                <h:panelGroup layout="block" class="menu-image" rendered="#{menuCategory.custom}">
-                    <ui:repeat value="#{menuCategory.menuItems}" var="menuItem">
-                        <h:outputLink value="#{menuItem.url}"
-                                      rendered="#{not empty menuItem.url and not empty menuItem.imageSrc}"
+                <h:panelGroup layout="block" class="menu-image" rendered="false">-->
+                    <ui:repeat value="#{menu.items}" var="menuItem">
+                        <h:outputLink value="#{menuItem.path}"
+                                      rendered="#{not empty menuItem.path and not empty menuItem.icon}"
                                       target="_blank">
-                            <h:graphicImage name="#{menuItem.imageSrc}" alt="#{menuItem.label}"/>
+                            <h:graphicImage name="#{menuItem.icon}" alt="#{menuItem.label}"/>
                         </h:outputLink>
                     </ui:repeat>
                 </h:panelGroup>
             </ui:repeat>
         </div>
     </div>
-
 </ui:composition>

@@ -5,23 +5,14 @@
  */
 package entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import app.config.ConfigMenuItem;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /**
- *
  * @author komilo
  */
 @Entity
@@ -57,11 +48,14 @@ public class MenuItem extends BaseEntity {
     @Column(name = "weight", nullable = true)
     private int weight;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE})
+    @Column(name = "order_number", nullable = true)
+    private int order;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_item_id", nullable = true)
     private MenuItem parentItem;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id", nullable = false)
     private Menu menu;
 
@@ -69,10 +63,11 @@ public class MenuItem extends BaseEntity {
     @JoinColumn(name = "permission_code", nullable = true)
     private Permission permission;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentItem")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentItem",cascade = {CascadeType.ALL})
     private List<MenuItem> items = new ArrayList<>();
 
     public MenuItem() {
+        //
     }
 
     public MenuItem(String code, String label, int weight) {
@@ -110,6 +105,18 @@ public class MenuItem extends BaseEntity {
         this.permission = permission;
     }
 
+    public MenuItem(ConfigMenuItem itemConfig, Menu menu, MenuItem parent,
+            Permission permission) {
+        this.code = itemConfig.getCode();
+        this.label = itemConfig.getLabel();
+        this.path = itemConfig.getPath();
+        this.icon = itemConfig.getIcon();
+        this.order = itemConfig.getOrder();
+        this.menu = menu;
+        this.parentItem = parent;
+        this.permission = permission;
+    }
+
     public boolean isTopMenu() {
         return this.parentItem == null;
     }
@@ -124,6 +131,22 @@ public class MenuItem extends BaseEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getPath() {
@@ -166,36 +189,20 @@ public class MenuItem extends BaseEntity {
         this.imageSource = imageSource;
     }
 
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
     public int getWeight() {
         return weight;
     }
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
     }
 
     public MenuItem getParentItem() {
@@ -206,12 +213,12 @@ public class MenuItem extends BaseEntity {
         this.parentItem = parentItem;
     }
 
-    public Menu getParentMenu() {
+    public Menu getMenu() {
         return menu;
     }
 
-    public void setParentMenu(Menu parentMenu) {
-        this.menu = parentMenu;
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 
     public Permission getPermission() {
@@ -230,6 +237,7 @@ public class MenuItem extends BaseEntity {
         this.items = items;
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -254,7 +262,8 @@ public class MenuItem extends BaseEntity {
 
     @Override
     public String toString() {
-        return "MenuItem{" + "id=" + id + ", code=" + code + ", label=" + label + ", path=" + path + ", icon=" + icon + ", badge=" + badge + ", badgeSeverity=" + badgeSeverity + ", imageSource=" + imageSource + ", weight=" + weight + ", parentItem=" + parentItem + ", menu=" + menu + ", permission=" + permission + ", items=" + items + '}';
+        return "MenuItem{" + "id=" + id + ", code=" + code + ", label=" + label + ", path=" + path + ", icon=" + icon + ", badge=" + badge + ", badgeSeverity=" + badgeSeverity + ", imageSource=" + imageSource + ", weight=" + weight + ", order=" + order + ", parentItem=" + parentItem + ", menu=" + menu + ", permission=" + permission + '}';
     }
 
+    
 }

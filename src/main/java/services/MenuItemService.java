@@ -12,6 +12,8 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import service.interfaces.MenuItemServiceLocal;
 
+import java.util.Map;
+
 /**
  * @author steph18
  */
@@ -27,4 +29,8 @@ public class MenuItemService extends GenericServiceLocalImpl<MenuItem, Long> imp
         return dao;
     }
 
+    @Override
+    public Map<String, MenuItem> getExistingMenuItems() {
+        return dao.getExistingMenuItems();
+    }
 }

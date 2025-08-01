@@ -32,6 +32,13 @@ public class Permission extends BaseEntity {
     public Permission() {
     }
 
+    public Permission(String code, String label, PermissionCategory cat) {
+        this.code = code;
+        this.label = label;
+        this.categoryPermission = cat;
+    }
+
+
     public Long getId() {
         return id;
     }

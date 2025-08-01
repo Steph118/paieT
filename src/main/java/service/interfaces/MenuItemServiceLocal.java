@@ -6,9 +6,13 @@ package service.interfaces;
 
 import entities.MenuItem;
 
+import java.util.Map;
+
 /**
  * @author steph18
  */
 public interface MenuItemServiceLocal extends GenericServiceLocal<MenuItem, Long> {
+
+    Map<String, MenuItem> getExistingMenuItems();
 
 }

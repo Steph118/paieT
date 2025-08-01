@@ -1,4 +1,4 @@
-package apps;
+package app.config;
 
 //import jakarta.enterprise.context.RequestScoped;
 //import jakarta.inject.Inject;

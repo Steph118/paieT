@@ -10,6 +10,8 @@ import entities.Permission;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+
+import java.util.Map;
 import java.util.Optional;
 import service.interfaces.PermissionServiceLocal;
 
@@ -31,6 +33,11 @@ public class PermissionService extends GenericServiceLocalImpl<Permission, Long>
     @Override
     public Optional<Permission> getByCode(String code) {
         return dao.getByCode(code);
+    }
+
+    @Override
+    public Map<String, Permission> getExistingPermissions() {
+        return dao.getExistingPermissions();
     }
 
 }

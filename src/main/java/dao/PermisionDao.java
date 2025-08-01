@@ -4,12 +4,14 @@
  */
 package dao;
 
-import entities.EmailConfig;
 import entities.Permission;
 import jakarta.persistence.NoResultException;
 import jakarta.transaction.Transactional;
+
+import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 
 /**
  * @author steph18
@@ -34,5 +36,12 @@ public class PermisionDao extends RepositoryDao<Permission, Long> {
             return Optional.empty();
         }
     }
+
+    public Map<String, Permission> getExistingPermissions() {
+        return em.createQuery("SELECT p FROM Permission p", Permission.class)
+                .getResultStream()
+                .collect(Collectors.toMap(Permission::getCode, p -> p));
+    }
+
 
 }

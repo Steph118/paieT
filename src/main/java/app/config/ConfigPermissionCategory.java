@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package apps.test;
+package app.config;
 
 import java.util.List;
 
@@ -10,13 +10,13 @@ import java.util.List;
  *
  * @author steph18
  */
-public class PermissionCategoryConfig {
+public class ConfigPermissionCategory {
 
     private String code;
     private String label;
-    private List<PermissionConfig> permissions;
+    private List<ConfigPermission> permissions;
 
-    public PermissionCategoryConfig() {
+    public ConfigPermissionCategory() {
         //
     }
 
@@ -37,11 +37,11 @@ public class PermissionCategoryConfig {
         this.label = label;
     }
 
-    public List<PermissionConfig> getPermissions() {
+    public List<ConfigPermission> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(List<PermissionConfig> permissions) {
+    public void setPermissions(List<ConfigPermission> permissions) {
         this.permissions = permissions;
     }
 

@@ -1,12 +1,12 @@
-package apps.test;
+package app.config;
 
 import java.util.List;
 
 public class Config {
 
     private String version;
-    private List<PermissionCategoryConfig> permission_categories;
-    private List<MenuConfig> menus;
+    private List<ConfigPermissionCategory> permission_categories;
+    private List<ConfigMenu> menus;
 
     public Config() {
         //
@@ -20,19 +20,19 @@ public class Config {
         this.version = version;
     }
 
-    public List<PermissionCategoryConfig> getPermission_categories() {
+    public List<ConfigPermissionCategory> getPermission_categories() {
         return permission_categories;
     }
 
-    public void setPermission_categories(List<PermissionCategoryConfig> permission_categories) {
+    public void setPermission_categories(List<ConfigPermissionCategory> permission_categories) {
         this.permission_categories = permission_categories;
     }
 
-    public List<MenuConfig> getMenus() {
+    public List<ConfigMenu> getMenus() {
         return menus;
     }
 
-    public void setMenus(List<MenuConfig> menus) {
+    public void setMenus(List<ConfigMenu> menus) {
         this.menus = menus;
     }
 

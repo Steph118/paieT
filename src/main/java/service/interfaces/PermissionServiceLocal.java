@@ -5,6 +5,8 @@
 package service.interfaces;
 
 import entities.Permission;
+
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -13,4 +15,6 @@ import java.util.Optional;
 public interface PermissionServiceLocal extends GenericServiceLocal<Permission, Long> {
 
     Optional<Permission> getByCode(String code);
+
+    Map<String, Permission> getExistingPermissions();
 }

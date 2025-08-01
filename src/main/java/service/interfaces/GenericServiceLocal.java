@@ -21,9 +21,13 @@ public interface GenericServiceLocal<E extends Serializable, ID> {
 
     E update(E e);
 
+    void updateAll(List<E> es);
+
     boolean isUpdate(E e);
 
     void delete(E e);
+
+    void deleteAll(List<E> es);
 
     int delete(ID id);
 

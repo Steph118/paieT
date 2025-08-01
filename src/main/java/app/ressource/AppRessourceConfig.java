@@ -1,4 +1,4 @@
-package configuration;
+package app.ressource;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
@@ -9,6 +9,6 @@ import jakarta.ws.rs.core.Application;
  * @author Juneau
  */
 @ApplicationPath("resources")
-public class JakartaRestConfiguration extends Application {
+public class AppRessourceConfig extends Application {
 
 }
