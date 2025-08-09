@@ -123,7 +123,7 @@ public class PermissionCategory extends BaseEntity {
             return false;
         }
         final PermissionCategory other = (PermissionCategory) obj;
-        return Objects.equals(this.code, other.code);
+        return Objects.equals(this.id, other.id);
     }
 
     @Override

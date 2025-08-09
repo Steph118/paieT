@@ -7,10 +7,13 @@ package dao;
 import entities.Department;
 import entities.Person;
 import entities.Sexe;
+import entities.User;
 import jakarta.ejb.Stateless;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author steph18
@@ -62,5 +65,17 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
             q.setParameter("sexeId", sexe.getId());
         }
         return q.getResultList();
+    }
+
+    public Optional<Person> findByUser(User u) {
+        String jpql = "SELECT p FROM Person p WHERE p.user = :u ";
+        try {
+            Person p = this.em.createQuery(jpql, Person.class)
+                    .setParameter("u", u)
+                    .getSingleResult();
+            return Optional.ofNullable(p);
+        } catch (NoResultException e) {
+            return Optional.empty();
+        }
     }
 }

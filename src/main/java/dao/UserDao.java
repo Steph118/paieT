@@ -10,6 +10,7 @@ import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -30,14 +31,15 @@ public class UserDao extends RepositoryDao<User, Integer> {
         return new HashSet<>(query.getResultList());
     }
 
-    public User findByUsername(String username) {
+    public Optional<User> findByUsername(String username) {
         String jpql = "SELECT u FROM User u WHERE u.username = :username ";
         try {
-            return this.em.createQuery(jpql, User.class)
+            User u= this.em.createQuery(jpql, User.class)
                     .setParameter("username", username)
                     .getSingleResult();
+            return Optional.ofNullable(u);
         } catch (NoResultException e) {
-            return null;
+            return Optional.empty();
         }
     }
 

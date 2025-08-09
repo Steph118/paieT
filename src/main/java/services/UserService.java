@@ -66,14 +66,19 @@ public class UserService extends GenericServiceLocalImpl<User, Integer> implemen
 
     @Override
     public Optional<User> findByUsernameAndPassword(String username, String password) {
-        User user = dao.findByUsername(username);
-        if (user == null) {
+        Optional<User> user = dao.findByUsername(username);
+        if (user.isEmpty()) {
             return Optional.empty();
         }
-        if (passwordHash.verify(password.toCharArray(), user.getPassword())) {
-            return Optional.of(user);
+        if (passwordHash.verify(password.toCharArray(), user.get().getPassword())) {
+            return user;
         }
         return Optional.empty();
+    }
+
+    @Override
+    public boolean isValidPassword(String passToverify, String password) {
+        return passwordHash.verify(passToverify.toCharArray(), password);
     }
 
     @Override
@@ -82,7 +87,7 @@ public class UserService extends GenericServiceLocalImpl<User, Integer> implemen
     }
 
     @Override
-    public User findByUsername(String username) {
+    public Optional<User> findByUsername(String username) {
         return this.dao.findByUsername(username);
     }
 

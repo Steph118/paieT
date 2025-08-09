@@ -1,9 +1,10 @@
 <ui:composition
-        xmlns:f="jakarta.faces.core"
-        xmlns:p="http://primefaces.org/ui"
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:ui="jakarta.faces.facelets"
-        template="/paie/templates/layout-edit.xhtml">
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/paie/templates/layout-edit.xhtml"
+    xmlns:h="jakarta.faces.html">
 
     <ui:define name="metadata">
         <f:metadata>
@@ -30,14 +31,23 @@
                          required="true" requiredMessage="#{msg['label.required']}"/>
         </div>
         <div class="field col-12">
-            <p:outputLabel value="#{msg['permissions']}" for="permissions"/>
-            <p:selectManyCheckbox id="permissions" class="w-full"
-                                  value="#{roleBean.entity.permissions}"
-                                  converter="omnifaces.SelectItemsConverter"
-                                  required="true" requiredMessage="#{msg['permissions.required']}">
-                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
-                <f:selectItems  />
-            </p:selectManyCheckbox>
+            <h5>
+                #{msg['permissions']}
+            </h5>
+                <ui:repeat value="#{roleBean.perms}" var="c"  >
+                    <p:panel header="#{c.label}" toggleable="true" toggleSpeed="0">
+                        <p:selectManyCheckbox id="permissions"
+                                              value="#{roleBean.permsSelected}" layout="responsive"
+                                              converter="omnifaces.SelectItemsConverter"
+                                              >
+                            <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}" />
+                            <f:selectItems value="#{c.permissions}" var="perm" itemLabel="#{perm.label}"
+                                           itemValue="#{perm.id}"/>
+                            
+                        </p:selectManyCheckbox>
+                    </p:panel>
+
+                </ui:repeat>
         </div>
     </ui:define>
 </ui:composition>

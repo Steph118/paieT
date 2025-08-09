@@ -45,10 +45,9 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
 
     public String save() {
         try {
-            logger.log(Level.INFO, "GenericBean Save...");
             this.getService().save(this.entity);
             Messages.addFlashGlobalInfo("Ajout effectué avec succès.");
-            this.logger.log(Level.INFO, "Enregistrement de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
+            logger.log(Level.INFO, "GenericBean Save...");
             return cancel();
         } catch (BusinessException ex) {
             Messages.addGlobalError(ex.getMessage());
@@ -102,10 +101,9 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
 
     public String delete(E e) {
         try {
-            this.logger.log(Level.INFO, "GenericBean delete...");
             this.getService().delete(e);
-            this.logger.log(Level.INFO, "Suppression de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
             Messages.addFlashGlobalInfo("Suppression effectuée avec succès.");
+            this.logger.log(Level.INFO, "GenericBean delete...");
         } catch (BusinessException ex) {
             Messages.addFlashGlobalError(ex.getMessage());
             this.logger.log(Level.SEVERE, ex.getMessage(), ex);
@@ -129,10 +127,9 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
 
     public String update() {
         try {
-            logger.log(Level.INFO, "GenericBean update...");
             this.entity = this.getService().update(this.entity);
             Messages.addFlashGlobalInfo("Mise à jour effectuée avec succès.");
-            this.logger.log(Level.INFO, "Mise à jour de {0} effectué: {1}.", new Object[]{this.entity.getClass().getSimpleName(), this.entity});
+            logger.log(Level.INFO, "GenericBean update...");
             return cancel();
         } catch (BusinessException ex) {
             Messages.addGlobalError(ex.getMessage());

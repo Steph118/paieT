@@ -8,8 +8,10 @@ import entities.Department;
 import entities.Eglise;
 import entities.Person;
 import entities.Sexe;
+import entities.User;
 import jakarta.ejb.Local;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author steph18
@@ -22,4 +24,6 @@ public interface PersonServiceLocal extends GenericServiceLocal<Person, Integer>
     List<Person> getPersons(Eglise eglise, Department departement, Sexe sexe);
 
     Person update2(Person p);
+
+    Optional<Person> findByUser(User u);
 }

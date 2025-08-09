@@ -29,7 +29,7 @@ public class Role extends BaseEntity {
     @ManyToMany(mappedBy = "roles")
     private List<User> users = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "roles_permissions",
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")

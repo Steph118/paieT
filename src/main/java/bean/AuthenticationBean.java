@@ -8,17 +8,24 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.security.enterprise.AuthenticationStatus;
+import static jakarta.security.enterprise.AuthenticationStatus.NOT_DONE;
+import static jakarta.security.enterprise.AuthenticationStatus.SEND_CONTINUE;
+import static jakarta.security.enterprise.AuthenticationStatus.SEND_FAILURE;
+import static jakarta.security.enterprise.AuthenticationStatus.SUCCESS;
 import jakarta.security.enterprise.SecurityContext;
 import jakarta.security.enterprise.authentication.mechanism.http.AuthenticationParameters;
 import jakarta.security.enterprise.credential.UsernamePasswordCredential;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotEmpty;
+import service.interfaces.UserServiceLocal;
+
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import service.interfaces.UserServiceLocal;
+import javax.security.auth.Subject;
 
 @Named
 @RequestScoped
@@ -45,52 +52,61 @@ public class AuthenticationBean implements Serializable {
     private SecurityContext securityContext;
 
     public void login() {
-//        System.err.println("LoadDatabase");
-//        User u = userService.findByUsername("admin");
-//        u.setPassword("toto");
-//        userService.update(u);
-        switch (continueAuthentication()) {
+        try {
+            Optional<User> u = this.userService.findByUsername(this.getUsername());
+            if (u.isEmpty() || !u.get().getActif()) {
+                this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Utilisateur inconnu ou non actif", null));
+                return;
+            }
+            if (!userService.isValidPassword(this.getPassword(), u.get().getPassword())) {
+                this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Mot de passe incorrect", null));
+                return;
+            }
+            if (u.get().getChangePassword()) {
+                this.externalContext.redirect(externalContext.getRequestContextPath() + "/forget-password.xhtml");
+                return;
+            }
+            checkLogin(continueAuthentication(u.get().getId()));
+        } catch (IOException e) {
+            this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Erreur survenue", null));
+        } catch (Exception e) {
+            this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Erreur inattendue", null));
+        }
+    }
+
+    private void checkLogin(AuthenticationStatus status) {
+        switch (status) {
             case SEND_CONTINUE ->
                 facesContext.responseComplete();
-            case SEND_FAILURE ->
-                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", null));
+            case SEND_FAILURE -> {
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                        "Login ou mot de passe incorrect", null));
+            }
             case SUCCESS -> {
                 try {
-//                    User u = this.userService.findByUsername(this.getUsername());
-//                    if (u == null) {
-//                        this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erreur survenu lors de la connexion", null));
-//                        return;
-//                    }
-//                    if (!u.getActif()) {
-//                        this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Utlisateur desactive", null));
-//                        return;
-//                    }
-//                    if (u.getChangePassword()) {
-//                        this.externalContext.redirect(externalContext.getRequestContextPath() + "/forget-password.xhtml");
-//return;
-//                    }
                     if (this.rememberMe) {
                         HttpServletRequest request = (HttpServletRequest) this.externalContext.getRequest();
                         request.setAttribute("jakarta.security.enterprise.authentication.mechanism.http.rememberMe", true);
                     }
-                    this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Login succeed", null));
                     this.externalContext.redirect(this.externalContext.getRequestContextPath() + "/index.xhtml");
                 } catch (IOException ex) {
                     Logger.getLogger(AuthenticationBean.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             case NOT_DONE ->
-                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "NOT DONE", null));
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Une erreur est survenue", null));
         }
     }
 
-    private AuthenticationStatus continueAuthentication() {
+    private AuthenticationStatus continueAuthentication(Integer id) {
         return this.securityContext.authenticate(
                 (HttpServletRequest) this.externalContext.getRequest(),
                 (HttpServletResponse) this.externalContext.getResponse(),
                 AuthenticationParameters.withParams()
                         .newAuthentication(true)
-                        .credential(new UsernamePasswordCredential(this.getUsername(), this.getPassword())));
+                        .credential(new UsernamePasswordCredential(String.valueOf(id), this.getPassword())));
     }
 
     public String getUsername() {

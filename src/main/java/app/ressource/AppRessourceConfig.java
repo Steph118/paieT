@@ -8,7 +8,7 @@ import jakarta.ws.rs.core.Application;
  *
  * @author Juneau
  */
-@ApplicationPath("resources")
+@ApplicationPath("rs")
 public class AppRessourceConfig extends Application {
 
 }

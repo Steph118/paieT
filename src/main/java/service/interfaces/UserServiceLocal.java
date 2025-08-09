@@ -20,9 +20,11 @@ public interface UserServiceLocal extends GenericServiceLocal<User, Integer> {
 
     Optional<User> findByUsernameAndPassword(String username, String password);
 
+    boolean isValidPassword(String passToverify, String password);
+
     Set<String> findRolesForUser(User user);
 
-    User findByUsername(String username);
+    Optional<User> findByUsername(String username);
 
     boolean hasPermission(String username, String resource, String action);
 }

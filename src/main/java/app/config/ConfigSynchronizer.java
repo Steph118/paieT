@@ -45,29 +45,27 @@ public class ConfigSynchronizer {
     public void synchronizeConfig() {
         try (InputStream in = getClass().getClassLoader().getResourceAsStream("config/config.yaml")) {
             if (in == null) {
-                logInfo("Fichier de configuration non trouvé.");
+                LOGGER.info("Fichier de configuration non trouvé.");
                 return;
             }
             String currentHash = calculateHash(in);
             if (currentHash.equals(lastConfigHash)) {
-                logInfo("Aucune modification détectée dans la configuration.");
+                LOGGER.info("Aucune modification détectée dans la configuration.");
                 return;
             }
             in.reset();
             Config config = new Yaml().loadAs(in, Config.class);
-            logInfo("Chargement de la configuration...");
+            LOGGER.info("Fichier yaml de la configuration mappé...");
 
             Map<String, PermissionCategory> existingCategories = categoryService.getExistingCategoriesPermissions();
             Map<String, Permission> existingPermissions = permissionService.getExistingPermissions();
             Map<String, Menu> existingMenus = menuService.getExistingMenus();
             Map<String, MenuItem> existingMenuItems = menuItemService.getExistingMenuItems();
-
             synchronizePermissions(config.getPermission_categories(), existingCategories, existingPermissions);
             synchronizeMenus(config.getMenus(), existingMenus, existingMenuItems, existingPermissions);
-
             lastConfigHash = currentHash;
         } catch (Exception e) {
-            logError("Erreur de synchronisation:", e);
+            LOGGER.log(Level.SEVERE,"Erreur de synchronisation:", e);
         }
     }
 
@@ -278,13 +276,5 @@ public class ConfigSynchronizer {
 
     private Permission getPermission(String code, Map<String, Permission> existingPermissions) {
         return code != null ? existingPermissions.get(code) : null;
-    }
-
-    private void logInfo(String message) {
-        LOGGER.log(Level.INFO, message);
-    }
-
-    private void logError(String message, Throwable e) {
-        LOGGER.log(Level.SEVERE, message, e);
     }
 }

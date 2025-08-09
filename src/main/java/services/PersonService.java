@@ -10,11 +10,13 @@ import entities.Department;
 import entities.Eglise;
 import entities.Person;
 import entities.Sexe;
+import entities.User;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import service.interfaces.MemberServiceLocal;
 import service.interfaces.PersonServiceLocal;
 
@@ -66,6 +68,11 @@ public class PersonService extends GenericServiceLocalImpl<Person, Integer>
             this.memberService.updateEglise(p, i);
         }
         return p1;
+    }
+
+    @Override
+    public Optional<Person> findByUser(User u) {
+        return this.dao.findByUser(u);
     }
 
 }

@@ -5,6 +5,8 @@
 package entities;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -29,6 +31,9 @@ public class Permission extends BaseEntity {
     @JoinColumn(name = "permission_category_id", nullable = false)
     private PermissionCategory categoryPermission;
 
+    @ManyToMany(mappedBy = "permissions", fetch = FetchType.LAZY)
+    private List<Role> roles = new ArrayList<>();
+
     public Permission() {
     }
 
@@ -37,7 +42,6 @@ public class Permission extends BaseEntity {
         this.label = label;
         this.categoryPermission = cat;
     }
-
 
     public Long getId() {
         return id;
@@ -69,6 +73,14 @@ public class Permission extends BaseEntity {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @Override

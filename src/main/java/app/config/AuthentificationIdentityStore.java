@@ -23,12 +23,12 @@ public class AuthentificationIdentityStore implements IdentityStore {
     @Override
     public CredentialValidationResult validate(Credential credential) {
         UsernamePasswordCredential login = (UsernamePasswordCredential) credential;
-        Optional<User> optionalUser = userService.findByUsernameAndPassword(login.getCaller(), login.getPasswordAsString());
+        //Optional<User> optionalUser = userService.findByUsernameAndPassword(login.getCaller(), login.getPasswordAsString());
+        Optional<User> optionalUser = userService.FindByIdOpt(Integer.valueOf(login.getCaller()));
         if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            Set<String> roles = userService.findRolesForUser(user);
+            Set<String> roles = userService.findRolesForUser(optionalUser.get());
             return new CredentialValidationResult(
-                    user.getUserName(),
+                    optionalUser.get().getUserName(),
                     roles
             );
         }

@@ -7,6 +7,8 @@ package app.config;
 import entities.User;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import service.interfaces.UserServiceLocal;
@@ -23,7 +25,8 @@ import service.interfaces.UserServiceLocal;
 //        user = "mediasoft",
 //        password = "mediasoft"
 //)
-//@Singleton
+@Singleton
+@Startup
 @ApplicationScoped
 public class LoadDatabase {
 
@@ -35,10 +38,6 @@ public class LoadDatabase {
 
     @PostConstruct
     public void init() {
-        System.err.println("LoadDatabase");
-        User u = userService.findByUsername("admin");
-        u.setPassword("toto");
-        userService.update(u);
 //        this.executeUpdate("""
 //                           """);
     }

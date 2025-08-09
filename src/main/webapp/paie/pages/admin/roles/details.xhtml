@@ -5,19 +5,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="jakarta.faces.facelets"
       xmlns:p="http://primefaces.org/ui"
->
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
 
     <ui:composition template="/paie/templates/layout-details.xhtml">
         <ui:define name="metadata">
-            <!--            <f:metadata>
-                            <f:viewParam name="entityId" value="# {egliseBean.entityId}"/>
-                            <f:viewAction action="# {egliseBean.initDetails()}"/>
-                        </f:metadata>-->
+            <f:metadata>
+                <f:viewParam name="entityId" value="#{roleBean.entityId}"/>
+                <f:viewAction action="#{roleBean.initDetails()}"/>
+            </f:metadata>
         </ui:define>
 
-        <!--        <ui:param name="crudBean" value="# {egliseBean}"/>-->
+        <ui:param name="crudBean" value="#{roleBean}"/>
 
         <ui:param name="fieldsTitle" value=""/>
 
@@ -29,17 +29,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
             <p:outputPanel>
                 <div class="form-grid grid">
                     <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-
+                        <p:outputLabel value="#{msg['persons.edit.firstname']}" for="firstname"/>
+                        <p:outputLabel class="font-bold text-900 text-xl" id="firstname" value="#{roleBean.entity.label}"/>
                     </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
 
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                    <ui:repeat value="#{roleBean.entity.permissions}" var="perm">
+                        <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
+                            <p:outputLabel class="font-bold text-900 text-xl" id="firstname" value="#{perm.label}"/>
+                        </div>
+                    </ui:repeat>
 
-                    </div>
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
 
-                    </div>
 
                 </div>
             </p:outputPanel>

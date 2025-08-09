@@ -1,9 +1,11 @@
 package bean;
 
+import entities.Person;
 import entities.Role;
 import entities.User;
 import enumeration.EmailProvider;
 import exception.BusinessException;
+import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -13,7 +15,9 @@ import service.interfaces.UserServiceLocal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import org.apache.commons.lang3.StringUtils;
 import org.omnifaces.util.Messages;
+import service.interfaces.PersonServiceLocal;
 import service.interfaces.RoleServiceLocal;
 import services.MailSenderService;
 
@@ -29,6 +33,9 @@ public class UserBean extends GenericBean<User, Integer> {
 
     @Inject
     private MailSenderService mailSenderService;
+
+    @EJB
+    private PersonServiceLocal personService;
 
     private String confirmPassword;
     private List<Role> roles = new ArrayList<>();
@@ -61,18 +68,34 @@ public class UserBean extends GenericBean<User, Integer> {
 
     public void sendPasswordByMail() {
         try {
-            this.mailSenderService.sendMail(EmailProvider.GMAIL,
-                    "katsu@mediasofthome.com",
-                    "RESET PASSWORD",
-                    "reset-password.html",
-                    null);
-            Messages.addFlashGlobalInfo("Mise à jour effectuée avec succès. "
-                    + "Un mail est envoyé sur l'adresse : " + "");
-            this.cancel();
+            personService.findByUser(this.entity)
+                    .ifPresentOrElse((p) -> {
+                        if (StringUtils.isNotEmpty(p.getMail())) {
+                            this.mailSenderService.sendMail(EmailProvider.GMAIL,
+                                    p.getMail(),
+                                    "MOT DE PASSE DE CONNEXION",
+                                    "reset-password.html",
+                                    null);
+                            Messages.addFlashGlobalInfo(
+                                    """
+                                    Mise à jour effectuée avec succès. 
+                                    Un mail est envoyé sur l'adresse : 
+                                            """);
+                            this.cancel();
+                            return;
+                        }
+                        Messages.addFlashGlobalInfo("Vous ne pouvez pas envoyé de mail pour cet utilisateur");
+                    },
+                            () -> {
+                                Messages.addFlashGlobalError("Une erreur est survenue!");
+                            }
+                    );
+
         } catch (Exception e) {
-            Messages.addFlashGlobalError("Erreur survenue!");
+            Messages.addFlashGlobalError("Erreur inattendue!");
             this.logger.log(Level.SEVERE, "sendPasswordByMail", e);
         }
+
     }
 
     @Override
