@@ -13,7 +13,7 @@ import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.Map;
-import menu.MenuItem;
+import menu.config.MenuItem;
 import service.interfaces.MenuServiceLocal;
 
 /**

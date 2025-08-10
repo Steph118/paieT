@@ -104,19 +104,17 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Agent pages</web-resource-name>
-            <url-pattern>/paie/*</url-pattern>
             <url-pattern>/index.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>Agent</role-name>
             <role-name>Root</role-name>
         </auth-constraint>
     </security-constraint>
     
-    <security-role>
+<!--    <security-role>
         <role-name>Root</role-name>
     </security-role>
     <security-role>
         <role-name>Agent</role-name>
-    </security-role>
+    </security-role>-->
 </web-app>

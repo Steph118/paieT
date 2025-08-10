@@ -1,4 +1,4 @@
-package menu;
+package menu.config;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;

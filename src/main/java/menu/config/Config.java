@@ -1,4 +1,4 @@
-package app.config;
+package menu.config;
 
 import java.util.List;
 

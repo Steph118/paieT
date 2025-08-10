@@ -4,14 +4,8 @@
  */
 package app.config;
 
-import entities.User;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import jakarta.ejb.Singleton;
-import jakarta.ejb.Startup;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
-import service.interfaces.UserServiceLocal;
 
 /**
  *
@@ -25,19 +19,20 @@ import service.interfaces.UserServiceLocal;
 //        user = "mediasoft",
 //        password = "mediasoft"
 //)
-@Singleton
-@Startup
-@ApplicationScoped
+//@Singleton
+//@Startup
+//@ApplicationScoped
 public class LoadDatabase {
 
 //    @Resource(lookup = "java:global/paie/paieDatasource")
 //    private DataSource dataSource;
     
-    @Inject
-    private UserServiceLocal userService;
+//    @Inject
+//    private UserServiceLocal userService;
 
     @PostConstruct
     public void init() {
+        System.err.println("LoadDatabase");
 //        this.executeUpdate("""
 //                           """);
     }

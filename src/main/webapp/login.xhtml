@@ -44,26 +44,27 @@
                                 <div class="w-full field">
                                     <label for="Nom utilisateur" class="block text-900 font-medium mb-2">Email</label>
                                     <p:inputText id="login" styleClass="w-full" placeholder="Nom d'utilisateur" required="true"
-                                                 requiredMessage="Le nom d'utilisateur est obligatoire" value="#{authenticationBean.username}"/>
+                                                 requiredMessage="Le nom d'utilisateur est obligatoire" value="#{loginBean.username}"/>
                                 </div>   
                                 <div class="w-full field">
                                     <label for="password" class="block text-900 font-medium mb-2">Password</label>
                                     <p:password id="password" styleClass="w-full" placeholder="Mot de passe" 
                                                 toggleMask="true" redisplay="true" required="true"
-                                                requiredMessage="Le mot de passe est obligatoire" value="#{authenticationBean.password}"/>
+                                                requiredMessage="Le mot de passe est obligatoire" value="#{loginBean.password}"/>
 
                                 </div>   
                                 <div class="flex align-items-center justify-content-between mt-1 field">
                                     <div class="flex align-items-center">
-                                        <p:selectBooleanCheckbox id="rememberme" styleClass="mr-2" value="#{authenticationBean.rememberMe}"/>
+                                        <p:selectBooleanCheckbox id="rememberme" styleClass="mr-2" value="#{loginBean.rememberMe}"/>
                                         <label for="rememberme">Remember me?</label>
                                     </div>
-                                    <p:link class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer" value="Forgot your password?"/>
+                                    <p:link outcome="paie/pages/app/forget-password"
+                                        class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer" value="Forgot your password?"/>
                                 </div>
 
                                 <p:commandButton value="Sign In" icon="pi pi-user" styleClass="w-full mt-2 ui-button-raised"
                                                  process="@form" validateClient="true"
-                                                 action="#{authenticationBean.login()}" update="messages"/>
+                                                 action="#{loginBean.login()}" update="messages"/>
                             </div>
 
                         </div>

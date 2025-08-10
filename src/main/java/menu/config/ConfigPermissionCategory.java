@@ -2,20 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package app.config;
+package menu.config;
+
+import java.util.List;
 
 /**
  *
  * @author steph18
  */
-public class ConfigPermission {
+public class ConfigPermissionCategory {
 
     private String code;
     private String label;
+    private List<ConfigPermission> permissions;
 
-    public ConfigPermission() {
+    public ConfigPermissionCategory() {
         //
     }
+
 
     public String getCode() {
         return code;
@@ -33,10 +37,20 @@ public class ConfigPermission {
         this.label = label;
     }
 
+    public List<ConfigPermission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<ConfigPermission> permissions) {
+        this.permissions = permissions;
+    }
+
     @Override
     public String toString() {
-        return "PermissionConfig{" + "code=" + code + ", label=" + label + '}';
+        return "PermissionCategoryConfig{" + "code=" + code + ", label=" + label + ", permissions=" + permissions + '}';
     }
     
-
+    
+    
+    
 }

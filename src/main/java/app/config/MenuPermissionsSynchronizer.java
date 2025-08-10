@@ -1,5 +1,9 @@
 package app.config;
 
+import menu.config.Config;
+import menu.config.ConfigMenu;
+import menu.config.ConfigPermissionCategory;
+import menu.config.ConfigMenuItem;
 import entities.Menu;
 import entities.MenuItem;
 import entities.Permission;
@@ -22,9 +26,9 @@ import java.util.logging.Logger;
 
 @Singleton
 @Startup
-public class ConfigSynchronizer {
+public class MenuPermissionsSynchronizer {
 
-    private static final Logger LOGGER = Logger.getLogger(ConfigSynchronizer.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MenuPermissionsSynchronizer.class.getName());
 
     @Inject
     private PermissionCategoryServiceLocal categoryService;
@@ -43,6 +47,7 @@ public class ConfigSynchronizer {
     }
 
     public void synchronizeConfig() {
+        LOGGER.info("Synchronisation des menus et permissions");
         try (InputStream in = getClass().getClassLoader().getResourceAsStream("config/config.yaml")) {
             if (in == null) {
                 LOGGER.info("Fichier de configuration non trouvé.");
@@ -56,7 +61,6 @@ public class ConfigSynchronizer {
             in.reset();
             Config config = new Yaml().loadAs(in, Config.class);
             LOGGER.info("Fichier yaml de la configuration mappé...");
-
             Map<String, PermissionCategory> existingCategories = categoryService.getExistingCategoriesPermissions();
             Map<String, Permission> existingPermissions = permissionService.getExistingPermissions();
             Map<String, Menu> existingMenus = menuService.getExistingMenus();
@@ -65,7 +69,7 @@ public class ConfigSynchronizer {
             synchronizeMenus(config.getMenus(), existingMenus, existingMenuItems, existingPermissions);
             lastConfigHash = currentHash;
         } catch (Exception e) {
-            LOGGER.log(Level.SEVERE,"Erreur de synchronisation:", e);
+            LOGGER.log(Level.SEVERE, "Erreur de synchronisation:", e);
         }
     }
 

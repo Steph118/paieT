@@ -5,7 +5,7 @@
  */
 package entities;
 
-import app.config.ConfigMenuItem;
+import menu.config.ConfigMenuItem;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

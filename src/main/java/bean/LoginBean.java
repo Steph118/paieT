@@ -29,7 +29,7 @@ import javax.security.auth.Subject;
 
 @Named
 @RequestScoped
-public class AuthenticationBean implements Serializable {
+public class LoginBean implements Serializable {
 
     @Inject
     private UserServiceLocal userService;
@@ -63,7 +63,7 @@ public class AuthenticationBean implements Serializable {
                 return;
             }
             if (u.get().getChangePassword()) {
-                this.externalContext.redirect(externalContext.getRequestContextPath() + "/forget-password.xhtml");
+                this.externalContext.redirect(externalContext.getRequestContextPath() + "/paie/pages/app/forget-password.xhtml");
                 return;
             }
             checkLogin(continueAuthentication(u.get().getId()));
@@ -92,7 +92,7 @@ public class AuthenticationBean implements Serializable {
                     }
                     this.externalContext.redirect(this.externalContext.getRequestContextPath() + "/index.xhtml");
                 } catch (IOException ex) {
-                    Logger.getLogger(AuthenticationBean.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(LoginBean.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             case NOT_DONE ->

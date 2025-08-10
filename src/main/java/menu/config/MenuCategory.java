@@ -1,4 +1,4 @@
-package menu;
+package menu.config;
 
 import java.io.Serializable;
 import java.util.List;
