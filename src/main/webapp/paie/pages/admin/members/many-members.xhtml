@@ -1,16 +1,15 @@
 <ui:composition
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:h="jakarta.faces.html"
-    xmlns:f="jakarta.faces.core">
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="jakarta.faces.core">
     <p:fieldset id="addMember">
         <div class="form-grid grid ui-fluid">
             <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
                 <p:outputLabel for="eglise" value="#{msg['entites.eglise.title']}"/>
                 <p:selectOneMenu id="eglise" class="w-full" filterMatchMode="startsWith"
                                  filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                 converter="omnifaces.SelectItemsConverter" required="true" 
+                                 converter="omnifaces.SelectItemsConverter" required="true"
                                  requiredMessage="#{msg['members.edit.eglise.required']}"
                                  value="#{memberBean.entity.eglise}">
                     <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
@@ -49,9 +48,10 @@
                                  requiredMessage="#{msg['members.edit.person.required']}"
                                  converter="omnifaces.SelectItemsConverter" value="#{memberBean.entity.person}"
                                  dynamic="true"
-                                 >
+                >
                     <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                    <f:selectItems value="#{memberBean.persons}" itemValue="#{p}" var="p" itemLabel="#{p.getFullName()}"/>
+                    <f:selectItems value="#{memberBean.persons}" itemValue="#{p}" var="p"
+                                   itemLabel="#{p.getFullName()}"/>
 
                 </p:selectOneMenu>
             </div>
@@ -61,10 +61,11 @@
                     <p:inputText id="numMember" class="w-full"
                                  value="#{memberBean.entity.memberNumber}"
                                  disabled="true"/>
-                    <p:commandButton id="generer" icon="#{!memberBean.customizeNumMember ? 'pi pi-home' : 'pi pi-save'}" 
+                    <p:commandButton id="generer" icon="#{!memberBean.customizeNumMember ? 'pi pi-home' : 'pi pi-save'}"
                                      ajax="false" disabled="true"
                                      class="ui-inputgroup-addon" style="height: 32px; padding-top: 1px;">
-                        <p:ajax update="numMember generer editForm:datafield" process="generer" listener="#{memberBean.toCustomizeNumMember()}"/>
+                        <p:ajax update="numMember generer editForm:datafield" process="generer"
+                                listener="#{memberBean.toCustomizeNumMember()}"/>
                     </p:commandButton>
                 </div>
             </div>
@@ -72,7 +73,7 @@
 
             <ui:fragment rendered="#{!memberBean.updating}">
                 <div class="p-2 field">
-                    <p:commandButton value="addmember" icon="pi pi-plus" process="addMember" 
+                    <p:commandButton value="addmember" icon="pi pi-plus" process="addMember"
                                      action="#{memberBean.addMemberToList()}"
                                      update="addMember data save"/>
                 </div>
@@ -94,13 +95,13 @@
                     <div class="flex align-items-center justify-content-center">
                         <ui:insert name="operations-btn">
                             <p:tooltip value="#{msg['edit']}" for="editButton" position="top"/>
-                            <p:commandButton id="editButton" class="ui-button-primary m-1" 
-                                             update="editForm:addMember data editForm:save" process="editButton" 
+                            <p:commandButton id="editButton" class="ui-button-primary m-1"
+                                             update="editForm:addMember data editForm:save" process="editButton"
                                              disabled="#{memberBean.updateIntoList}"
                                              icon="fa fa-edit" action="#{memberBean.updateMemberToList(m)}"/>
 
                             <p:tooltip value="#{msg['delete']}" for="deleteButton" position="top"/>
-                            <p:commandButton id="deleteButton" class="ui-button-danger m-1" 
+                            <p:commandButton id="deleteButton" class="ui-button-danger m-1"
                                              update="data editForm:save" process="deleteButton"
                                              icon="pi pi-trash" action="#{memberBean.removeMemberToList(m)}"/>
                         </ui:insert>
@@ -108,5 +109,5 @@
                 </p:column>
             </p:dataTable>
         </div>
-    </p:fieldset> 
+    </p:fieldset>
 </ui:composition>

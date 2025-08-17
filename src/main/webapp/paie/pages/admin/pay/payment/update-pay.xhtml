@@ -1,10 +1,10 @@
 <ui:composition
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="jakarta.faces.core"
-    xmlns:ui="jakarta.faces.facelets"
-    template="/paie/templates/layout-edit.xhtml"
-    xmlns:h="jakarta.faces.html"
-    xmlns:p="http://primefaces.org/ui">  
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="jakarta.faces.core"
+        xmlns:ui="jakarta.faces.facelets"
+        template="/paie/templates/layout-edit.xhtml"
+        xmlns:h="jakarta.faces.html"
+        xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="metadata">
         <f:metadata>
@@ -21,7 +21,7 @@
         #{msg['payment.list.title']}
     </ui:define>
 
-    <ui:define name="breadCrumb" >
+    <ui:define name="breadCrumb">
         #{msg['payment.list.breadCrumb']}
     </ui:define>
 
@@ -31,14 +31,14 @@
             <p:inputNumber id="montantVersement" class="w-full" required="true"
                            value="#{paymentBean.entity.amount}"
                            requiredMessage="#{msg['payment.edit.amount.required']}"
-                           />
+            />
             <span>Le montant a modifier</span>
         </div>
         <div class="field col-6 sm:col-6 md:col-3 lg:col-3 align-content-center">
             <div>
                 <p:outputLabel for="month" value="Mois de paiement"/>
             </div>
-            <p:outputLabel id="month" class="p-2 font-bold text-xl text-black-alpha-90" 
+            <p:outputLabel id="month" class="p-2 font-bold text-xl text-black-alpha-90"
                            value="#{paymentBean.sumPaid.month.libelle}"/>
 
         </div>
@@ -47,7 +47,7 @@
             <div>
                 <p:outputLabel for="sumPromised" value="#{msg['promised.list.single.title']}"/>
             </div>
-            <p:outputLabel id="sumPromised"  class="p-2 font-bold text-xl text-black-alpha-90" 
+            <p:outputLabel id="sumPromised" class="p-2 font-bold text-xl text-black-alpha-90"
                            value="#{appUtilsBeans.numberFormat(paymentBean.sumPaid.sumPromised.montant)}"/>
 
         </div>
@@ -56,34 +56,36 @@
             <div>
                 <p:outputLabel for="member" value="#{msg['member']}"/>
             </div>
-            <p:outputLabel id="member"  class="p-2 font-bold text-xl text-black-alpha-90" 
+            <p:outputLabel id="member" class="p-2 font-bold text-xl text-black-alpha-90"
                            value="#{paymentBean.sumPaid.member.fullPersonFromMember()}"/>
 
         </div>
 
         <div class="lg:col-8 md:col-12 col-12 sm:col-12">
-            <p:panel header="Paiements courants" >
+            <p:panel header="Paiements courants">
                 <p:dataTable value="#{paymentBean.sumPaid.payments}" var="t">
-                    <p:column headerText="month" class="#{ t.id !=  paymentBean.entity.id ? 'font-bold text-900 text-xl' : 'bg-green-100'}">
+                    <p:column headerText="month"
+                              class="#{ t.id !=  paymentBean.entity.id ? 'font-bold text-900 text-xl' : 'bg-green-100'}">
                         <p:outputLabel value="#{t.sumPaid.month.libelle}"/>
                     </p:column>
-                    <p:column headerText="montant" class="#{ t.id !=  paymentBean.entity.id ? 'font-bold text-900 text-xl' : 'bg-green-100'}">
+                    <p:column headerText="montant"
+                              class="#{ t.id !=  paymentBean.entity.id ? 'font-bold text-900 text-xl' : 'bg-green-100'}">
                         <p:outputLabel value="#{appUtilsBeans.numberFormat(t.amount)}"/>
                     </p:column>
-                    <p:column headerText="Date" class="#{ t.id !=  paymentBean.entity.id ? 'font-bold text-900 text-xl' : 'bg-green-100'}">
+                    <p:column headerText="Date"
+                              class="#{ t.id !=  paymentBean.entity.id ? 'font-bold text-900 text-xl' : 'bg-green-100'}">
                         <p:outputLabel value="#{t.paymentDate}">
                             <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss" type="localDate"/>
                         </p:outputLabel>
                     </p:column>
                     <f:facet name="footer">
                         <h:outputText value="Reste a payer : "/>
-                        <h:outputText class="font-bold text-900 text-xl bg-yellow-500 p-1" value="#{paymentBean.rest()}"/>
+                        <h:outputText class="font-bold text-900 text-xl bg-yellow-500 p-1"
+                                      value="#{paymentBean.rest()}"/>
                     </f:facet>
                 </p:dataTable>
             </p:panel>
         </div>
-
-
 
 
     </ui:define>

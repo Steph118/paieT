@@ -1,11 +1,11 @@
 <ui:composition
-    xmlns:f="jakarta.faces.core"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui"
-    template="/paie/templates/layout-edit.xhtml"
-    xmlns:h="jakarta.faces.html"
-    xmlns:oou="http://omnifaces.org/ui">
+        xmlns:f="jakarta.faces.core"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/paie/templates/layout-edit.xhtml"
+        xmlns:h="jakarta.faces.html"
+        xmlns:oou="http://omnifaces.org/ui">
 
     <ui:define name="metadata">
         <f:metadata>
@@ -49,8 +49,8 @@
                 </p:password>
             </div>
             <h:panelGroup>
-                <oou:validateEqual id="equal" components="password confirm" 
-                                   message="#{msg['confirm.password.error']}" />
+                <oou:validateEqual id="equal" components="password confirm"
+                                   message="#{msg['confirm.password.error']}"/>
             </h:panelGroup>
         </ui:fragment>
 
@@ -58,20 +58,20 @@
             <div class="pb-2">
                 <p:outputLabel value="#{msg['user.actif']}" for="actif"/>
             </div>
-            <p:toggleSwitch id="actif" 
-                            onIcon="pi pi-check" offIcon="pi pi-power"  value="#{userBean.entity.actif}"/>
+            <p:toggleSwitch id="actif"
+                            onIcon="pi pi-check" offIcon="pi pi-power" value="#{userBean.entity.actif}"/>
         </div>
 
         <div class="field col-12">
-            <p:panel toggleable="true"  header="#{msg['roles.title']}">
+            <p:panel toggleable="true" header="#{msg['roles.title']}">
                 <p:selectCheckboxMenu id="roles" value="#{userBean.entity.roles}"
-                                      converter="omnifaces.SelectItemsConverter" multiple="true" 
+                                      converter="omnifaces.SelectItemsConverter" multiple="true"
                                       scrollHeight="250" updateLabel="true"
                                       filter="true" filterMatchMode="contains" filterNormalize="true"
                                       dynamic="true" emptyLabel="#{msg['choice-label']}" label="#{msg['roles.title']}"
                                       required="true" requiredMessage="#{msg['roles.required']}">
                     <f:selectItems value="#{userBean.roles}" itemLabel="#{r.label}" itemValue="#{r}"
-                                   var="r" />
+                                   var="r"/>
                     <f:facet name="footer">
                         <h:outputText value="#{msg['sum']} :  #{userBean.roles.size()}"
                                       styleClass="py-1 block font-bold"/>

@@ -4,7 +4,6 @@
  */
 package service.interfaces;
 
-import entities.Contributor;
 import entities.SumContributor;
 import jakarta.ejb.Local;
 

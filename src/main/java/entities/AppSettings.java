@@ -59,8 +59,6 @@ public class AppSettings extends Settings {
     public void setDefaultLanguage(String defaultLanguage) {
         this.defaultLanguage = defaultLanguage;
     }
-    
-    
-    
+
 
 }

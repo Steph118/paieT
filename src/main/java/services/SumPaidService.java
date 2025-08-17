@@ -10,11 +10,11 @@ import entities.Member;
 import entities.MonthEntity;
 import entities.SumPaid;
 import entities.SumPromised;
-import enumeration.Month;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.math.BigDecimal;
 import service.interfaces.SumPaidServiceLocal;
+
+import java.math.BigDecimal;
 
 /**
  * @author steph18

@@ -25,11 +25,11 @@ public class RoleDao extends RepositoryDao<Role, Integer> {
         System.err.println("find by id --- find by id");
         try {
             return this.em.createQuery("""
-                                            SELECT r FROM Role r
-                                            LEFT JOIN FETCH r.permissions
-                                            WHERE r.id = :id
-                                            """,
-                    Role.class)
+                                    SELECT r FROM Role r
+                                    LEFT JOIN FETCH r.permissions
+                                    WHERE r.id = :id
+                                    """,
+                            Role.class)
                     .setParameter("id", id)
                     .getSingleResult();
         } catch (NoResultException e) {

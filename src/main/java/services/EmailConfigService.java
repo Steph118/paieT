@@ -11,8 +11,9 @@ import enumeration.EmailProvider;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import java.util.Optional;
 import service.interfaces.EmailConfigServiceLocal;
+
+import java.util.Optional;
 
 /**
  * @author steph18

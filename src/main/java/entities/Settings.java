@@ -4,23 +4,8 @@
  */
 package entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.DiscriminatorType;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -74,12 +59,17 @@ public abstract class Settings implements Serializable {
 
     @Column(nullable = false, name = "updated_at", columnDefinition = "TIMESTAMP")
     private LocalDateTime updatedAt;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "create_by_user", nullable = false)
     private User createByUser;
 
     public Settings() {
+    }
+
+    public Settings(String key, String value) {
+        this.key = key;
+        this.value = value;
     }
 
     @PrePersist
@@ -91,11 +81,6 @@ public abstract class Settings implements Serializable {
     @PreUpdate
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
-    }
-
-    public Settings(String key, String value) {
-        this.key = key;
-        this.value = value;
     }
 
     public Long getId() {
@@ -189,7 +174,7 @@ public abstract class Settings implements Serializable {
     public void setCreateByUser(User createByUser) {
         this.createByUser = createByUser;
     }
-    
+
 
     @Override
     public int hashCode() {

@@ -26,10 +26,11 @@ public class AuthentificationIdentityStore implements IdentityStore {
         //Optional<User> optionalUser = userService.findByUsernameAndPassword(login.getCaller(), login.getPasswordAsString());
         Optional<User> optionalUser = userService.FindByIdOpt(Integer.valueOf(login.getCaller()));
         if (optionalUser.isPresent()) {
-            Set<String> roles = userService.findRolesForUser(optionalUser.get());
+            Set<String> perms = userService.findPermissionsForUser(optionalUser.get());
+            perms.forEach(System.out::println);
             return new CredentialValidationResult(
                     optionalUser.get().getUserName(),
-                    roles
+                    perms
             );
         }
         return CredentialValidationResult.INVALID_RESULT;

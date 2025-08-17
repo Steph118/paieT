@@ -7,13 +7,12 @@ package services;
 import dao.RepositoryDao;
 import dao.VariableDao;
 import entities.Variable;
-import jakarta.data.repository.Repository;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import java.util.Optional;
-import repository.VariableRepository;
 import service.interfaces.VariableServiceLocal;
+
+import java.util.Optional;
 
 /**
  * @author steph18

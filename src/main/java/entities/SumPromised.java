@@ -7,7 +7,6 @@ package entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-
 import java.util.Objects;
 
 /**
@@ -15,7 +14,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "sumpromiseds", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"year_id", "member_id", "loan_id"})})
+        @UniqueConstraint(columnNames = {"year_id", "member_id", "loan_id"})})
 public class SumPromised extends BaseEntity {
 
     @Id

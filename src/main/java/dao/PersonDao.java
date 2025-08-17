@@ -11,6 +11,7 @@ import entities.User;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,10 +28,10 @@ public class PersonDao extends RepositoryDao<Person, Integer> {
 
     public List<Person> getPersonsNotMember(Integer egliseId, Department department, Sexe sexe) {
         String jpql = """
-                      SELECT p FROM Person p 
-                      WHERE p.eglise.id = :egliseId 
-                      AND p.id NOT IN (SELECT m.person.id FROM Member m)
-                      """;
+                SELECT p FROM Person p 
+                WHERE p.eglise.id = :egliseId 
+                AND p.id NOT IN (SELECT m.person.id FROM Member m)
+                """;
         if (Objects.nonNull(department)) {
             jpql += " AND p.department.id = :departmentId ";
         }

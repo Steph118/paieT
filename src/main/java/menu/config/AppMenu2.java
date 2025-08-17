@@ -10,14 +10,13 @@ import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import service.interfaces.MenuItemServiceLocal;
+import service.interfaces.MenuServiceLocal;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
-import service.interfaces.MenuItemServiceLocal;
-import service.interfaces.MenuServiceLocal;
-
-
 
 
 /**
@@ -57,10 +56,10 @@ public class AppMenu2 {
                 }
             }
         }
-        filteredItems.sort(Comparator.comparing(m -> m.getParentItem()!= null ? m.getParentItem().getLabel() : ""));
+        filteredItems.sort(Comparator.comparing(m -> m.getParentItem() != null ? m.getParentItem().getLabel() : ""));
         return filteredItems;
     }
-    
+
     protected boolean anyParentContainsQuery(MenuItem item, String query) {
         MenuItem parent = item.getParentItem();
         while (parent != null) {

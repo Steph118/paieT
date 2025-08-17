@@ -9,53 +9,54 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
 
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="jakarta.faces.html">
-    <ui:composition template="/paie/templates/layout-list.xhtml">
+<ui:composition template="/paie/templates/layout-list.xhtml">
 
-        <ui:param name="crudBean" value="#{personBean}"/>
+    <ui:param name="crudBean" value="#{personBean}"/>
 
-        <ui:define name="list-title">
-            #{msg['persons.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['persons.breadCrumb']}
-        </ui:define>
-        <ui:define name="table-title">
-            #{msg['persons.title']}
-        </ui:define>
-        <ui:define name="add-column">
-            <p:headerRow field="eglise.label"
-                         expandable="true"
-                         expanded="true">
-                <p:column colspan="6">
-                    <div class="inline-flex align-items-center" style="vertical-align: middle">
-                        <h:outputText styleClass="ml-2" value="#{e.eglise.label}"/>
-                    </div>
-                </p:column>
-            </p:headerRow>
-            <p:column headerText="#{msg['persons.edit.name']}" sortBy="#{e.name}" filterBy="#{e.name}" 
-                      filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
-                <p:outputLabel value="#{e.name}"/>
+    <ui:define name="list-title">
+        #{msg['persons.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['persons.breadCrumb']}
+    </ui:define>
+    <ui:define name="table-title">
+        #{msg['persons.title']}
+    </ui:define>
+    <ui:define name="add-column">
+        <p:headerRow field="eglise.label"
+                     expandable="true"
+                     expanded="true">
+            <p:column colspan="6">
+                <div class="inline-flex align-items-center" style="vertical-align: middle">
+                    <h:outputText styleClass="ml-2" value="#{e.eglise.label}"/>
+                </div>
             </p:column>
-            <p:column headerText="#{msg['persons.edit.firstname']}" sortBy="#{e.firstname}" filterBy="#{e.firstname}" 
-                      filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
-                <p:outputLabel value="#{e.firstname}"/>
-            </p:column>
-            <p:column headerText="#{msg['references.sexe.title']}" sortBy="#{e.sexe.label}" filterBy="#{e.sexe.label}" 
-                      filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
-                <p:outputLabel value="#{e.sexe.label}"/>
-            </p:column>
-            <p:column headerText="#{msg['entites.eglise.title']}" sortBy="#{e.eglise.label}" filterBy="#{e.eglise.label}" 
-                      filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
-                <p:outputLabel value="#{e.eglise.label}"/>
-            </p:column>
-            <p:column headerText="#{msg['departement.title']}" sortBy="#{e.department.label}" filterBy="#{e.department.label}" 
-                      filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
-                <p:outputLabel value="#{e.department.label}"/>
-            </p:column>
-            <p:column headerText="#{msg['contact']}" sortBy="#{e.contact}" filterBy="#{e.contact}" 
-                      filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
-                <p:outputLabel value="#{e.contact == 'null' ? '' : e.contact}"/>
-            </p:column>
-        </ui:define>
-    </ui:composition>
+        </p:headerRow>
+        <p:column headerText="#{msg['persons.edit.name']}" sortBy="#{e.name}" filterBy="#{e.name}"
+                  filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
+            <p:outputLabel value="#{e.name}"/>
+        </p:column>
+        <p:column headerText="#{msg['persons.edit.firstname']}" sortBy="#{e.firstname}" filterBy="#{e.firstname}"
+                  filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
+            <p:outputLabel value="#{e.firstname}"/>
+        </p:column>
+        <p:column headerText="#{msg['references.sexe.title']}" sortBy="#{e.sexe.label}" filterBy="#{e.sexe.label}"
+                  filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
+            <p:outputLabel value="#{e.sexe.label}"/>
+        </p:column>
+        <p:column headerText="#{msg['entites.eglise.title']}" sortBy="#{e.eglise.label}" filterBy="#{e.eglise.label}"
+                  filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
+            <p:outputLabel value="#{e.eglise.label}"/>
+        </p:column>
+        <p:column headerText="#{msg['departement.title']}" sortBy="#{e.department.label}"
+                  filterBy="#{e.department.label}"
+                  filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
+            <p:outputLabel value="#{e.department.label}"/>
+        </p:column>
+        <p:column headerText="#{msg['contact']}" sortBy="#{e.contact}" filterBy="#{e.contact}"
+                  filterMatchMode="contains" filterPlaceholder="#{msg['filter-title']}">
+            <p:outputLabel value="#{e.contact == 'null' ? '' : e.contact}"/>
+        </p:column>
+    </ui:define>
+</ui:composition>
 </html>

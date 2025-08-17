@@ -10,12 +10,9 @@ import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.spi.BeanManager;
 import jakarta.enterprise.inject.spi.InterceptionFactory;
 import jakarta.faces.annotation.FacesConfig;
-import jakarta.security.enterprise.authentication.mechanism.http.CustomFormAuthenticationMechanismDefinition;
-import jakarta.security.enterprise.authentication.mechanism.http.HttpAuthenticationMechanism;
-import jakarta.security.enterprise.authentication.mechanism.http.HttpAuthenticationMechanismWrapper;
-import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue;
-import jakarta.security.enterprise.authentication.mechanism.http.RememberMe;
+import jakarta.security.enterprise.authentication.mechanism.http.*;
 import jakarta.ws.rs.Produces;
+
 import java.util.stream.Collectors;
 
 /**
@@ -70,10 +67,10 @@ public class ApplicationConfig {
 
     }
 
-    public String[] getHash() {
-        return new String[]{
-            "Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512",
-            "Pbkdf2PasswordHash.SaltSizeBytes=64"};
-    }
+//    public String[] getHash() {
+//        return new String[]{
+//            "Pbkdf2PasswordHash.Algorithm=PBKDF2WithHmacSHA512",
+//            "Pbkdf2PasswordHash.SaltSizeBytes=64"};
+//    }
 
 }

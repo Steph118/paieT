@@ -6,8 +6,8 @@ package dao;
 
 import entities.MenuItem;
 import jakarta.transaction.Transactional;
-import java.util.List;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -21,7 +21,7 @@ public class MenuItemDao extends RepositoryDao<MenuItem, Long> {
         super(MenuItem.class);
     }
 
-//    public Map<String, MenuItem> getExistingMenuItems() {
+    //    public Map<String, MenuItem> getExistingMenuItems() {
 //        return em.createQuery(
 //                """
 //                                SELECT mi FROM MenuItem mi
@@ -39,8 +39,8 @@ public class MenuItemDao extends RepositoryDao<MenuItem, Long> {
 //    }
     public Map<String, MenuItem> getExistingMenuItems() {
         return em.createQuery(
-                "SELECT m FROM MenuItem m LEFT JOIN FETCH m.permission LEFT JOIN FETCH m.parentItem",
-                MenuItem.class)
+                        "SELECT m FROM MenuItem m LEFT JOIN FETCH m.permission LEFT JOIN FETCH m.parentItem",
+                        MenuItem.class)
                 .getResultStream()
                 .collect(Collectors.toMap(
                         mi -> buildItemKey(mi),
@@ -58,15 +58,14 @@ public class MenuItemDao extends RepositoryDao<MenuItem, Long> {
     @Override
     public List<MenuItem> getAll() {
         return em.createQuery("""
-               SELECT i FROM MenuItem i
-               LEFT JOIN FETCH i.permission
-               LEFT JOIN FETCH i.parentItem
-               LEFT JOIN FETCH i.items
-               order by i.label
-           """, MenuItem.class)
-                   .getResultList();
+                            SELECT i FROM MenuItem i
+                            LEFT JOIN FETCH i.permission
+                            LEFT JOIN FETCH i.parentItem
+                            LEFT JOIN FETCH i.items
+                            order by i.label
+                        """, MenuItem.class)
+                .getResultList();
     }
-    
-    
+
 
 }

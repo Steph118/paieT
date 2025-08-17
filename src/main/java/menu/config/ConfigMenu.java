@@ -48,6 +48,6 @@ public class ConfigMenu {
     public String toString() {
         return "MenuConfig{" + "code=" + code + ", label=" + label + ", items=" + items + '}';
     }
-    
+
 
 }

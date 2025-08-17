@@ -9,40 +9,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
       xmlns:ui="jakarta.faces.facelets"
       xmlns:f="jakarta.faces.core">
 
-    <ui:composition template="/paie/templates/layout-details.xhtml">
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{roleBean.entityId}"/>
-                <f:viewAction action="#{roleBean.initDetails()}"/>
-            </f:metadata>
-        </ui:define>
+<ui:composition template="/paie/templates/layout-details.xhtml">
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{roleBean.entityId}"/>
+            <f:viewAction action="#{roleBean.initDetails()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{roleBean}"/>
+    <ui:param name="crudBean" value="#{roleBean}"/>
 
-        <ui:param name="fieldsTitle" value=""/>
+    <ui:param name="fieldsTitle" value=""/>
 
-        <ui:define name="list-title">
-        </ui:define>
-        <ui:define name="breadCrumb">
-        </ui:define>
-        <ui:define name="fields-content">
-            <p:outputPanel>
-                <div class="form-grid grid">
-                    <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                        <p:outputLabel value="#{msg['persons.edit.firstname']}" for="firstname"/>
-                        <p:outputLabel class="font-bold text-900 text-xl" id="firstname" value="#{roleBean.entity.label}"/>
-                    </div>
-
+    <ui:define name="list-title">
+    </ui:define>
+    <ui:define name="breadCrumb">
+    </ui:define>
+    <ui:define name="fields-content">
+        <p:outputPanel>
+            <div class="form-grid grid">
+                <div class="field flex flex-column col-12">
+                    <p:outputLabel value="#{msg['roles.label']}" for="label"/>
+                    <p:outputLabel class="font-bold text-900 text-xl" id="label"
+                                   value="#{roleBean.entity.label}"/>
+                </div>
+                <div class="col-12">
+                    <p:outputLabel value="#{msg['permissions']}"/>
                     <ui:repeat value="#{roleBean.entity.permissions}" var="perm">
-                        <div class="field flex flex-column sm:col-12 col-12 md:col-4 lg:col-4">
-                            <p:outputLabel class="font-bold text-900 text-xl" id="firstname" value="#{perm.label}"/>
+                        <div class="field flex flex-column col-6 sm:col-6 col-12 md:col-2 lg:col-2">
+                            <p:outputLabel class="font-bold text-900 text-xl" id="permissions" value="#{perm.label}"/>
                         </div>
                     </ui:repeat>
-
-
-
                 </div>
-            </p:outputPanel>
-        </ui:define>
-    </ui:composition>
+
+
+            </div>
+        </p:outputPanel>
+    </ui:define>
+</ui:composition>
 </html>

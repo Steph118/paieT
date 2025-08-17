@@ -5,15 +5,8 @@
 package entities;
 
 import enumeration.EmailProvider;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
 /**
@@ -23,10 +16,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "email_config")
 @NamedQueries({
-    @NamedQuery(name = "EmailConfig.findByActiveAndProvider",
-            query = "SELECT e FROM EmailConfig e WHERE e.provider = :provider AND e.active = true"),
-    @NamedQuery(name = "EmailConfig.findByProvider",
-            query = "SELECT e FROM EmailConfig e WHERE e.provider = :provider")
+        @NamedQuery(name = "EmailConfig.findByActiveAndProvider",
+                query = "SELECT e FROM EmailConfig e WHERE e.provider = :provider AND e.active = true"),
+        @NamedQuery(name = "EmailConfig.findByProvider",
+                query = "SELECT e FROM EmailConfig e WHERE e.provider = :provider")
 })
 public class EmailConfig extends BaseEntity {
 
@@ -51,7 +44,7 @@ public class EmailConfig extends BaseEntity {
 
     @Column(name = "auth_enabled")
     private boolean authEnabled;
-    
+
     @Column(name = "ssl_emabled")
     private boolean sslEnabled;
 

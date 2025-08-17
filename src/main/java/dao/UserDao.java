@@ -9,6 +9,7 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
+
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -31,10 +32,20 @@ public class UserDao extends RepositoryDao<User, Integer> {
         return new HashSet<>(query.getResultList());
     }
 
+    public Set<String> findPermissionsForUser(User user) {
+        String jpql = """
+                SELECT p.code FROM Permission p JOIN p.roles rs WHERE rs.id
+                IN (SELECT r.id FROM Role r JOIN r.users u WHERE u.id = :id )
+                """;
+        Query query = this.em.createQuery(jpql, String.class)
+                .setParameter("id", user.getId());
+        return new HashSet<>(query.getResultList());
+    }
+
     public Optional<User> findByUsername(String username) {
         String jpql = "SELECT u FROM User u WHERE u.username = :username ";
         try {
-            User u= this.em.createQuery(jpql, User.class)
+            User u = this.em.createQuery(jpql, User.class)
                     .setParameter("username", username)
                     .getSingleResult();
             return Optional.ofNullable(u);
@@ -45,9 +56,9 @@ public class UserDao extends RepositoryDao<User, Integer> {
 
     public boolean hasPermission(String username, String resource, String action) {
         TypedQuery<Long> query = em.createQuery("""
-                        SELECT COUNT(p) FROM User u JOIN u.roles r JOIN r.permissions p 
-                        WHERE u.username = :username AND p.resource = :resource AND p.action = :action
-                    """, Long.class);
+                    SELECT COUNT(p) FROM User u JOIN u.roles r JOIN r.permissions p 
+                    WHERE u.username = :username AND p.resource = :resource AND p.action = :action
+                """, Long.class);
         query.setParameter("username", username);
         query.setParameter("resource", resource);
         query.setParameter("action", action);

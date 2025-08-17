@@ -5,9 +5,9 @@
 package entities;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +23,7 @@ public class Role extends BaseEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "label", nullable = false)
+    @Column(name = "label", nullable = false, unique = true)
     private String label;
 
     @ManyToMany(mappedBy = "roles")
@@ -41,6 +41,20 @@ public class Role extends BaseEntity {
 
     public Role(String label) {
         this.label = label;
+    }
+
+    public static Role instance() {
+        return new Role();
+    }
+
+    public Role addLabel(String label) {
+        this.label = label;
+        return this;
+    }
+
+    public Role addPermission(Permission p) {
+        this.permissions.add(p);
+        return this;
     }
 
     public Integer getId() {

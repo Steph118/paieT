@@ -6,7 +6,9 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Mediasoft
@@ -32,7 +34,7 @@ public class User extends BaseEntity {
     @Column(name = "change_password")
     private Boolean changePassword;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST})
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -48,6 +50,23 @@ public class User extends BaseEntity {
         this.password = password;
         this.actif = true;
         this.changePassword = true;
+    }
+
+    public static User instance() {
+        return new User();
+    }
+
+    public User createAdmin(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.actif = true;
+        this.changePassword = false;
+        return this;
+    }
+
+    public User addRole(Role role) {
+        this.roles.add(role);
+        return this;
     }
 
     public Integer getId() {

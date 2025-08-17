@@ -21,17 +21,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
         #{msg['entites.eglises.title']}
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="#{msg['label']}" field="label" sortBy="#{e.label}" 
+        <p:column headerText="#{msg['label']}" field="label" sortBy="#{e.label}"
                   filterBy="#{e.label}" filterMatchMode="contains" filterPlaceholder="#{msg['filter-by-label']}">
             <p:outputLabel value="#{e.label}"/>
         </p:column>
-        <p:column headerText="#{msg['entites.eglises.edit.temple']}" field="temple" sortBy="#{e.temple}" 
+        <p:column headerText="#{msg['entites.eglises.edit.temple']}" field="temple" sortBy="#{e.temple}"
                   filterBy="#{e.temple}" filterMatchMode="contains" filterPlaceholder="#{msg['filter-by-temple']}">
             <p:outputLabel value="#{e.temple}"/>
         </p:column>
-        <p:column headerText="#{msg['locality']}" field="locality" sortBy="#{e.locality.label}" 
-                  filterBy="#{e.locality.label}" filterMatchMode="contains" filterPlaceholder="#{msg['filter-by-locality']}">
-            <p:outputLabel value="#{e.locality.label}" />
+        <p:column headerText="#{msg['locality']}" field="locality" sortBy="#{e.locality.label}"
+                  filterBy="#{e.locality.label}" filterMatchMode="contains"
+                  filterPlaceholder="#{msg['filter-by-locality']}">
+            <p:outputLabel value="#{e.locality.label}"/>
         </p:column>
     </ui:define>
 </ui:composition>

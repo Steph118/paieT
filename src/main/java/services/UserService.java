@@ -11,12 +11,12 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
 import jakarta.transaction.Transactional;
+import service.interfaces.UserServiceLocal;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-
-import service.interfaces.UserServiceLocal;
 
 /**
  * @author steph18
@@ -94,6 +94,11 @@ public class UserService extends GenericServiceLocalImpl<User, Integer> implemen
     @Override
     public boolean hasPermission(String username, String resource, String action) {
         return this.dao.hasPermission(username, resource, action);
+    }
+
+    @Override
+    public Set<String> findPermissionsForUser(User user) {
+        return dao.findPermissionsForUser(user);
     }
 
 }

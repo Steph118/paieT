@@ -31,13 +31,14 @@ public enum Month {
         this.label = libelle;
     }
 
+    public static List<Month> getListMonth() {
+        return List.of(Month.values());
+    }
+
     public String getLibelle() {
         return label;
     }
 
-    public static List<Month> getListMonth(){
-            return List.of(Month.values());
-    }
     @Override
     public String toString() {
         return "Month{" + " name=" + name() + ", label=" + label + '}';

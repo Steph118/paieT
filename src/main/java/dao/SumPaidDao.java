@@ -10,6 +10,7 @@ import entities.SumPaid;
 import entities.SumPromised;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.NoResultException;
+
 import java.math.BigDecimal;
 
 /**

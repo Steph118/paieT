@@ -70,7 +70,7 @@
         <extension>svg#fontawesomeregular</extension>
         <mime-type>image/svg+xml</mime-type>
     </mime-mapping>
-    
+
     <error-page>
         <error-code>403</error-code>
         <location>/paie/pages/error/403-error.xhtml</location>
@@ -87,34 +87,224 @@
         <error-code>500</error-code>
         <location>/paie/pages/error/500-error.xhtml</location>
     </error-page>
-    
- 
+
+    <!-- Admin -->
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>Admin pages</web-resource-name>
+            <web-resource-name>Admin ressources</web-resource-name>
             <url-pattern>/paie/pages/admin/references/*</url-pattern>
             <url-pattern>/paie/pages/admin/roles/*</url-pattern>
             <url-pattern>/paie/pages/admin/users/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>Root</role-name>
+            <role-name>perm.all</role-name>
         </auth-constraint>
     </security-constraint>
-    
+
+    <!-- Index -->
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>Agent pages</web-resource-name>
+            <web-resource-name>Index page</web-resource-name>
             <url-pattern>/index.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>Root</role-name>
+            <role-name>perm.index</role-name>
+            <role-name>perm.all</role-name>
         </auth-constraint>
     </security-constraint>
-    
-<!--    <security-role>
-        <role-name>Root</role-name>
+
+    <!-- Menu Users -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Users ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/users/list.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.users.list</role-name>
+            <role-name>perm.users.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Users ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/users/edit.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.users.edit</role-name>
+            <role-name>perm.users.add</role-name>
+            <role-name>perm.users.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Users ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/users/details.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.users.details</role-name>
+            <role-name>perm.users.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Users ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/users/user-change-password.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.users.changepwd</role-name>
+            <role-name>perm.users.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Menu Roles -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Roles ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/roles/list.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.roles.list</role-name>
+            <role-name>perm.roles.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Roles ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/roles/edit.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.roles.edit</role-name>
+            <role-name>perm.roles.all</role-name>
+            <role-name>perm.roles.add</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Roles ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/roles/details.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.roles.details</role-name>
+            <role-name>perm.roles.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <!-- Menu Pays -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Pays ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/references/annees/list.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.pays.list</role-name>
+            <role-name>perm.pays.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Pays ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/references/annees/edit.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.pays.edit</role-name>
+            <role-name>perm.pays.all</role-name>
+            <role-name>perm.pays.add</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Pays ressources</web-resource-name>
+            <url-pattern>/paie/pages/admin/references/annees/details.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>perm.all</role-name>
+            <role-name>perm.pays.details</role-name>
+            <role-name>perm.pays.all</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <!-- ##########  PERMISSIONS ########## -->
+    <security-role>
+        <role-name>perm.all</role-name>
     </security-role>
     <security-role>
-        <role-name>Agent</role-name>
-    </security-role>-->
+        <role-name>perm.index</role-name>
+    </security-role>
+
+    <!--    permissions users -->
+    <security-role>
+        <role-name>perm.users.all</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.users.list</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.users.add</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.users.edit</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.users.details</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.users.changepwd</role-name>
+    </security-role>
+
+    <!--    permissions roles -->
+    <security-role>
+        <role-name>perm.roles.all</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.roles.list</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.roles.add</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.roles.edit</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.roles.details</role-name>
+    </security-role>
+
+    <!--    permissions users -->
+    <security-role>
+        <role-name>perm.pays.all</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.pays.add</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.pays.list</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.pays.edit</role-name>
+    </security-role>
+    <security-role>
+        <role-name>perm.pays.details</role-name>
+    </security-role>
+
+    <!--permissions eglises -->
+    <security-role>
+        <role-name>perm.eglises.list</role-name>
+    </security-role>
+
+    <!--    permissions membres -->
+    <security-role>
+        <role-name>perm.membres.list</role-name>
+    </security-role>
+
+
 </web-app>

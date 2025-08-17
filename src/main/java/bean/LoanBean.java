@@ -9,11 +9,12 @@ import entities.Loan;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
 import service.interfaces.EgliseServiceLocal;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.LoanServiceLocal;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author steph18

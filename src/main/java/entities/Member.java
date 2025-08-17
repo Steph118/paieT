@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,7 +15,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "members", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"eglise_id", "member_number"})})
+        @UniqueConstraint(columnNames = {"eglise_id", "member_number"})})
 public class Member extends BaseEntity {
 
     @Id
@@ -43,7 +44,7 @@ public class Member extends BaseEntity {
         this.person = p;
         this.eglise = p.getEglise();
     }
-    
+
     public void setMemberForPerson(Person p, SumPromised s, Integer numMember) {
         this.setEglise(p.getEglise());
         this.setMemberNumber(numMember);

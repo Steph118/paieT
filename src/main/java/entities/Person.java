@@ -7,11 +7,12 @@ package entities;
 /**
  * @author steph18
  */
-import jakarta.persistence.*;
-import java.time.LocalDate;
 
-import java.util.Objects;
+import jakarta.persistence.*;
 import org.apache.commons.lang3.StringUtils;
+
+import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "persons")
@@ -60,10 +61,10 @@ public class Person extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "house",
-                column = @Column(name = "pers_house")),
-        @AttributeOverride(name = "street",
-                column = @Column(name = "pers_street"))
+            @AttributeOverride(name = "house",
+                    column = @Column(name = "pers_house")),
+            @AttributeOverride(name = "street",
+                    column = @Column(name = "pers_street"))
     })
     private Address address;
 
@@ -137,12 +138,12 @@ public class Person extends BaseEntity {
         this.phoneCode = phoneCode;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
     public String getTelephone() {
         return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public User getUser() {

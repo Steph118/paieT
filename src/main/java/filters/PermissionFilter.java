@@ -4,79 +4,39 @@
  */
 package filters;
 
-import jakarta.inject.Inject;
-import jakarta.security.enterprise.SecurityContext;
-import jakarta.servlet.Filter;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
-import service.interfaces.PermissionServiceLocal;
-import service.interfaces.UserServiceLocal;
 
 /**
  *
  * @author steph18
  */
+//WebServlet("/paie/pages/*")
+//@RolesAllowed("architect")
+public class PermissionFilter extends HttpServlet {
 
-public class PermissionFilter  {
+    @RolesAllowed("admin")
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws IOException, ServletException {
 
-    @Inject
-    private SecurityContext securityContext;
+    }
 
-    @Inject
-    private PermissionServiceLocal permissionService;
+    @RolesAllowed("admzinn")
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws IOException, ServletException {
+    }
 
-    @Inject
-    private UserServiceLocal userService;
+    @RolesAllowed("admindn")
+    @Override
+    protected void doTrace(HttpServletRequest req, HttpServletResponse res)
+            throws IOException, ServletException {
+    }
 
-//    @Override
-//    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
-//            throws IOException, ServletException {
-//
-//        HttpServletRequest request = (HttpServletRequest) req;
-//        String path = request.getRequestURI();
-//
-//        String permissionCode = permissionService.findPermissionCodeByPath(path);
-//
-//        if (permissionCode != null && !userService.hasPermission(securityContext.getCallerPrincipal().getName(), permissionCode)) {
-//            ((HttpServletResponse) res).sendError(HttpServletResponse.SC_FORBIDDEN);
-//            return;
-//        }
-//
-//        chain.doFilter(req, res);
-//    }
-//    @Override
-//    public void init(FilterConfig filterConfig) throws ServletException {
-//        Filter.super.init(filterConfig); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-//    }
-//
-//    @Override
-//    public void doFilter(ServletRequest req, ServletResponse res, FilterChain fc) throws IOException, ServletException {
-//        HttpServletRequest request = (HttpServletRequest) req;
-//        String path = request.getRequestURI();
-//
-//        //String permissionCode = permissionService.getByCode(path);
-//        String permissionCode;
-//
-//        if (permissionCode != null && !userService.hasPermission(securityContext.getCallerPrincipal().getName(), permissionCode)) {
-//            ((HttpServletResponse) res).sendError(HttpServletResponse.SC_FORBIDDEN);
-//            return;
-//        }
-//
-//        chain.doFilter(req, res);
-//    }
-//
-//    @Override
-//    public void destroy() {
-//        Filter.super.destroy(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-//    }
-
-//    @Override
-//    public void doFilter(ServletRequest sr, ServletResponse sr1, FilterChain fc) throws IOException, ServletException {
-//    }
 }

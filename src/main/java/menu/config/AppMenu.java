@@ -48,7 +48,7 @@ public class AppMenu {
         MenuItem m = new MenuItem("Sommes payés", "/paie/pages/admin/pay/sum-pay/list.xhtml", "fa-solid fa-circle-dollar-to-slot");
         m.setMenuItems(paiMenus);
         paiMenus.add(m);
-        
+
 
         menuCategories.add(new MenuCategory("Administration", administrationMenus));
         menuCategories.add(new MenuCategory("References", referenceMenus));

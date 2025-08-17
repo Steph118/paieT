@@ -12,5 +12,5 @@ import jakarta.ejb.Local;
  */
 @Local
 public interface YearServiceLocal extends GenericServiceLocal<Year, Integer> {
-    
+
 }

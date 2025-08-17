@@ -4,33 +4,20 @@
  */
 package bean;
 
-import entities.Department;
-import entities.Eglise;
-import entities.Loan;
-import entities.Member;
-import entities.Person;
-import entities.Sexe;
-import entities.SumPromised;
-import entities.Year;
+import entities.*;
 import exception.BusinessException;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import org.omnifaces.util.Messages;
+import service.interfaces.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
-import org.omnifaces.util.Messages;
-import service.interfaces.DepartmentServiceLocal;
-import service.interfaces.EgliseServiceLocal;
-import service.interfaces.GenericServiceLocal;
-import service.interfaces.LoanServiceLocal;
-import service.interfaces.MemberServiceLocal;
-import service.interfaces.PersonServiceLocal;
-import service.interfaces.SexeServiceLocal;
-import service.interfaces.YearServiceLocal;
 
 /**
  * @author steph18

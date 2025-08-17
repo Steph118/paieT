@@ -1,6 +1,5 @@
 package bean;
 
-import entities.Person;
 import entities.Role;
 import entities.User;
 import enumeration.EmailProvider;
@@ -9,17 +8,18 @@ import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import org.apache.commons.lang3.StringUtils;
+import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
+import service.interfaces.PersonServiceLocal;
+import service.interfaces.RoleServiceLocal;
 import service.interfaces.UserServiceLocal;
+import services.MailSenderService;
+import utils.PermsConstant;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import org.apache.commons.lang3.StringUtils;
-import org.omnifaces.util.Messages;
-import service.interfaces.PersonServiceLocal;
-import service.interfaces.RoleServiceLocal;
-import services.MailSenderService;
 
 @Named
 @ViewScoped
@@ -27,7 +27,8 @@ public class UserBean extends GenericBean<User, Integer> {
 
     @Inject
     private UserServiceLocal userService;
-
+    @Inject
+    protected SessionBean sessionBean;
     @Inject
     private RoleServiceLocal roleService;
 
@@ -70,22 +71,22 @@ public class UserBean extends GenericBean<User, Integer> {
         try {
             personService.findByUser(this.entity)
                     .ifPresentOrElse((p) -> {
-                        if (StringUtils.isNotEmpty(p.getMail())) {
-                            this.mailSenderService.sendMail(EmailProvider.GMAIL,
-                                    p.getMail(),
-                                    "MOT DE PASSE DE CONNEXION",
-                                    "reset-password.html",
-                                    null);
-                            Messages.addFlashGlobalInfo(
-                                    """
-                                    Mise à jour effectuée avec succès. 
-                                    Un mail est envoyé sur l'adresse : 
-                                            """);
-                            this.cancel();
-                            return;
-                        }
-                        Messages.addFlashGlobalInfo("Vous ne pouvez pas envoyé de mail pour cet utilisateur");
-                    },
+                                if (StringUtils.isNotEmpty(p.getMail())) {
+                                    this.mailSenderService.sendMail(EmailProvider.GMAIL,
+                                            p.getMail(),
+                                            "MOT DE PASSE DE CONNEXION",
+                                            "reset-password.html",
+                                            null);
+                                    Messages.addFlashGlobalInfo(
+                                            """
+                                                    Mise à jour effectuée avec succès. 
+                                                    Un mail est envoyé sur l'adresse : 
+                                                    """);
+                                    this.cancel();
+                                    return;
+                                }
+                                Messages.addFlashGlobalInfo("Vous ne pouvez pas envoyé de mail pour cet utilisateur");
+                            },
                             () -> {
                                 Messages.addFlashGlobalError("Une erreur est survenue!");
                             }
@@ -111,22 +112,26 @@ public class UserBean extends GenericBean<User, Integer> {
 
     @Override
     public boolean canAdd() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.USER_ALL, PermsConstant.USER_ADD);
     }
 
     @Override
     public boolean canDelete() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.USER_ALL, PermsConstant.USER_DELETE);
     }
 
     @Override
     public boolean canDetails() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.USER_ALL, PermsConstant.USER_DETAILS);
+    }
+
+    public boolean canChangePassword() {
+        return sessionBean.filterPermission(PermsConstant.USER_ALL, PermsConstant.USER_CHANGE_PWD);
     }
 
     @Override
     public boolean canUpdate() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.USER_ALL, PermsConstant.USER_EDIT);
     }
 
     public String getConfirmPassword() {
@@ -144,5 +149,4 @@ public class UserBean extends GenericBean<User, Integer> {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
-
 }

@@ -40,6 +40,6 @@ public class Config {
     public String toString() {
         return "Config{" + "version=" + version + ", permission_categories=" + permission_categories + ", menus=" + menus + '}';
     }
-    
+
 
 }

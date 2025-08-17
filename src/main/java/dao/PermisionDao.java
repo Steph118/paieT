@@ -28,8 +28,8 @@ public class PermisionDao extends RepositoryDao<Permission, Long> {
             Permission p
                     = this.em.createQuery("SELECT p FROM Permission p WHERE p.code = :code",
                             Permission.class)
-                            .setParameter("code", code)
-                            .getSingleResult();
+                    .setParameter("code", code)
+                    .getSingleResult();
             return Optional.ofNullable(p);
         } catch (NoResultException e) {
             LOGGER.log(Level.SEVERE, "Empty permission");

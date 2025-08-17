@@ -10,6 +10,7 @@ import entities.Member;
 import entities.Person;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.NoResultException;
+
 import java.util.List;
 
 /**
@@ -35,11 +36,11 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
 
     public Integer genererNumeroMembre(Eglise eglise) {
         Integer nextNumero = this.em.createQuery(
-                """ 
-                SELECT ( MAX(m.memberNumber) +1) 
-                FROM Member m 
-                WHERE m.eglise = :eglise """,
-                Integer.class)
+                        """ 
+                                SELECT ( MAX(m.memberNumber) +1) 
+                                FROM Member m 
+                                WHERE m.eglise = :eglise """,
+                        Integer.class)
                 .setParameter("eglise", eglise)
                 .getSingleResult();
         return nextNumero == null ? 1 : nextNumero;
@@ -47,11 +48,11 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
 
     public int updateEglise(Person p, Integer num) {
         return this.em.createQuery("""
-                            UPDATE Member m SET 
-                            m.eglise = :e , 
-                            m.memberNumber = :num
-                            WHERE m.person = :p 
-                            """)
+                        UPDATE Member m SET 
+                        m.eglise = :e , 
+                        m.memberNumber = :num
+                        WHERE m.person = :p 
+                        """)
                 .setParameter("e", p.getEglise())
                 .setParameter("num", num)
                 .setParameter("p", p)
@@ -60,10 +61,10 @@ public class MemberDao extends RepositoryDao<Member, Integer> {
 
     public List<Member> getByEgliseAndDptmnt(Eglise eglise, Department dptmnt) {
         String jpql = """ 
-                      SELECT e FROM Member e 
-                      WHERE e.eglise = :eglise 
-                      AND e.person.department = :dptmnt
-                      """;
+                SELECT e FROM Member e 
+                WHERE e.eglise = :eglise 
+                AND e.person.department = :dptmnt
+                """;
         return this.em.createQuery(jpql, this.getEntityClass())
                 .setParameter("eglise", eglise)
                 .setParameter("dptmnt", dptmnt)

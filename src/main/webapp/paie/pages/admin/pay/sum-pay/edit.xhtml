@@ -1,10 +1,9 @@
 <ui:composition
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="jakarta.faces.core"
-    xmlns:ui="jakarta.faces.facelets"
-    template="/paie/templates/layout-edit.xhtml"
-    xmlns:h="jakarta.faces.html"
-    xmlns:p="http://primefaces.org/ui">    
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="jakarta.faces.core"
+        xmlns:ui="jakarta.faces.facelets"
+        template="/paie/templates/layout-edit.xhtml"
+>
     <ui:define name="metadata">
         <f:metadata>
             <f:viewParam name="entityId" value="#{sumPaidBean.entityId}"/>
@@ -19,11 +18,11 @@
     <ui:define name="list-title">
         #{msg['payment.list.title']}
     </ui:define>
-    <ui:define name="breadCrumb" >
+    <ui:define name="breadCrumb">
         #{msg['payment.list.breadCrumb']}
     </ui:define>
     <ui:define name="fields-content">
-        
+
     </ui:define>
 
 </ui:composition>

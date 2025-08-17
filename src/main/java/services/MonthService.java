@@ -10,8 +10,9 @@ import entities.MonthEntity;
 import entities.SumPromised;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.util.List;
 import service.interfaces.MonthServiceLocal;
+
+import java.util.List;
 
 /**
  * @author steph18

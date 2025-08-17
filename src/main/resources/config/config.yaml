@@ -7,79 +7,108 @@ permission_categories:
     # Permissions : Menu de Administration
     permissions:
       - code: "perm.users.list"
-        label: "Voir liste des utilisateurs"
+        label: "Utilisateurs: lister"
       - code: "perm.users.all"
-        label: "Gerer les utilisteurs"
-        
+        label: "Utilisateurs: gerer tout"
+      - code: "perm.users.add"
+        label: "Utilisateurs: ajouter"
+      - code: "perm.users.edit"
+        label: "Utilisateurs: editer"
+      - code: "perm.users.details"
+        label: "Utilisateurs: details"
+      - code: "perm.users.delete"
+        label: "Utilisateurs: Supprimer"
+      - code: "perm.users.changepwd"
+        label: "Utilisateurs: Modifier le mot de passe"
+
       - code: "perm.roles.list"
-        label: "Voir liste des roles"
+        label: "Roles: lister"
       - code: "perm.roles.all"
-        label: "Gerer les roles"     
-        
+        label: "Roles: gerer tout"
+      - code: "perm.roles.add"
+        label: "Roles: ajouter"
+      - code: "perm.roles.delete"
+        label: "Roles: supprimer"
+      - code: "perm.roles.edit"
+        label: "Roles: editer"
+      - code: "perm.roles.details"
+        label: "Roles: details"
+
       - code: "perm.eglises.list"
         label: "Voir liste des eglises"
       - code: "perm.eglises.all"
         label: "Gerer les eglises"
-        
+
       - code: "perm.membres.list"
-        label: "Voir liste des membres"
+        label: "Membres: Liste"
       - code: "perm.membres.all"
-        label: "Gerer les membres"
-        
+        label: "Membres: Gerer tout"
+
       - code: "perm.persons.list"
-        label: "Voir liste des personnes"
+        label: "Personnes: Liste" 
       - code: "perm.persons.all"
-        label: "Gerer les personnes"
-        
+        label: "Personnes: gerer tout"
+
       - code: "perm.localites.list"
         label: "Voir liste des localites"
       - code: "perm.localites.all"
         label: "Gerer les localites"
-        
+
       - code: "perm.types.localites.all"
         label: "Gerer les type de localites"
       - code: "perm.types.localites.list"
         label: "Voir liste des types de localites"
-        
+
       - code: "perm.params.list"
         label: "Voir les parametrages"
       - code: "perm.params.all"
         label: "Gerer les parametrages"
-        
+
       - code: "perm.credits.list"
         label: "Voir liste des credits"
       - code: "perm.credits.all"
         label: "Gerer les credits"
 
-     # Permissions : Menu de References
+      - code: "perm.all"
+        label: "Gerer tout"
+
+      # Permissions : Menu de References
   - code: "REFER-2"
     label: "Gestion des références"
     permissions:
       - code: "perm.pays.list"
-        label: "Voir liste des pays"
+        label: "Pays: lister"
       - code: "perm.pays.all"
-        label: "Gerer les pays"
-        
+        label: "Pays: gerer tout"
+      - code: "perm.pays.add"
+        label: "Pays: ajouter"
+      - code: "perm.pays.edit"
+        label: "Pays: editer"
+      - code: "perm.pays.details"
+        label: "Pays: details"
+      - code: "perm.pays.delete"
+        label: "Pays: supprimer"
+
       - code: "perm.sexes.list"
         label: "Voir liste des sexes"
       - code: "perm.sexes.all"
         label: "Gerer les sexes"
-        
+
       - code: "perm.departements.list"
         label: "Voir liste des departements"
       - code: "perm.departements.all"
         label: "Gerer les departements"
-        
+
       - code: "perm.years.list"
         label: "Voir liste des annees"
       - code: "perm.years.all"
         label: "Gerer les annees"
-        
+
       - code: "perm.vars.list"
         label: "Voir liste des variables"
       - code: "perm.vars.all"
         label: "Gerer les vars"
-        
+
       - code: "perm.configs.list"
         label: "Voir liste des configurations"
       - code: "perm.configs.all"
@@ -93,16 +122,23 @@ permission_categories:
         label: "Voir liste des paiements"
       - code: "perm.pay.all"
         label: "Gerer les paiements"
-        
+
       - code: "perm.promesse.list"
         label: "Voir liste des promesses"
       - code: "perm.promesse.all"
         label: "Gerer les promesses"
-        
+
       - code: "perm.sum.paid.list"
         label: "Voir liste des sommes payes"
       - code: "perm.sum.paid.all"
         label: "Gerer les sommes payes"
+        
+        #Auth
+  - code: "AUTH-4"
+    label: "Accueil categorie"
+    permissions:
+      - code: "perm.index"
+        label: "Voir la page d'accueil'"
 
         ##### Menus et Menus Items #####
 menus:
@@ -203,7 +239,7 @@ menus:
         requiredPermission: "pi pi-envelope"
         icon: "pi pi-table"
         order: "6"
-        
+
   - code: "PAYMENTS"
     label: "Paiements"
     items:

@@ -4,12 +4,9 @@
  */
 package service.interfaces;
 
-import entities.Department;
-import entities.Eglise;
-import entities.Person;
-import entities.Sexe;
-import entities.User;
+import entities.*;
 import jakarta.ejb.Local;
+
 import java.util.List;
 import java.util.Optional;
 

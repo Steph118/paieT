@@ -4,31 +4,22 @@
  */
 package bean;
 
-import entities.Department;
-import entities.Eglise;
-import entities.Loan;
-import entities.Member;
-import entities.SumPromised;
-import entities.Year;
+import entities.*;
 import exception.BusinessException;
 import jakarta.ejb.EJB;
+import jakarta.enterprise.context.Initialized;
+import jakarta.enterprise.event.Observes;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.servlet.http.HttpServletRequest;
+import org.omnifaces.util.Messages;
+import service.interfaces.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
-
-import org.omnifaces.util.Messages;
-import service.interfaces.DepartmentServiceLocal;
-import service.interfaces.EgliseServiceLocal;
-import service.interfaces.GenericServiceLocal;
-import service.interfaces.LoanServiceLocal;
-import service.interfaces.MemberServiceLocal;
-import service.interfaces.SumPromisedServiceLocal;
-import service.interfaces.YearServiceLocal;
 
 /**
  * @author steph18
@@ -62,6 +53,13 @@ public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
     @Override
     public GenericServiceLocal<SumPromised, Integer> getService() {
         return sumPromisedService;
+    }
+
+    public void requestInitialized(@Observes @Initialized(ViewScoped.class) HttpServletRequest request) {
+        System.err.println("Servlet path : " + request.getServletPath());
+        if ("/products.xhtml".equals(request.getServletPath())) {
+
+        }
     }
 
     @Override
@@ -102,11 +100,10 @@ public class SumPromisedBean extends GenericBean<SumPromised, Integer> {
             this.logger.log(Level.SEVERE, ex.getMessage(), ex);
             return null;
         } catch (RuntimeException e) {
-            Messages.addFlashGlobalError("La promesse faite pour ce credit dans l'année "+ this.entity.getYear().getValue() +" existe dejà");
+            Messages.addFlashGlobalError("La promesse faite pour ce credit dans l'année " + this.entity.getYear().getValue() + " existe dejà");
             logger.log(Level.SEVERE, e.getMessage(), e);
             return null;
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             Messages.addGlobalError("Une erreur est survenue lors de l'ajout.");
             this.logger.log(Level.SEVERE, ex, () -> "Erreur à l'ajout de l'objet: " + this.entity);
             return null;

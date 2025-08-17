@@ -70,7 +70,6 @@ public class EgliseDto {
         final EgliseDto other = (EgliseDto) obj;
         return Objects.equals(this.id, other.id);
     }
-    
-    
+
 
 }

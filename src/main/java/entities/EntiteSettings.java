@@ -4,11 +4,7 @@
  */
 package entities;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 /**
  *
@@ -32,5 +28,5 @@ public class EntiteSettings extends Settings {
     public void setEntite(Entite entite) {
         this.entite = entite;
     }
-    
+
 }

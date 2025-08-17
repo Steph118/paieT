@@ -1,22 +1,16 @@
 package app.config;
 
-import menu.config.Config;
-import menu.config.ConfigMenu;
-import menu.config.ConfigPermissionCategory;
-import menu.config.ConfigMenuItem;
-import entities.Menu;
-import entities.MenuItem;
-import entities.Permission;
-import entities.PermissionCategory;
+import entities.*;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
+import menu.config.Config;
+import menu.config.ConfigMenu;
+import menu.config.ConfigMenuItem;
+import menu.config.ConfigPermissionCategory;
 import org.yaml.snakeyaml.Yaml;
-import service.interfaces.MenuItemServiceLocal;
-import service.interfaces.MenuServiceLocal;
-import service.interfaces.PermissionCategoryServiceLocal;
-import service.interfaces.PermissionServiceLocal;
+import service.interfaces.*;
 
 import java.io.InputStream;
 import java.security.MessageDigest;
@@ -38,15 +32,39 @@ public class MenuPermissionsSynchronizer {
     private MenuServiceLocal menuService;
     @Inject
     private MenuItemServiceLocal menuItemService;
+    @Inject
+    private UserServiceLocal userService;
 
     private String lastConfigHash;
 
     @PostConstruct
     public void init() {
         synchronizeConfig();
+        adduserDefault();
+
     }
 
-    public void synchronizeConfig() {
+    private void adduserDefault() {
+
+        Optional<Permission> p = permissionService.getByCode("perm.all");
+        p.ifPresent(permission -> userService.findByUsername("sadmin")
+                .ifPresentOrElse((t) -> {
+                            userService.findPermissionsForUser(t).forEach((u) -> {
+                                System.err.println("u : " + u);
+                            });
+                            LOGGER.info("sadmin exite.");
+                        },
+                        () -> {
+                            User sadmin = User.instance().createAdmin("sadmin", "admin$235")
+                                    .addRole(Role.instance().addLabel("Super Admin")
+                                            .addPermission(permission));
+                            userService.save(sadmin);
+                            LOGGER.info("sadmin creer.");
+                        }));
+
+    }
+
+    private void synchronizeConfig() {
         LOGGER.info("Synchronisation des menus et permissions");
         try (InputStream in = getClass().getClassLoader().getResourceAsStream("config/config.yaml")) {
             if (in == null) {
@@ -74,8 +92,8 @@ public class MenuPermissionsSynchronizer {
     }
 
     private void synchronizePermissions(List<ConfigPermissionCategory> yamlCategories,
-            Map<String, PermissionCategory> existingCategories,
-            Map<String, Permission> existingPermissions) {
+                                        Map<String, PermissionCategory> existingCategories,
+                                        Map<String, Permission> existingPermissions) {
         Set<String> yamlPermissionCodes = new HashSet<>();
         Set<String> yamlCategoryCodes = new HashSet<>();
 
@@ -138,9 +156,9 @@ public class MenuPermissionsSynchronizer {
     }
 
     private void synchronizeMenus(List<ConfigMenu> yamlMenus,
-            Map<String, Menu> existingMenus,
-            Map<String, MenuItem> existingItems,
-            Map<String, Permission> existingPermissions) {
+                                  Map<String, Menu> existingMenus,
+                                  Map<String, MenuItem> existingItems,
+                                  Map<String, Permission> existingPermissions) {
         Set<String> yamlMenuCodes = new HashSet<>();
         Set<String> yamlItemKeys = new HashSet<>();
 
@@ -183,10 +201,10 @@ public class MenuPermissionsSynchronizer {
     }
 
     private void processMenuItems(Menu menu, List<ConfigMenuItem> items, MenuItem parent,
-            Map<String, MenuItem> existingItems,
-            Map<String, Permission> permissions,
-            Set<String> yamlKeys,
-            List<MenuItem> toCreate, List<MenuItem> toUpdate) {
+                                  Map<String, MenuItem> existingItems,
+                                  Map<String, Permission> permissions,
+                                  Set<String> yamlKeys,
+                                  List<MenuItem> toCreate, List<MenuItem> toUpdate) {
         for (var config : items) {
             String key = buildItemKey(menu.getCode(), parent, config.getCode());
             yamlKeys.add(key);
@@ -223,8 +241,8 @@ public class MenuPermissionsSynchronizer {
     }
 
     private void batchSavePermissions(List<PermissionCategory> toCreateCat, List<PermissionCategory> toUpdateCat,
-            List<PermissionCategory> toRemoveCat, List<Permission> toCreatePerm,
-            List<Permission> toUpdatePerm, List<Permission> toRemovePerm) {
+                                      List<PermissionCategory> toRemoveCat, List<Permission> toCreatePerm,
+                                      List<Permission> toUpdatePerm, List<Permission> toRemovePerm) {
         if (!toCreateCat.isEmpty()) {
             categoryService.saveAll(toCreateCat);
         }
@@ -246,7 +264,7 @@ public class MenuPermissionsSynchronizer {
     }
 
     private void batchSaveMenus(List<Menu> toCreateMenu, List<Menu> toUpdateMenu, List<Menu> toRemoveMenu,
-            List<MenuItem> toCreateItem, List<MenuItem> toUpdateItem, List<MenuItem> toRemoveItem) {
+                                List<MenuItem> toCreateItem, List<MenuItem> toUpdateItem, List<MenuItem> toRemoveItem) {
         if (!toCreateMenu.isEmpty()) {
             menuService.saveAll(toCreateMenu);
         }

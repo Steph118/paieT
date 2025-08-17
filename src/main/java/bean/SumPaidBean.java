@@ -10,15 +10,15 @@ import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import java.math.BigDecimal;
+import org.omnifaces.util.Messages;
 import service.interfaces.*;
+import utils.AppUtilsBeans;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
-import org.omnifaces.util.Messages;
-import utils.AppUtilsBeans;
 
 /**
  * @author steph18
@@ -202,7 +202,7 @@ public class SumPaidBean extends GenericBean<SumPaid, Integer> {
         this.entity.removePayment(payment);
     }
 
-//    public void editFromList(Payment payment) {
+    //    public void editFromList(Payment payment) {
 //        this.payment = payment;
 //        this.entity.removePayment(payment);
 //    }

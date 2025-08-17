@@ -7,11 +7,12 @@ package entities;
 /**
  * @author steph18
  */
+
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Objects;
 
 @Entity
@@ -97,12 +98,12 @@ public class SumPaid extends BaseEntity {
         return paid;
     }
 
-    public void setPaid(Boolean paid) {
-        this.paid = paid;
-    }
-    
     public boolean isPaid() {
         return paid;
+    }
+
+    public void setPaid(Boolean paid) {
+        this.paid = paid;
     }
 
     public SumPromised getSumPromised() {

@@ -21,7 +21,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/xhtml.xhtml to edit this te
         #{msg['references.annees.title']}
     </ui:define>
     <ui:define name="add-column">
-        <p:column headerText="#{msg['references.annees.edit.value']}" sortBy="#{e.value}" field="value" 
+        <p:column headerText="#{msg['references.annees.edit.value']}" sortBy="#{e.value}" field="value"
                   filterBy="#{e.value}" filterMatchMode="contains" filterPlaceholder="#{msg['filter-by-value']}">
             <p:outputLabel value="#{e.value}"/>
         </p:column>

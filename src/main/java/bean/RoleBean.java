@@ -1,17 +1,23 @@
 package bean;
 
+import entities.Permission;
 import entities.PermissionCategory;
 import entities.Role;
+import jakarta.annotation.PostConstruct;
 import jakarta.faces.event.AbortProcessingException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
 import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.RoleServiceLocal;
 import services.PermissionCategoryService;
+import utils.PermsConstant;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Named
 @ViewScoped
@@ -21,11 +27,14 @@ public class RoleBean extends GenericBean<Role, Integer> {
     private RoleServiceLocal roleService;
 
     @Inject
+    private SessionBean sessionBean;
+
+    @Inject
     private PermissionCategoryService permissionCategoryService;
 
     //private String filterInput;
     private List<PermissionCategory> perms = new ArrayList<>();
-    private List<Long> permsSelected = new ArrayList<>();
+    private Set<Permission> setPermissions = new HashSet<>();
 
     @Override
     public GenericServiceLocal<Role, Integer> getService() {
@@ -44,20 +53,27 @@ public class RoleBean extends GenericBean<Role, Integer> {
 
     @Override
     public void beforeUpdate() {
-        System.err.println("size : " + permsSelected.size());
         beforeSave();
+    }
+
+    public void valuechange(Long id) {
+        System.err.println("id permission : " + id);
+        setPermissions.add(new Permission(id));
     }
 
     @Override
     public void beforeSave() {
-        System.err.println("size : " + permsSelected.size());
+        for (Permission p : setPermissions) {
+            System.err.println("p --> " + p);
+        }
+        this.getEntity().setPermissions((List<Permission>) setPermissions);
         if (this.getEntity().getPermissions().isEmpty()) {
             Messages.addGlobalError("Veuillez selectionner au moins un role");
             throw new AbortProcessingException("Permissions is empty");
         }
     }
 
-//    public String getFilterInput() {
+    //    public String getFilterInput() {
 //        return filterInput;
 //    }
 //
@@ -92,14 +108,6 @@ public class RoleBean extends GenericBean<Role, Integer> {
 //                .filter(Objects::nonNull)
 //                .collect(Collectors.toList());
 //    }
-    public List<Long> getPermsSelected() {
-        return permsSelected;
-    }
-
-    public void setPermsSelected(List<Long> permsSelected) {
-        this.permsSelected = permsSelected;
-    }
-
     @Override
     public void initAdd() {
         this.entity = new Role();
@@ -107,21 +115,31 @@ public class RoleBean extends GenericBean<Role, Integer> {
 
     @Override
     public boolean canAdd() {
-        return true;
+        return sessionBean.filterPermission(
+                PermsConstant.ROLE_ALL, PermsConstant.ROLE_ADD
+        );
     }
 
     @Override
     public boolean canDelete() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.ROLE_ALL,
+                PermsConstant.ROLE_DLETE);
     }
 
     @Override
     public boolean canDetails() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.ROLE_ALL,
+                PermsConstant.ROLE_DETAILS);
     }
 
     @Override
     public boolean canUpdate() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.ROLE_ALL,
+                PermsConstant.ROLE_EDIT);
     }
+
+    public Set<Permission> getSetPermissions() {
+        return setPermissions;
+    }
+
 }

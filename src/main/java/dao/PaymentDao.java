@@ -17,4 +17,4 @@ public class PaymentDao extends RepositoryDao<Payment, Integer> {
         super(Payment.class);
     }
 
-        }
+}

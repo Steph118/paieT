@@ -10,14 +10,17 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import service.interfaces.CountryServiceLocal;
 import service.interfaces.GenericServiceLocal;
+import utils.PermsConstant;
 
 /**
  * @author steph18
  */
 @Named
 @ViewScoped
-public class CountryBean extends GenericBean<Country, Integer> {
+public class CountryBean extends GenericBean<Country, Integer>  {
 
+    @Inject
+    protected SessionBean sessionBean;
     @Inject
     private CountryServiceLocal countryService;
 
@@ -33,22 +36,22 @@ public class CountryBean extends GenericBean<Country, Integer> {
 
     @Override
     public boolean canAdd() {
-        return false;
+        return sessionBean.filterPermission(PermsConstant.PAYS_ALL, PermsConstant.PAYS_ADD);
     }
 
     @Override
     public boolean canDelete() {
-        return false;
+        return sessionBean.filterPermission(PermsConstant.PAYS_ALL, PermsConstant.PAYS_DELETE);
     }
 
     @Override
     public boolean canDetails() {
-        return true;
+        return sessionBean.filterPermission(PermsConstant.PAYS_ALL, PermsConstant.PAYS_DETAILS);
     }
 
     @Override
     public boolean canUpdate() {
-        return false;
+        return sessionBean.filterPermission(PermsConstant.PAYS_ALL, PermsConstant.PAYS_EDIT);
     }
 
 }

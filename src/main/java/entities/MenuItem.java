@@ -5,8 +5,8 @@
  */
 package entities;
 
-import menu.config.ConfigMenuItem;
 import jakarta.persistence.*;
+import menu.config.ConfigMenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class MenuItem extends BaseEntity {
     @JoinColumn(name = "permission_code", nullable = true)
     private Permission permission;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentItem",cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentItem", cascade = {CascadeType.ALL})
     private List<MenuItem> items = new ArrayList<>();
 
     public MenuItem() {
@@ -106,7 +106,7 @@ public class MenuItem extends BaseEntity {
     }
 
     public MenuItem(ConfigMenuItem itemConfig, Menu menu, MenuItem parent,
-            Permission permission) {
+                    Permission permission) {
         this.code = itemConfig.getCode();
         this.label = itemConfig.getLabel();
         this.path = itemConfig.getPath();
@@ -237,7 +237,7 @@ public class MenuItem extends BaseEntity {
         this.items = items;
     }
 
-    
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -265,5 +265,5 @@ public class MenuItem extends BaseEntity {
         return "MenuItem{" + "id=" + id + ", code=" + code + ", label=" + label + ", path=" + path + ", icon=" + icon + ", badge=" + badge + ", badgeSeverity=" + badgeSeverity + ", imageSource=" + imageSource + ", weight=" + weight + ", order=" + order + ", parentItem=" + parentItem + ", menu=" + menu + ", permission=" + permission + '}';
     }
 
-    
+
 }

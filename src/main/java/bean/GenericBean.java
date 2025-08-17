@@ -6,6 +6,7 @@ package bean;
 
 import entities.BaseEntity;
 import exception.BusinessException;
+import jakarta.faces.event.AbortProcessingException;
 import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
 
@@ -41,6 +42,7 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
     }
 
     public void beforeSave() {
+        CheckBeforeAdd();
     }
 
     public String save() {
@@ -96,7 +98,10 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
     public void afterSave() {
     }
 
-    public void beforeDelete() {
+    private void CheckBeforeAdd() {
+        if (!canAdd()) {
+            throw new AbortProcessingException("Vous n'etes pas autorise a faire cette action");
+        }
     }
 
     public String delete(E e) {
@@ -114,15 +119,24 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
         return cancel();
     }
 
+    public void beforeDelete() {
+    }
+
     public String delete() {
         return this.delete(this.entity);
     }
 
     public void afterDelete() {
-
     }
 
     public void beforeUpdate() {
+        CheckBeforeUpdate();
+    }
+
+    private void CheckBeforeUpdate() {
+        if (!canUpdate()) {
+            throw new AbortProcessingException("Vous n'etes pas autorise a faire cette action");
+        }
     }
 
     public String update() {
@@ -143,7 +157,6 @@ public abstract class GenericBean<E extends BaseEntity, ID extends Serializable>
     }
 
     public void afterUpdate() {
-
     }
 
     public String cancel() {

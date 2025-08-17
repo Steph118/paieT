@@ -10,11 +10,10 @@ import entities.Menu;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import service.interfaces.MenuServiceLocal;
 
 import java.util.List;
 import java.util.Map;
-import menu.config.MenuItem;
-import service.interfaces.MenuServiceLocal;
 
 /**
  * @author steph18

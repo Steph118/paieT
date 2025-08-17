@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:f="jakarta.faces.core">
-    <ui:composition
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="jakarta.faces.core">
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{sexeBean.entityId}"/>
-                <f:viewAction action="#{sexeBean.initEntity()}"/>
-            </f:metadata>
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{sexeBean.entityId}"/>
+            <f:viewAction action="#{sexeBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{sexeBean}"/>
+    <ui:param name="crudBean" value="#{sexeBean}"/>
 
-        <ui:param name="fieldsTitle" value="#{msg['references.sexe.title']}"/>
+    <ui:param name="fieldsTitle" value="#{msg['references.sexe.title']}"/>
 
-        <ui:define name="list-title">
-            #{msg['references.sexe.edit.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['references.annees.breadCrumb']}
-        </ui:define>
-        <ui:define name="fields-content">
-            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                <p:outputLabel value="#{msg['label']}" for="label"/>
-                <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
-                             required="true" requiredMessage="#{msg['label.required']}"
-                             value="#{sexeBean.entity.label}"/>
-            </div>
-            <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
-                <p:outputLabel for="code" value="#{msg['code']}"/>
-                <p:inputText id="code" class="w-full" placeholder="#{msg['code.edit']}"
-                             required="true" requiredMessage="#{msg['code.required']}"
-                             value="#{sexeBean.entity.code}"/>
-            </div>
-        </ui:define>
+    <ui:define name="list-title">
+        #{msg['references.sexe.edit.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['references.annees.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
+        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+            <p:outputLabel value="#{msg['label']}" for="label"/>
+            <p:inputText id="label" class="w-full" placeholder="#{msg['label.edit']}"
+                         required="true" requiredMessage="#{msg['label.required']}"
+                         value="#{sexeBean.entity.label}"/>
+        </div>
+        <div class="field sm:col-12 col-12 md:col-6 lg:col-6">
+            <p:outputLabel for="code" value="#{msg['code']}"/>
+            <p:inputText id="code" class="w-full" placeholder="#{msg['code.edit']}"
+                         required="true" requiredMessage="#{msg['code.required']}"
+                         value="#{sexeBean.entity.code}"/>
+        </div>
+    </ui:define>
 
-    </ui:composition>
+</ui:composition>
 </html>

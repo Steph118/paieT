@@ -26,7 +26,7 @@ public class LoadDatabase {
 
 //    @Resource(lookup = "java:global/paie/paieDatasource")
 //    private DataSource dataSource;
-    
+
 //    @Inject
 //    private UserServiceLocal userService;
 

@@ -9,10 +9,11 @@ import enumeration.EmailProvider;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
 import service.interfaces.EmailConfigServiceLocal;
 import service.interfaces.GenericServiceLocal;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author steph18

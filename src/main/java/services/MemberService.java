@@ -12,8 +12,9 @@ import entities.Member;
 import entities.Person;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.util.List;
 import service.interfaces.MemberServiceLocal;
+
+import java.util.List;
 
 /**
  * @author steph18

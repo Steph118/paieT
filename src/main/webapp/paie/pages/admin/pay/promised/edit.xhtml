@@ -1,9 +1,9 @@
 <ui:composition
-    xmlns="http://www.w3.org/1999/xhtml"
-    template="/paie/templates/layout-edit.xhtml"
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:f="jakarta.faces.core"
-    xmlns:p="primefaces">
+        xmlns="http://www.w3.org/1999/xhtml"
+        template="/paie/templates/layout-edit.xhtml"
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:p="primefaces">
 
     <ui:define name="metadata">
         <f:metadata>
@@ -57,7 +57,8 @@
                              requiredMessage="#{msg['member.required']}"
                              value="#{sumPromisedBean.entity.member}">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                <f:selectItems value="#{sumPromisedBean.members}" itemValue="#{ù}" var="m" itemLabel="#{m.fullPersonFromMember()}"/>
+                <f:selectItems value="#{sumPromisedBean.members}" itemValue="#{ù}" var="m"
+                               itemLabel="#{m.fullPersonFromMember()}"/>
             </p:selectOneMenu>
         </div>
 
@@ -85,7 +86,7 @@
                              filter="true" filterPlaceholder="#{msg['search']}" required="true"
                              requiredMessage="#{msg['persons.edit.member.year']}"
                              value="#{sumPromisedBean.entity.year}"
-                             converter="omnifaces.SelectItemsConverter" >
+                             converter="omnifaces.SelectItemsConverter">
                 <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
                 <f:selectItems value="#{sumPromisedBean.years}" itemValue="#{y}" var="y" itemLabel="#{y.value}"/>
             </p:selectOneMenu>

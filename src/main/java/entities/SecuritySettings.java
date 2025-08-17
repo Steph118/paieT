@@ -24,7 +24,7 @@ public class SecuritySettings extends Settings {
 
     public SecuritySettings() {
     }
-    
+
     public String getPasswordPolicy() {
         return passwordPolicy;
     }
@@ -40,7 +40,6 @@ public class SecuritySettings extends Settings {
     public void setSessionTimeout(Integer sessionTimeout) {
         this.sessionTimeout = sessionTimeout;
     }
-    
-    
+
 
 }

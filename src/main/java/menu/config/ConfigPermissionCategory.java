@@ -49,8 +49,6 @@ public class ConfigPermissionCategory {
     public String toString() {
         return "PermissionCategoryConfig{" + "code=" + code + ", label=" + label + ", permissions=" + permissions + '}';
     }
-    
-    
-    
-    
+
+
 }

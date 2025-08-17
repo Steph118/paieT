@@ -5,6 +5,7 @@
 package entities;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -36,6 +37,11 @@ public class Permission extends BaseEntity {
 
     public Permission() {
     }
+
+    public Permission(Long id) {
+        this.id = id;
+    }
+
 
     public Permission(String code, String label, PermissionCategory cat) {
         this.code = code;

@@ -4,13 +4,10 @@
  */
 package dao;
 
-import entities.Member;
-import entities.MonthEntity;
-import entities.SumPaid;
-import entities.SumPromised;
 import entities.Variable;
 import jakarta.persistence.NoResultException;
 import jakarta.transaction.Transactional;
+
 import java.util.Optional;
 
 /**

@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:f="jakarta.faces.core">
-    <ui:composition
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="jakarta.faces.core">
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{emailConfigBean.entityId}"/>
-                <f:viewAction action="#{emailConfigBean.initEntity()}"/>
-            </f:metadata>
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{emailConfigBean.entityId}"/>
+            <f:viewAction action="#{emailConfigBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{emailConfigBean}"/>
+    <ui:param name="crudBean" value="#{emailConfigBean}"/>
 
-        <ui:param name="fieldsTitle" value="#{msg['emailConfig.title']}"/>
+    <ui:param name="fieldsTitle" value="#{msg['emailConfig.title']}"/>
 
-        <ui:define name="list-title">
-            #{msg['emailConfig.edit.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['emailConfig.breadCrumb']}
-        </ui:define>
-        <ui:define name="fields-content">
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="provider" value="#{msg['emailConfig.provider']}"/>
-                <p:selectOneMenu id="provider" class="w-full" filterMatchMode="startsWith"
-                                 filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
-                                 converter="omnifaces.SelectItemsConverter" required="true"
-                                 requiredMessage="#{msg['emailConfig.provider.required']}"
-                                 value="#{emailConfigBean.entity.provider}">
-                    <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                    <f:selectItems value="#{emailConfigBean.providers}" itemValue="#{p}" var="p" itemLabel="#{p}"/>
-                </p:selectOneMenu>
-            </div>
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel value="#{msg['emailConfig.username']}" for="username"/>
-                <p:inputText id="username" class="w-full" placeholder="#{msg['username.edit']}"
-                             required="true" requiredMessage="#{msg['username.required']}"
-                             value="#{emailConfigBean.entity.username}"/>
-            </div>
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="password" value="#{msg['emailConfig.password']}"/>
-                <p:inputText id="password" class="w-full" placeholder="#{msg['password.edit']}"
-                             required="true" requiredMessage="#{msg['password.required']}"
-                             value="#{emailConfigBean.entity.password}"/>
-            </div>
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="host" value="#{msg['emailConfig.host']}"/>
-                <p:inputText id="host" class="w-full" placeholder="#{msg['host.edit']}"
-                             required="true" requiredMessage="#{msg['host.required']}"
-                             value="#{emailConfigBean.entity.host}"/>
-            </div>
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="port" value="#{msg['emailConfig.port']}"/>
-                <p:inputText id="port" class="w-full" placeholder="#{msg['port.edit']}"
-                             required="true" requiredMessage="#{msg['port.required']}"
-                             value="#{emailConfigBean.entity.port}"/>
-            </div>
-            <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
-                <p:outputLabel for="defaultFrom" value="#{msg['emailConfig.defaultFrom']}"/>
-                <p:inputText id="defaultFrom" class="w-full" placeholder="#{msg['defaultFrom.edit']}"
-                             required="true" requiredMessage="#{msg['defaultFrom.required']}"
-                             value="#{emailConfigBean.entity.defaultFrom}"/>
-            </div>
+    <ui:define name="list-title">
+        #{msg['emailConfig.edit.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['emailConfig.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields-content">
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel for="provider" value="#{msg['emailConfig.provider']}"/>
+            <p:selectOneMenu id="provider" class="w-full" filterMatchMode="startsWith"
+                             filterNormalize="true" filter="true" filterPlaceholder="#{msg['search']}"
+                             converter="omnifaces.SelectItemsConverter" required="true"
+                             requiredMessage="#{msg['emailConfig.provider.required']}"
+                             value="#{emailConfigBean.entity.provider}">
+                <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
+                <f:selectItems value="#{emailConfigBean.providers}" itemValue="#{p}" var="p" itemLabel="#{p}"/>
+            </p:selectOneMenu>
+        </div>
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel value="#{msg['emailConfig.username']}" for="username"/>
+            <p:inputText id="username" class="w-full" placeholder="#{msg['username.edit']}"
+                         required="true" requiredMessage="#{msg['username.required']}"
+                         value="#{emailConfigBean.entity.username}"/>
+        </div>
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel for="password" value="#{msg['emailConfig.password']}"/>
+            <p:inputText id="password" class="w-full" placeholder="#{msg['password.edit']}"
+                         required="true" requiredMessage="#{msg['password.required']}"
+                         value="#{emailConfigBean.entity.password}"/>
+        </div>
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel for="host" value="#{msg['emailConfig.host']}"/>
+            <p:inputText id="host" class="w-full" placeholder="#{msg['host.edit']}"
+                         required="true" requiredMessage="#{msg['host.required']}"
+                         value="#{emailConfigBean.entity.host}"/>
+        </div>
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel for="port" value="#{msg['emailConfig.port']}"/>
+            <p:inputText id="port" class="w-full" placeholder="#{msg['port.edit']}"
+                         required="true" requiredMessage="#{msg['port.required']}"
+                         value="#{emailConfigBean.entity.port}"/>
+        </div>
+        <div class="field sm:col-12 col-12 md:col-4 lg:col-4">
+            <p:outputLabel for="defaultFrom" value="#{msg['emailConfig.defaultFrom']}"/>
+            <p:inputText id="defaultFrom" class="w-full" placeholder="#{msg['defaultFrom.edit']}"
+                         required="true" requiredMessage="#{msg['defaultFrom.required']}"
+                         value="#{emailConfigBean.entity.defaultFrom}"/>
+        </div>
 
-            <div class="field sm:col-4 col-4 md:col-4 lg:col-4">
-                <div class="pb-2">
-                    <p:outputLabel value="#{msg['emailConfig.actif']}" for="actif"/>
-                </div>
-                <p:toggleSwitch id="actif" 
-                                onIcon="pi pi-check" offIcon="pi pi-power"  value="#{emailConfigBean.entity.active}"/>
+        <div class="field sm:col-4 col-4 md:col-4 lg:col-4">
+            <div class="pb-2">
+                <p:outputLabel value="#{msg['emailConfig.actif']}" for="actif"/>
             </div>
-            <div class="field sm:col-4 col-4 md:col-4 lg:col-4">
-                <div class="pb-2">
-                    <p:outputLabel value="#{msg['emailConfig.authEnabled']}" for="authEnabled"/>
-                </div>
-                <p:toggleSwitch id="authEnabled" 
-                                onIcon="pi pi-check" offIcon="pi pi-power"  value="#{emailConfigBean.entity.authEnabled}"/>
+            <p:toggleSwitch id="actif"
+                            onIcon="pi pi-check" offIcon="pi pi-power" value="#{emailConfigBean.entity.active}"/>
+        </div>
+        <div class="field sm:col-4 col-4 md:col-4 lg:col-4">
+            <div class="pb-2">
+                <p:outputLabel value="#{msg['emailConfig.authEnabled']}" for="authEnabled"/>
             </div>
-            <div class="field sm:col-4 col-4 md:col-4 lg:col-4">
-                <div class="pb-2">
-                    <p:outputLabel value="#{msg['emailConfig.sslEnabled']}" for="sslEnabled"/>
-                </div>
-                <p:toggleSwitch id="sslEnabled" 
-                                onIcon="pi pi-check" offIcon="pi pi-power"  value="#{emailConfigBean.entity.sslEnabled}"/>
+            <p:toggleSwitch id="authEnabled"
+                            onIcon="pi pi-check" offIcon="pi pi-power" value="#{emailConfigBean.entity.authEnabled}"/>
+        </div>
+        <div class="field sm:col-4 col-4 md:col-4 lg:col-4">
+            <div class="pb-2">
+                <p:outputLabel value="#{msg['emailConfig.sslEnabled']}" for="sslEnabled"/>
             </div>
+            <p:toggleSwitch id="sslEnabled"
+                            onIcon="pi pi-check" offIcon="pi pi-power" value="#{emailConfigBean.entity.sslEnabled}"/>
+        </div>
 
-        </ui:define>
+    </ui:define>
 
-    </ui:composition>
+</ui:composition>
 </html>

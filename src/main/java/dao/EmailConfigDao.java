@@ -9,6 +9,7 @@ import enumeration.EmailProvider;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.NoResultException;
 import jakarta.transaction.Transactional;
+
 import java.util.Optional;
 import java.util.logging.Level;
 
@@ -28,8 +29,8 @@ public class EmailConfigDao extends RepositoryDao<EmailConfig, Long> {
             EmailConfig config
                     = this.em.createNamedQuery("EmailConfig.findByActiveAndProvider",
                             EmailConfig.class)
-                            .setParameter("provider", provider)
-                            .getSingleResult();
+                    .setParameter("provider", provider)
+                    .getSingleResult();
             return Optional.of(config);
         } catch (NoResultException e) {
             LOGGER.log(Level.SEVERE, "EmailConfig : NoResultException for findByActiveAndProvider ");

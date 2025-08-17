@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html
-    xmlns:ui="jakarta.faces.facelets"
-    xmlns:f="jakarta.faces.core"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:h="jakarta.faces.html">
-    <ui:composition
+        xmlns:ui="jakarta.faces.facelets"
+        xmlns:f="jakarta.faces.core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="jakarta.faces.html">
+<ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         template="/paie/templates/layout-edit.xhtml">
 
-        <ui:define name="metadata">
-            <f:metadata>
-                <f:viewParam name="entityId" value="#{memberBean.entityId}"/>
-                <f:viewAction action="#{memberBean.initEntity()}"/>
-            </f:metadata>
-        </ui:define>
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="entityId" value="#{memberBean.entityId}"/>
+            <f:viewAction action="#{memberBean.initEntity()}"/>
+        </f:metadata>
+    </ui:define>
 
-        <ui:param name="crudBean" value="#{memberBean}"/>
+    <ui:param name="crudBean" value="#{memberBean}"/>
 
-        <ui:param name="fieldsTitle" value="#{msg['member']}"/>
+    <ui:param name="fieldsTitle" value="#{msg['member']}"/>
 
-        <ui:define name="list-title">
-            #{msg['members.edit.title']}
-        </ui:define>
-        <ui:define name="breadCrumb">
-            #{msg['members.breadCrumb']}
-        </ui:define>
-        <ui:define name="fields">
-            <p:fieldset legend="#{fieldsTitle}" id="form">
-                <ui:fragment rendered="#{!memberBean.updating}">
-                    <div class="mb-4 mt-2">
-                        <p:selectBooleanButton value="#{memberBean.addManyMember}" onLabel="Ajouter des membres"
-                                               offLabel="Ajouter un membre avec promesses">
-                            <p:ajax update="form btn-grup" listener="#{memberBean.initSumPromised()}"/>
-                        </p:selectBooleanButton>
-                    </div>
-                </ui:fragment>
-                <ui:fragment rendered="#{memberBean.addManyMember}">
-                    <ui:include src="many-members.xhtml"/>
-                </ui:fragment>
-                <ui:fragment rendered="#{!memberBean.addManyMember}">
-                    <ui:include src="one-member.xhtml"/>
-                </ui:fragment>
-            </p:fieldset>
-        </ui:define>
+    <ui:define name="list-title">
+        #{msg['members.edit.title']}
+    </ui:define>
+    <ui:define name="breadCrumb">
+        #{msg['members.breadCrumb']}
+    </ui:define>
+    <ui:define name="fields">
+        <p:fieldset legend="#{fieldsTitle}" id="form">
+            <ui:fragment rendered="#{!memberBean.updating}">
+                <div class="mb-4 mt-2">
+                    <p:selectBooleanButton value="#{memberBean.addManyMember}" onLabel="Ajouter des membres"
+                                           offLabel="Ajouter un membre avec promesses">
+                        <p:ajax update="form btn-grup" listener="#{memberBean.initSumPromised()}"/>
+                    </p:selectBooleanButton>
+                </div>
+            </ui:fragment>
+            <ui:fragment rendered="#{memberBean.addManyMember}">
+                <ui:include src="many-members.xhtml"/>
+            </ui:fragment>
+            <ui:fragment rendered="#{!memberBean.addManyMember}">
+                <ui:include src="one-member.xhtml"/>
+            </ui:fragment>
+        </p:fieldset>
+    </ui:define>
 
-        <ui:define name="saveBtn">
-            <h:panelGroup id="btn-grup">
-                <p:commandButton id="save" value="#{msg['save.button']}" icon="fa fa-save"
-                                 class="ui-button-primary" process="save data"
-                                 actionListener="#{memberBean.beforeSave()}"
-                                 action="#{memberBean.save()}" 
-                                 rendered="#{memberBean.addManyMember and !memberBean.updating}"
-                                 disabled="#{empty memberBean.members || memberBean.members == null}">
-                    <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
-                               message="#{msg['confirmer.placeholder']}"/>
-                </p:commandButton>
-                <p:commandButton id="save2" value="#{msg['save.button']}" icon="fa fa-save"
-                                 class="ui-button-primary"
-                                 rendered="#{!memberBean.addManyMember and !memberBean.updating}"
-                                 actionListener="#{memberBean.beforeSave()}"
-                                 action="#{memberBean.save()}" >
-                    <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
-                               message="#{msg['confirmer.placeholder']}"/>
-                </p:commandButton>
-            </h:panelGroup>
-        </ui:define>
-    </ui:composition>
+    <ui:define name="saveBtn">
+        <h:panelGroup id="btn-grup">
+            <p:commandButton id="save" value="#{msg['save.button']}" icon="fa fa-save"
+                             class="ui-button-primary" process="save data"
+                             actionListener="#{memberBean.beforeSave()}"
+                             action="#{memberBean.save()}"
+                             rendered="#{memberBean.addManyMember and !memberBean.updating}"
+                             disabled="#{empty memberBean.members || memberBean.members == null}">
+                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                           message="#{msg['confirmer.placeholder']}"/>
+            </p:commandButton>
+            <p:commandButton id="save2" value="#{msg['save.button']}" icon="fa fa-save"
+                             class="ui-button-primary"
+                             rendered="#{!memberBean.addManyMember and !memberBean.updating}"
+                             actionListener="#{memberBean.beforeSave()}"
+                             action="#{memberBean.save()}">
+                <p:confirm header="#{msg['confirmer.label']}" icon="ui-icon-alert"
+                           message="#{msg['confirmer.placeholder']}"/>
+            </p:commandButton>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>
 </html>
 

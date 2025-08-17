@@ -10,8 +10,9 @@ import entities.Eglise;
 import entities.Loan;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import java.util.List;
 import service.interfaces.LoanServiceLocal;
+
+import java.util.List;
 
 /**
  * @author steph18

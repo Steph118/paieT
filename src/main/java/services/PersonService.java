@@ -6,19 +6,16 @@ package services;
 
 import dao.PersonDao;
 import dao.RepositoryDao;
-import entities.Department;
-import entities.Eglise;
-import entities.Person;
-import entities.Sexe;
-import entities.User;
+import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import service.interfaces.MemberServiceLocal;
+import service.interfaces.PersonServiceLocal;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import service.interfaces.MemberServiceLocal;
-import service.interfaces.PersonServiceLocal;
 
 /**
  * @author steph18

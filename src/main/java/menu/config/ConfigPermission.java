@@ -37,6 +37,6 @@ public class ConfigPermission {
     public String toString() {
         return "PermissionConfig{" + "code=" + code + ", label=" + label + '}';
     }
-    
+
 
 }

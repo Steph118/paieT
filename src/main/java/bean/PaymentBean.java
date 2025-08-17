@@ -4,24 +4,19 @@
  */
 package bean;
 
-import entities.Department;
-import entities.Eglise;
-import entities.Loan;
-import entities.Member;
-import entities.Payment;
-import entities.SumPaid;
-import entities.Year;
+import entities.*;
 import jakarta.ejb.EJB;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import org.omnifaces.util.Messages;
 import service.interfaces.GenericServiceLocal;
 import service.interfaces.PaymentServiceLocal;
 import utils.AppUtilsBeans;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author steph18
@@ -51,6 +46,15 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
     public void initAdd() {
         this.entity = new Payment();
     }
+
+//    public void requestInitialized
+//        (@Observes @Initialized(RequestScoped.class)
+//            HttpServletRequest request)
+//    {
+//        if ("/products.xhtml".equals(request.getServletPath())) {
+//            list = productService.asyncList();
+//        }
+//    }
 
     @Override
     public boolean canAdd() {
@@ -115,20 +119,40 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
         return eglises;
     }
 
+    public void setEglises(List<Eglise> eglises) {
+        this.eglises = eglises;
+    }
+
     public List<Member> getMembres() {
         return membres;
+    }
+
+    public void setMembres(List<Member> membres) {
+        this.membres = membres;
     }
 
     public List<Department> getDepartments() {
         return departments;
     }
 
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
     public List<Loan> getLoans() {
         return loans;
     }
 
+    public void setLoans(List<Loan> loans) {
+        this.loans = loans;
+    }
+
     public List<Year> getYears() {
         return years;
+    }
+
+    public void setYears(List<Year> years) {
+        this.years = years;
     }
 
     public Eglise getEglise() {
@@ -145,26 +169,6 @@ public class PaymentBean extends GenericBean<Payment, Integer> {
 
     public void setDptment(Department dptment) {
         this.dptment = dptment;
-    }
-
-    public void setEglises(List<Eglise> eglises) {
-        this.eglises = eglises;
-    }
-
-    public void setYears(List<Year> years) {
-        this.years = years;
-    }
-
-    public void setMembres(List<Member> membres) {
-        this.membres = membres;
-    }
-
-    public void setDepartments(List<Department> departments) {
-        this.departments = departments;
-    }
-
-    public void setLoans(List<Loan> loans) {
-        this.loans = loans;
     }
 
     public SumPaid getSumPaid() {

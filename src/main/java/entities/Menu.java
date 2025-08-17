@@ -33,7 +33,7 @@ public class Menu extends BaseEntity {
     @Column(name = "description", nullable = true, length = 255)
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "menu",cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "menu", cascade = {CascadeType.ALL})
     private List<MenuItem> items = new ArrayList<>();
 
     public Menu() {
@@ -50,7 +50,6 @@ public class Menu extends BaseEntity {
         this.description = description;
     }
 
-    
 
     @Override
     public int hashCode() {
@@ -99,8 +98,6 @@ public class Menu extends BaseEntity {
         this.items = items;
     }
 
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -125,5 +122,5 @@ public class Menu extends BaseEntity {
         return "Menu{" + "id=" + id + ", code=" + code + ", label=" + label + ", description=" + description + '}';
     }
 
-    
+
 }

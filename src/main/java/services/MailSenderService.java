@@ -8,24 +8,19 @@ import entities.EmailConfig;
 import enumeration.EmailProvider;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.mail.Authenticator;
-import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
-import jakarta.mail.PasswordAuthentication;
-import jakarta.mail.Session;
-import jakarta.mail.Transport;
+import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
+import service.interfaces.EmailConfigServiceLocal;
+
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import service.interfaces.EmailConfigServiceLocal;
 
 /**
  *
@@ -45,7 +40,7 @@ public class MailSenderService {
     private EmailConfigServiceLocal emailConfigService;
 
     public void sendMail(EmailProvider provider, String to, String subject, String templateName,
-            Map<String, String> variables) {
+                         Map<String, String> variables) {
         Optional<EmailConfig> emailConfig
                 = this.emailConfigService.findByActiveAndProvider(provider);
         emailConfig.ifPresentOrElse(
@@ -60,7 +55,7 @@ public class MailSenderService {
     }
 
     private void process(EmailConfig config, String to, String subject, String templateName,
-            Map<String, String> variables) {
+                         Map<String, String> variables) {
         try {
             LOGGER.log(Level.INFO, "Process mail starting");
             Session session = this.createSessionConfig(config);
@@ -81,7 +76,7 @@ public class MailSenderService {
 
     }
 
-//    //public static final String FROM = "stephaneatsu18@gmail.com";
+    //    //public static final String FROM = "stephaneatsu18@gmail.com";
 //    public static final String USERNAME = "stephaneatsu18@gmail.com";
 //    public static final String HOST = "smtp.gmail.com";
 //    public static final String PASSWORD = "lgpu lqaf dbyc uuqf ";

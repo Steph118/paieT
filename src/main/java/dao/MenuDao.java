@@ -7,6 +7,7 @@ package dao;
 import entities.Menu;
 import entities.MenuItem;
 import jakarta.transaction.Transactional;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,11 +30,11 @@ public class MenuDao extends RepositoryDao<Menu, Long> {
 
         for (Menu menu : menus) {
             List<MenuItem> flatItems = em.createQuery("""
-                SELECT i FROM MenuItem i
-                LEFT JOIN FETCH i.permission
-                WHERE i.menu = :menu
-                order by i.order
-            """, MenuItem.class)
+                                SELECT i FROM MenuItem i
+                                LEFT JOIN FETCH i.permission
+                                WHERE i.menu = :menu
+                                order by i.order
+                            """, MenuItem.class)
                     .setParameter("menu", menu)
                     .getResultList();
 

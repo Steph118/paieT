@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "entites", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"phone_code1", "phone1", "phone_code2", "phone2"})})
+        @UniqueConstraint(columnNames = {"phone_code1", "phone1", "phone_code2", "phone2"})})
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "entite_type", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue(value = "E")
@@ -51,10 +51,10 @@ public class Entite extends BaseEntity {
 
     @Embedded
     @AttributeOverrides({
-        @AttributeOverride(name = "house",
-                column = @Column(name = "entite_house")),
-        @AttributeOverride(name = "street",
-                column = @Column(name = "entite_street"))
+            @AttributeOverride(name = "house",
+                    column = @Column(name = "entite_house")),
+            @AttributeOverride(name = "street",
+                    column = @Column(name = "entite_street"))
     })
     private Address address;
 

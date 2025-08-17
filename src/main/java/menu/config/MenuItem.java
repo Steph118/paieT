@@ -77,7 +77,7 @@ public class MenuItem implements Serializable {
     public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
-    
+
 
     public MenuItem getParent() {
         return parent;

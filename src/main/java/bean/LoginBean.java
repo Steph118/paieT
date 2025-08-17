@@ -8,10 +8,6 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.security.enterprise.AuthenticationStatus;
-import static jakarta.security.enterprise.AuthenticationStatus.NOT_DONE;
-import static jakarta.security.enterprise.AuthenticationStatus.SEND_CONTINUE;
-import static jakarta.security.enterprise.AuthenticationStatus.SEND_FAILURE;
-import static jakarta.security.enterprise.AuthenticationStatus.SUCCESS;
 import jakarta.security.enterprise.SecurityContext;
 import jakarta.security.enterprise.authentication.mechanism.http.AuthenticationParameters;
 import jakarta.security.enterprise.credential.UsernamePasswordCredential;
@@ -25,7 +21,6 @@ import java.io.Serializable;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.security.auth.Subject;
 
 @Named
 @RequestScoped
@@ -70,6 +65,7 @@ public class LoginBean implements Serializable {
         } catch (IOException e) {
             this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Erreur survenue", null));
+            //throw new UncheckedIOException(e);
         } catch (Exception e) {
             this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Erreur inattendue", null));
@@ -78,8 +74,7 @@ public class LoginBean implements Serializable {
 
     private void checkLogin(AuthenticationStatus status) {
         switch (status) {
-            case SEND_CONTINUE ->
-                facesContext.responseComplete();
+            case SEND_CONTINUE -> facesContext.responseComplete();
             case SEND_FAILURE -> {
                 facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Login ou mot de passe incorrect", null));
@@ -96,7 +91,7 @@ public class LoginBean implements Serializable {
                 }
             }
             case NOT_DONE ->
-                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Une erreur est survenue", null));
+                    facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Une erreur est survenue", null));
         }
     }
 

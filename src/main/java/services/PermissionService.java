@@ -10,10 +10,10 @@ import entities.Permission;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import service.interfaces.PermissionServiceLocal;
 
 import java.util.Map;
 import java.util.Optional;
-import service.interfaces.PermissionServiceLocal;
 
 /**
  * @author steph18
