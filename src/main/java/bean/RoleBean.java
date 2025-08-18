@@ -34,7 +34,7 @@ public class RoleBean extends GenericBean<Role, Integer> {
 
     //private String filterInput;
     private List<PermissionCategory> perms = new ArrayList<>();
-    private Set<Permission> setPermissions = new HashSet<>();
+    private Set<Permission> permissionsSet = new HashSet<>();
 
     @Override
     public GenericServiceLocal<Role, Integer> getService() {
@@ -43,6 +43,7 @@ public class RoleBean extends GenericBean<Role, Integer> {
 
     @Override
     public void initEntity() {
+
         super.initEntity();
         perms = permissionCategoryService.getAll();
     }
@@ -58,15 +59,15 @@ public class RoleBean extends GenericBean<Role, Integer> {
 
     public void valuechange(Long id) {
         System.err.println("id permission : " + id);
-        setPermissions.add(new Permission(id));
+        permissionsSet.add(new Permission(id));
     }
 
     @Override
     public void beforeSave() {
-        for (Permission p : setPermissions) {
+        for (Permission p : permissionsSet) {
             System.err.println("p --> " + p);
         }
-        this.getEntity().setPermissions((List<Permission>) setPermissions);
+        this.getEntity().setPermissions((List<Permission>) permissionsSet);
         if (this.getEntity().getPermissions().isEmpty()) {
             Messages.addGlobalError("Veuillez selectionner au moins un role");
             throw new AbortProcessingException("Permissions is empty");
@@ -138,8 +139,13 @@ public class RoleBean extends GenericBean<Role, Integer> {
                 PermsConstant.ROLE_EDIT);
     }
 
-    public Set<Permission> getSetPermissions() {
-        return setPermissions;
+    public Set<Permission> getPermissionsSet() {
+        return permissionsSet;
     }
 
+    public void setPermissionsSet(Set<Permission> permissionsSet) {
+        this.permissionsSet = permissionsSet;
+    }
+
+   
 }

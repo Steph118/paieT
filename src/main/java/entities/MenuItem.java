@@ -60,7 +60,7 @@ public class MenuItem extends BaseEntity {
     private Menu menu;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "permission_code", nullable = true)
+    @JoinColumn(name = "permission_id", nullable = true)
     private Permission permission;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "parentItem", cascade = {CascadeType.ALL})

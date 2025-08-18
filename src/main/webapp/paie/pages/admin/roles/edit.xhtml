@@ -32,7 +32,7 @@
         </div>
         <div class="field col-12">
             <h5>
-                #{msg['permissions']}
+                #{msg['permissions.title']}
             </h5>
             <ui:repeat value="#{roleBean.perms}" var="c">
                 <p:panel header="#{c.label}" toggleable="true" toggleSpeed="0">
@@ -41,9 +41,9 @@
                                           converter="omnifaces.SelectItemsConverter"
                     >
                         <f:selectItem noSelectionOption="true" itemLabel="#{msg['choice-label']}"/>
-                        <f:selectItems value="#{c.permissions}" var="perm" itemLabel="#{perm.label}"
+                        <f:selectItems id="pers" value="#{c.permissions}" var="perm" itemLabel="#{perm.label}"
                                        itemValue="#{perm.id}"/>
-                        <p:ajax listener="#{roleBean.valuechange(perm.code)}" process="@this"/>
+                        <p:ajax listener="#{roleBean.valuechange(c.id)}" process="permissions pers" />
 
                     </p:selectManyCheckbox>
                 </p:panel>

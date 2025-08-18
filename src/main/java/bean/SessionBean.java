@@ -25,10 +25,10 @@ public class SessionBean implements Serializable {
     public SessionBean() {
         security = CDI.current().select(SecurityContext.class).get();
     }
+
     @PostConstruct
     public void init() {
         currentUser = userService.findByUsername(security.getCallerPrincipal().getName()).orElse(null);
-        System.err.println("user : " + currentUser);
     }
 
     public boolean hasAccessToWebRessource(String resource, String method) {
@@ -65,7 +65,7 @@ public class SessionBean implements Serializable {
         return currentUser;
     }
 
-    boolean filterPermission(String...r) {
+    public boolean filterPermission(String... r) {
         if (this.security.isCallerInRole(PermsConstant.ALL)) {
             return true;
         }

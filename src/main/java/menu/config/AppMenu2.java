@@ -4,6 +4,7 @@
  */
 package menu.config;
 
+import bean.SessionBean;
 import entities.Menu;
 import entities.MenuItem;
 import jakarta.annotation.PostConstruct;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
-
 
 /**
  * @author steph18
@@ -35,6 +35,8 @@ public class AppMenu2 {
     private MenuServiceLocal menuService;
     @Inject
     private MenuItemServiceLocal menuItemService;
+    @Inject
+    private SessionBean sessionBean;
 
     @PostConstruct
     public void init() {
@@ -78,6 +80,10 @@ public class AppMenu2 {
 
     public void setMenus(List<Menu> menus) {
         this.menus = menus;
+    }
+
+    public boolean hasPermission(String code) {
+        return sessionBean.filterPermission(code);
     }
 
 }

@@ -19,8 +19,8 @@
                                 rendered="#{menuItem.path.startsWith('/') and empty menuItem.items}"
                                 onclick="App.onSearchClick(event, 'sl_#{menuItem.parentItem.label.toLowerCase()}')">
                             #{menuItem.label}<p:tag value="#{menuItem.badge}" styleClass="ml-2"
-                                                    rendered="#{not empty menuItem.badge}"
-                                                    severity="#{menuItem.badgeSeverity}"/>
+                                   rendered="#{not empty menuItem.badge}"
+                                   severity="#{menuItem.badgeSeverity}"/>
                         </h:link>
                     </p:column>
                 </p:autoComplete>
@@ -32,22 +32,22 @@
                 <h:panelGroup layout="block" class="menu-items" rendered="true">
                     <ui:repeat value="#{menu.items}" var="menuItem">
                         <h:outputLink
-                                rendered="#{empty menuItem.path and not empty menuItem.badge and empty menuItem.items}"
-                                styleClass="hidden">
+                            rendered="#{appMenu2.hasPermission(menuItem.code) and empty menuItem.path and not empty menuItem.badge and empty menuItem.items}"
+                            styleClass="hidden">
                             <i class="#{menuItem.icon} mr-2"/>
                             <h:outputText value="# {menuItem.label}"/>
                             <p:tag value="#{menuItem.badge}" severity="warning" styleClass="ml-2"
                                    rendered="#{not empty menuItem.badge}"/>
                         </h:outputLink>
                         <h:outputLink value="#{menuItem.path}"
-                                      rendered="#{not empty menuItem.path and empty menuItem.badge and not menuItem.path.startsWith('/') and empty menuItem.items}">
+                                      rendered="#{appMenu2.hasPermission(menuItem.code) and not empty menuItem.path and empty menuItem.badge and not menuItem.path.startsWith('/') and empty menuItem.items}">
                             <i class="#{menuItem.icon} mr-2"/>
                             <h:outputText value="#{menuItem.label}"/>
                         </h:outputLink>
 
                         <!--                        <p:outputLabel value="# {sessionBean.user.userName}"/>-->
                         <h:link outcome="#{menuItem.path}"
-                                rendered="#{menuItem.path.startsWith('/') and empty menuItem.items}">
+                                rendered="#{appMenu2.hasPermission(menuItem.code) and menuItem.path.startsWith('/') and empty menuItem.items}">
                             <i class="#{menuItem.icon} mr-2"/>
                             <h:outputText value="#{menuItem.label}"/>
                             <p:tag value="#{menuItem.badge}" styleClass="ml-2" rendered="#{not empty menuItem.badge}"
@@ -57,18 +57,20 @@
                         <p:outputPanel rendered="#{not empty menuItem.items}">
                             <a id="sl_#{menuItem.label.toLowerCase()}" tabindex="0" class="submenu-link">
                                 #{menuItem.label}<p:tag value="#{menuItem.badge}" styleClass="ml-2"
-                                                        rendered="#{not empty menuItem.badge}"
-                                                        severity="#{menuItem.badgeSeverity}"/>
+                                       rendered="#{appMenu2.hasPermission(menuItem.code) and not empty menuItem.badge}"
+                                       severity="#{menuItem.badgeSeverity}"/>
                             </a>
                             <div class="submenu">
                                 <ul>
                                     <ui:repeat value="#{menuItem.items}" var="nestedMenuItem">
-                                        <li><h:link outcome="#{nestedMenuItem.path}">
-                                            #{nestedMenuItem.label}
-                                            <p:tag value="#{nestedMenuItem.badge}" styleClass="ml-2"
-                                                   rendered="#{not empty nestedMenuItem.badge}"
-                                                   severity="#{nestedMenuItem.badgeSeverity}"/>
-                                        </h:link></li>
+                                        <li>
+                                            <h:link rendered="#{appMenu2.hasPermission(menuItem.code)}" outcome="#{nestedMenuItem.path}">
+                                                #{nestedMenuItem.label}
+                                                <p:tag value="#{nestedMenuItem.badge}" styleClass="ml-2"
+                                                       rendered="#{not empty nestedMenuItem.badge}"
+                                                       severity="#{nestedMenuItem.badgeSeverity}"/>
+                                            </h:link>
+                                        </li>
                                     </ui:repeat>
                                 </ul>
                             </div>
@@ -78,9 +80,9 @@
                 </h:panelGroup>
                 <h:panelGroup layout="block" class="menu-image" rendered="false">-->
                     <ui:repeat value="#{menu.items}" var="menuItem">
-                        <h:outputLink value="#{menuItem.path}"
-                                      rendered="#{not empty menuItem.path and not empty menuItem.icon}"
-                                      target="_blank">
+                        <h:outputLink  value="#{menuItem.path}"
+                                       rendered="#{appMenu2.hasPermission(menuItem.code) and not empty menuItem.path and not empty menuItem.icon}"
+                                       target="_blank">
                             <h:graphicImage name="#{menuItem.icon}" alt="#{menuItem.label}"/>
                         </h:outputLink>
                     </ui:repeat>
