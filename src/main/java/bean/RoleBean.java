@@ -3,7 +3,6 @@ package bean;
 import entities.Permission;
 import entities.PermissionCategory;
 import entities.Role;
-import jakarta.annotation.PostConstruct;
 import jakarta.faces.event.AbortProcessingException;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -67,7 +66,7 @@ public class RoleBean extends GenericBean<Role, Integer> {
         for (Permission p : permissionsSet) {
             System.err.println("p --> " + p);
         }
-        this.getEntity().setPermissions((List<Permission>) permissionsSet);
+        this.getEntity().setPermissions(new ArrayList<>(permissionsSet));
         if (this.getEntity().getPermissions().isEmpty()) {
             Messages.addGlobalError("Veuillez selectionner au moins un role");
             throw new AbortProcessingException("Permissions is empty");

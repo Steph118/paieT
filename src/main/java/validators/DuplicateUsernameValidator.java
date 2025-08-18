@@ -28,11 +28,6 @@ public class DuplicateUsernameValidator implements Validator<String> {
     @Inject
     private UserServiceLocal userService;
 
-    public static String getMessage(FacesContext fc, String key) {
-        return ResourceBundle.getBundle(fc.getApplication().getMessageBundle(),
-                fc.getViewRoot().getLocale()).getString(key);
-    }
-
     @Override
     public void validate(FacesContext fc, UIComponent uic, String t) throws ValidatorException {
         if (StringUtils.isEmpty(t)) {
@@ -44,5 +39,10 @@ public class DuplicateUsernameValidator implements Validator<String> {
             throw new ValidatorException(new FacesMessage(getMessage(fc, "message.duplicateUsernameValidator")));
 
         }
+    }
+
+    private static String getMessage(FacesContext fc, String key) {
+        return ResourceBundle.getBundle(fc.getApplication().getMessageBundle(),
+                fc.getViewRoot().getLocale()).getString(key);
     }
 }
