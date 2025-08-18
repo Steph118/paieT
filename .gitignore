@@ -2,5 +2,7 @@ target/
 nb-configuration.xml
 qodana.yaml
 paie-t.iml
+.idea/workspace.xml
 .idea/
 src/main/filters
+
